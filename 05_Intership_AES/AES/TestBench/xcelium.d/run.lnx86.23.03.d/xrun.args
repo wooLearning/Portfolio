@@ -1,0 +1,11 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
+-access
++rwc
+-log
+./Log/AES.log
+-f
+./List/TEST_LIST.vc

@@ -1,0 +1,129 @@
+xrun: 23.03-s008: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	23.03-s008: Started on Jan 14, 2026 at 11:49:41 KST
+xrun
+	-sv
+	-access +rwc
+	-define Case4
+	-log ./Log/Case4.log
+	-f ./List/TEST_LIST.vc
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/TestBench/TbTop/TbTop_Prj_Axi.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/ApbSlave.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Axi2Apb.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Prj_Axi_Top.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Cp_Top.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Cp_ApbIfBlk.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_BufWrap.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_Ctrl.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_RdDtConv.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_WrDtConv.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/SpSram_128x128.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/AesCore.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/AesCtrl.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/KeyExpansion.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/MixColumns.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/RoundFunc.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/Sbox.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/ShiftRows.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/SubBytes.v
+file: /user/student/cadedu11/Intership_Sangwook.Woo/Proj4/TestBench/TbTop/TbTop_Prj_Axi.v
+	module worklib.TbTop_Prj_Axi:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		TbTop_Prj_Axi
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.TbTop_Prj_Axi:v <0x48106210>
+			streams:  41, words: 64703
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 42      19
+		Registers:               83      67
+		Scalar wires:            88       -
+		Expanded wires:         548      57
+		Vectored wires:        5199       -
+		Always blocks:           33      24
+		Initial blocks:           4       4
+		Parallel blocks:          2       2
+		Cont. assignments:      125     382
+		Pseudo assignments:      30       -
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.TbTop_Prj_Axi:v
+Loading snapshot worklib.TbTop_Prj_Axi:v .................... Done
+xcelium> source /user/tools/cadence/XCELIUM2303/tools/xcelium/files/xmsimrc
+xcelium> run
+OOOOO Reset released !!! OOOOO
+---------------------------------------------------
+ Multi-Slave Access Test1
+---------------------------------------------------
+Testing Slave 0...
+[@99500] [WRITE START] Addr: 0x70000000 Data: 0x0a0a0a0a Len: 0
+OO [@107500] [WRITE DONE ] Addr: 0x70000000 Data: 0x0a0a0a0a OO
+[@108500] [WRITE START] Addr: 0x70000004 Data: 0x0b0b0b0b Len: 0
+OO [@116500] [WRITE DONE ] Addr: 0x70000004 Data: 0x0b0b0b0b OO
+[@117500] [WRITE START] Addr: 0x70000008 Data: 0x0c0c0c0c Len: 0
+OO [@125500] [WRITE DONE ] Addr: 0x70000008 Data: 0x0c0c0c0c OO
+[@126500] [WRITE START] Addr: 0x7000000c Data: 0x0d0d0d0d Len: 0
+OO [@134500] [WRITE DONE ] Addr: 0x7000000c Data: 0x0d0d0d0d OO
+[@135500] [READ  START] Addr: 0x70000000 Len: 0
+OO [@140500] [READ DONE] 0 Addr: 0x70000000, Data: 0x0a0a0a0a OO
+OO [READ ALL DONE] OO
+[@142500] [READ  START] Addr: 0x70000004 Len: 0
+OO [@147500] [READ DONE] 0 Addr: 0x70000004, Data: 0x0b0b0b0b OO
+OO [READ ALL DONE] OO
+[@149500] [READ  START] Addr: 0x70000008 Len: 0
+OO [@154500] [READ DONE] 0 Addr: 0x70000008, Data: 0x0c0c0c0c OO
+OO [READ ALL DONE] OO
+[@156500] [READ  START] Addr: 0x7000000c Len: 0
+OO [@161500] [READ DONE] 0 Addr: 0x7000000c, Data: 0x0d0d0d0d OO
+OO [READ ALL DONE] OO
+Testing Slave 1...
+[@163500] [WRITE START] Addr: 0x70010000 Data: 0x1a1a1a1a Len: 0
+OO [@171500] [WRITE DONE ] Addr: 0x70010000 Data: 0x1a1a1a1a OO
+[@172500] [WRITE START] Addr: 0x70010004 Data: 0x1b1b1b1b Len: 0
+OO [@180500] [WRITE DONE ] Addr: 0x70010004 Data: 0x1b1b1b1b OO
+[@181500] [WRITE START] Addr: 0x70010008 Data: 0x1c1c1c1c Len: 0
+OO [@189500] [WRITE DONE ] Addr: 0x70010008 Data: 0x1c1c1c1c OO
+[@190500] [WRITE START] Addr: 0x7001000c Data: 0x1d1d1d1d Len: 0
+OO [@198500] [WRITE DONE ] Addr: 0x7001000c Data: 0x1d1d1d1d OO
+[@199500] [READ  START] Addr: 0x70010000 Len: 0
+OO [@204500] [READ DONE] 0 Addr: 0x70010000, Data: 0x1a1a1a1a OO
+OO [READ ALL DONE] OO
+[@206500] [READ  START] Addr: 0x70010004 Len: 0
+OO [@211500] [READ DONE] 0 Addr: 0x70010004, Data: 0x1b1b1b1b OO
+OO [READ ALL DONE] OO
+[@213500] [READ  START] Addr: 0x70010008 Len: 0
+OO [@218500] [READ DONE] 0 Addr: 0x70010008, Data: 0x1c1c1c1c OO
+OO [READ ALL DONE] OO
+[@220500] [READ  START] Addr: 0x7001000c Len: 0
+OO [@225500] [READ DONE] 0 Addr: 0x7001000c, Data: 0x1d1d1d1d OO
+OO [READ ALL DONE] OO
+Testing Slave 2...
+[@227500] [WRITE START] Addr: 0x70020000 Data: 0x2a2a2a2a Len: 0
+OO [@235500] [WRITE DONE ] Addr: 0x70020000 Data: 0x2a2a2a2a OO
+[@236500] [WRITE START] Addr: 0x70020004 Data: 0x2b2b2b2b Len: 0
+OO [@244500] [WRITE DONE ] Addr: 0x70020004 Data: 0x2b2b2b2b OO
+[@245500] [WRITE START] Addr: 0x70020008 Data: 0x2c2c2c2c Len: 0
+OO [@253500] [WRITE DONE ] Addr: 0x70020008 Data: 0x2c2c2c2c OO
+[@254500] [WRITE START] Addr: 0x7002000c Data: 0x2d2d2d2d Len: 0
+OO [@262500] [WRITE DONE ] Addr: 0x7002000c Data: 0x2d2d2d2d OO
+[@263500] [READ  START] Addr: 0x70020000 Len: 0
+OO [@268500] [READ DONE] 0 Addr: 0x70020000, Data: 0x2a2a2a2a OO
+OO [READ ALL DONE] OO
+[@270500] [READ  START] Addr: 0x70020004 Len: 0
+OO [@275500] [READ DONE] 0 Addr: 0x70020004, Data: 0x2b2b2b2b OO
+OO [READ ALL DONE] OO
+[@277500] [READ  START] Addr: 0x70020008 Len: 0
+OO [@282500] [READ DONE] 0 Addr: 0x70020008, Data: 0x2c2c2c2c OO
+OO [READ ALL DONE] OO
+[@284500] [READ  START] Addr: 0x7002000c Len: 0
+OO [@289500] [READ DONE] 0 Addr: 0x7002000c, Data: 0x2d2d2d2d OO
+OO [READ ALL DONE] OO
+Simulation Finished
+Simulation complete via $finish(1) at time 3105 NS + 0
+./TbTop/TbTop_Prj_Axi.v:506     $finish;
+xcelium> exit
+TOOL:	xrun	23.03-s008: Exiting on Jan 14, 2026 at 11:49:42 KST  (total: 00:00:01)

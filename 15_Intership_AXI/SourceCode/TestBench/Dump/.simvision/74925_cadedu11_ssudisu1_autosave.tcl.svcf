@@ -1,0 +1,176 @@
+
+#
+# Preferences
+#
+preferences set savedlg-dbnames save
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set savedlg-simulator ppe
+
+#
+# Databases
+#
+database require Proj4 -search {
+	./Proj4.shm/Proj4.trn
+	/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/TestBench/Dump/Proj4.shm/Proj4.trn
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1920x1057+1920+23}] != ""} {
+    window geometry "Waveform 1" 1920x1057+1920+23
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.iClk
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.iRsn
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.iS_ArAddr[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.iS_ArLen[1:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.iS_ArValid
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.iS_AwAddr[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.iS_AwLen[1:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.iS_AwValid
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.iS_BReady
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.iS_RReady
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.iS_WData[31:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.iS_WLast
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.iS_WValid
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.oInt
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.oS_ArReady
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.oS_AwReady
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.oS_BResp[1:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.oS_BValid
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.oS_RData[31:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.oS_RLast
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.oS_RResp[1:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.oS_RValid
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.oS_WReady
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.wPADDR[15:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.wPENABLE
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.wPRDATA[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.wPRDATA0[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.wPRDATA1[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.wPRDATA2[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.wPRDATA3[31:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.wPREADY
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.wPREADY0
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.wPREADY1
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.wPREADY2
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.wPREADY3
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.wPSEL[3:0]}
+	} ]
+set id [waveform add -signals  {
+	{Proj4::TbTop_Prj_Axi.u_DUT.wPWDATA[31:0]}
+	} ]
+set id [waveform add -signals  {
+	Proj4::TbTop_Prj_Axi.u_DUT.wPWRITE
+	} ]
+
+waveform xview limits 783.58ns 1388.64ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 600x250+0+0
+
+#
+# Layout selection
+#

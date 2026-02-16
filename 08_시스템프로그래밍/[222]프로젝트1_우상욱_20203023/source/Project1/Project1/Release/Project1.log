@@ -1,0 +1,15 @@
+﻿  my_assembler.c
+C:\Users\user\Desktop\SystemProgramingProject\Project1\Project1\my_assembler.c(101,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\user\Desktop\SystemProgramingProject\Project1\Project1\my_assembler.c(139,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\user\Desktop\SystemProgramingProject\Project1\Project1\my_assembler.c(180,16): warning C4047: '==': 'char *' differs in levels of indirection from 'int'
+C:\Users\user\Desktop\SystemProgramingProject\Project1\Project1\my_assembler.c(193,43): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\user\Desktop\SystemProgramingProject\Project1\Project1\my_assembler.c(194,46): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+C:\Users\user\Desktop\SystemProgramingProject\Project1\Project1\my_assembler.c(210,18): warning C4013: 'split_tap' undefined; assuming extern returning int
+C:\Users\user\Desktop\SystemProgramingProject\Project1\Project1\my_assembler.c(216,21): warning C4013: 'split_comma' undefined; assuming extern returning int
+C:\Users\user\Desktop\SystemProgramingProject\Project1\Project1\my_assembler.c(383,23): warning C4013: 'literal_check' undefined; assuming extern returning int
+  Generating code
+  3 of 21 functions (14.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Project1.vcxproj -> C:\Users\user\Desktop\SystemProgramingProject\Project1\Release\Project1.exe

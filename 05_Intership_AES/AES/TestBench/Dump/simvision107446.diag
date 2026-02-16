@@ -1,0 +1,79 @@
+*** Message Type: info ***
+When: Sun Jan 12 15:56:10 KST 2025
+SimVision started.
+Version: TOOL:  simvision(64)   23.03-s008
+User: edu2
+Host: localhost
+Platform: Linux/x86_64/3.10.0-1160.119.1.el7.x86_64
+Started: Sun Jan 12 15:56:10 KST 2025
+Command: /user/tools/cadence/XCELIUM2303/tools.lnx86/simvision/bin/64bit/simvision.exe -64
+Work Directory: /user/student/edu2/Intership_Sangwook_Woo/AES/TestBench/Dump
+ 
+*** Message Type: info ***
+When: Sun Jan 12 15:56:12 KST 2025
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Sun Jan 12 15:56:28 KST 2025
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Sun Jan 12 15:56:29 KST 2025
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Sun Jan 12 15:56:31 KST 2025
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Sun Jan 12 15:56:48 KST 2025
+Delete browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Sun Jan 12 15:56:52 KST 2025
+Create browser window: "Design Browser 2"
+ 
+*** Message Type: info ***
+When: Sun Jan 12 15:57:24 KST 2025
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Sun Jan 12 15:57:27 KST 2025
+Delete browser window: "Design Browser 2"
+ 
+*** Message Type: error ***
+When: Sun Jan 12 15:57:29 KST 2025
+invalid command name ".watchList1"
+    while executing
+"$window addSelected"
+    (object "::windows" method "::Windows::sendToWindow" body line 63)
+    invoked from within
+"::windows sendToWindow $type $name $sourcecursor"
+    (method "::SVToolWindow::_doSendToWindow" body line 31)
+    invoked from within
+"::.waveWindow0 _doSendToWindow browser target"
+    (in namespace inscope "::SVToolWindow" script line 1)
+    invoked from within
+"namespace inscope ::SVToolWindow {::.waveWindow0 _doSendToWindow browser target}"
+    invoked from within
+".waveWindow0.tba.toolbar1.targets.sender invoke browser"
+    ("after" script)
+ 
+*** Message Type: error ***
+When: Sun Jan 12 15:57:29 KST 2025
+invalid command name ".watchList1"
+    while executing
+"$window addSelected"
+    (object "::windows" method "::Windows::sendToWindow" body line 63)
+    invoked from within
+"::windows sendToWindow $type $name $sourcecursor"
+    (method "::SVToolWindow::_doSendToWindow" body line 31)
+    invoked from within
+"::.waveWindow0 _doSendToWindow browser target"
+    (in namespace inscope "::SVToolWindow" script line 1)
+    invoked from within
+"namespace inscope ::SVToolWindow {::.waveWindow0 _doSendToWindow browser target}"
+    invoked from within
+".waveWindow0.tba.toolbar1.targets.sender invoke browser"
+    ("after" script)
+ 

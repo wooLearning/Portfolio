@@ -1,0 +1,39 @@
+{ 
+  signal: [
+    { name: "iClk",          wave: "p........................" },
+    { name: "iAWVALID",      wave: "01.0....................."  },
+    { name: "iAWLen",        wave: "x=.x....................." , data: ["2'd3"] },
+    { name: "iAWADDR[31:0]", wave: "x=.x.....................", data: ["32'h7000_0000"] },
+    { name: "oAWREADY",      wave: "0.10.....................", node:'...a' },
+    
+    { name: "iWVALID",       wave: "0...1..0.1..0.1..0.1..0..", node: '....b' },
+    { name: "iWLAST",        wave: "0..................1..0.." },
+    { name: "iWDATA[31:0]",  wave: "x...=..x.=..x.=..x.=..x..", data: ["data @32'h7000_0000","data @32'h7000_0004","data @32'h7000_0008","data @32'h7000_000C"] },
+    { name: "oWREADY",       wave: "0.....10...10...10...10.." },
+    
+    { name: "oBVALID",       wave: "0.....................1.0"},
+    { name: "oBRESP[1:0]",   wave: "x.....................=.x", data: ["OKAY"] },
+    { name: "iBREADY",       wave: "0......................10"},
+    
+    //{ name: "rWrCurState",   wave: "2.22.222.2", data: ["xW_Idle", "xW_AwReady", "xW_Valid", "xW_Setup", "xW_Enable", "xW_BValid", "xW_Idle"] },
+    
+    { name: "oPSEL",         wave: "0....1.0..1.0..1.0..1.0.."},
+    { name: "oPENABLE",      wave: "0.....10...10...10...10.." },
+    { name: "oPWRTIE",       wave: "0....1.0..1.0..1.0..1.0.." },
+    { name: "oPWADDR[15:0]", wave: "x....=.x..=.x..=.x..=.x..", data: ["16'h0000", "16'h0004", "16'h0008", "16'h000C"] },
+    { name: "oPWDATA[31:0]", wave: "x....=.x..=.x..=.x..=.x..", data: ["Data @0000","Data @0004","Data @0008","Data @000C",] },
+    //{ name: "iPRDATA[31:0]", wave: "x...............", data: ["Don't care"] },
+    { name: "iPREADY",       wave: "0.....10...10...10...10." }
+  ],
+  edge: [
+    'a<->b Master Delay',
+    'c<->d Master Delay'
+  ],
+  head: {
+    text: 'Write timing',
+    tick: 0,
+    every: 1
+  },
+  config: { hscale: 0.5 }
+}
+//주소 앞부분만

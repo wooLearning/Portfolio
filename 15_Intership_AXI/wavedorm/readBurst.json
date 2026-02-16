@@ -1,0 +1,31 @@
+{
+  signal: [
+    { name: "iClk",          wave: "p..................." },
+    { name: "iARVALID",      wave: "01.0................"},
+    { name: "iARADDR[31:0]", wave: "x=.x................", data: ["32'h7000_0000"] },
+    { name: "iARLen",        wave: "x=.x................" , data: ["2'd3"] },
+    { name: "oARREADY",      wave: "0.10................" },
+   
+    { name: "oRVALID",       wave: "0....1.0.1.0.1.0.1.0"},
+    { name: "oRLAST",        wave: "0................1.0" },
+    { name: "oRDATA[31:0]",  wave: "x....=.x.=.x.=.x.=.x", data: [ "@32'h7000_0000","@32'h7000_0004","@32'h7000_0008","@32'h7000_000C"] },
+    { name: "oRESP[1:0]",    wave: "x....=.x.=.x.=.x.=.x", data: ["OKAY","OKAY","OKAY","OKAY"] },
+    { name: "iRREADY",       wave: "0.....10..10..10..10"},
+    
+   // { name: "rRdCurState",   wave: "2.2222.2", data: ["xR_Idle", "xR_ArReady", "xR_Setup", "xR_Enable","xR_RValid", "xR_Idle"] },
+    
+    { name: "oPSEL",         wave: "0..1.0.1.0.1.0.1.0.." },
+    { name: "oPENABLE",      wave: "0...10..10..10..10.." },
+    { name: "oPWRITE",       wave: "0..................." },
+    { name: "oPWADDR[15:0]", wave: "x..=.x.=.x.=.x.=.x..", data: ["16'h0000","16'h0004","16'h0008","16'h000C" ] },
+    //{ name: "oPWDATA[31:0]", wave: "x..................", data: ["Don't care"] },
+    { name: "iPRDATA[31:0]", wave: "x...=x..=x..=x..=x..", data: ["@0000","@0004","@0008","@000C"] },
+    { name: "iPREADY",       wave: "0...10..10..10..10.." }
+  ],
+  head: {
+    text: 'Read timing',
+    tick: 0,
+    every: 1
+  },
+  config: { hscale: 1 }
+}

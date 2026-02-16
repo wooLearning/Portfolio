@@ -1,0 +1,41 @@
+static uint8_t ps2_scan_to_ascii(uint16_t code) {
+	uint8_t s, c;
+	static uint8_t sBreak=0, sModifier=0, sShift=0;
+	static const char keymap_unshifted[] PROGMEM =
+		"             \011`      q1   zsaw2  cxde43   vftr5  nbhgy6   mju78  ,kio09"
+		"  ./l;p-   \' [=    \015] \\        \010  1 47   0.2568\033  +3-*9      ";
+	static const char keymap_shifted[] PROGMEM =
+		"             \011~      Q!   ZSAW@  CXDE$#   VFTR%  NBHGY^   MJU&*  <KIO)("
+		"  >?L:P_   \" {+    \015} |        \010  1 47   0.2568\033  +3-*9       ";
+
+	s = (code>>1) & 0xff;		// Remove start, parity, stop bits
+
+	if (s==0xaa)
+		return 0;				// Ignore BAT completion code
+	if (s==0xf0) {
+		sBreak=1;
+		return 0;
+	}
+	if (s==0xe0) {
+		sModifier=1;
+		return 0;
+	}
+	if (sBreak) {						// if key released
+		if ((s==0x12) || (s==0x59)) {	// Left or Right Shift Key
+			sShift=0;
+		}
+		sBreak=0; sModifier=0;
+		return 0;
+	}
+	if ((s==0x12) || (s==0x59))			// Left or Right Shift Key
+		sShift=1;
+	if (sModifier)						// If modifier ON, return 0
+		return 0;
+	if (sShift==0)
+		c=pgm_read_byte(keymap_unshifted+s);
+	else
+		c=pgm_read_byte(keymap_shifted+s);
+	if ((c==32) && (s!=0x29))			// Ignore unless real space key
+		return 0;
+	return c;	
+}

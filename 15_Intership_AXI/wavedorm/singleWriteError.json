@@ -1,0 +1,40 @@
+{ 
+  
+  signal: [
+    { name: ["tspan", {"style": "fill:black;"}, "iClk"],          wave: "p........" },
+    { name: ["tspan", {"style": "fill:black;"},"iAWVALID"],      wave: "01.0....."},
+    { name: ["tspan", {"style": "fill:black;"},"iAWADDR[31:0]"], wave: "x=.x.....", data: ["32'h8000_0000"] },
+    { name: "oAWREADY",      wave: "0.10....." ,node: '.ab'},
+    
+    { name: ["tspan", {"style": "fill:black;"},"iWVALID"   ] ,  wave: "0...1.0.."},
+    { name: ["tspan", {"style": "fill:black;"},"iWLAST"  ]  , wave: "0...1.0.." },
+    { name: ["tspan", {"style": "fill:black;"},"iWDATA[31:0]"],  wave: "x...=.x..", data: ["Write data[31:0] @32'h8000_0000"] },
+    { name: "oWREADY",       wave: "0....10.." },
+    
+    { name: "oBVALID",       wave: "0.....1.0"},
+    { name: "oBRESP[1:0]",   wave: "x.....=.x", data: ["ERROR 2'b10"] },
+    { name: ["tspan", {"style": "fill:black;"},"iBREADY"],       wave: "0......10", node:'......cd'},
+    
+    { name: ["tspan", {"style": "fill:brown;"},"rWrCurState"],   wave: "2.22.22.2", data: ["xW_Idle", "xW_AwReady", "xW_Valid", "xW_Error",  "xW_BValid", "xW_Idle"] },
+    
+    { name: ["tspan", {"style": "fill:black;"},"oPSEL"],         wave: "0........"},
+    { name: ["tspan", {"style": "fill:black;"},"oPENABLE"],      wave: "0........" },
+    { name: ["tspan", {"style": "fill:black;"},"oPWRTIE"],       wave: "0........" },
+    { name: ["tspan", {"style": "fill:black;"},"oPWADDR[15:0]"], wave: "x....=.x.", data: [ "Don't care"] },
+    { name: ["tspan", {"style": "fill:black;"},"oPWDATA[31:0]"], wave: "x....=.x.", data: [ "Don't care"] },
+    { name: ["tspan", {"style": "fill:black;"},"iPRDATA[31:0]"], wave: "x........", data: ["Don't care"] },
+    { name: ["tspan", {"style": "fill:black;"},"iPREADY"],       wave: "0....10.." }
+  ],
+  edge: [
+    'a<->b Master Delay',
+    'c<->d Master Delay',
+    'e<->f Master Delay',
+    'g<->h Master Delay'
+  ],
+  head: {
+    text: 'Write timing',
+    tick: 0,
+    every: 1
+  },
+  config: { hscale: 2.5 }
+}

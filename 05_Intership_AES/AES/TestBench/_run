@@ -1,0 +1,9 @@
+# .bashrc
+
+source /user/student/edu2/cad_digi.cshrc
+
+xrun -sv -access +rwc \
+     -log ./Log/AES.log \
+     -f ./List/TEST_LIST.vc
+      #-f  ./List/TEST_LIST_AesCore.vc
+      

@@ -1,0 +1,33 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-XLMODE
+./xcelium.d/run.lnx86.23.03.d
+-RUNMODE
+-sv
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_ApbIfBlk.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_BufWrap.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_Ctrl.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_RdDtConv.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_Top.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_WrDtConv.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/SpSram_128x128.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/AesCore.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/AesCtrl.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/KeyExpansion.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/MixColumns.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/RoundFunc.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/Sbox.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/ShiftRows.v
+/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/SubBytes.v
+-CDSLIB
+./xcelium.d/run.lnx86.23.03.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx86.23.03.d/hdlrun.var
+-no_analogsolver
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./xcelium.d/run.lnx86.23.03.d/xllibs
+-ALLOWUNBOUND

@@ -1,0 +1,17 @@
+# Local planning notes
+task_plan.md
+findings.md
+progress.md
+
+# Personal documents
+LIG_resume.pdf
+
+# Local temp data
+tmp_experience_summary.csv
+
+# IDE metadata (Eclipse/STM32CubeIDE)
+**/.metadata/
+
+# Disabled nested git directories
+**/.git_disabled/
+**/.git_disabled_*/

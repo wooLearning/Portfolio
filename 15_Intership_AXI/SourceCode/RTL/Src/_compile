@@ -1,0 +1,7 @@
+# .bashrc
+
+source /user/student/cadedu11/cad_digi.cshrc
+
+xrun -sv -access +rwc \
+     -log ../Log/Project_RTL.log \
+     -f ../List/RTL_LIST.vc

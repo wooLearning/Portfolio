@@ -1,0 +1,61 @@
+xrun: 23.03-s008: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	23.03-s008: Started on Jan 11, 2026 at 16:10:55 KST
+xrun
+	-sv
+	-access +rwc
+	-log ../Log/Project_RTL.log
+	-f ../List/RTL_LIST.vc
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/ApbSlave.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Axi2Apb.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Prj_Axi_Top.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Cp_Top.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Cp_ApbIfBlk.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_BufWrap.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_Ctrl.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_RdDtConv.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_WrDtConv.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/SpSram_128x128.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/AesCore.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/AesCtrl.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/KeyExpansion.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/MixColumns.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/RoundFunc.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/Sbox.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/ShiftRows.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/SubBytes.v
+Recompiling... reason: file './ApbSlave.v' is newer than expected.
+	expected: Sun Jan 11 14:54:06 2026
+	actual:   Sun Jan 11 16:09:26 2026
+file: /user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Prj_Axi_Top.v
+	module worklib.Prj_Axi_Top:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		Prj_Axi_Top
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Cp_Top:v <0x5e7b7d48>
+			streams:   0, words:     0
+		worklib.Prj_Axi_Top:v <0x2ea54707>
+			streams:   2, words:   918
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 41      18
+		Registers:               60      44
+		Scalar wires:            88       -
+		Expanded wires:         548      57
+		Vectored wires:        5199       -
+		Always blocks:           33      24
+		Cont. assignments:      125     382
+		Pseudo assignments:      17       -
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.Prj_Axi_Top:v
+Loading snapshot worklib.Prj_Axi_Top:v .................... Done
+xcelium> source /user/tools/cadence/XCELIUM2303/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun	23.03-s008: Exiting on Jan 11, 2026 at 16:10:57 KST  (total: 00:00:02)

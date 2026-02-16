@@ -1,0 +1,9 @@
+# .bashrc
+
+source /user/student/cadedu11/cad_digi.cshrc
+
+xrun -sv \
+     -access +rwc \
+     -define Case6 \
+     -log ./Log/Case6.log \
+     -f ./List/TEST_LIST.vc

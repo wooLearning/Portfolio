@@ -1,0 +1,11 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
+-access
++rwc
+-log
+../Log/Project_RTL.log
+-f
+../List/RTL_LIST.vc

@@ -1,0 +1,81 @@
+xrun: 23.03-s008: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	23.03-s008: Started on Jan 14, 2026 at 11:50:40 KST
+xrun
+	-sv
+	-access +rwc
+	-define Case5
+	-log ./Log/Case5.log
+	-f ./List/TEST_LIST.vc
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/TestBench/TbTop/TbTop_Prj_Axi.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/ApbSlave.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Axi2Apb.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Prj_Axi_Top.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Cp_Top.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/Cp_ApbIfBlk.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_BufWrap.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_Ctrl.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_RdDtConv.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Cp_WrDtConv.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/SpSram_128x128.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/AesCore.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/AesCtrl.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/KeyExpansion.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/MixColumns.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/RoundFunc.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/Sbox.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/ShiftRows.v
+		/user/student/cadedu11/Intership_Sangwook.Woo/Proj4/RTL/Src/AES/Aescore/SubBytes.v
+file: /user/student/cadedu11/Intership_Sangwook.Woo/Proj4/TestBench/TbTop/TbTop_Prj_Axi.v
+	module worklib.TbTop_Prj_Axi:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		TbTop_Prj_Axi
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.TbTop_Prj_Axi:v <0x48106210>
+			streams:  41, words: 64703
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 42      19
+		Registers:               83      67
+		Scalar wires:            88       -
+		Expanded wires:         548      57
+		Vectored wires:        5199       -
+		Always blocks:           33      24
+		Initial blocks:           4       4
+		Parallel blocks:          2       2
+		Cont. assignments:      125     382
+		Pseudo assignments:      30       -
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.TbTop_Prj_Axi:v
+Loading snapshot worklib.TbTop_Prj_Axi:v .................... Done
+xcelium> source /user/tools/cadence/XCELIUM2303/tools/xcelium/files/xmsimrc
+xcelium> run
+OOOOO Reset released !!! OOOOO
+---------------------------------------------------
+ Multi-Slave Access Test2
+---------------------------------------------------
+[@99500] [WRITE START] Addr: 0x70000000 Data: 0x11111111 Len: 0
+OO [@107500] [WRITE DONE ] Addr: 0x70000000 Data: 0x11111111 OO
+[@108500] [READ  START] Addr: 0x70000000 Len: 0
+OO [@113500] [READ DONE] 0 Addr: 0x70000000, Data: 0x11111111 OO
+OO [READ ALL DONE] OO
+[@115500] [WRITE START] Addr: 0x70010000 Data: 0x22222222 Len: 0
+OO [@123500] [WRITE DONE ] Addr: 0x70010000 Data: 0x22222222 OO
+[@124500] [READ  START] Addr: 0x70010000 Len: 0
+OO [@129500] [READ DONE] 0 Addr: 0x70010000, Data: 0x22222222 OO
+OO [READ ALL DONE] OO
+[@131500] [WRITE START] Addr: 0x70020000 Data: 0x33333333 Len: 0
+OO [@139500] [WRITE DONE ] Addr: 0x70020000 Data: 0x33333333 OO
+[@140500] [READ  START] Addr: 0x70020000 Len: 0
+OO [@145500] [READ DONE] 0 Addr: 0x70020000, Data: 0x33333333 OO
+OO [READ ALL DONE] OO
+Simulation Finished
+Simulation complete via $finish(1) at time 1665 NS + 0
+./TbTop/TbTop_Prj_Axi.v:506     $finish;
+xcelium> exit
+TOOL:	xrun	23.03-s008: Exiting on Jan 14, 2026 at 11:50:41 KST  (total: 00:00:01)

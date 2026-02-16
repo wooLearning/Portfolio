@@ -1,0 +1,57 @@
+xrun: 23.03-s008: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	23.03-s008: Started on Jan 13, 2025 at 10:22:55 KST
+xrun
+	-sv
+	-access +rwc
+	-log ./Log/AES.log
+	-f ./List/TEST_LIST.vc
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_ApbIfBlk.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_BufWrap.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_Ctrl.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_RdDtConv.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_Top.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_WrDtConv.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/SpSram_128x128.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/AesCore.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/AesCtrl.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/KeyExpansion.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/MixColumns.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/RoundFunc.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/Sbox.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/ShiftRows.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/SubBytes.v
+Recompiling... reason: file './Src/Aescore/KeyExpansion.v' is newer than expected.
+	expected: Sun Jan 12 18:32:19 2025
+	actual:   Mon Jan 13 10:22:33 2025
+file: /user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/KeyExpansion.v
+	module worklib.KeyExpansion:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		Cp_Top
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.KeyExpansion:v <0x69dc3fe3>
+			streams:  13, words:  6064
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 36      15
+		Resolved nets:            1       1
+		Registers:               34      28
+		Scalar wires:            44       -
+		Expanded wires:         544      56
+		Vectored wires:        5190       -
+		Always blocks:           21      16
+		Cont. assignments:      106     353
+		Pseudo assignments:      17       -
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.Cp_Top:v
+Loading snapshot worklib.Cp_Top:v .................... Done
+xcelium> source /user/tools/cadence/XCELIUM2303/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun	23.03-s008: Exiting on Jan 13, 2025 at 10:23:01 KST  (total: 00:00:06)

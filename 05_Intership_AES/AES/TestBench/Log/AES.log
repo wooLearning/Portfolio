@@ -1,0 +1,81 @@
+xrun: 23.03-s008: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	23.03-s008: Started on Jan 15, 2025 at 10:58:27 KST
+xrun
+	-sv
+	-access +rwc
+	-log ./Log/AES.log
+	-f ./List/TEST_LIST.vc
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_ApbIfBlk.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_BufWrap.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_Ctrl.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_RdDtConv.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_Top.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Cp_WrDtConv.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/SpSram_128x128.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/AesCore.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/AesCtrl.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/KeyExpansion.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/MixColumns.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/RoundFunc.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/Sbox.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/ShiftRows.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/RTL/Src/Aescore/SubBytes.v
+		/user/student/edu2/Intership_Sangwook_Woo/AES/TestBench/TbTop/TbTop_CpTop.v
+Recompiling... reason: file '../RTL/Src/Aescore/AesCtrl.v' is newer than expected.
+	expected: Tue Jan 14 23:05:20 2025
+	actual:   Tue Jan 14 23:13:27 2025
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		TbTop_Aes
+	Building instance overlay tables: .................... Done
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 37      16
+		Registers:               47      41
+		Scalar wires:            42       -
+		Expanded wires:         544      56
+		Vectored wires:        5186       -
+		Always blocks:           22      17
+		Initial blocks:           5       5
+		Cont. assignments:      109     353
+		Pseudo assignments:      24       -
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.TbTop_Aes:v
+Loading snapshot worklib.TbTop_Aes:v .................... Done
+xcelium> source /user/tools/cadence/XCELIUM2303/tools/xcelium/files/xmsimrc
+xcelium> run
+**** Reset released !!! ****
+**** Write 0x33221100 at addr 0x4000 !!! ****
+**** Write 0x77665544 at addr 0x4004 !!! ****
+**** Write 0xbbaa9988 at addr 0x4008 !!! ****
+**** Write 0xffeeddcc at addr 0x400c !!! ****
+**** Write 0x03020100 at addr 0x2000 !!! ****
+**** Write 0x07060504 at addr 0x2004 !!! ****
+**** Write 0x0b0a0908 at addr 0x2008 !!! ****
+**** Write 0x0f0e0d0c at addr 0x200c !!! ****
+**** Write 0x00000001 at addr 0xa000 !!! ****
+**** Write 0x00000001 at addr 0xa008 !!! ****
+**** Write 0x00000010 at addr 0x0004 !!! ****
+**** Write 0x00000001 at addr 0x0000 !!! ****
+=====================================
+0000  x0004 x0000 write DtCp module Start
+======================================
+**** Write 0x00000001 at addr 0xa004 !!! ****
+-------------------------------------------
+000000 READ START
+-------------------------------------------
+**** Read  0xd8e0c469 & expected 0xd8e0c469 from addr 0x6000 !!! ****
+     OOOO Read data Passed !!! OOOO
+**** Read  0x30047b6a & expected 0x30047b6a from addr 0x6004 !!! ****
+     OOOO Read data Passed !!! OOOO
+**** Read  0x80b7cdd8 & expected 0x80b7cdd8 from addr 0x6008 !!! ****
+     OOOO Read data Passed !!! OOOO
+**** Read  0x5ac5b470 & expected 0x5ac5b470 from addr 0x600c !!! ****
+     OOOO Read data Passed !!! OOOO
+Simulation complete via $finish(1) at time 2175 NS + 1
+./TbTop/TbTop_CpTop.v:245    $finish;
+xcelium> exit
+TOOL:	xrun	23.03-s008: Exiting on Jan 15, 2025 at 10:58:28 KST  (total: 00:00:01)

@@ -1,0 +1,176 @@
+# SimVision Command Script (Mon Jan 13 11:28:31 KST 2025)
+#
+# Version 23.03.s008
+#
+# You can restore this configuration with:
+#
+#     simvision -input AesTest.svcf
+#
+
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+
+#
+# Databases
+#
+database require AesCoreOnly_Test -search {
+	./AesCoreOnly_Test.shm/AesCoreOnly_Test.trn
+	/user/student/edu2/Intership_Sangwook_Woo/AES/TestBench/Dump/AesCoreOnly_Test.shm/AesCoreOnly_Test.trn
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 700x500+906+113}] != ""} {
+    window geometry "Design Browser 1" 700x500+906+113
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0 
+browser set \
+    -signalsort name
+browser yview see  AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1920x1009+0+23}] != ""} {
+    window geometry "Waveform 1" 1920x1009+0+23
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.iClk
+	} ]
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.iRsn
+	} ]
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.iStAes
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.rNumOfRound[3:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.rCurState[2:0]}
+	} ]
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.oAesDone
+	} ]
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.oFstRoundFlag
+	} ]
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.oInitRoundFlag
+	} ]
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.oLstRoundFlag
+	} ]
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.AesCrtl0.oMidRoundFlag
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.iAesKey[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.iPlainText[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.oCpText[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.rCpText[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.wAesKey[127:0]}
+	} ]
+waveform format $id -color #ff9900
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.wCpText[127:0]}
+	} ]
+set id [waveform add -signals  {
+	AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.wEn
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.wInitMux[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.wLstMux[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.wiMixColumns[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.wiShiftRows[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.wiSubBytes[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.woMixColumns[127:0]}
+	} ]
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0.cnt[3:0]}
+	} ]
+waveform format $id -color #ff9900
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0.iAesKey[127:0]}
+	} ]
+waveform format $id -color #ff9900
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0.oAesKey[127:0]}
+	} ]
+waveform format $id -color #ff9900
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0.rAesKey[127:0]}
+	} ]
+waveform format $id -color #ff9900
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0.wAesKey[127:0]}
+	} ]
+waveform format $id -color #ff9900
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0.wMuxOut[127:0]}
+	} ]
+waveform format $id -color #ff9900
+set id [waveform add -signals  {
+	{AesCoreOnly_Test::Tb_AesCore.AesCore1.RoundFunc0.keyExpansion0.wSubWord[31:0]}
+	} ]
+waveform format $id -color #ff9900
+
+waveform xview limits 88.36ns 133.52ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Layout selection
+#
+
