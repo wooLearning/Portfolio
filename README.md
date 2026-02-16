@@ -8,8 +8,6 @@
 - 2021 제11회 숭실 캡스톤디자인 경진대회 장려상
 - 2025 Deep Learning Hardware 설계 경진대회 장려상
 - 2025 형남과학상 동상
-- Full-Custom-IC Design 교육 (60시간)
-- PCB 회로 설계 및 PSpice Designer 교육 (60시간)
 
 ## EN | Overview
 This repository is a project portfolio focused on embedded software, digital design, FPGA acceleration, and systems programming.  
@@ -19,8 +17,6 @@ Highlights:
 - 2021 Encouragement Prize, 11th Soongsil Capstone Design Competition
 - 2025 Encouragement Prize, Deep Learning Hardware Design Contest
 - 2025 Bronze Prize, Hyeongnam Science Award
-- Full-Custom-IC Design Training (60 hours)
-- PCB Circuit Design & PSpice Designer Training (60 hours)
 
 ## Project Timeline
 | No. | Project | Period | Path |
