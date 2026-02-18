@@ -8,13 +8,13 @@
 |   #    | 프로젝트명 (Project Name)                                                                   | 기간 (Period) | 기술 스택 (Tech Stack)      |
 | :----: | ------------------------------------------------------------------------------------------- | ------------- | --------------------------- |
 | **15** | [**AXI2APB Bridge Design (인턴십)**](./15_Intership_AXI)                                    | 2026.01       | `SystemVerilog` `AMBA`      |
-| **14** | [**형남과학상 (AGV 주차 시스템)**](./14_형남과학상) **(🏆 동상)**                            | 2025          | `Embedded` `Simulation` `C` |
-| **13** | [**디지털 시스템 설계 (FIR Filter)**](./13_디지털시스템설계FIR)                             | 2025.11       | `Verilog` `DSP`             |
+| **14** | [**AGV Parking Algorithm (형남과학상)**](./14_AGV_Path_Planning) **(🏆 동상)**               | 2025          | `Embedded` `Simulation` `C` |
+| **13** | [**Verilog FIR Filter Design (디지털 시스템 설계)**](./13_Verilog_FIR_Filter_Design)        | 2025.11       | `Verilog` `DSP`             |
 | **12** | [**FPGA Video Filtering (Ultra96-V2)**](./12_FPGA_Video_filtering)                          | 2025.09~11    | `Zynq` `FPGA`               |
-| **11** | [**PCB 설계 및 PSpice 실습**](./11_PCB교육)                                                 | 2025.07       | `OrCAD` `PSpice`            |
-| **10** | [**마이크로프로세서 응용 (ARM 이미지 변환)**](./10_마이크로프로세서응용)                    | 2025.04~06    | `ARM` `Assembly`            |
-| **09** | [**운영체제 (xv6 커널 구현)**](./09_운영체제xv6과제)                                        | 2025.03~06    | `C` `Kernel`                |
-| **08** | [**시스템 프로그래밍 (SIC/XE)**](./08_시스템프로그래밍)                                     | 2025.03~06    | `Java` `Assembler`          |
+| **11** | [**PCB Design & OrCAD Implementation**](./11_PCB_Design_OrCAD)                              | 2025.07       | `OrCAD` `PCB Editor`        |
+| **10** | [**ARM Assembly Optimization (마이크로프로세서 응용)**](./10_ARM_Assembly_Optimization)     | 2025.04~06    | `ARM` `Assembly`            |
+| **09** | [**xv6 Kernel Implementation (운영체제)**](./09_xv6_Kernel_Implementation)                  | 2025.03~06    | `C` `Kernel`                |
+| **08** | [**SIC/XE Assembler & Simulator Construction**](./08_SIC_XE_Assembler_Simulator)            | 2025.03~06    | `Java` `Assembler`          |
 | **07** | [**AIX 2025 딥러닝 하드웨어 경진대회**](./07_AIX2025_딥러닝하드웨어경진대회) **(🏆 장려상)** | 2025.02~06    | `Verilog` `AI Accelerator`  |
 | **06** | [**임베디드 소프트웨어 (STM32/AVR)**](./06_EmebeddedSW)                                     | 2024.12~01    | `C` `STM32`                 |
 | **05** | [**APB-AES Design (인턴십)**](./05_Intership_AES)                                           | 2024.12~01    | `Verilog` `Crypto`          |
