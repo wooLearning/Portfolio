@@ -1,47 +1,20 @@
-# HW-Based FIR Filter with Kaiser Window
+# Digital System Design (FIR Filter)
+> Hardware FIR Filter with Kaiser Window
 
-A digital system design project implementing a reconfigurable 79-tap FIR filter in RTL, with separated coefficient-update and filtering phases managed by FSM.
+## 📅 Project Info
+- **Period**: 2025.11
+- **Target**: `DSD HW Project`
+- **Stack**: `Verilog-HDL` `ModelSim` `Vivado`
 
-## 1. Project Overview
-- Goal: implement and verify a hardware FIR architecture
-- Reference files: report PDF and presentation PPTX in this folder
-- Design targets (from presentation):
-  - BW: `400kHz`
-  - Sampling: `600kHz`
-  - Symbol: `200kHz`
+## 📝 Summary
+Kaiser Window를 적용한 **79-tap FIR Filter**를 하드웨어로 설계하고 검증한 프로젝트입니다.  
+Coefficient Update 모드와 Filtering 모드를 분리하여 FSM 기반으로 제어하며, 대칭 구조(Symmetric structure)를 활용한 Coefficient Folding 기법으로 메모리와 연산 자원을 최적화했습니다.
 
-## 2. Architecture
-Top module: `FirTop.v`
+## 💡 Technical Highlights
+- **Architecture**: 4-Parallel Multiplier/Accumulator + SRAM(Coefficient Storage).
+- **Optimization**: Coefficient Folding으로 곱셈기 사용량 절감.
+- **Verification**: ModelSim을 통한 RTL 시뮬레이션 및 Vivado 합성 검증.
 
-Main blocks:
-- `controller.v`: FSM for update/filter phase control
-- `SpSram.v` x4: coefficient memory
-- `delayChain.v`: tap delay line for symmetric structure
-- `Multiplier.v` x4: multiplication
-- `Accumulator.v` x4: partial accumulation
-- `Sum.v`: final output aggregation
-
-## 3. Design Highlights
-- coefficient folding for reduced compute/memory pressure,
-- explicit mode separation with `iCoeffUpdateFlag`,
-- deterministic control timing through FSM transitions.
-
-## 4. Verification
-- Pre-sim: ModelSim
-- Post-sim: Vivado
-- Testbench: `tb_FirTop.v`
-
-Validated behavior:
-- clock/sample enable sequencing,
-- coefficient SRAM write flow,
-- output monitoring through `oFirOut`.
-
-## 5. Tech Stack
-- HDL: `Verilog`
-- Tools: `ModelSim`, `Xilinx Vivado`
-- Target part: `xc7a35tftg256-1`
-
-## 6. Artifacts
-- report and presentation,
-- RTL source in `Src/`,
-- testbench in `tb/`.
+## 📂 Artifacts
+- RTL Sources (`Src/`) & Testbench (`tb/`)
+- Final Report & Presentation

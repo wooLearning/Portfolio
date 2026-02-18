@@ -1,43 +1,24 @@
-# Hardware/Embedded Portfolio
+# 임베디드 & 하드웨어 시스템 포트폴리오
+> Embedded Software, Digital Design, FPGA Implementation, System Programming
 
-## KR | 포트폴리오 개요
-임베디드 소프트웨어, 디지털 설계, FPGA 가속, 시스템 소프트웨어를 중심으로 진행한 프로젝트 포트폴리오입니다.  
-각 폴더는 프로젝트별 산출물(코드, 보고서, 발표자료, 시연 영상)을 포함하며, 앞 숫자(`01~15`)는 수행 시기 기준 정렬입니다.
+이 저장소는 임베디드 시스템, 디지털 설계, FPGA 가속, 시스템 소프트웨어 분야의 프로젝트를 연대순으로(`01`~`15`) 정리한 포트폴리오입니다.
 
-주요 이력:
-- 2021 제11회 숭실 캡스톤디자인 경진대회 장려상
-- 2025 Deep Learning Hardware 설계 경진대회 장려상
-- 2025 형남과학상 동상
+## 📁 프로젝트 목록
 
-## EN | Overview
-This repository is a project portfolio focused on embedded software, digital design, FPGA acceleration, and systems programming.  
-Each folder contains project artifacts (source code, reports, slides, and demo videos), and the numeric prefixes (`01~15`) are ordered by timeline.
-
-Highlights:
-- 2021 Encouragement Prize, 11th Soongsil Capstone Design Competition
-- 2025 Encouragement Prize, Deep Learning Hardware Design Contest
-- 2025 Bronze Prize, Hyeongnam Science Award
-
-## Project Timeline
-| No. | Project | Period | Path |
-|---|---|---|---|
-| 01 | Capstone Design Competition (ET31) | 2021 | [`01_캡스톤디자인경진대회`](./01_캡스톤디자인경진대회) |
-| 02 | Full-Custom IC Design Training | 2024.07 ~ 2024.08 | [`02_FullCustomIC`](./02_FullCustomIC) |
-| 03 | STM32 Mini Elevator | (period not explicitly stated in README) | [`03_STM32_MiniElevator`](./03_STM32_MiniElevator) |
-| 04 | Semiconductor & Display Process Project | 2024.11.26 ~ 2024.12.10 | [`04_반도체디스플레이공정프로젝트`](./04_반도체디스플레이공정프로젝트) |
-| 05 | Undergraduate Internship (APB + AES) | 2024.12.23 ~ 2025.01.15 | [`05_Intership_AES`](./05_Intership_AES) |
-| 06 | Embedded Software (ATtiny -> STM32) | 2024.12.23 ~ 2025.01.24 | [`06_EmebeddedSW`](./06_EmebeddedSW) |
-| 07 | AIX2025 Deep Learning Hardware Contest | 2025.02 ~ 2025.06 | [`07_AIX2025_딥러닝하드웨어경진대회`](./07_AIX2025_딥러닝하드웨어경진대회) |
-| 08 | Systems Programming (SIC/XE) | 2025.03 ~ 2025.06.26 | [`08_시스템프로그래밍`](./08_시스템프로그래밍) |
-| 09 | Operating Systems (xv6) | 2025.03 ~ 2025.06.26 | [`09_운영체제xv6과제`](./09_운영체제xv6과제) |
-| 10 | Microprocessor Application | 2025.04.24 ~ 2025.06.08 | [`10_마이크로프로세서응용`](./10_마이크로프로세서응용) |
-| 11 | PCB Design & PSpice Training | 2025.07 (60h) | [`11_PCB교육`](./11_PCB교육) |
-| 12 | Advanced Project (Ultra96 HW/SW Co-Design) | 2025.09 ~ 2025.11 | [`12_고급프로젝트`](./12_고급프로젝트) |
-| 13 | Digital System Design FIR | 2025.10.30 ~ 2025.11.20 | [`13_디지털시스템설계FIR`](./13_디지털시스템설계FIR) |
-| 14 | Hyeongnam Science Award (AGV) | 2025 (award) | [`14_형남과학상`](./14_형남과학상) |
-| 15 | Undergraduate Internship (AXI2APB) | 2026.01.08 ~ 2026.01.14 (report revision period) | [`15_Intership_AXI`](./15_Intership_AXI) |
-
-## Repository Notes
-- Local/private files are excluded via `.gitignore`.
-- IDE metadata folders (for example `**/.metadata/`) are ignored.
-- For large demos, linking YouTube in each project README is recommended over storing additional large binaries.
+|   #    | 프로젝트명 (Project Name)                                                                   | 기간 (Period) | 기술 스택 (Tech Stack)      |
+| :----: | ------------------------------------------------------------------------------------------- | ------------- | --------------------------- |
+| **15** | [**AXI2APB Bridge Design (인턴십)**](./15_Intership_AXI)                                    | 2026.01       | `SystemVerilog` `AMBA`      |
+| **14** | [**형남과학상 (AGV 주차 시스템)**](./14_형남과학상) **(🏆 동상)**                            | 2025          | `Embedded` `Simulation` `C` |
+| **13** | [**디지털 시스템 설계 (FIR Filter)**](./13_디지털시스템설계FIR)                             | 2025.11       | `Verilog` `DSP`             |
+| **12** | [**FPGA Video Filtering (Ultra96-V2)**](./12_FPGA_Video_filtering)                          | 2025.09~11    | `Zynq` `FPGA`               |
+| **11** | [**PCB 설계 및 PSpice 실습**](./11_PCB교육)                                                 | 2025.07       | `OrCAD` `PSpice`            |
+| **10** | [**마이크로프로세서 응용 (ARM 이미지 변환)**](./10_마이크로프로세서응용)                    | 2025.04~06    | `ARM` `Assembly`            |
+| **09** | [**운영체제 (xv6 커널 구현)**](./09_운영체제xv6과제)                                        | 2025.03~06    | `C` `Kernel`                |
+| **08** | [**시스템 프로그래밍 (SIC/XE)**](./08_시스템프로그래밍)                                     | 2025.03~06    | `Java` `Assembler`          |
+| **07** | [**AIX 2025 딥러닝 하드웨어 경진대회**](./07_AIX2025_딥러닝하드웨어경진대회) **(🏆 장려상)** | 2025.02~06    | `Verilog` `AI Accelerator`  |
+| **06** | [**임베디드 소프트웨어 (STM32/AVR)**](./06_EmebeddedSW)                                     | 2024.12~01    | `C` `STM32`                 |
+| **05** | [**APB-AES Design (인턴십)**](./05_Intership_AES)                                           | 2024.12~01    | `Verilog` `Crypto`          |
+| **04** | [**반도체 디스플레이 공정 프로젝트**](./04_반도체디스플레이공정프로젝트)                    | 2024.11~12    | `Process` `LDO`             |
+| **03** | [**STM32 미니 엘리베이터**](./03_STM32_MiniElevator)                                        | 2024          | `C` `Motor Control`         |
+| **02** | [**Full-Custom IC 설계**](./02_FullCustomIC)                                                | 2024.07~08    | `Cadence` `Virtuoso`        |
+| **01** | [**캡스톤 디자인 경진대회 (IoT 출입제어)**](./01_캡스톤디자인경진대회) **(🏆 장려상)**       | 2021          | `Python` `RPi`              |

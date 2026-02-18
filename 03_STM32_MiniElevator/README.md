@@ -1,61 +1,20 @@
 # STM32 Mini Elevator Controller
 
-An embedded control project that simulates a 3-floor elevator on STM32 Nucleo, including hall/car button handling, motor stepping, and floor display.
+## 📅 Project Info
+- **Period**: 2024
+- **Platform**: `STM32 Nucleo`
+- **Language**: `C` (Embedded)
+- **Stack**: `GPIO` `Step Motor` `7-Segment`
 
-## 1. Project Overview
-- Platform: `STM32 Nucleo`
-- Goal: implement practical elevator logic with request prioritization
-- Supporting materials: project PDF/PPT in this folder
+## 📝 Summary
+STM32 Nucleo 보드를 활용하여 **3층 엘리베이터 시스템**을 모사한 임베디드 제어 프로젝트입니다.  
+층별 버튼 입력(Hall/Car), 스텝 모터 구동, 7-세그먼트 층수 표시를 연동하며, SCAN 알고리즘과 유사한 **요청 우선순위 스케줄링**을 구현하여 효율적인 이동을 처리했습니다.
 
-Implemented features:
-- hall calls (`UP` / `DOWN`),
-- car floor requests,
-- step motor drive,
-- 7-segment floor display,
-- LED status indication.
+## 💡 Key Features
+- **Scheduling**: 진행 방향 요청 우선 처리 + 대기 요청 큐 관리.
+- **Motor Control**: Step Motor 드라이버 제어 (가감속 및 위치 제어).
+- **IO Handling**: Hall Up/Down 버튼 및 내부 층 버튼 디바운싱 처리.
 
-## 2. Code Versions
-- `elevator_origin.c`: initial version
-- `elevator_good.c`: intermediate improvement version
-- `elevator_final.c`: refined scheduling and edge-case handling
-
-## 3. Control Logic (Final Version)
-State variables:
-- `currentFloor`, `targetFloor`, `direction`, `totalSteps`
-- request queues: `upButton[]`, `downButton[]`, `fButton[]`
-
-Core functions:
-- `input_button()`
-- `button_check()`
-- `led_check()`
-- `go_floor()`
-- `update_currentFloor()`
-- `display_floor()`
-
-## 4. Scheduling Policy
-The final logic follows a SCAN-like elevator policy.
-- while moving up: prioritize up requests + in-car requests,
-- while moving down: prioritize down requests + in-car requests,
-- while idle: select nearest pending request.
-
-Example behavior:
-- if the car is moving from floor 1 to floor 3,
-  - a floor-2 `UP` call can be served on the way up,
-  - a floor-2 `DOWN` call is deferred until the down trip.
-
-## 5. Hardware Control Notes
-- motor outputs: `IN1`, `IN2`, `IN3`, `IN4`
-- key constants:
-  - `MAXFLOOR = 3`
-  - `STEP = 135`
-  - `SPEEDINIT = 20`
-  - `DECREASE = 2`
-
-## 6. Tech Stack
-- MCU: `STM32`
-- Language: `C`
-- Devices: step motor, buttons, LEDs, 7-segment
-
-## 7. Artifacts
-- source: `elevator_origin.c`, `elevator_good.c`, `elevator_final.c`
-- docs: project PDF and PPT
+## 📂 Artifacts
+- Source: `elevator_final.c` (Final version with scheduling)
+- Specs: Project PDF/PPT

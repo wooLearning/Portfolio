@@ -1,37 +1,20 @@
-# Semiconductor and Display Process Final Project
+# 반도체 디스플레이 공정 프로젝트
+> Semiconductor and Display Process Project
 
-A team project that translates an LDO circuit design into process-oriented artifacts including mask flow, cross-section flow, and multi-layer metalization planning.
+## 📅 Project Info
+- **Period**: 2024.11.26 ~ 2024.12.10
+- **Category**: Major Project (Process Design)
+- **Stack**: `Semiconductor Process` `Layout` `Mask Design`
 
-## 1. Portfolio Snapshot
-- Category: Major project (Semiconductor and Display Process)
-- Period: **2024.11.26 to 2024.12.10**
-- Date reference: root experience CSV
+## 📝 Summary
+LDO(Low Drop-Out) 레귤레이터 회로를 기반으로 **반도체 공정(Process Flow)과 마스크(Mask) 설계**를 수행한 프로젝트입니다.  
+CMOS LDO 회로 구현을 위한 Mask Sequence, Cross-section(단면도), Metalization 전략을 수립하고 MIM 커패시터 공정 이슈를 해결하는 과정을 문서화했습니다.
 
-## 2. Project Context
-- target circuit context: CMOS LDO with capacitor-heavy structure
-- deliverables include:
-  - process-rule analysis,
-  - layout and MIMIM capacitor planning,
-  - mask sequence planning,
-  - cross-section and top-view progression.
+## 💡 Highlights
+- **Process Design**: Active부터 Metal Top까지 Layer-by-layer 공정 흐름 설계.
+- **Layout Strategy**: MIMIM 커패시터 면적 효율화 및 전극 공유 구조 제안.
+- **Rule Check**: Design Rule에 따른 마스크 레이아웃 및 단면 검증.
 
-## 3. Recorded Role Scope
-The report team-intro pages list work areas including:
-- metalization and device process flow design,
-- circuit analysis and cross-section verification,
-- front-end mask design support,
-- layout verification assistance.
-
-## 4. Technical Highlights
-- process-rule-driven mask design workflow,
-- MIMIM capacitor area challenge and shared-electrode strategy,
-- layer-by-layer metalization documentation,
-- full process narrative from active layer to top view.
-
-## 5. Main Evidence
-- full final report PDF (117 pages)
-- presentation PPTX
-
-## 6. Tech Stack
-- domain: semiconductor process and layout documentation
-- outputs: mask set, cross-section views, top view, metal layer progression
+## 📂 Artifacts
+- Final Report (117 Pages)
+- Presentation Slides (PPTX)

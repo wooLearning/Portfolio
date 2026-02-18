@@ -1,42 +1,22 @@
-# Undergraduate Research Internship: HW AES-128 with APB Interface
+# Undergraduate Internship (APB-AES)
+> HW AES-128 with APB Interface
 
-This folder contains internship deliverables for an APB-interfaced AES-128 hardware design.
+## 📅 Project Info
+- **Period**: 2024.12.23 ~ 2025.01.15
+- **Role**: Hardware Design Intern
+- **Stack**: `Verilog-HDL` `APB Protocol` `AES-128`
 
-## 1. Portfolio Snapshot
-- Category: Undergraduate research internship
-- Program period: **2024.12.23 to 2025.01.15**
-- Training hours: **36 hours**
-- Date reference: root resume PDF and root experience CSV
+## 📝 Summary
+APB(Advanced Peripheral Bus) 인터페이스를 갖춘 **AES-128 암호화 하드웨어 IP**를 설계한 인턴십 프로젝트입니다.  
+32-bit APB 버스로 데이터를 받아 128-bit 블록으로 변환(Packing)하고, AES 코어 연산 후 결과를 메모리에 저장하며 인터럽트를 발생하는 전체 SoC 구조를 구현했습니다.
 
-Report revision history shows major updates during **2025.01.07 to 2025.01.15**.
+## 💡 Key Modules
+- **Cp_ApbIfBlk**: APB Slave Interface 및 레지스터 맵핑.
+- **Cp_WrDtConv / RdDtConv**: Data Width Conversion (32b ↔ 128b) 및 Endian 처리.
+- **AesCore**: AES-128 암호화 로직 코어.
+- **Verification**: `TbTop_CpTop.v` 등 시뮬레이션 테스트벤치.
 
-## 2. Design Goal
-- accept 32-bit APB writes and pack into 128-bit plaintext blocks,
-- run AES-128 encryption core,
-- store encrypted output to buffer memory,
-- notify completion by interrupt path.
-
-## 3. RTL Highlights
-Main modules:
-- `Cp_Top.v`
-- `Cp_ApbIfBlk.v`
-- `Cp_Ctrl.v`
-- `Cp_WrDtConv.v` and `Cp_RdDtConv.v`
-- `Cp_BufWrap.v`
-- `SpSram_128x128.v`
-
-Verification files:
-- `Tb_AesCore.v`
-- `TbTop_CpTop.v`
-- `TbTop_VariousCase.v`
-
-The report documents register map, endian conversion path, FSM control flow, and timing diagrams.
-
-## 4. Main Evidence
-- final report PDF and DOCX in `final report` folder
-- RTL and testbench source trees under `AES/`
-
-## 5. Tech Stack
-- HDL: `Verilog-HDL`
-- Bus protocol: `APB`
-- Verification: simulation testbenches
+## 📂 Artifacts
+- RTL Source Code (`AES/`)
+- Simulation Testbenches
+- Internship Final Report

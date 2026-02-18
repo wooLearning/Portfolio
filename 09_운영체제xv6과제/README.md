@@ -1,39 +1,22 @@
-# Operating Systems Practice with xv6
+# Operating Systems (xv6)
+> xv6 Kernel Modification & Extension
 
-This folder records staged xv6 assignments focused on process control, scheduling, memory allocation, and synchronization.
+## 📅 Project Info
+- **Period**: 2025.03 ~ 2025.06
+- **Category**: Major Project (Operating Systems)
+- **Stack**: `C` `xv6` `Kernel`
 
-## 1. Portfolio Snapshot
-- Category: Major project (Operating Systems)
-- Period: **2025.03 to 2025.06.26**
-- Date reference: root experience CSV
+## 📝 Summary
+교육용 운영체제인 **xv6 커널**을 수정하여 스케줄러, 메모리 할당자, 동기화 요소를 직접 구현했습니다.  
+기본적인 Round Robin 스케줄러를 **MLFQ(Multi-Level Feedback Queue)**로 개선하고, 효율적인 메모리 관리를 위해 **Slab Allocator**를 추가했으며, 프로세스 간 동기화를 위한 **Semaphore**를 개발했습니다.
 
-## 2. Assignment Tracks
-### Track 01: xv6 initialization baseline
-- base xv6 source and initial assignment setup
+## 💡 Assignment Tracks
+1.  **Syscall Extension**: `getnice`, `setnice` 등 시스템 콜 추가 및 우선순위 제어.
+2.  **Scheduling**: MLFQ(Multi-Level Feedback Queue) 스케줄러 구현 및 테스트 (`test_mlfq`).
+3.  **Memory**: Slab Allocator (`slab.c`) 구현으로 커널 메모리 할당 최적화.
+4.  **Synchronization**: Semaphore 기반의 동기화 메커니즘 및 Producer-Consumer 패턴 구현.
 
-### Track 02: syscall and priority extension
-- added `setnice` and `getnice`
-- added test programs such as `test_nice` and process status utilities
-- student note file documents priority initialization and fork inheritance fix points
-
-### Track 03: MLFQ scheduler track
-- includes scheduler tests: `test_mlfq`, `test_mlfq2`, `test_rr`
-
-### Track 04: slab allocator track
-- added slab allocator files (`slab.c`, `slab.h`, syscall glue)
-- includes slab tests in user and kernel space
-
-### Track 05: synchronization track
-- added semaphore implementation and syscall interface
-- includes producer-consumer and priority-related test cases
-
-## 3. What This Folder Demonstrates
-- kernel syscall extension,
-- scheduler policy experimentation,
-- custom kernel memory allocator integration,
-- synchronization primitive implementation and verification.
-
-## 4. Tech Stack
-- Language: `C`, `x86 assembly`
-- System: `xv6`
-- Domain: process, scheduler, memory, synchronization internals
+## 📂 Artifacts
+- Modified xv6 Source Code
+- Test Programs (`test_mlfq`, `test_nice`, etc.)
+- Track-specific Reports

@@ -1,41 +1,20 @@
-# Undergraduate Research Internship: AXI to APB Bridge Design
+# Undergraduate Internship (AXI2APB)
+> AXI4 to APB Bridge Design
 
-This folder contains an HDD report and RTL sources for an AXI-to-APB bridge architecture.
+## 📅 Project Info
+- **Period**: 2026.01
+- **Role**: Hardware Design Intern (Winter)
+- **Stack**: `SystemVerilog` `AMBA AXI4` `APB`
 
-## 1. Portfolio Snapshot
-- Category: Undergraduate research internship (winter track)
-- Program label in report title: **2025 winter**
-- Report revision period: **2026.01.08 to 2026.01.14**
-- Date reference: revision history inside HDD report
+## 📝 Summary
+고속 버스인 **AXI4**와 저속 주변장치 버스인 **APB**를 연결하는 **Bridge IP**를 설계했습니다.  
+AXI의 Burst 트랜잭션을 APB의 단일 전송(Single Transfer)으로 변환하는 FSM을 구현하고, PREADY 핸드쉐이킹 및 에러 처리를 포함하여 안정적인 버스 프로토콜 변환을 검증했습니다.
 
-## 2. Design Goal
-- bridge AXI transactions to APB transactions,
-- support burst requests while keeping APB-side control simple,
-- manage read and write paths with FSM-based logic.
+## 💡 Key Features
+- **Protocol Bridge**: AXI4 Slave ↔ APB Master 변환 로직.
+- **Burst Handling**: Sequential Burst를 개별 APB 트랜잭션으로 분할 처리.
+- **Slave Decoding**: PSEL 디코딩을 통한 다중 슬레이브(4-Slave) 제어.
 
-## 3. RTL Highlights
-Core modules:
-- `Prj_Axi_Top.v`
-- `Axi2Apb.v`
-- `ApbSlave.v`
-- integrated APB-side support modules under `Cp_*`
-
-Documented behavior:
-- burst request handling via sequential APB single transfers,
-- APB wait-state support with `PREADY`,
-- error response for unsupported address range,
-- 4-slave selection via `PSEL` decode and data/ready mux.
-
-Documented limits:
-- no out-of-order support,
-- no multiple outstanding support,
-- no AXI ID-based reordering support.
-
-## 4. Main Evidence
-- HDD report in PDF and DOC format
-- RTL source and testbench directories
-
-## 5. Tech Stack
-- HDL: `Verilog-HDL`
-- Bus protocol: `AXI`, `APB`
-- Verification: RTL simulation and timing scenario checks
+## 📂 Artifacts
+- RTL Source Code (`Prj_Axi_Top.v`, `Axi2Apb.v`)
+- HDD Report (Design Spec & Waveform Analysis)
