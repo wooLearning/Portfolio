@@ -2,7 +2,7 @@
 > 11th Soongsil Capstone Design Competition
 
 ## 📅 Project Info
-- **Period**: 2021
+- **Period**: 2021.06 ~ 2021.07
 - **Category**: Capstone Design (Encouragement Prize)
 - **Stack**: `Raspberry Pi` `Python` `OpenCV` `AMG88xx`
 

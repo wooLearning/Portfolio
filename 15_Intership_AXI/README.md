@@ -4,7 +4,7 @@
 ## 📅 Project Info
 - **Period**: 2026.01
 - **Role**: Hardware Design Intern (Winter)
-- **Stack**: `SystemVerilog` `AMBA AXI4` `APB`
+- **Stack**: `Verilog` `AMBA AXI4` `APB`
 
 ## 📝 Summary
 고속 버스인 **AXI4**와 저속 주변장치 버스인 **APB**를 연결하는 **Bridge IP**를 설계했습니다.  

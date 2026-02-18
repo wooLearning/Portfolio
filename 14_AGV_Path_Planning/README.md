@@ -2,8 +2,8 @@
 > Multi-Agent Path Finding & Deadlock Resolution
 
 ## 📅 프로젝트 정보
-- **기간**: 2025
-- **수상**: 제 n회 형남과학상 **동상 (Bronze Prize)**
+- **Period**: 2025.03 ~ 2025.11
+- **수상**: 제 43회 형남과학상 **동상 (Bronze Prize)**
 - **기술 스택**: `C` `Algorithms` `Simulation`
 
 ## 📝 개요

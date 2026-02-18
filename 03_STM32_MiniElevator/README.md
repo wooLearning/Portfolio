@@ -1,7 +1,7 @@
 # STM32 Mini Elevator Controller
 
 ## 📅 Project Info
-- **Period**: 2024
+- **Period**: 2024.08 ~ 2024.11
 - **Platform**: `STM32 Nucleo`
 - **Language**: `C` (Embedded)
 - **Stack**: `GPIO` `Step Motor` `7-Segment`
