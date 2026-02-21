@@ -2,7 +2,7 @@
 > Hardware FIR Filter with Kaiser Window
 
 ## 📅 Project Info
-- **Period**: 2025.11
+- **Period**: 2024.11
 - **Target**: `DSD HW Project`
 - **Stack**: `Verilog-HDL` `ModelSim` `Vivado`
 
