@@ -16,14 +16,14 @@
 ## 🌟 Featured Projects
 > 제 핵심 역량이 가장 잘 녹아있는 중요 프로젝트입니다.
 
-### 1. AXI4 to APB Bridge IP Design (인턴십)
-*High-speed AXI 트랜잭션을 저속 APB 버스로 안정적으로 변환하는 브릿지 회로 설계*
-- **기간**: 2026.01 / **역할**: 하드웨어 설계 인턴
-- **기술**: `Verilog`, `AMBA Protocol`
-- **핵심 기여**: 
-  - AXI4 Burst Transaction을 분할하여 개별 APB Single Transfer로 변환하는 FSM 구현
-  - 4-Slave 모듈에 대한 PSEL 디코딩 로직 설계 및 Waveform 자체 검증 통과
-- ➡️ **[👉 상세 문서 및 트러블슈팅 보기](./15_axi2apb-bridge)**
+### 1. FPGA Video Filtering 가속기 설계
+*카메라 실시간 입력(Streaming image)을 받아 CNN 1-Layer 연산을 FPGA 하드웨어로 가속하여 디스플레이하는 HW/SW Co-design 프로젝트*
+- **기간**: 2025.09 ~ 2025.11
+- **기술**: `Verilog HDL`, `Ultra96-V2(Zynq)`, `C (MCU Control)`
+- **핵심 기여**:
+  - HW(FPGA 로직)와 SW(MCU 제어)를 통합 연동하여 81.97 FPS 고속 영상 처리 성능 확보
+  - CDC(Clock Domain Crossing) 및 Frame drop 문제를 해소하기 위한 Window logic 변경 등 트러블슈팅 완료
+- ➡️ **[👉 상세 문서 및 트러블슈팅 보기](./14_fpga-video-filtering)**
 
 ### 2. AGV Path Planning & Deadlock Resolution (🏆 형남과학상 동상)
 *물류 창고 등 과밀 환경의 AGV간 교착상태 탐지 및 경로 최적화 시뮬레이터*
@@ -34,14 +34,14 @@
   - 실제 주차장 및 확장 맵 환경에서 교착 발생을 회피하고 고밀도 운용 환경의 연산 효율 검증 완료
 - ➡️ **[👉 데모 및 상세 보기](./11_agv-path-planning)**
 
-### 3. FPGA Video Filtering 가속기 설계
-*카메라 실시간 입력(Streaming image)을 받아 CNN 1-Layer 연산을 FPGA 하드웨어로 가속하여 디스플레이하는 HW/SW Co-design 프로젝트*
-- **기간**: 2025.09 ~ 2025.11
-- **기술**: `Verilog HDL`, `Ultra96-V2(Zynq)`, `C (MCU Control)`
-- **핵심 기여**:
-  - HW(FPGA 로직)와 SW(MCU 제어)를 통합 연동하여 81.97 FPS 고속 영상 처리 성능 확보
-  - CDC(Clock Domain Crossing) 및 Frame drop 문제를 해소하기 위한 Window logic 변경 등 트러블슈팅 완료
-- ➡️ **[👉 상세 문서 및 트러블슈팅 보기](./14_fpga-video-filtering)**
+### 3. AXI4 to APB Bridge IP Design (인턴십)
+*High-speed AXI 트랜잭션을 저속 APB 버스로 안정적으로 변환하는 브릿지 회로 설계*
+- **기간**: 2026.01 / **역할**: 하드웨어 설계 인턴
+- **기술**: `Verilog`, `AMBA Protocol`
+- **핵심 기여**: 
+  - AXI4 Burst Transaction을 분할하여 개별 APB Single Transfer로 변환하는 FSM 구현
+  - 4-Slave 모듈에 대한 PSEL 디코딩 로직 설계 및 Waveform 자체 검증 통과
+- ➡️ **[👉 상세 문서](./15_axi2apb-bridge)**
 
 ## 🗂 Archive & Other Projects
 <details>
