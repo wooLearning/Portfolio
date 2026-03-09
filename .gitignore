@@ -5,9 +5,15 @@ progress.md
 
 # Personal documents
 LIG_resume.pdf
+Experience.xlsx
+Experience.csv
 
 # Local temp data
 tmp_experience_summary.csv
+extract*.py
+questions.md
+extracted_*.txt
+aes_temp.txt
 
 # IDE metadata (Eclipse/STM32CubeIDE)
 **/.metadata/
