@@ -13,8 +13,28 @@
 - **Embedded/System**: `C/C++`, `ARM Assembly`, `OS(xv6)`, `STM32`
 - **Tools**: `Cadence Virtuoso`, `OrCAD`, `PSpice`, `ModelSim`, `Keil`
 
-## 🌟 Featured Projects
-> 제 핵심 역량이 가장 잘 녹아있는 중요 프로젝트입니다.
+## 📁 프로젝트 목록 (Project List)
+
+| # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) | 세부 링크 |
+|:---:|---|:---:|---|:---:|
+| **15** | **AXI4 to APB Bridge IP Design (인턴십)** | 2026.01 | `Verilog` `AMBA` | [Link](./15_axi2apb-bridge) |
+| **14** | **FPGA Video Filtering 가속기 설계** | 2025.09~11 | `Zynq` `FPGA` | [Link](./14_fpga-video-filtering) |
+| **13** | **PCB Design & OrCAD 실습** | 2025.07 | `OrCAD` `PCB Editor` | [Link](./13_pcb-design-orcad) |
+| **12** | **ARM Assembly Optimization** | 2025.04~06 | `ARM` `Assembly` | [Link](./12_arm-assembly-optimization) |
+| **11** | **AGV Path Planning & Deadlock Resolution** 🏆동상 | 2025.03~11 | `C` `A* / D* Lite` | [Link](./11_agv-path-planning) |
+| **10** | **xv6 Kernel Implementation** | 2025.03~06 | `C` `Kernel` | [Link](./10_xv6-kernel-implementation) |
+| **09** | **SIC/XE Assembler Simulator** | 2025.03~06 | `Java` `Assembler` | [Link](./09_sic-xe-assembler-simulator) |
+| **08** | **AIX 2025 딥러닝 HW 경진대회** 🏆장려상 | 2025.02~06 | `Verilog` `AI Accelerator` | [Link](./08_aix2025-dl-hw-contest) |
+| **07** | **APB-AES Design (인턴십)** | 2024.12~01 | `Verilog` `Crypto` | [Link](./07_apb-aes-design) |
+| **06** | **STM32 임베디드 소프트웨어** | 2024.12~01 | `C` `STM32` | [Link](./06_embedded-sw-stm32) |
+| **05** | **반도체 디스플레이 공정 프로젝트** | 2024.11~12 | `Process` `LDO` | [Link](./05_semiconductor-display-process) |
+| **04** | **Verilog FIR Filter Design** | 2024.11 | `Verilog` `DSP` | [Link](./04_verilog-fir-filter) |
+| **03** | **STM32 미니 엘리베이터 컨트롤러** | 2024.08~11 | `C` `Motor Control` | [Link](./03_stm32-mini-elevator) |
+| **02** | **Full-Custom IC 설계** | 2024.07~08 | `Cadence` `Virtuoso` | [Link](./02_full-custom-ic-design) |
+| **01** | **IoT 출입제어 (캡스톤)** 🏆장려상 | 2021.06~07 | `Python` `RPi` | [Link](./01_iot-capstone-design) |
+
+## 🌟 핵심 프로젝트 상세 (Featured Projects)
+> 제 설계 역량이 가장 잘 녹아있는 핵심 프로젝트 3가지입니다.
 
 ### 1. FPGA Video Filtering 가속기 설계
 *카메라 실시간 입력(Streaming image)을 받아 CNN 1-Layer 연산을 FPGA 하드웨어로 가속하여 디스플레이하는 HW/SW Co-design 프로젝트*
@@ -42,27 +62,6 @@
   - AXI4 Burst Transaction을 분할하여 개별 APB Single Transfer로 변환하는 FSM 구현
   - 4-Slave 모듈에 대한 PSEL 디코딩 로직 설계 및 Waveform 자체 검증 통과
 - ➡️ **[👉 상세 문서](./15_axi2apb-bridge)**
-
-## 🗂 Archive & Other Projects
-<details>
-<summary><b>더 많은 프로젝트 열어보기 (Click)</b></summary>
-
-| 프로젝트명 | 한 줄 소개 | 기간 | 기술 스택 | 링크 |
-| --- | --- | --- | --- | --- |
-| **AIX 2025 하드웨어 경진대회** | 딥러닝 하드웨어 가속기 구조 설계(장려상) | 2025.02~06 | `Verilog` `AI Accelerator` | [Link](./08_aix2025-dl-hw-contest) |
-| **PCB Design & OrCAD** | OrCAD를 활용한 PCB 회로 설계 구현 | 2025.07 | `OrCAD` `PCB Editor` | [Link](./13_pcb-design-orcad) |
-| **ARM Assembly Optimization** | ARM 아키텍처 타겟 어셈블리 코드 최적화 | 2025.04~06 | `ARM` `Assembly` | [Link](./12_arm-assembly-optimization) |
-| **xv6 Kernel Implementation** | C 기반 교육용 운영체제 xv6 기능 구현 및 분석 | 2025.03~06 | `C` `Kernel` | [Link](./10_xv6-kernel-implementation) |
-| **SIC/XE Assembler Simulator** | SIC/XE 어셈블러 및 시뮬레이터 개발 | 2025.03~06 | `Java` `Assembler` | [Link](./09_sic-xe-assembler-simulator) |
-| **STM32 임베디드 소프트웨어** | STM32/AVR 기반 시스템 제어 | 2024.12~01 | `C` `STM32` | [Link](./06_embedded-sw-stm32) |
-| **APB-AES Design (인턴십)** | APB 버스 기반 AES 암호화 모듈 설계 | 2024.12~01 | `Verilog` `AES` | [Link](./07_apb-aes-design) |
-| **반도체 디스플레이 공정** | LDO 공정 관련 프로젝트 | 2024.11~12 | `Process` `LDO` | [Link](./05_semiconductor-display-process) |
-| **Verilog FIR Filter Design** | FIR 필터 디지털 블록 설계 | 2024.11 | `Verilog` | [Link](./04_verilog-fir-filter) |
-| **STM32 미니 엘리베이터** | 상태기반 엘리베이터 모터 제어 구현 | 2024.08~11 | `C` `Motor Control` | [Link](./03_stm32-mini-elevator) |
-| **Full-Custom IC 설계** | Virtuoso를 활용한 아날로그/디지털 회로 레이아웃 | 2024.07~08 | `Cadence` `Virtuoso` | [Link](./02_full-custom-ic-design) |
-| **IoT 출입제어 (캡스톤)** | 라즈베리파이 기반 비접촉 출입 제어(장려상) | 2021.06~07 | `Python` `RPi` | [Link](./01_iot-capstone-design) |
-
-</details>
 
 ## 🏆 Awards & Honors
 - **[2025.12] 형남과학상 동상 (Bronze Prize)** (숭실대학교 공과대학)
