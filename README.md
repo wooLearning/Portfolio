@@ -5,12 +5,12 @@
 
 ## 💡 About Me
 - **디지털 회로 설계 및 검증**: Verilog를 이용한 AMBA 버스(AXI4/APB), CNN 가속기, 그리고 AES 암호화 모듈 등 FPGA 환경에서의 HW 설계 및 검증 역량 보유
-- **임베디드 시스템 최적화**: C/Assembly 기반의 RTOS(xv6) 환경 및 STM32, Zynq MCU를 활용한 저수준 하드웨어 제어와 HW/SW Co-design 경험
+- **임베디드 시스템 최적화**: C/Assembly 기반의 OS(xv6) 환경 및 STM32, Zynq MCU를 활용한 저수준 하드웨어 제어와 HW/SW Co-design 경험
 - **목표 지향적 문제 해결**: 한정된 자원(FPGA 로직 등)과 타이밍 이슈(CDC)를 극복하며, 펌웨어와 하드웨어 간의 병목 현상을 해결하는 로우레벨 엔지니어링을 지향합니다.
 
 ## 🛠 Tech Skills
 - **Hardware/FPGA**: `Verilog HDL`, `AMBA (AXI, APB)`, `Xilinx Zynq`
-- **Embedded/System**: `C/C++`, `ARM Assembly`, `RTOS(xv6)`, `STM32`
+- **Embedded/System**: `C/C++`, `ARM Assembly`, `OS(xv6)`, `STM32`
 - **Tools**: `Cadence Virtuoso`, `OrCAD`, `PSpice`, `ModelSim`, `Keil`
 
 ## 🌟 Featured Projects
