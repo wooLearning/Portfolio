@@ -15,23 +15,23 @@
 
 ## 📁 프로젝트 목록 (Project List)
 
-| # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) | 세부 링크 |
-|:---:|---|:---:|---|:---:|
-| **15** | **AXI4 to APB Bridge IP Design (인턴십)** | 2026.01 | `Verilog` `AMBA` | [Link](./15_axi2apb-bridge) |
-| **14** | **FPGA Video Filtering 가속기 설계** | 2025.09~11 | `Zynq` `FPGA` | [Link](./14_fpga-video-filtering) |
-| **13** | **PCB Design & OrCAD 실습** | 2025.07 | `OrCAD` `PCB Editor` | [Link](./13_pcb-design-orcad) |
-| **12** | **ARM Assembly Optimization** | 2025.04~06 | `ARM` `Assembly` | [Link](./12_arm-assembly-optimization) |
-| **11** | **AGV Path Planning & Deadlock Resolution** 🏆동상 | 2025.03~11 | `C` `A* / D* Lite` | [Link](./11_agv-path-planning) |
-| **10** | **xv6 Kernel Implementation** | 2025.03~06 | `C` `Kernel` | [Link](./10_xv6-kernel-implementation) |
-| **09** | **SIC/XE Assembler Simulator** | 2025.03~06 | `Java` `Assembler` | [Link](./09_sic-xe-assembler-simulator) |
-| **08** | **AIX 2025 딥러닝 HW 경진대회** 🏆장려상 | 2025.02~06 | `Verilog` `AI Accelerator` | [Link](./08_aix2025-dl-hw-contest) |
-| **07** | **APB-AES Design (인턴십)** | 2024.12~01 | `Verilog` `Crypto` | [Link](./07_apb-aes-design) |
-| **06** | **STM32 임베디드 소프트웨어** | 2024.12~01 | `C` `STM32` | [Link](./06_embedded-sw-stm32) |
-| **05** | **반도체 디스플레이 공정 프로젝트** | 2024.11~12 | `Process` `LDO` | [Link](./05_semiconductor-display-process) |
-| **04** | **Verilog FIR Filter Design** | 2024.11 | `Verilog` `DSP` | [Link](./04_verilog-fir-filter) |
-| **03** | **STM32 미니 엘리베이터 컨트롤러** | 2024.08~11 | `C` `Motor Control` | [Link](./03_stm32-mini-elevator) |
-| **02** | **Full-Custom IC 설계** | 2024.07~08 | `Cadence` `Virtuoso` | [Link](./02_full-custom-ic-design) |
-| **01** | **IoT 출입제어 (캡스톤)** 🏆장려상 | 2021.06~07 | `Python` `RPi` | [Link](./01_iot-capstone-design) |
+| # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) |
+|:---:|---|:---:|---|
+| **15** | [**AXI4 to APB Bridge IP Design (인턴십)**](./15_axi2apb-bridge) | 2026.01 | `Verilog` `AMBA` |
+| **14** | [**FPGA Video Filtering 가속기 설계**](./14_fpga-video-filtering) | 2025.09~11 | `Zynq` `FPGA` |
+| **13** | [**PCB Design & OrCAD 실습**](./13_pcb-design-orcad) | 2025.07 | `OrCAD` `PCB Editor` |
+| **12** | [**ARM Assembly Optimization**](./12_arm-assembly-optimization) | 2025.04~06 | `ARM` `Assembly` |
+| **11** | [**AGV Path Planning & Deadlock Resolution**](./11_agv-path-planning) 🏆동상 | 2025.03~11 | `C` `A* / D* Lite` |
+| **10** | [**xv6 Kernel Implementation**](./10_xv6-kernel-implementation) | 2025.03~06 | `C` `Kernel` |
+| **09** | [**SIC/XE Assembler Simulator**](./09_sic-xe-assembler-simulator) | 2025.03~06 | `Java` `Assembler` |
+| **08** | [**AIX 2025 딥러닝 HW 경진대회**](./08_aix2025-dl-hw-contest) 🏆장려상 | 2025.02~06 | `Verilog` `AI Accelerator` |
+| **07** | [**APB-AES Design (인턴십)**](./07_apb-aes-design) | 2024.12~01 | `Verilog` `Crypto` |
+| **06** | [**STM32 임베디드 소프트웨어**](./06_embedded-sw-stm32) | 2024.12~01 | `C` `STM32` |
+| **05** | [**반도체 디스플레이 공정 프로젝트**](./05_semiconductor-display-process) | 2024.11~12 | `Process` `LDO` |
+| **04** | [**Verilog FIR Filter Design**](./04_verilog-fir-filter) | 2024.11 | `Verilog` `DSP` |
+| **03** | [**STM32 미니 엘리베이터 컨트롤러**](./03_stm32-mini-elevator) | 2024.08~11 | `C` `Motor Control` |
+| **02** | [**Full-Custom IC 설계**](./02_full-custom-ic-design) | 2024.07~08 | `Cadence` `Virtuoso` |
+| **01** | [**IoT 출입제어 (캡스톤)**](./01_iot-capstone-design) 🏆장려상 | 2021.06~07 | `Python` `RPi` |
 
 ## 🌟 핵심 프로젝트 상세 (Featured Projects)
 > 제 설계 역량이 가장 잘 녹아있는 핵심 프로젝트 3가지입니다.
