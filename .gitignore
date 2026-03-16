@@ -9,6 +9,7 @@ Experience.xlsx
 Experience.csv
 
 # Local temp data
+.tmp/
 tmp_experience_summary.csv
 extract*.py
 questions.md

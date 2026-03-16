@@ -17,6 +17,8 @@
 
 | # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) |
 |:---:|---|:---:|---|
+| **17** | [**AGV Refactoring Simulator**](./17_agv-refactoring) | 2026.03 | `C++20` `Electron` |
+| **16** | [**FPGA Automation Toolkit**](./16_fpga-auto-project) | 2026.02~03 | `Batch` `Vivado` |
 | **15** | [**AXI4 to APB Bridge IP Design (인턴십)**](./15_axi2apb-bridge) | 2026.01 | `Verilog` `AMBA` |
 | **14** | [**FPGA Video Filtering 가속기 설계**](./14_fpga-video-filtering) | 2025.09~11 | `Zynq` `FPGA` |
 | **13** | [**PCB Design & OrCAD 실습**](./13_pcb-design-orcad) | 2025.07 | `OrCAD` `PCB Editor` |
