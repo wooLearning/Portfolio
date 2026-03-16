@@ -36,7 +36,7 @@
 | **01** | [**IoT 출입제어 (캡스톤)**](./01_iot-capstone-design) 🏆장려상 | 2021.06~07 | `Python` `RPi` |
 
 ## 🌟 핵심 프로젝트 상세 (Featured Projects)
-> 제 설계 역량이 가장 잘 녹아있는 핵심 프로젝트 3가지입니다.
+> 주요 프로젝트 3가지입니다.
 
 ### 1. FPGA Video Filtering 가속기 설계
 *카메라 실시간 입력(Streaming image)을 받아 CNN 1-Layer 연산을 FPGA 하드웨어로 가속하여 디스플레이하는 HW/SW Co-design 프로젝트*

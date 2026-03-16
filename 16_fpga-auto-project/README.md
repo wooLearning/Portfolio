@@ -58,14 +58,9 @@
 - `code_intel`, `simulation`, `reporting`, `vivado`, `project_bootstrap`, `manifest`, `shared` 컨텍스트로 역할을 분리했습니다.
 - 기능 추가와 유지보수를 고려한 구조로 정리했습니다.
 
-## 🚀 이 프로젝트에서 드러나는 역량
-- Vivado GUI 작업을 Tcl/스크립트 기반 자동화 흐름으로 재구성하는 능력
-- hierarchy, schematic, FSM, waveform, report를 하나의 개발 체계로 묶는 설계 능력
-- HDL 개발 과정 전체를 표준화된 도구 형태로 정리하는 역량
-
-## 🧩 포트폴리오 관점
-- 이 프로젝트는 RTL 설계 결과물보다 **설계 환경과 workflow 자체를 개선한 프로젝트**에 가깝습니다.
-- Vivado 기반 FPGA 개발에서 자주 반복되는 작업을 자동화하고, 결과 정리까지 연결한 점이 핵심입니다.
+## 📌 정리
+- Vivado 기반 FPGA 개발에서 반복되는 작업을 자동화하는 데 초점을 둔 프로젝트입니다.
+- RTL 작성 자체보다 프로젝트 생성, 분석, 검증, 빌드, 결과 정리 흐름을 한 번에 다루는 도구 형태로 구성했습니다.
 
 ## 🔗 바로가기
 - **[원본 GitHub 저장소 보기](https://github.com/BUJH99/FPGA_Auto_Project)**
