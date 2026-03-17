@@ -54,7 +54,7 @@
 - **주요 성과**:
   - WHCA*, WFG/SCC, Partial CBS를 결합한 협력 경로계획 방식을 적용하여 과밀도 맵에서의 타임라인 최적화
   - 실제 주차장 및 확장 맵 환경에서 교착 발생을 회피하고 고밀도 운용 환경의 연산 효율 검증 완료
-- ➡️ **[👉 데모 및 상세 보기](./11_agv-path-planning)**
+- ➡️ **[👉 데모 및 상세 보기](./11_agv-path-planning)** | **[🛠️ AGV Refactoring 보기](./17_agv-refactoring)**
 
 ### 3. AXI4 to APB Bridge IP Design (인턴십)
 *High-speed AXI 트랜잭션을 저속 APB 버스로 안정적으로 변환하는 브릿지 회로 설계*
