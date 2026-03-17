@@ -45,5 +45,5 @@ AXI의 Burst 트랜잭션을 APB의 단일 전송(Single Transfer)으로 변환�
 
 ## 📂 Artifacts
 
-- RTL Source Code (`Prj_Axi_Top.v`, `Axi2Apb.v`)
+- RTL Source Code (`SourceCode/RTL/Src/Prj_Axi_Top.v`, `SourceCode/RTL/Src/Axi2Apb.v`)
 - HDD Report (Design Spec & Waveform Analysis)

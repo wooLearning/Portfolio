@@ -44,7 +44,7 @@
 - **기술**: `Verilog HDL`, `Ultra96-V2(Zynq)`, `C (MCU Control)`
 - **핵심 기여**:
   - HW(FPGA 로직)와 SW(MCU 제어)를 통합 연동하여 81.97 FPS 고속 영상 처리 성능 확보
-  - CDC(Clock Domain Crossing) 및 Frame drop 문제를 해소하기 위한 Window logic 변경 등 트러블슈팅 완료
+  - CDC(Clock Domain Crossing) 및 카메라 입력과 LCD 출력 간 sync mismatch를 해소하기 위한 buffer/sync logic 개선 완료
 - ➡️ **[👉 상세 문서 및 트러블슈팅 보기](./14_fpga-video-filtering)**
 
 ### 2. AGV Path Planning & Deadlock Resolution (🏆 형남과학상 동상)

@@ -24,6 +24,6 @@
 
 ## 📂 산출물
 - **Source Code**:
-    - `Assembler/` (C 및 Java 버전 구현)
-    - `Simulator/` (Java 기반 GUI/CLI 시뮬레이터)
+    - `[222]프로젝트1_우상욱_20203023/` 및 `[222]프로젝트1b_우상욱_20203023/` (Assembler 구현)
+    - `[222]프로젝트2_우상욱_20203023/` (Java 기반 Simulator / Loader 구현)
 - **Docs**: 설계 보고서 및 실행 결과 보고서
