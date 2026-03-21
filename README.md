@@ -1,7 +1,7 @@
 # 👨‍💻 우상욱 (Sang-Wook Woo)
 > "탄탄한 하드웨어 이해도를 바탕으로 디지털 회로 설계 및 검증, 그리고 임베디드 시스템 개발을 주도하는 엔지니어로 성장하고 싶습니다."
 
-> 📧 Email: wu3643@gmail.com | 🐙 GitHub: @wooLearning | 🔗 OPIc: Intermediate High
+> 📧 Email: wu3643@gmail.com | 🐙 GitHub: @wooLearning | 📄 Resume: [KO](./이력서_국문.pdf) / [EN](./Resume_English.pdf) | 🔗 OPIc: Intermediate High
 
 ## 💡 About Me
 - **디지털 회로 설계 및 검증**: Verilog를 이용한 AMBA 버스(AXI4/APB), CNN 가속기, 그리고 AES 암호화 모듈 등 FPGA 환경에서의 HW 설계 및 검증 역량 보유
