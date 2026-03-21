@@ -11,6 +11,7 @@ Experience.csv
 output/
 skills/
 tools/
+build_pdfs.bat
 
 # Local temp data
 .tmp/
