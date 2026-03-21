@@ -13,7 +13,7 @@ skills/
 tools/
 build_pdfs.bat
 Resume_en.pdf
-
+trash/
 # Local temp data
 .tmp/
 tmp_experience_summary.csv
