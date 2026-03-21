@@ -8,32 +8,40 @@
 - **임베디드 시스템 최적화**: C/Assembly 기반의 OS(xv6) 환경 및 STM32, Zynq MCU를 활용한 저수준 하드웨어 제어와 HW/SW Co-design 경험
 - **목표 지향적 문제 해결**: 한정된 자원(FPGA 로직 등)과 타이밍 이슈(CDC)를 극복하며, 펌웨어와 하드웨어 간의 병목 현상을 해결하는 로우레벨 엔지니어링을 지향합니다.
 
+## 🎓 Education
+- **숭실대학교 전자정보공학부 전자공학전공** (2020.03 ~ 2026.08, 졸업예정)
+- **학점**: `4.28 / 4.5` | **전공 평점**: `4.25 / 4.5` | **전공 이수 학점**: `111`
+
 ## 🛠 Tech Skills
-- **Hardware/FPGA**: `Verilog HDL`, `AMBA (AXI, APB)`, `Xilinx Zynq`
+- **Hardware/FPGA**: `Verilog HDL`, `SystemVerilog`, `AMBA (AXI, APB)`, `Xilinx Zynq`
 - **Embedded/System**: `C/C++`, `ARM Assembly`, `OS(xv6)`, `STM32`
-- **Tools**: `Cadence Virtuoso`, `OrCAD`, `PSpice`, `ModelSim`, `Keil`
+- **EDA & Verification**: `Vivado`, `Cadence Xcelium`, `ModelSim`
+- **Embedded IDE / SDK**: `STM32CubeIDE`, `Microchip Studio`, `Keil`, `Vitis`, `Visual Studio`
+- **Circuit / PCB / Collaboration**: `Cadence Virtuoso`, `OrCAD Capture`, `PCB Editor`, `PSpice`, `Linux`, `Git`
+- **Detailed Profile**: [Languages & Tools](./skills/README.md)
 
 ## 📁 프로젝트 목록 (Project List)
 
 | # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) |
 |:---:|---|:---:|---|
-| **17** | [**AGV Refactoring Simulator**](./17_agv-refactoring) | 2026.03 | `C++20` `Electron` |
-| **16** | [**FPGA Automation Toolkit**](./16_fpga-auto-project) | 2026.02~03 | `Batch` `Vivado` |
+| **18** | [**SeoulTechEdu: Verilog & SystemVerilog Project Archive**](https://github.com/wooLearning/SeoulTechEdu) | 2026.03 | `Verilog` `SystemVerilog` `Verification`|
+| **17** | [**AGV Refactoring Simulator**](./17_agv-refactoring) | 2026.03 | `C++` `algorithm` |
+| **16** | [**FPGA Automation Toolkit 개발**](./16_fpga-auto-project) | 2026.02~03 | `Batch` `Vivado` `Python`|
 | **15** | [**AXI4 to APB Bridge IP Design (인턴십)**](./15_axi2apb-bridge) | 2026.01 | `Verilog` `AMBA` |
 | **14** | [**FPGA Video Filtering 가속기 설계**](./14_fpga-video-filtering) | 2025.09~11 | `Zynq` `FPGA` |
 | **13** | [**PCB Design & OrCAD 실습**](./13_pcb-design-orcad) | 2025.07 | `OrCAD` `PCB Editor` |
 | **12** | [**ARM Assembly Optimization**](./12_arm-assembly-optimization) | 2025.04~06 | `ARM` `Assembly` |
 | **11** | [**AGV Path Planning & Deadlock Resolution**](./11_agv-path-planning) 🏆동상 | 2025.03~11 | `C` `A* / D* Lite` |
-| **10** | [**xv6 Kernel Implementation**](./10_xv6-kernel-implementation) | 2025.03~06 | `C` `Kernel` |
+| **10** | [**xv6(tiny os for learning) Kernel Implementation**](./10_xv6-kernel-implementation) | 2025.03~06 | `C` `Kernel` |
 | **09** | [**SIC/XE Assembler Simulator**](./09_sic-xe-assembler-simulator) | 2025.03~06 | `Java` `Assembler` |
 | **08** | [**AIX 2025 딥러닝 HW 경진대회**](./08_aix2025-dl-hw-contest) 🏆장려상 | 2025.02~06 | `Verilog` `AI Accelerator` |
-| **07** | [**APB-AES Design (인턴십)**](./07_apb-aes-design) | 2024.12~01 | `Verilog` `Crypto` |
-| **06** | [**STM32 임베디드 소프트웨어**](./06_embedded-sw-stm32) | 2024.12~01 | `C` `STM32` |
-| **05** | [**반도체 디스플레이 공정 프로젝트**](./05_semiconductor-display-process) | 2024.11~12 | `Process` `LDO` |
+| **07** | [**APB-AES Design (인턴십)**](./07_apb-aes-design) | 2024.12~01 | `Verilog` `AES-128` |
+| **06** | [**STM32 임베디드 소프트웨어**](./06_embedded-sw-stm32) | 2024.12~01 | `C` `STM32`, `AVR` |
+| **05** | [**반도체 디스플레이 공정 프로젝트**](./05_semiconductor-display-process) | 2024.11~12 | `Semiconductor Process` `LDO` |
 | **04** | [**Verilog FIR Filter Design**](./04_verilog-fir-filter) | 2024.11 | `Verilog` `DSP` |
 | **03** | [**STM32 미니 엘리베이터 컨트롤러**](./03_stm32-mini-elevator) | 2024.08~11 | `C` `Motor Control` |
-| **02** | [**Full-Custom IC 설계**](./02_full-custom-ic-design) | 2024.07~08 | `Cadence` `Virtuoso` |
-| **01** | [**IoT 출입제어 (캡스톤)**](./01_iot-capstone-design) 🏆장려상 | 2021.06~07 | `Python` `RPi` |
+| **02** | [**Full-Custom IC 설계**](./02_full-custom-ic-design) | 2024.07~08 | `Cadence` `Virtuoso` `LVS/DRC`|
+| **01** | [**IoT 출입제어 (캡스톤)**](./01_iot-capstone-design) 🏆장려상 | 2021.06~07 | `Python` `Raspberry Pi` |
 
 ## 🌟 핵심 프로젝트 상세 (Featured Projects)
 > 주요 프로젝트 3가지입니다.
@@ -68,12 +76,13 @@
 ## 🏆 Awards & Honors
 - **[2025.12] 형남과학상 동상 (Bronze Prize)** (숭실대학교 공과대학)
 - **[2025.06] AIX 2025 딥러닝 하드웨어 경진대회 장려상** (서울대학교 차세대 반도체 사업단)
+- **[2024.11] 국가우수(이공계) 장학생** (과학기술정보통신부 장관)
 - **[2021.09] 2021 숭실 캡스톤디자인 경진대회 장려상** (숭실대학교)
 
 ## 💼 Activities & Internships
-- **[2025.12 ~ 2026.01] 학부 연구생 인턴** (송인철 교수 연구실) - AXI-to-APB Bridge RTL 설계 및 검증
+- **[2025.12 ~ 2026.01] 학부 연구생 인턴** (숭실대학교 차세대반도체학과 송인철 교수) - AXI-to-APB Bridge RTL 설계 및 검증
 - **[2025.07] PCB Circuit Design & PSpice Designer 교육 수료** (60시간, 9ES Campus - Cadence 공인 교육장)
-- **[2024.12 ~ 2025.01] 학부 연구생 인턴** (송인철 교수 연구실) - APB 버스 기반 AES 암호화 모듈 설계
+- **[2024.12 ~ 2025.01] 학부 연구생 인턴** (숭실대학교 차세대반도체학과 송인철 교수) - APB 버스 기반 AES 암호화 모듈 설계
 - **[2024.07 ~ 2024.10] Full-Custom IC Design 과정 수료** (60시간, 숭실대학교) - Cadence Virtuoso 활용 레이아웃 설계
 - **[2021.03 ~ 현재] 숭실대학교 전자전시회(SEE) 동아리 활동** - 신입생 C 프로그래밍 강사 및 팀 프로젝트 멘토링
 

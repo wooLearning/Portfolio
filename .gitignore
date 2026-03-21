@@ -8,6 +8,10 @@ LIG_resume.pdf
 Experience.xlsx
 Experience.csv
 
+output/
+skills/
+tools/
+
 # Local temp data
 .tmp/
 tmp_experience_summary.csv
