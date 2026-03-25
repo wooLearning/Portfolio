@@ -36,7 +36,7 @@
 | **09** | [**SIC/XE Assembler Simulator**](./09_sic-xe-assembler-simulator) | 2025.03~06 | `Java` `Assembler` |
 | **08** | [**AIX 2025 딥러닝 HW 경진대회**](./08_aix2025-dl-hw-contest) 🏆장려상 | 2025.02~06 | `Verilog` `AI Accelerator` |
 | **07** | [**APB-AES Design (인턴십)**](./07_apb-aes-design) | 2024.12~01 | `Verilog` `AES-128` |
-| **06** | [**STM32 임베디드 소프트웨어**](./06_embedded-sw-stm32) | 2024.12~01 | `C` `STM32`, `AVR` |
+| **06** | [**Embedded SW**](./06_embedded-sw-stm32) | 2024.12~01 | `C` `STM32`, `AVR` |
 | **05** | [**반도체 디스플레이 공정 프로젝트**](./05_semiconductor-display-process) | 2024.11~12 | `Semiconductor Process` `LDO` |
 | **04** | [**Verilog FIR Filter Design**](./04_verilog-fir-filter) | 2024.11 | `Verilog` `DSP` |
 | **03** | [**STM32 미니 엘리베이터 컨트롤러**](./03_stm32-mini-elevator) | 2024.08~11 | `C` `Motor Control` |
