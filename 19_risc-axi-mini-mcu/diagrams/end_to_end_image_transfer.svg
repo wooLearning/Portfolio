@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="950" height="460" viewBox="0 0 950 460" style="background:#ffffff; font-family: 'Noto Sans KR', Arial, sans-serif;">
+  <defs>
+    <style>
+      .line { fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: round; }
+      .bus-line { fill: none; stroke: #0f172a; stroke-width: 3; stroke-linejoin: round; }
+      .dashed { fill: none; stroke: #64748b; stroke-width: 1.5; stroke-dasharray: 6,4; }
+      .dash-box { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 10,6; }
+      .box { fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; rx: 4; }
+      .box-highlight { fill: #f1f5f9; stroke: #0f2b5b; stroke-width: 2; rx: 4; }
+      .text-title { font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .text-bold { font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .text { font-size: 13px; fill: #334155; }
+      .text-small { font-size: 12px; font-weight: 600; fill: #64748b; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+    <marker id="arrowBus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="475" y="40" class="text-title" text-anchor="middle">Figure 6. End-to-End RGB Image Transfer Flow</text>
+
+  <!-- External PC -->
+  <rect x="40" y="220" width="100" height="120" class="dash-box" />
+  <text x="90" y="270" class="text-bold" text-anchor="middle">PC</text>
+  <text x="90" y="290" class="text-small" text-anchor="middle">(Host)</text>
+
+  <!-- External Slave FPGA -->
+  <rect x="810" y="220" width="100" height="120" class="dash-box" />
+  <text x="860" y="270" class="text-bold" text-anchor="middle">Slave FPGA</text>
+  <text x="860" y="290" class="text-small" text-anchor="middle">SPI RX / UART TX</text>
+
+  <!-- Master FPGA Boundary -->
+  <rect x="160" y="80" width="630" height="280" class="dash-box" />
+  <text x="175" y="105" class="text-bold">Master FPGA (RISC-V AXI SoC)</text>
+
+  <!-- CPU / Firmware Control -->
+  <rect x="385" y="120" width="180" height="50" class="box" />
+  <text x="475" y="142" class="text-bold" text-anchor="middle">CPU Firmware</text>
+  <text x="475" y="160" class="text-small" text-anchor="middle">Control &amp; Interrupt Handler</text>
+
+  <!-- Data Path IP Blocks -->
+  <rect x="200" y="250" width="120" height="60" class="box" />
+  <text x="260" y="275" class="text-bold" text-anchor="middle">UART RX</text>
+  <text x="260" y="295" class="text-small" text-anchor="middle">Byte Input</text>
+
+  <rect x="385" y="245" width="180" height="70" class="box-highlight" />
+  <text x="475" y="275" class="text-bold" text-anchor="middle">DMA &amp; Internal Buffer</text>
+  <text x="475" y="295" class="text-small" text-anchor="middle">16 KB internal buffer</text>
+
+  <rect x="630" y="250" width="120" height="60" class="box" />
+  <text x="690" y="275" class="text-bold" text-anchor="middle">SPI TX</text>
+  <text x="690" y="295" class="text-small" text-anchor="middle">Byte Output</text>
+
+  <!-- Control Routing (Dashed) -->
+  <!-- CPU to UART -->
+  <path d="M 410 170 L 410 210 L 260 210 L 260 250" class="dashed" marker-end="url(#arrow)" />
+  <text x="335" y="205" class="text-small" text-anchor="middle">Config</text>
+
+  <!-- CPU to DMA -->
+  <path d="M 475 170 L 475 245" class="dashed" marker-end="url(#arrow)" />
+  <text x="515" y="205" class="text-small" text-anchor="middle">Control / IRQ</text>
+
+  <!-- CPU to SPI -->
+  <path d="M 540 170 L 540 210 L 690 210 L 690 250" class="dashed" marker-end="url(#arrow)" />
+  <text x="615" y="205" class="text-small" text-anchor="middle">Config</text>
+
+  <!-- Data Payload Routing (Thick Bus) -->
+  <!-- PC to UART -->
+  <path d="M 140 280 L 200 280" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="170" y="270" class="text-bold" text-anchor="middle">UART</text>
+  <text x="170" y="305" class="text-small" text-anchor="middle">[1]</text>
+
+  <!-- UART to DMA -->
+  <path d="M 320 280 L 385 280" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="352" y="270" class="text-bold" text-anchor="middle">Stream</text>
+  <text x="352" y="305" class="text-small" text-anchor="middle">[2]</text>
+
+  <!-- DMA to SPI -->
+  <path d="M 565 280 L 630 280" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="597" y="270" class="text-bold" text-anchor="middle">Stream</text>
+  <text x="597" y="305" class="text-small" text-anchor="middle">[3]</text>
+
+  <!-- SPI to Slave -->
+  <path d="M 750 280 L 810 280" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="780" y="270" class="text-bold" text-anchor="middle">SPI</text>
+  <text x="780" y="305" class="text-small" text-anchor="middle">[4]</text>
+
+  <!-- Return Path (Slave to PC) -->
+  <path d="M 860 340 L 860 410 L 90 410 L 90 340" class="dashed" marker-end="url(#arrow)" />
+  <text x="475" y="400" class="text-bold" text-anchor="middle">[5] UART Return Path (Slave FPGA to PC)</text>
+  <text x="475" y="420" class="text-small" text-anchor="middle">Image bytes echoed back to verify transmission</text>
+
+</svg>

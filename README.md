@@ -24,7 +24,8 @@
 
 | # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) |
 |:---:|---|:---:|---|
-| **18** | [**SeoulTechEdu: Verilog & SystemVerilog Project Archive**](https://github.com/wooLearning/SeoulTechEdu) | 2026.03 | `Verilog` `SystemVerilog` `Verification`|
+| **19** | [**RISC_AXI Mini MCU Project**](./19_risc-axi-mini-mcu) | 2026.05 | `SystemVerilog` `RISC-V` `AXI/APB` `DMA` |
+| **18** | [**SeoulTechEdu: Verilog & SystemVerilog Project Archive**](./18_seoultechedu-verilog-systemverilog) | 2026.03 | `Verilog` `SystemVerilog` `Verification`|
 | **17** | [**AGV Refactoring Simulator**](./17_agv-refactoring) | 2026.03 | `C++` `algorithm` |
 | **16** | [**FPGA Automation Toolkit 개발**](./16_fpga-auto-project) | 2026.02~03 | `Batch` `Vivado` `Python`|
 | **15** | [**AXI4 to APB Bridge IP Design (인턴십)**](./15_axi2apb-bridge) | 2026.01 | `Verilog` `AMBA` |
@@ -44,9 +45,19 @@
 | **01** | [**IoT 출입제어 (캡스톤)**](./01_iot-capstone-design) 🏆장려상 | 2021.06~07 | `Python` `Raspberry Pi` |
 
 ## 🌟 핵심 프로젝트 상세 (Featured Projects)
-> 주요 프로젝트 3가지입니다.
+> 주요 프로젝트 4가지입니다.
 
-### 1. FPGA Video Filtering 가속기 설계
+### 1. RISC_AXI Mini MCU Project
+*RV32I core, AXI-Lite/APB bus, PLIC-lite interrupt, AXI-Stream DMA, UART/SPI를 직접 연결한 FPGA 기반 mini MCU 프로젝트*
+- **기간**: 2026.05
+- **기술**: `SystemVerilog`, `RISC-V Assembly`, `AXI-Lite`, `APB`, `AXI-Stream`, `UART/SPI`
+- **핵심 기여**:
+  - custom RV32I core를 AXI-Lite fabric, APB peripheral subsystem, PLIC-lite interrupt controller와 통합
+  - PC UART -> DMA buffer -> SPI -> slave FPGA -> UART -> PC로 이어지는 RGB image byte stream end-to-end 전송 구조 구현
+  - ROM firmware에서 `mtvec`, PLIC claim/complete, software IRQ vector table을 이용해 DMA done/error interrupt 기반 RX/TX phase 전환 구현
+- ➡️ **[👉 상세 문서 및 산출물 보기](./19_risc-axi-mini-mcu)**
+
+### 2. FPGA Video Filtering 가속기 설계
 *카메라 실시간 입력(Streaming image)을 받아 CNN 1-Layer 연산을 FPGA 하드웨어로 가속하여 디스플레이하는 HW/SW Co-design 프로젝트*
 - **기간**: 2025.09 ~ 2025.11
 - **기술**: `Verilog HDL`, `Ultra96-V2(Zynq)`, `C (MCU Control)`
@@ -55,7 +66,7 @@
   - CDC(Clock Domain Crossing) 및 카메라 입력과 LCD 출력 간 sync mismatch를 해소하기 위한 buffer/sync logic 개선 완료
 - ➡️ **[👉 상세 문서 및 트러블슈팅 보기](./14_fpga-video-filtering)**
 
-### 2. AGV Path Planning & Deadlock Resolution (🏆 형남과학상 동상)
+### 3. AGV Path Planning & Deadlock Resolution (🏆 형남과학상 동상)
 *물류 창고 등 과밀 환경의 AGV간 교착상태 탐지 및 경로 최적화 시뮬레이터*
 - **기간**: 2025.03 ~ 2025.11
 - **사용 기술**: `C`, `A* / D* Lite`, `Tarjan's SCC Algorithm`
@@ -64,7 +75,7 @@
   - 실제 주차장 및 확장 맵 환경에서 교착 발생을 회피하고 고밀도 운용 환경의 연산 효율 검증 완료
 - ➡️ **[👉 데모 및 상세 보기](./11_agv-path-planning)** | **[🛠️ AGV Refactoring 보기](./17_agv-refactoring)**
 
-### 3. AXI4 to APB Bridge IP Design (인턴십)
+### 4. AXI4 to APB Bridge IP Design (인턴십)
 *High-speed AXI 트랜잭션을 저속 APB 버스로 안정적으로 변환하는 브릿지 회로 설계*
 - **기간**: 2026.01 / **역할**: 하드웨어 설계 인턴
 - **기술**: `Verilog`, `AMBA Protocol`

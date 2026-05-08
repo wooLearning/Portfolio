@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="980" viewBox="0 0 1050 980" style="background:#ffffff; font-family: 'Noto Sans KR', Arial, sans-serif;">
+  <defs>
+    <style>
+      .line { fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: round; }
+      .bus-line { fill: none; stroke: #0f172a; stroke-width: 3; stroke-linejoin: round; }
+      .dashed { fill: none; stroke: #64748b; stroke-width: 1.5; stroke-dasharray: 6,4; }
+      .dash-box { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 10,6; }
+      .box { fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; rx: 4; }
+      .box-highlight { fill: #f1f5f9; stroke: #0f2b5b; stroke-width: 2; rx: 4; }
+      .mux { fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: round; }
+      .text-title { font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .text-bold { font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .text { font-size: 13px; fill: #334155; }
+      .text-small { font-size: 12px; font-weight: 600; fill: #64748b; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+    <marker id="arrowBus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+
+  <text x="525" y="35" class="text-title" text-anchor="middle">Figure 3. Detailed Bus &amp; Bridge Internal Architecture (Logic Schematic Style)</text>
+
+  <!-- Master Region -->
+  <rect x="20" y="130" width="120" height="80" class="box" />
+  <text x="80" y="165" class="text-bold" text-anchor="middle">Core DBus</text>
+  <text x="80" y="185" class="text" text-anchor="middle">Master</text>
+
+  <rect x="180" y="130" width="120" height="80" class="box-highlight" />
+  <text x="240" y="165" class="text-bold" text-anchor="middle">AXI-Lite</text>
+  <text x="240" y="185" class="text" text-anchor="middle">Master Adapter</text>
+
+  <path d="M 140 170 L 180 170" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="160" y="160" class="text-small" text-anchor="middle">DBUS</text>
+
+  <!-- AXI-Lite Interconnect Dashed Box -->
+  <!-- Made taller to avoid overlapping MUX text and the bottom bus -->
+  <rect x="360" y="70" width="340" height="280" class="dash-box" />
+  <text x="370" y="90" class="text-bold">AxiLiteInterconnect1x3</text>
+
+  <!-- Forward Bus from Adapter to Interconnect -->
+  <path d="M 300 150 L 360 150 L 510 150" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="340" y="142" class="text-bold" text-anchor="middle">AW,W,AR</text>
+
+  <!-- Address Decoder -->
+  <rect x="380" y="110" width="100" height="30" class="box" />
+  <text x="430" y="130" class="text-small" text-anchor="middle">Addr Decoder</text>
+  <!-- Tap from bus to Decoder -->
+  <path d="M 430 150 L 430 140" class="line" marker-end="url(#arrow)" />
+  
+  <!-- Demux -->
+  <polygon points="510,130 540,110 540,270 510,250" class="mux" />
+  <text x="525" y="290" class="text-small" text-anchor="middle">DEMUX</text>
+  <!-- Select signal from Decoder to Demux -->
+  <path d="M 480 125 L 510 125" class="dashed" marker-end="url(#arrow)" />
+  
+  <!-- Demux Outputs to Slaves -->
+  <path d="M 540 140 L 760 140" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 540 190 L 760 190" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 540 240 L 760 240" class="bus-line" marker-end="url(#arrowBus)" />
+
+  <!-- Backward Bus (B, R) Mux -->
+  <polygon points="630,170 660,150 660,310 630,290" class="mux" />
+  <text x="645" y="330" class="text-small" text-anchor="middle">MUX</text>
+  <!-- Select signal to Mux -->
+  <path d="M 480 125 L 480 95 L 645 95 L 645 150" class="dashed" marker-end="url(#arrow)" />
+
+  <!-- Mux Inputs from Slaves -->
+  <path d="M 760 160 L 730 160 L 730 190 L 660 190" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 760 210 L 720 210 L 720 230 L 660 230" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 760 260 L 710 260 L 710 270 L 660 270" class="bus-line" marker-end="url(#arrowBus)" />
+
+  <!-- Mux Output back to Master Adapter -->
+  <path d="M 630 230 L 330 230 L 330 190 L 300 190" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="450" y="222" class="text-bold" text-anchor="middle">B, R</text>
+
+  <!-- Slaves -->
+  <rect x="760" y="120" width="150" height="50" class="box" />
+  <text x="835" y="142" class="text-bold" text-anchor="middle">AxiLiteRom</text>
+  <text x="835" y="160" class="text-small" text-anchor="middle">0x0000_0000</text>
+
+  <rect x="760" y="170" width="150" height="50" class="box" />
+  <text x="835" y="192" class="text-bold" text-anchor="middle">AxiLiteSram</text>
+  <text x="835" y="210" class="text-small" text-anchor="middle">0x2000_0000</text>
+
+  <rect x="760" y="220" width="150" height="50" class="box-highlight" />
+  <text x="835" y="242" class="text-bold" text-anchor="middle">AxiLiteToApbBridge</text>
+  <text x="835" y="260" class="text-small" text-anchor="middle">0x4000_0000</text>
+
+  <!-- APB Forward Bus Downward (Spaced out well below the Interconnect) -->
+  <path d="M 835 270 L 835 390 L 160 390 L 160 880" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="500" y="380" class="text-bold" text-anchor="middle">APB Forward Bus (PADDR, PWDATA, PWRITE, PENABLE)</text>
+
+  <!-- APB Subsystem Dashed Box (Shifted down) -->
+  <rect x="100" y="440" width="880" height="500" class="dash-box" />
+  <text x="110" y="465" class="text-bold">ApbSubsystem</text>
+
+  <!-- APB Address Decoder -->
+  <rect x="210" y="460" width="140" height="40" class="box" />
+  <text x="280" y="485" class="text-bold" text-anchor="middle">APB Address Decoder</text>
+  <path d="M 160 480 L 210 480" class="bus-line" marker-end="url(#arrowBus)" />
+  
+  <!-- PSEL Bus -->
+  <path d="M 280 500 L 280 880" class="line" />
+  <text x="295" y="525" class="text-bold">PSEL[7:0]</text>
+
+  <!-- PRDATA Mux Select -->
+  <path d="M 350 480 L 800 480 L 800 545" class="dashed" marker-end="url(#arrow)" />
+  <text x="750" y="473" class="text-small">PSEL Select</text>
+
+  <!-- 8 Peripherals -->
+  <g class="box">
+    <rect x="450" y="540" width="120" height="30" />
+    <rect x="450" y="580" width="120" height="30" />
+    <rect x="450" y="620" width="120" height="30" />
+    <rect x="450" y="660" width="120" height="30" />
+    <rect x="450" y="700" width="120" height="30" />
+    <rect x="450" y="740" width="120" height="30" />
+    <rect x="450" y="780" width="120" height="30" />
+    <rect x="450" y="820" width="120" height="30" />
+  </g>
+  <g class="text-bold" text-anchor="middle">
+    <text x="510" y="560">Timer</text>
+    <text x="510" y="600">PLIC</text>
+    <text x="510" y="640">GPIO A</text>
+    <text x="510" y="680">GPIO B</text>
+    <text x="510" y="720">GPIO C</text>
+    <text x="510" y="760">SPI</text>
+    <text x="510" y="800">I2C</text>
+    <text x="510" y="840">UART</text>
+  </g>
+
+  <!-- Connect Forward bus & PSEL to each peripheral -->
+  <g class="line">
+    <path d="M 280 548 L 450 548" marker-end="url(#arrow)" />
+    <path d="M 280 588 L 450 588" marker-end="url(#arrow)" />
+    <path d="M 280 628 L 450 628" marker-end="url(#arrow)" />
+    <path d="M 280 668 L 450 668" marker-end="url(#arrow)" />
+    <path d="M 280 708 L 450 708" marker-end="url(#arrow)" />
+    <path d="M 280 748 L 450 748" marker-end="url(#arrow)" />
+    <path d="M 280 788 L 450 788" marker-end="url(#arrow)" />
+    <path d="M 280 828 L 450 828" marker-end="url(#arrow)" />
+  </g>
+  <g class="text-small">
+    <text x="285" y="544">PSEL_0</text>
+    <text x="285" y="584">PSEL_1</text>
+    <text x="285" y="624">PSEL_2</text>
+    <text x="285" y="664">PSEL_3</text>
+    <text x="285" y="704">PSEL_4</text>
+    <text x="285" y="744">PSEL_5</text>
+    <text x="285" y="784">PSEL_6</text>
+    <text x="285" y="824">PSEL_7</text>
+  </g>
+
+  <g class="bus-line">
+    <path d="M 160 562 L 450 562" marker-end="url(#arrowBus)" />
+    <path d="M 160 602 L 450 602" marker-end="url(#arrowBus)" />
+    <path d="M 160 642 L 450 642" marker-end="url(#arrowBus)" />
+    <path d="M 160 682 L 450 682" marker-end="url(#arrowBus)" />
+    <path d="M 160 722 L 450 722" marker-end="url(#arrowBus)" />
+    <path d="M 160 762 L 450 762" marker-end="url(#arrowBus)" />
+    <path d="M 160 802 L 450 802" marker-end="url(#arrowBus)" />
+    <path d="M 160 842 L 450 842" marker-end="url(#arrowBus)" />
+  </g>
+
+  <!-- PRDATA Mux -->
+  <polygon points="770,540 830,570 830,830 770,860" class="mux" />
+  <text x="800" y="880" class="text-bold" text-anchor="middle">PRDATA MUX</text>
+
+  <!-- PRDATA Lines into MUX -->
+  <g class="bus-line">
+    <path d="M 570 555 L 770 555" marker-end="url(#arrowBus)" />
+    <path d="M 570 595 L 770 595" marker-end="url(#arrowBus)" />
+    <path d="M 570 635 L 770 635" marker-end="url(#arrowBus)" />
+    <path d="M 570 675 L 770 675" marker-end="url(#arrowBus)" />
+    <path d="M 570 715 L 770 715" marker-end="url(#arrowBus)" />
+    <path d="M 570 755 L 770 755" marker-end="url(#arrowBus)" />
+    <path d="M 570 795 L 770 795" marker-end="url(#arrowBus)" />
+    <path d="M 570 835 L 770 835" marker-end="url(#arrowBus)" />
+  </g>
+
+  <!-- PRDATA Mux Output to Bridge -->
+  <path d="M 830 700 L 950 700 L 950 250 L 910 250" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="900" y="690" class="text-bold" text-anchor="middle">PRDATA</text>
+
+</svg>
