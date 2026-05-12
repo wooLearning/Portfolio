@@ -43,41 +43,20 @@
 | **02** | [**Full-Custom IC 설계**](./02_full-custom-ic-design) | 2024.07~08 | `Cadence` `Virtuoso` `LVS/DRC`|
 | **01** | [**IoT 출입제어 (캡스톤)**](./01_iot-capstone-design) 🏆장려상 | 2021.06~07 | `Python` `Raspberry Pi` |
 
-## 🔧 RTL / FPGA 설계 포트폴리오 흐름
-> RTL 설계 역량이 드러나는 프로젝트를 학습/설계 난이도 흐름에 맞춰 묶었습니다.
+## 🧭 분야별 포트폴리오 맵
+> 전체 프로젝트를 직무 역량 축으로 다시 묶었습니다.
 
-| 단계 | 프로젝트 | 보여주는 역량 |
+| 분야 | 대표 프로젝트 | 보여주는 역량 |
 |---|---|---|
-| 1 | [Verilog FIR Filter](./04_verilog-fir-filter) | FIR datapath, FSM, coefficient memory, ModelSim/Vivado 기반 RTL 검증 |
-| 2 | [FPGA Video Filtering](./14_fpga-video-filtering) | streaming image pipeline, 3x3 window/convolution, buffer control, CDC, FPGA board 동작 |
-| 3 | [AXI4 to APB Bridge IP Design](./15_axi2apb-bridge) | 학부연구인턴 RTL 설계, AXI burst 분해, APB wait-state, slave decoding |
-| 4 | [UVM Basic Verification Lab](./17_uvm-basic) | Adder/RAM/FIFO UVM testbench, scoreboard, functional coverage, SVA, VCS/Verdi 검증 흐름 |
-| 5 | [RISC-V AXI UART Bootloader MCU](./18_risc-axi-uart-bootloader) | RV32I SoC, AXI-Lite/APB/AXI-Stream DMA, UART bootloader, SRAM-loaded C firmware 개발 루프 |
+| **HW / RTL / Verification** | [RISC-V AXI UART Bootloader MCU](./18_risc-axi-uart-bootloader), [UVM Basic Verification Lab](./17_uvm-basic), [AXI4 to APB Bridge](./15_axi2apb-bridge), [FPGA Video Filtering](./14_fpga-video-filtering), [Verilog FIR Filter](./04_verilog-fir-filter) | RV32I SoC, AMBA bus, streaming datapath, FPGA bring-up, UVM/scoreboard/coverage 기반 RTL 검증 |
+| **Embedded / Firmware** | [RISC-V AXI UART Bootloader MCU](./18_risc-axi-uart-bootloader), [FPGA Video Filtering](./14_fpga-video-filtering), [Embedded SW](./06_embedded-sw-stm32), [STM32 Elevator](./03_stm32-mini-elevator), [ARM Assembly Optimization](./12_arm-assembly-optimization) | bare-metal C, bootloader, linker/startup, MCU control, HW/SW co-design |
+| **SW / Algorithm** | [AGV Path Planning](./11_agv-path-planning), [xv6 Kernel Implementation](./10_xv6-kernel-implementation), [SIC/XE Assembler Simulator](./09_sic-xe-assembler-simulator), [FPGA Automation Toolkit](./16_fpga-auto-project) | path planning, OS/kernel, assembler/simulator, workflow automation |
+| **Circuit / Process** | [PCB Design & OrCAD](./13_pcb-design-orcad), [Semiconductor Display Process](./05_semiconductor-display-process), [Full-Custom IC Design](./02_full-custom-ic-design) | schematic/PCB, process understanding, Virtuoso layout, LVS/DRC |
 
 ## 🌟 핵심 프로젝트 상세 (Featured Projects)
-> 주요 프로젝트 5가지입니다.
+> 대표성이 뚜렷한 프로젝트 3가지입니다.
 
-### 1. RISC-V AXI UART Bootloader MCU
-*Custom RV32I SoC에 AXI-Lite/APB peripheral과 ROM UART bootloader를 통합하고, PC에서 빌드한 C firmware를 SRAM에 다운로드해 실행하는 FPGA MCU 프로젝트*
-- **기간**: 2026.05
-- **기술**: `SystemVerilog`, `RV32I`, `AXI-Lite`, `APB`, `AXI-Stream DMA`, `UART/SPI`, `RISC-V GCC`
-- **핵심 기여**:
-  - ROM 고정 bootloader와 executable SRAM fetch path를 구현해 bitstream 재생성 없이 RAM application을 반복 실행하는 구조 구축
-  - AXI-Lite/APB control path와 AXI-Stream DMA image path를 분리하고 UART/SPI/GPIO/PLIC-lite peripheral을 SoC에 통합
-  - custom linker script, startup code, UART loader packet, Python downloader, Vivado simulation/timing 검증 흐름을 end-to-end로 정리
-- ➡️ **[👉 상세 문서 및 산출물 보기](./18_risc-axi-uart-bootloader)**
-
-### 2. UVM Basic Verification Lab
-*Adder, RAM, FIFO 기본 RTL 블록을 대상으로 UVM testbench, scoreboard, coverage, SVA를 구성한 검증 실습 프로젝트*
-- **기간**: 2026.05
-- **기술**: `SystemVerilog`, `UVM`, `VCS`, `Verdi`, `Functional Coverage`, `SVA`
-- **핵심 기여**:
-  - Adder/RAM/FIFO별 DUT 특성에 맞춰 sequence, driver, monitor, scoreboard reference model을 분리 구성
-  - RAM/FIFO 상태 기반 검증을 위해 reference memory/queue model과 functional coverage, interface assertion을 함께 적용
-  - Verdi waveform, UVM result summary, coverage 화면을 PDF 보고서와 포트폴리오 README 산출물로 정리
-- ➡️ **[👉 상세 문서 및 산출물 보기](./17_uvm-basic)**
-
-### 3. FPGA Video Filtering 가속기 설계
+### 1. FPGA Video Filtering 가속기 설계
 *카메라 실시간 입력(Streaming image)을 받아 CNN 1-Layer 연산을 FPGA 하드웨어로 가속하여 디스플레이하는 HW/SW Co-design 프로젝트*
 - **기간**: 2025.09 ~ 2025.11
 - **기술**: `Verilog HDL`, `Ultra96-V2(Zynq)`, `C (MCU Control)`
@@ -86,7 +65,7 @@
   - CDC(Clock Domain Crossing) 및 카메라 입력과 LCD 출력 간 sync mismatch를 해소하기 위한 buffer/sync logic 개선 완료
 - ➡️ **[👉 상세 문서 및 트러블슈팅 보기](./14_fpga-video-filtering)**
 
-### 4. AGV Path Planning & Deadlock Resolution (🏆 형남과학상 동상)
+### 2. AGV Path Planning & Deadlock Resolution (🏆 형남과학상 동상)
 *물류 창고 등 과밀 환경의 AGV간 교착상태 탐지 및 경로 최적화 시뮬레이터*
 - **기간**: 2025.03 ~ 2025.11
 - **사용 기술**: `C`, `A* / D* Lite`, `Tarjan's SCC Algorithm`
@@ -95,7 +74,7 @@
   - 실제 주차장 및 확장 맵 환경에서 교착 발생을 회피하고 고밀도 운용 환경의 연산 효율 검증 완료
 - ➡️ **[👉 데모 및 상세 보기](./11_agv-path-planning)**
 
-### 5. AXI4 to APB Bridge IP Design (인턴십)
+### 3. AXI4 to APB Bridge IP Design (인턴십)
 *High-speed AXI 트랜잭션을 저속 APB 버스로 안정적으로 변환하는 브릿지 회로 설계*
 - **기간**: 2026.01 / **역할**: 하드웨어 설계 인턴
 - **기술**: `Verilog`, `AMBA Protocol`
