@@ -25,7 +25,7 @@
 | # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) |
 |:---:|---|:---:|---|
 | **19** | [**RISC_AXI Mini MCU Project**](./19_risc-axi-mini-mcu) | 2026.05 | `SystemVerilog` `RISC-V` `AXI/APB` `DMA` |
-| **18** | [**SeoulTechEdu: Verilog & SystemVerilog Project Archive**](./18_seoultechedu-verilog-systemverilog) | 2026.03 | `Verilog` `SystemVerilog` `Verification`|
+| **18** | [**Verilog & SystemVerilog Design Archive**](./18_verilog-systemverilog-design-archive) | 2026.03 | `Verilog` `SystemVerilog` `Verification`|
 | **17** | [**AGV Refactoring Simulator**](./17_agv-refactoring) | 2026.03 | `C++` `algorithm` |
 | **16** | [**FPGA Automation Toolkit 개발**](./16_fpga-auto-project) | 2026.02~03 | `Batch` `Vivado` `Python`|
 | **15** | [**AXI4 to APB Bridge IP Design (인턴십)**](./15_axi2apb-bridge) | 2026.01 | `Verilog` `AMBA` |
@@ -43,6 +43,17 @@
 | **03** | [**STM32 미니 엘리베이터 컨트롤러**](./03_stm32-mini-elevator) | 2024.08~11 | `C` `Motor Control` |
 | **02** | [**Full-Custom IC 설계**](./02_full-custom-ic-design) | 2024.07~08 | `Cadence` `Virtuoso` `LVS/DRC`|
 | **01** | [**IoT 출입제어 (캡스톤)**](./01_iot-capstone-design) 🏆장려상 | 2021.06~07 | `Python` `Raspberry Pi` |
+
+## 🔧 RTL / FPGA 설계 포트폴리오 흐름
+> RTL 설계 역량이 드러나는 프로젝트를 학습/설계 난이도 흐름에 맞춰 묶었습니다.
+
+| 단계 | 프로젝트 | 보여주는 역량 |
+|---|---|---|
+| 1 | [Verilog FIR Filter](./04_verilog-fir-filter) | FIR datapath, FSM, coefficient memory, ModelSim/Vivado 기반 RTL 검증 |
+| 2 | [FPGA Video Filtering](./14_fpga-video-filtering) | streaming image pipeline, 3x3 window/convolution, buffer control, CDC, FPGA board 동작 |
+| 3 | [AXI4 to APB Bridge IP Design](./15_axi2apb-bridge) | 학부연구인턴 RTL 설계, AXI burst 분해, APB wait-state, slave decoding |
+| 4 | [RISC-V & SystemVerilog Design Archive](./18_verilog-systemverilog-design-archive) | RV32I multicycle/pipeline CPU, APB peripheral, SystemVerilog 검증 archive |
+| 5 | [RISC_AXI Mini MCU Project](./19_risc-axi-mini-mcu) | RV32I core, AXI-Lite/APB, AXI-Stream DMA, PLIC-lite interrupt, ROM firmware 통합 |
 
 ## 🌟 핵심 프로젝트 상세 (Featured Projects)
 > 주요 프로젝트 4가지입니다.
