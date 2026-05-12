@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#111827"/></marker><style>.title{font-family:Arial,Helvetica,sans-serif;font-size:30px;font-weight:700;fill:#111827}.subtitle{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#4b5563}.state ellipse{fill:#fff;stroke:#333;stroke-width:2.4}.state text{font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:700;fill:#111827}.edge{fill:none;stroke:#333;stroke-width:2.2}.edge-label{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#111827}.note{font-family:Arial,Helvetica,sans-serif;font-size:14px;fill:#374151}.frame{fill:#fff;stroke:#d1d5db;stroke-width:1.2}.branch{fill:#f9fafb;stroke:#cbd5e1;stroke-width:1.4;stroke-dasharray:6 6}.branch-label{font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;fill:#374151}</style></defs>
+<rect class="frame" x="1" y="1" width="1398" height="898"/>
+<text x="700" y="44" text-anchor="middle" class="title">I2C Master FSM</text>
+<text x="700" y="70" text-anchor="middle" class="subtitle">Project/risc_axi/src/peripheral/i2c/I2cMaster.sv</text>
+<rect class="branch" x="330" y="585" width="560" height="180" rx="10"/><text x="610" y="615" text-anchor="middle" class="branch-label">WRITE path</text>
+<rect class="branch" x="330" y="300" width="560" height="175" rx="10"/><text x="610" y="330" text-anchor="middle" class="branch-label">READ path</text>
+<path d="M 700 130 Q 906.63198205798 187.68209419560455 1120 210" class="edge" marker-end="url(#arrow)"/><text x="910" y="150" class="edge-label" text-anchor="middle"><tspan x="910" dy="0">iStart</tspan></text>
+<path d="M 1120 210 L 1120 395" class="edge" marker-end="url(#arrow)"/><text x="1200" y="292.5" class="edge-label" text-anchor="middle"><tspan x="1200" dy="0">wPhaseDone</tspan></text>
+<path d="M 1120 395 L 1120 610" class="edge" marker-end="url(#arrow)"/><text x="1206" y="492.5" class="edge-label" text-anchor="middle"><tspan x="1206" dy="0">last addr bit</tspan></text>
+<path d="M 1120 610 Q 861.9006446230958 630.2416094722355 610 690" class="edge" marker-end="url(#arrow)"/><text x="850" y="705" class="edge-label" text-anchor="middle"><tspan x="850" dy="0">ACK &amp;&amp; write</tspan></text>
+<path d="M 610 690 L 360 690" class="edge" marker-end="url(#arrow)"/><text x="485" y="666" class="edge-label" text-anchor="middle"><tspan x="485" dy="0">last data bit</tspan></text>
+<path d="M 360 690 Q 253.84640280557764 629.1278897796017 170 540" class="edge" marker-end="url(#arrow)"/><text x="235" y="650" class="edge-label" text-anchor="middle"><tspan x="235" dy="0">ACK sampled</tspan></text>
+<path d="M 1120 610 Q 857.078177771307 518.3642242574247 610 390" class="edge" marker-end="url(#arrow)"/><text x="875" y="465" class="edge-label" text-anchor="middle"><tspan x="875" dy="0">ACK &amp;&amp; read</tspan></text>
+<path d="M 610 390 L 360 390" class="edge" marker-end="url(#arrow)"/><text x="485" y="366" class="edge-label" text-anchor="middle"><tspan x="485" dy="0">last read bit</tspan></text>
+<path d="M 360 390 Q 253.84640280557764 450.8721102203983 170 540" class="edge" marker-end="url(#arrow)"/><text x="230" y="455" class="edge-label" text-anchor="middle"><tspan x="230" dy="0">NACK sent</tspan></text>
+<path d="M 1120 610 Q 651.3197093311652 489.2325162199008 170 540" class="edge" marker-end="url(#arrow)"/><text x="615" y="560" class="edge-label" text-anchor="middle"><tspan x="615" dy="0">!ACK</tspan></text>
+<path d="M 170 540 Q 227.59345497791762 358.8039902654957 250 170" class="edge" marker-end="url(#arrow)"/><text x="135" y="345" class="edge-label" text-anchor="middle"><tspan x="135" dy="0">stop done</tspan></text>
+<path d="M 250 170 Q 476.5937162251083 167.92930753246836 700 130" class="edge" marker-end="url(#arrow)"/><text x="475" y="128" class="edge-label" text-anchor="middle"><tspan x="475" dy="0">done pulse</tspan></text>
+<g class="state" transform="translate(700, 130)"><ellipse cx="0" cy="0" rx="104" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_IDLE</tspan></text></g>
+<g class="state" transform="translate(1120, 210)"><ellipse cx="0" cy="0" rx="104" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_START</tspan></text></g>
+<g class="state" transform="translate(1120, 395)"><ellipse cx="0" cy="0" rx="104" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_ADDR</tspan></text></g>
+<g class="state" transform="translate(1120, 610)"><ellipse cx="0" cy="0" rx="118" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_ADDR_ACK</tspan></text></g>
+<g class="state" transform="translate(610, 390)"><ellipse cx="0" cy="0" rx="126" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_READ_DATA</tspan></text></g>
+<g class="state" transform="translate(360, 390)"><ellipse cx="0" cy="0" rx="130" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_READ_NACK</tspan></text></g>
+<g class="state" transform="translate(610, 690)"><ellipse cx="0" cy="0" rx="138" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_WRITE_DATA</tspan></text></g>
+<g class="state" transform="translate(360, 690)"><ellipse cx="0" cy="0" rx="126" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_WRITE_ACK</tspan></text></g>
+<g class="state" transform="translate(170, 540)"><ellipse cx="0" cy="0" rx="104" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_STOP</tspan></text></g>
+<g class="state" transform="translate(250, 170)"><ellipse cx="0" cy="0" rx="104" ry="36"/><text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_DONE</tspan></text></g>
+<text x="700" y="862" text-anchor="middle" class="note">All timed protocol states advance on wPhaseDone; address ACK chooses write/read path, ACK failure goes to STOP.</text>
+</svg>

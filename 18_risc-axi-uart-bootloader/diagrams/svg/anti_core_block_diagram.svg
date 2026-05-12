@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="750" viewBox="0 0 1050 750" style="background:#ffffff; font-family: 'Noto Sans KR', Arial, sans-serif;">
+  <defs>
+    <style>
+      .line { fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: round; }
+      .bus-line { fill: none; stroke: #0f172a; stroke-width: 3; stroke-linejoin: round; }
+      .dashed { fill: none; stroke: #64748b; stroke-width: 1.5; stroke-dasharray: 6,4; }
+      .dash-box { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 10,6; }
+      .box { fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; rx: 4; }
+      .box-highlight { fill: #f1f5f9; stroke: #0f2b5b; stroke-width: 2; rx: 4; }
+      .mux { fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: round; }
+      .text-title { font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .text-bold { font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .text { font-size: 13px; fill: #334155; }
+      .text-small { font-size: 12px; font-weight: 600; fill: #64748b; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+    <marker id="arrowBus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+
+  <text x="525" y="40" class="text-title" text-anchor="middle">Figure 2. RV32I Pipeline Core Architecture (Logic Schematic Style)</text>
+
+  <!-- Main Core Box -->
+  <rect x="40" y="80" width="970" height="630" class="dash-box" />
+  <text x="50" y="105" class="text-bold">RV32 Pipeline Core</text>
+
+  <!-- External Interfaces -->
+  <path d="M 10 180 L 100 180" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="55" y="170" class="text-bold" text-anchor="middle">IBus</text>
+
+  <!-- DBus from Memory Stage -->
+  <path d="M 690 130 L 690 80 L 1010 80" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="965" y="70" class="text-bold" text-anchor="middle">DBus</text>
+
+  <!-- Stages -->
+  <rect x="100" y="130" width="100" height="100" class="box" />
+  <text x="150" y="175" class="text-bold" text-anchor="middle">Fetch</text>
+  <text x="150" y="195" class="text-small" text-anchor="middle">(PC, IF)</text>
+  <text x="150" y="215" class="text-small" fill="#0f2b5b" text-anchor="middle">+ BTB</text>
+
+  <rect x="280" y="130" width="100" height="100" class="box" />
+  <text x="330" y="175" class="text-bold" text-anchor="middle">Decode</text>
+  <text x="330" y="195" class="text-small" text-anchor="middle">(Control)</text>
+
+  <rect x="460" y="130" width="100" height="100" class="box" />
+  <text x="510" y="175" class="text-bold" text-anchor="middle">Execute</text>
+  <text x="510" y="195" class="text-small" text-anchor="middle">(ALU)</text>
+
+  <rect x="640" y="130" width="100" height="100" class="box" />
+  <text x="690" y="175" class="text-bold" text-anchor="middle">Memory</text>
+  <text x="690" y="195" class="text-small" text-anchor="middle">(Ld/St)</text>
+
+  <rect x="820" y="130" width="100" height="100" class="box" />
+  <text x="870" y="175" class="text-bold" text-anchor="middle">Writeback</text>
+  <text x="870" y="195" class="text-small" text-anchor="middle">(Wb Sel)</text>
+
+  <!-- Pipeline Registers -->
+  <rect x="230" y="110" width="20" height="140" class="box-highlight" />
+  <text x="240" y="100" class="text-bold" text-anchor="middle">IF/ID</text>
+
+  <rect x="410" y="110" width="20" height="140" class="box-highlight" />
+  <text x="420" y="100" class="text-bold" text-anchor="middle">ID/EX</text>
+
+  <rect x="590" y="110" width="20" height="140" class="box-highlight" />
+  <text x="600" y="100" class="text-bold" text-anchor="middle">EX/MEM</text>
+
+  <rect x="770" y="110" width="20" height="140" class="box-highlight" />
+  <text x="780" y="100" class="text-bold" text-anchor="middle">MEM/WB</text>
+
+  <!-- Internal Datapath Flow -->
+  <path d="M 200 180 L 230 180" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 250 180 L 280 180" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 380 180 L 410 180" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 430 180 L 460 180" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 560 180 L 590 180" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 610 180 L 640 180" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 740 180 L 770 180" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 790 180 L 820 180" class="bus-line" marker-end="url(#arrowBus)" />
+
+  <!-- Support Units -->
+  <rect x="100" y="300" width="100" height="50" class="box" />
+  <text x="150" y="330" class="text-bold" text-anchor="middle">Hazard Unit</text>
+
+  <!-- Hazard Unit Connections -->
+  <path d="M 150 300 L 150 285 L 130 285 L 130 230" class="dashed" marker-end="url(#arrow)" />
+  <text x="110" y="260" class="text-small" text-anchor="middle">Stall</text>
+
+  <rect x="280" y="300" width="100" height="50" class="box" />
+  <text x="330" y="330" class="text-bold" text-anchor="middle">Pipe Control</text>
+
+  <!-- Pipe Control Connections -->
+  <path d="M 350 230 L 350 300" class="dashed" marker-end="url(#arrow)" />
+  <text x="385" y="270" class="text-small" text-anchor="middle">Opcode</text>
+
+  <!-- Pipe Control Flush/Hold -->
+  <path d="M 330 300 L 330 280 L 150 280 L 150 230" class="dashed" marker-end="url(#arrow)" />
+  <path d="M 150 280 L 780 280" class="dashed" />
+  <path d="M 240 280 L 240 250" class="dashed" marker-end="url(#arrow)" />
+  <path d="M 420 280 L 420 250" class="dashed" marker-end="url(#arrow)" />
+  <path d="M 600 280 L 600 250" class="dashed" marker-end="url(#arrow)" />
+  <path d="M 780 280 L 780 250" class="dashed" marker-end="url(#arrow)" />
+  <text x="500" y="270" class="text-small" text-anchor="middle">Flush / Hold</text>
+
+  <rect x="460" y="300" width="100" height="50" class="box" />
+  <text x="510" y="330" class="text-bold" text-anchor="middle">Forward Unit</text>
+
+  <!-- Register File & CSR -->
+  <rect x="280" y="450" width="100" height="50" class="box" />
+  <text x="330" y="480" class="text-bold" text-anchor="middle">Register File</text>
+
+  <rect x="460" y="450" width="100" height="50" class="box" />
+  <text x="510" y="480" class="text-bold" text-anchor="middle">CSR File</text>
+
+  <!-- Machine Interrupt Controller -->
+  <rect x="100" y="630" width="160" height="50" class="box" />
+  <text x="180" y="655" class="text-bold" text-anchor="middle">Machine IRQ</text>
+  <text x="180" y="670" class="text-small" text-anchor="middle">Controller</text>
+
+  <path d="M 10 655 L 100 655" class="line" marker-end="url(#arrow)" />
+  <text x="55" y="645" class="text-bold" text-anchor="middle">IRQ Sources</text>
+
+  <path d="M 260 655 L 300 655" class="line" marker-end="url(#arrow)" />
+  <text x="280" y="645" class="text-small" text-anchor="middle">MEIP</text>
+
+  <!-- Trap Controller -->
+  <rect x="300" y="630" width="620" height="50" class="box-highlight" />
+  <text x="610" y="660" class="text-bold" text-anchor="middle">Trap Controller (Exceptions &amp; Interrupts)</text>
+
+  <!-- Trap to Pipe Control -->
+  <path d="M 350 630 L 350 350" class="dashed" marker-end="url(#arrow)" />
+  <text x="385" y="500" class="text-small" text-anchor="middle">Redirect</text>
+
+  <!-- Forwarding Lines -->
+  <path d="M 600 250 L 600 380 L 530 380 L 530 350" class="dashed" marker-end="url(#arrow)" />
+  <path d="M 780 250 L 780 400 L 490 400 L 490 350" class="dashed" marker-end="url(#arrow)" />
+  <path d="M 510 300 L 510 230" class="dashed" marker-end="url(#arrow)" />
+  <text x="530" y="270" class="text-small" text-anchor="middle">FWD A/B</text>
+
+  <!-- Writeback Data Line -->
+  <!-- Fixed overlap: Text goes ABOVE the line, arrow correctly points into Register File bottom -->
+  <path d="M 870 230 L 870 530 L 330 530 L 330 500" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="700" y="520" class="text-small" text-anchor="middle">Writeback Data</text>
+
+  <!-- Execute <-> CSR File -->
+  <path d="M 460 210 L 440 210 L 440 460 L 460 460" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 460 480 L 420 480 L 420 190 L 460 190" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="390" y="335" class="text-small" text-anchor="middle">CSR R/W</text>
+
+  <path d="M 330 450 L 330 380 L 260 380 L 260 270 L 310 270 L 310 230" class="bus-line" marker-end="url(#arrowBus)" />
+  <text x="285" y="375" class="text-small" text-anchor="middle">Rs1/Rs2</text>
+
+  <!-- Trap to CSR -->
+  <path d="M 560 630 L 560 475" class="dashed" marker-end="url(#arrow)" />
+  <text x="620" y="560" class="text-small" text-anchor="middle">Status / PC Redirect</text>
+
+</svg>

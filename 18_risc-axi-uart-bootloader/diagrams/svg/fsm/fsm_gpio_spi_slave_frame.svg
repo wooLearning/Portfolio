@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111827"/>
+    </marker>
+    <style>
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 30px; font-weight: 700; fill: #111827; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #4b5563; }
+      .state ellipse { fill: #ffffff; stroke: #333333; stroke-width: 2.4; }
+      .state text { font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .edge { fill: none; stroke: #333333; stroke-width: 2.2; }
+      .edge-label { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #111827; }
+      .note { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #374151; }
+      .frame { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.2; }
+    </style>
+  </defs>
+  <rect class="frame" x="1" y="1" width="1198" height="758"/>
+  <text x="600" y="44" text-anchor="middle" class="title">GPIO SPI Slave Frame FSM</text>
+  <text x="600" y="70" text-anchor="middle" class="subtitle">final_source/src/slave/GpioSpiSlaveTop.sv</text>
+  
+      <path d="M 600 130 Q 742.556103337225 300.53960654729576 930 420" class="edge" marker-end="url(#arrow)"/>
+      <text x="765" y="247" class="edge-label" text-anchor="middle"><tspan x="765" dy="0">rx byte == 0x55</tspan></text>
+
+      <path d="M 600 130 Q 600 130 600 130" class="edge" marker-end="url(#arrow)"/>
+      <text x="600" y="60" class="edge-label" text-anchor="middle"><tspan x="600" dy="0">bad header</tspan></text>
+
+      <path d="M 930 420 Q 600 380 270 420" class="edge" marker-end="url(#arrow)"/>
+      <text x="600" y="462" class="edge-label" text-anchor="middle"><tspan x="600" dy="0">low byte received</tspan></text>
+
+      <path d="M 270 420 Q 457.4438966627751 300.53960654729576 600 130" class="edge" marker-end="url(#arrow)"/>
+      <text x="435" y="247" class="edge-label" text-anchor="middle"><tspan x="435" dy="0">high byte received</tspan></text>
+  
+      <g class="state" transform="translate(600, 130)">
+        <ellipse cx="0" cy="0" rx="140" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_WAIT_HEADER</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(930, 420)">
+        <ellipse cx="0" cy="0" rx="120" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_RECV_LOW</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(270, 420)">
+        <ellipse cx="0" cy="0" rx="130" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_RECV_HIGH</tspan></text>
+      </g>
+  <text x="600" y="732" text-anchor="middle" class="note">Frame parser persists across byte CS assertions: header, low byte, high byte.</text>
+</svg>

@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="900" viewBox="0 0 1100 900" style="background:#ffffff; font-family: 'Noto Sans KR', Arial, sans-serif;">
+  <defs>
+    <style>
+      .line { fill: none; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: round; }
+      .bus-line { fill: none; stroke: #0f172a; stroke-width: 3; stroke-linejoin: round; }
+      .dashed { fill: none; stroke: #64748b; stroke-width: 1.5; stroke-dasharray: 6,4; }
+      .dash-box { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 10,6; }
+      .box { fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; rx: 4; }
+      .box-highlight { fill: #f1f5f9; stroke: #0f2b5b; stroke-width: 2; rx: 4; }
+      .mux { fill: #ffffff; stroke: #0f172a; stroke-width: 1.5; stroke-linejoin: round; }
+      .text-title { font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .text-bold { font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .text { font-size: 13px; fill: #334155; }
+      .text-small { font-size: 12px; font-weight: 600; fill: #64748b; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+    <marker id="arrowBus" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f172a"/>
+    </marker>
+    <polygon id="ioPad" points="0,0 20,-10 20,40 0,30" class="box" />
+  </defs>
+
+  <text x="550" y="40" class="text-title" text-anchor="middle">Figure 4. Detailed Peripheral Internal Architecture (Datasheet Style)</text>
+
+  <!-- ==================== UART SUBSYSTEM ==================== -->
+  <rect x="40" y="80" width="480" height="360" class="dash-box" />
+  <text x="50" y="105" class="text-bold">UART Subsystem</text>
+
+  <!-- APB Slave I/F & CSRs (Horizontal text) -->
+  <rect x="60" y="130" width="80" height="280" class="box-highlight" />
+  <text x="100" y="250" class="text-bold" text-anchor="middle">APB I/F</text>
+  <text x="100" y="270" class="text-bold" text-anchor="middle">&amp; CSRs</text>
+
+  <rect x="200" y="150" width="120" height="50" class="box" />
+  <text x="260" y="180" class="text-bold" text-anchor="middle">Baud Gen</text>
+
+  <rect x="200" y="230" width="120" height="50" class="box" />
+  <text x="260" y="260" class="text-bold" text-anchor="middle">TX FSM</text>
+
+  <rect x="360" y="230" width="120" height="50" class="box" />
+  <text x="420" y="260" class="text-bold" text-anchor="middle">TX Shift Reg</text>
+
+  <rect x="200" y="330" width="120" height="50" class="box" />
+  <text x="260" y="360" class="text-bold" text-anchor="middle">RX FSM</text>
+
+  <rect x="360" y="330" width="120" height="50" class="box" />
+  <text x="420" y="360" class="text-bold" text-anchor="middle">RX Shift Reg</text>
+
+  <!-- Routing -->
+  <path d="M 140 175 L 200 175" class="line" marker-end="url(#arrow)" />
+  <text x="170" y="165" class="text-small" text-anchor="middle">Div</text>
+
+  <path d="M 140 255 L 200 255" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 320 255 L 360 255" class="bus-line" marker-end="url(#arrowBus)" />
+  
+  <path d="M 200 355 L 140 355" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 360 355 L 320 355" class="bus-line" marker-end="url(#arrowBus)" />
+
+  <path d="M 480 255 L 530 255" class="line" marker-end="url(#arrow)" />
+  <text x="510" y="245" class="text-bold" text-anchor="middle">TX</text>
+
+  <path d="M 530 355 L 480 355" class="line" marker-end="url(#arrow)" />
+  <text x="510" y="345" class="text-bold" text-anchor="middle">RX</text>
+
+
+  <!-- ==================== SPI SUBSYSTEM ==================== -->
+  <rect x="560" y="80" width="500" height="360" class="dash-box" />
+  <text x="570" y="105" class="text-bold">SPI Master Subsystem</text>
+
+  <rect x="580" y="130" width="80" height="280" class="box-highlight" />
+  <text x="620" y="250" class="text-bold" text-anchor="middle">APB I/F</text>
+  <text x="620" y="270" class="text-bold" text-anchor="middle">&amp; CSRs</text>
+
+  <rect x="700" y="150" width="120" height="50" class="box" />
+  <text x="760" y="180" class="text-bold" text-anchor="middle">SPI Clock Gen</text>
+
+  <rect x="700" y="280" width="120" height="50" class="box" />
+  <text x="760" y="310" class="text-bold" text-anchor="middle">SPI FSM</text>
+
+  <rect x="860" y="280" width="120" height="50" class="box" />
+  <text x="920" y="310" class="text-bold" text-anchor="middle">Shift Reg</text>
+
+  <!-- Routing -->
+  <path d="M 660 175 L 700 175" class="line" marker-end="url(#arrow)" />
+  <path d="M 660 305 L 700 305" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 820 305 L 860 305" class="bus-line" marker-end="url(#arrowBus)" />
+
+  <path d="M 820 175 L 1070 175" class="line" marker-end="url(#arrow)" />
+  <text x="1000" y="165" class="text-bold" text-anchor="middle">SCK</text>
+
+  <path d="M 980 295 L 1070 295" class="line" marker-end="url(#arrow)" />
+  <text x="1025" y="285" class="text-bold" text-anchor="middle">MOSI</text>
+
+  <path d="M 1070 315 L 980 315" class="line" marker-end="url(#arrow)" />
+  <text x="1025" y="335" class="text-bold" text-anchor="middle">MISO</text>
+
+
+  <!-- ==================== I2C SUBSYSTEM ==================== -->
+  <rect x="40" y="480" width="480" height="360" class="dash-box" />
+  <text x="50" y="505" class="text-bold">I2C Master Subsystem</text>
+
+  <rect x="60" y="530" width="80" height="280" class="box-highlight" />
+  <text x="100" y="650" class="text-bold" text-anchor="middle">APB I/F</text>
+  <text x="100" y="670" class="text-bold" text-anchor="middle">&amp; CSRs</text>
+
+  <rect x="200" y="560" width="120" height="50" class="box" />
+  <text x="260" y="590" class="text-bold" text-anchor="middle">SCL Gen</text>
+
+  <rect x="200" y="720" width="120" height="50" class="box" />
+  <text x="260" y="750" class="text-bold" text-anchor="middle">I2C FSM</text>
+
+  <rect x="360" y="720" width="120" height="50" class="box" />
+  <text x="420" y="750" class="text-bold" text-anchor="middle">SDA Shift</text>
+
+  <path d="M 140 585 L 200 585" class="line" marker-end="url(#arrow)" />
+  <path d="M 140 745 L 200 745" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 320 745 L 360 745" class="bus-line" marker-end="url(#arrowBus)" />
+
+  <path d="M 320 585 L 530 585" class="line" marker-end="url(#arrow)" />
+  <text x="450" y="575" class="text-bold" text-anchor="middle">SCL</text>
+
+  <path d="M 480 745 L 530 745" class="line" marker-end="url(#arrow)" />
+  <text x="500" y="735" class="text-bold" text-anchor="middle">SDA</text>
+
+
+  <!-- ==================== GPIO SUBSYSTEM ==================== -->
+  <rect x="560" y="480" width="500" height="360" class="dash-box" />
+  <text x="570" y="505" class="text-bold">GPIO Subsystem</text>
+
+  <rect x="580" y="530" width="80" height="280" class="box-highlight" />
+  <text x="620" y="650" class="text-bold" text-anchor="middle">APB I/F</text>
+  <text x="620" y="670" class="text-bold" text-anchor="middle">&amp; CSRs</text>
+
+  <rect x="700" y="540" width="120" height="40" class="box" />
+  <text x="760" y="565" class="text-bold" text-anchor="middle">DIR Reg</text>
+
+  <rect x="700" y="600" width="120" height="40" class="box" />
+  <text x="760" y="625" class="text-bold" text-anchor="middle">OUT Reg</text>
+
+  <rect x="700" y="660" width="120" height="40" class="box" />
+  <text x="760" y="685" class="text-bold" text-anchor="middle">PULL Reg</text>
+
+  <rect x="700" y="720" width="120" height="40" class="box" />
+  <text x="760" y="745" class="text-bold" text-anchor="middle">IN Reg</text>
+
+  <rect x="850" y="720" width="100" height="40" class="box" />
+  <text x="900" y="745" class="text-bold" text-anchor="middle">Sync</text>
+
+  <path d="M 660 560 L 700 560" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 660 620 L 700 620" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 660 680 L 700 680" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 700 740 L 660 740" class="bus-line" marker-end="url(#arrowBus)" />
+  <path d="M 850 740 L 820 740" class="bus-line" marker-end="url(#arrowBus)" />
+
+  <!-- IO Pad Buffer Component -->
+  <rect x="980" y="590" width="40" height="60" class="box-highlight" />
+  <text x="1000" y="670" class="text-small" text-anchor="middle">IO Pad Buffer</text>
+
+  <path d="M 820 560 L 960 560 L 960 600 L 980 600" class="line" marker-end="url(#arrow)" />
+  <text x="940" y="550" class="text-small" text-anchor="middle">OE</text>
+
+  <path d="M 820 620 L 980 620" class="line" marker-end="url(#arrow)" />
+  <text x="900" y="610" class="text-small" text-anchor="middle">Data Out</text>
+
+  <path d="M 1000 650 L 1000 740 L 950 740" class="line" marker-end="url(#arrow)" />
+
+  <path d="M 1020 620 L 1070 620" class="line" marker-end="url(#arrow)" />
+  <text x="1045" y="610" class="text-bold" text-anchor="middle">IO Pin</text>
+
+</svg>

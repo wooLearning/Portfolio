@@ -36,6 +36,7 @@
 - **Simulation Code**: `agv_simul.c`
 - **Paper**: 졸업논문 (AGV 경로 계획 알고리즘 비교 및 최적화)
 - **Executable**: `agv_simul.exe`
+- **Study Repo**: [AGV_REFACTORING](https://github.com/BUJH99/AGV_REFACTORING) - C++/Electron 구조 리팩토링 학습용 외부 저장소
 
 ## 5. 💡 배운 점 및 개선 방향 (Lessons Learned)
 - **언어 선택의 한계와 고차원 제어에 대한 고찰**: 전자공학도로서 로우레벨 제어와 MCU 최적화를 염두에 두고 C언어로 알고리즘과 시뮬레이터를 모두 설계했습니다. 하지만 다중 에이전트 환경이나 복잡한 경로 탐색 같은 고수준의 알고리즘을 제어해본 결과, 객체지향이 더 강력한 C++ 계열이나 연구 효율이 높은 Python이 더 적합했을 것이란 점을 깨달았습니다.

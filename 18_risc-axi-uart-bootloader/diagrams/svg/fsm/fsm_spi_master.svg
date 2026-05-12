@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111827"/>
+    </marker>
+    <style>
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 30px; font-weight: 700; fill: #111827; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #4b5563; }
+      .state ellipse { fill: #ffffff; stroke: #333333; stroke-width: 2.4; }
+      .state text { font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .edge { fill: none; stroke: #333333; stroke-width: 2.2; }
+      .edge-label { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #111827; }
+      .note { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #374151; }
+      .frame { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.2; }
+    </style>
+  </defs>
+  <rect class="frame" x="1" y="1" width="1198" height="758"/>
+  <text x="600" y="44" text-anchor="middle" class="title">SPI Master FSM</text>
+  <text x="600" y="70" text-anchor="middle" class="subtitle">Project/risc_axi/src/peripheral/spi/SpiMaster.sv</text>
+  
+      <path d="M 600 115 Q 764.2832708221663 213.367966980978 950 260" class="edge" marker-end="url(#arrow)"/>
+      <text x="775" y="163.5" class="edge-label" text-anchor="middle"><tspan x="775" dy="0">iStart</tspan></text>
+
+      <path d="M 950 260 Q 875.179273584724 401.47122993276906 830 555" class="edge" marker-end="url(#arrow)"/>
+      <text x="932" y="397.5" class="edge-label" text-anchor="middle"><tspan x="932" dy="0">wClkTick</tspan></text>
+
+      <path d="M 830 555 Q 600 585 370 555" class="edge" marker-end="url(#arrow)"/>
+      <text x="600" y="593" class="edge-label" text-anchor="middle"><tspan x="600" dy="0">rFrameDone &amp;&amp; wTrailEdge</tspan></text>
+
+      <path d="M 370 555 Q 324.820726415276 401.47122993276906 250 260" class="edge" marker-end="url(#arrow)"/>
+      <text x="268" y="397.5" class="edge-label" text-anchor="middle"><tspan x="268" dy="0">wClkTick</tspan></text>
+
+      <path d="M 250 260 Q 435.7167291778337 213.367966980978 600 115" class="edge" marker-end="url(#arrow)"/>
+      <text x="425" y="163.5" class="edge-label" text-anchor="middle"><tspan x="425" dy="0">one-cycle done</tspan></text>
+  
+      <g class="state" transform="translate(600, 115)">
+        <ellipse cx="0" cy="0" rx="96" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_IDLE</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(950, 260)">
+        <ellipse cx="0" cy="0" rx="112" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_ASSERT_CS</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(830, 555)">
+        <ellipse cx="0" cy="0" rx="118" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_TRANSFER</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(370, 555)">
+        <ellipse cx="0" cy="0" rx="122" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_FRAME_END</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(250, 260)">
+        <ellipse cx="0" cy="0" rx="96" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_DONE</tspan></text>
+      </g>
+  <text x="600" y="732" text-anchor="middle" class="note">Single byte SPI master. CPOL/CPHA select lead/trail sample and shift edges.</text>
+</svg>

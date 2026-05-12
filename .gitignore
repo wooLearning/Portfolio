@@ -16,10 +16,6 @@ Resume_en.pdf
 trash/
 tmp/
 
-# Local project archives
-18_*/
-19_*/
-
 # Local temp data
 .tmp/
 tmp_experience_summary.csv

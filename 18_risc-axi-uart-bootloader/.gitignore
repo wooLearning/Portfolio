@@ -1,0 +1,39 @@
+# Build and simulator outputs
+*.jou
+*.log
+*.wdb
+*.vcd
+*.fst
+*.pb
+*.str
+*.rpt
+*.dcp
+*.ltx
+*.xpr
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.gen/
+*.srcs/
+*.data/
+
+# Python/cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary outputs
+tmp/
+temp/
+build_outputs/
+output/
+outputs/
+

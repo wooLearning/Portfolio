@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760" style="background:#ffffff; font-family:'Noto Sans KR', Arial, sans-serif;">
+  <defs>
+    <style>
+      .frame { fill:#ffffff; stroke:#d8d8d8; stroke-width:1.4; }
+      .phase { fill:none; stroke:#c7c7c7; stroke-width:1.8; stroke-dasharray:10 6; rx:8; }
+      .head { fill:#ffffff; stroke:#222222; stroke-width:1.4; rx:5; }
+      .head-hi { fill:#ffffff; stroke:#333333; stroke-width:2; rx:5; }
+      .life { stroke:#c7c7c7; stroke-width:1.35; stroke-dasharray:6 5; }
+      .line { fill:none; stroke:#222222; stroke-width:1.55; marker-end:url(#arrow); }
+      .dash { fill:none; stroke:#666666; stroke-width:1.35; stroke-dasharray:6 5; marker-end:url(#arrowGray); }
+      .self { fill:none; stroke:#222222; stroke-width:1.45; stroke-linejoin:round; marker-end:url(#arrow); }
+      .tick { stroke:#333333; stroke-width:2; }
+      .tag { fill:#ffffff; stroke:#333333; stroke-width:1.2; rx:4; }
+      .title { font-size:22px; font-weight:800; fill:#222222; }
+      .subtitle { font-size:13px; fill:#555555; font-weight:500; }
+      .label { font-size:12.5px; font-weight:800; fill:#222222; }
+      .msg { font-size:11px; font-weight:600; fill:#444444; }
+      .note { font-size:12px; font-weight:600; fill:#666666; }
+      .phase-title { font-size:12px; font-weight:800; fill:#333333; letter-spacing:.4px; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#222222"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#666666"/>
+    </marker>
+  </defs>
+
+  <rect x="18" y="18" width="1064" height="724" class="frame"/>
+  <text x="550" y="48" class="title" text-anchor="middle">Figure 4. RAM UVM Sequence and Synchronous Timing</text>
+  <text x="550" y="70" class="subtitle" text-anchor="middle">Write/read commands are sampled on the active clock edge; read data is checked after oRData settles.</text>
+
+  <rect x="48" y="98" width="1004" height="282" class="phase"/>
+  <text x="68" y="124" class="phase-title">WRITE CYCLE</text>
+  <rect x="48" y="405" width="1004" height="252" class="phase"/>
+  <text x="68" y="431" class="phase-title">READ CYCLE</text>
+
+  <rect x="62" y="146" width="104" height="40" class="head-hi"/>
+  <text x="114" y="171" class="label" text-anchor="middle">sequence</text>
+  <rect x="198" y="146" width="94" height="40" class="head-hi"/>
+  <text x="245" y="171" class="label" text-anchor="middle">driver</text>
+  <rect x="326" y="146" width="84" height="40" class="head"/>
+  <text x="368" y="171" class="label" text-anchor="middle">ram_if</text>
+  <rect x="444" y="146" width="82" height="40" class="head-hi"/>
+  <text x="485" y="171" class="label" text-anchor="middle">ram</text>
+  <rect x="560" y="146" width="96" height="40" class="head"/>
+  <text x="608" y="171" class="label" text-anchor="middle">monitor</text>
+  <rect x="690" y="146" width="116" height="40" class="head"/>
+  <text x="748" y="171" class="label" text-anchor="middle">scoreboard</text>
+  <rect x="832" y="146" width="82" height="40" class="head"/>
+  <text x="873" y="171" class="label" text-anchor="middle">SVA</text>
+  <rect x="942" y="146" width="86" height="40" class="head"/>
+  <text x="985" y="171" class="label" text-anchor="middle">coverage</text>
+
+  <line x1="114" y1="186" x2="114" y2="632" class="life"/>
+  <line x1="245" y1="186" x2="245" y2="632" class="life"/>
+  <line x1="368" y1="186" x2="368" y2="632" class="life"/>
+  <line x1="485" y1="186" x2="485" y2="632" class="life"/>
+  <line x1="608" y1="186" x2="608" y2="632" class="life"/>
+  <line x1="748" y1="186" x2="748" y2="632" class="life"/>
+  <line x1="873" y1="186" x2="873" y2="632" class="life"/>
+  <line x1="985" y1="186" x2="985" y2="632" class="life"/>
+
+  <rect x="56" y="278" width="126" height="24" class="tag"/>
+  <text x="119" y="294" class="msg" text-anchor="middle">posedge write</text>
+  <line x1="184" y1="290" x2="498" y2="290" class="tick"/>
+
+  <path d="M114 220 L245 220" class="line"/>
+  <text x="179" y="209" class="msg" text-anchor="middle">write addr 0</text>
+  <path d="M245 254 L368 254" class="line"/>
+  <text x="306" y="243" class="msg" text-anchor="middle">iCs=1, iWea=1</text>
+  <path d="M368 290 L485 290" class="line"/>
+  <text x="426" y="279" class="msg" text-anchor="middle">command sampled</text>
+  <path d="M485 316 C535 316 535 340 485 340" class="self"/>
+  <text x="560" y="312" class="msg" text-anchor="middle">memory write</text>
+  <path d="M608 352 L748 352" class="line"/>
+  <text x="678" y="346" class="msg" text-anchor="middle">write item -> model</text>
+  <path d="M608 372 L985 372" class="line"/>
+  <text x="796" y="361" class="msg" text-anchor="middle">sample write / address / data coverage</text>
+
+  <path d="M873 220 C932 220 932 246 873 246" class="self"/>
+  <text x="951" y="216" class="msg" text-anchor="middle">known control</text>
+
+  <rect x="56" y="516" width="126" height="24" class="tag"/>
+  <text x="119" y="532" class="msg" text-anchor="middle">posedge read</text>
+  <line x1="184" y1="528" x2="498" y2="528" class="tick"/>
+
+  <path d="M114 460 L245 460" class="line"/>
+  <text x="179" y="449" class="msg" text-anchor="middle">read same addr</text>
+  <path d="M245 494 L368 494" class="line"/>
+  <text x="306" y="483" class="msg" text-anchor="middle">iCs=1, iWea=0</text>
+  <path d="M368 528 L485 528" class="line"/>
+  <text x="426" y="517" class="msg" text-anchor="middle">read command sampled</text>
+  <path d="M485 558 L368 558" class="dash"/>
+  <text x="426" y="579" class="msg" text-anchor="middle">oRData updates after NBA</text>
+  <path d="M608 596 L748 596" class="line"/>
+  <text x="678" y="585" class="msg" text-anchor="middle">read item with updated data</text>
+  <path d="M748 618 C810 618 810 642 748 642" class="self"/>
+  <text x="836" y="636" class="msg" text-anchor="middle">compare model_mem vs oRData</text>
+
+  <rect x="116" y="690" width="868" height="34" class="head"/>
+  <text x="550" y="712" class="note" text-anchor="middle">Driver output #1 prepares the next-cycle command; monitor samples command at the edge and read data after the registered update.</text>
+</svg>

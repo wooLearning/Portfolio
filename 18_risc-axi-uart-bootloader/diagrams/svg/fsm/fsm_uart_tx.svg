@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111827"/>
+    </marker>
+    <style>
+      .title { font-family: Arial, Helvetica, sans-serif; font-size: 30px; font-weight: 700; fill: #111827; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #4b5563; }
+      .state ellipse { fill: #ffffff; stroke: #333333; stroke-width: 2.4; }
+      .state text { font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .edge { fill: none; stroke: #333333; stroke-width: 2.2; }
+      .edge-label { font-family: Arial, Helvetica, sans-serif; font-size: 15px; fill: #111827; }
+      .note { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #374151; }
+      .frame { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.2; }
+    </style>
+  </defs>
+  <rect class="frame" x="1" y="1" width="1198" height="758"/>
+  <text x="600" y="44" text-anchor="middle" class="title">UART TX FSM</text>
+  <text x="600" y="70" text-anchor="middle" class="subtitle">Project/risc_axi/src/peripheral/uart/UartTx.sv</text>
+  
+      <path d="M 600 130 Q 748.414345085013 257.36633060972855 930 330" class="edge" marker-end="url(#arrow)"/>
+      <text x="765" y="202" class="edge-label" text-anchor="middle"><tspan x="765" dy="0">iValid</tspan></text>
+
+      <path d="M 930 330 Q 746.7026348259785 418.7472586633604 600 560" class="edge" marker-end="url(#arrow)"/>
+      <text x="765" y="467" class="edge-label" text-anchor="middle"><tspan x="765" dy="0">iTick16x &amp;&amp; tickCnt==15</tspan></text>
+
+      <path d="M 600 560 Q 453.29736517402154 418.7472586633604 270 330" class="edge" marker-end="url(#arrow)"/>
+      <text x="435" y="471" class="edge-label" text-anchor="middle"><tspan x="435" dy="0">last data bit</tspan></text>
+
+      <path d="M 270 330 Q 451.585654914987 257.36633060972855 600 130" class="edge" marker-end="url(#arrow)"/>
+      <text x="435" y="204" class="edge-label" text-anchor="middle"><tspan x="435" dy="0">stop bit done</tspan></text>
+  
+      <g class="state" transform="translate(600, 130)">
+        <ellipse cx="0" cy="0" rx="96" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_IDLE</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(930, 330)">
+        <ellipse cx="0" cy="0" rx="96" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_START</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(600, 560)">
+        <ellipse cx="0" cy="0" rx="96" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_DATA</tspan></text>
+      </g>
+
+      <g class="state" transform="translate(270, 330)">
+        <ellipse cx="0" cy="0" rx="96" ry="34"/>
+        <text text-anchor="middle" dominant-baseline="middle"><tspan x="0" dy="0">S_STOP</tspan></text>
+      </g>
+  <text x="600" y="732" text-anchor="middle" class="note">8N1 transmitter: idle high, start bit, 8 data bits LSB first, stop bit.</text>
+</svg>
