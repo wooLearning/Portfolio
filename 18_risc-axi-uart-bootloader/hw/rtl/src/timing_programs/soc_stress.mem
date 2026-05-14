@@ -1,0 +1,156 @@
+20000537 // 000 x10 = SRAM base 0x20000000
+00050513 // 001
+400005b7 // 002 x11 = APB base 0x40000000
+00058593 // 003
+40010637 // 004 x12 = GPIOA base
+00060613 // 005
+400206b7 // 006 x13 = GPIOB base
+00068693 // 007
+40030737 // 008 x14 = SPI base
+00070713 // 009
+400407b7 // 010 x15 = I2C base
+00078793 // 011
+40050837 // 012 x16 = UART base
+00080813 // 013
+400608b7 // 014 x17 = DMA base
+00088893 // 015
+40070937 // 016 x18 = GPIOC base
+00090913 // 017
+400f09b7 // 018 x19 = PLIC-lite base
+00098993 // 019
+00f00093 // 020 addi x1, x0, 15
+00300113 // 021 addi x2, x0, 3
+ff000193 // 022 addi x3, x0, -16
+00208233 // 023 add
+402082b3 // 024 sub
+00209333 // 025 sll
+0011a3b3 // 026 slt
+0011b433 // 027 sltu
+0020c4b3 // 028 xor
+0020da33 // 029 srl
+4021dab3 // 030 sra
+0020eb33 // 031 or
+0020fbb3 // 032 and
+00508c13 // 033 addi
+0011ac93 // 034 slti
+0011bd13 // 035 sltiu
+0030cd93 // 036 xori
+0020ee13 // 037 ori
+0070fe93 // 038 andi
+00409f13 // 039 slli
+001f5f13 // 040 srli
+4011df13 // 041 srai
+00000f97 // 042 auipc
+04452023 // 043 sw x4,  0x40(x10)
+04552223 // 044 sw x5,  0x44(x10)
+04652423 // 045 sw x6,  0x48(x10)
+04752623 // 046 sw x7,  0x4c(x10)
+06150023 // 047 sb
+06551123 // 048 sh
+06050a03 // 049 lb
+06054a83 // 050 lbu
+06251b03 // 051 lh
+06255b83 // 052 lhu
+04052c03 // 053 lw
+001c0cb3 // 054 raw dependency after lw
+01952823 // 055 sw
+00100c13 // 056 branch setup
+00200c93 // 057
+018c0463 // 058 beq taken
+06300d13 // 059 skipped
+001d0d13 // 060
+019c1463 // 061 bne taken
+06200d13 // 062 skipped
+001d0d13 // 063
+019c4463 // 064 blt taken
+06100d13 // 065 skipped
+001d0d13 // 066
+018cd463 // 067 bge taken
+06000d13 // 068 skipped
+001d0d13 // 069
+019c6463 // 070 bltu taken
+05f00d13 // 071 skipped
+001d0d13 // 072
+018cf463 // 073 bgeu taken
+05e00d13 // 074 skipped
+001d0d13 // 075
+00800c13 // 076 loop count = 8
+00000c93 // 077 accumulator = 0
+04052d03 // 078 loop: lw
+01ac8cb3 // 079 add
+01952a23 // 080 sw
+fffc0c13 // 081 addi count--
+fe0c18e3 // 082 bne loop
+008002ef // 083 jal
+05500d13 // 084 skipped
+00000317 // 085 auipc for jalr target
+00c30313 // 086 addi target
+00030067 // 087 jalr
+06600d13 // 088 skipped
+001d0d13 // 089
+fff00c13 // 090 GPIO mask
+01862423 // 091 GPIOA DIR
+00162023 // 092 GPIOA OUT
+00462a03 // 093 GPIOA IN
+0186a423 // 094 GPIOB DIR
+0026a023 // 095 GPIOB OUT
+0046aa03 // 096 GPIOB IN
+01892423 // 097 GPIOC DIR
+00392023 // 098 GPIOC OUT
+00492a03 // 099 GPIOC IN
+0005a623 // 100 timer high write touch
+06400c13 // 101 timer compare = 100
+0185a823 // 102
+0005aa23 // 103
+00100c13 // 104 timer enable
+0185a023 // 105
+0085aa03 // 106 timer read
+00400c13 // 107 SPI clkdiv
+01872423 // 108
+05a00c13 // 109 SPI txdata
+01872623 // 110
+00472a03 // 111 SPI status
+00400c13 // 112 UART bauddiv
+01882423 // 113
+05500c13 // 114 UART txdata
+01882623 // 115
+00482a03 // 116 UART status
+00100c13 // 117 I2C write touch
+0187a023 // 118
+0047aa03 // 119 I2C read touch
+20000c37 // 120 DMA src = 0x20000040
+040c0c13 // 121
+0188a423 // 122
+20000c37 // 123 DMA dst = 0x20000050
+050c0c13 // 124
+0188a623 // 125
+00400c13 // 126 DMA len = 4
+0188a823 // 127
+00100c13 // 128 DMA start
+0188a023 // 129
+01000c93 // 130 spin count
+019d0d33 // 131 spin add
+fffc8c93 // 132 spin count--
+fe0c9ce3 // 133 bne spin
+0048aa03 // 134 DMA status
+05052a83 // 135 DMA dst0
+01552c23 // 136 store DMA result sample
+07f00c13 // 137 PLIC enable mask
+0189a023 // 138
+0089aa03 // 139 PLIC enabled-pending
+00c9aa03 // 140 PLIC claim
+0000000f // 141 fence
+00000013 // 142 nop; keep stress path out of unsupported CSR trap flow
+cafe1c37 // 143 signature word0
+234c0c13 // 144
+01852023 // 145
+00000c37 // 146 signature word1
+055c0c13 // 147
+01852223 // 148
+40050c37 // 149 signature word2
+000c0c13 // 150
+01852423 // 151
+12345c37 // 152 signature word3
+678c0c13 // 153
+01852623 // 154
+0000006f // 155 done self-loop at PC 0x26c

@@ -37,6 +37,17 @@
 - `motor_delay()`는 `HAL_Delay()`만 쓰지 않고 `TIM2` 카운터를 직접 읽어 step timing을 더 촘촘하게 맞춥니다.
 - 층 이동은 단순 방향 플래그가 아니라 `STEP`, `totalSteps`, `currentFloor`, `targetFloor`로 상태가 연결되어 있어 작은 상태기계로 볼 수 있습니다.
 
+## ETRI Portfolio Focus
+
+PDF 포트폴리오에서는 이 프로젝트를 RTL 중심 프로젝트를 보완하는 MCU 기반 제어 시스템 경험으로 정리했습니다. 핵심은 버튼, LED, step motor, 7-segment를 각각 따로 제어한 것이 아니라, 외부/내부 요청을 상태로 저장하고 현재 층과 이동 방향을 고려해 다음 목적지를 선택하는 하나의 제어 흐름으로 통합했다는 점입니다.
+
+- 역할: 팀장으로서 step motor 제어, elevator 동작 로직, 전체 시스템 통합 담당
+- 제어 구조: 외부 hall button과 내부 floor button 요청을 분리 저장하고 도착 시점에 요청 소거
+- 하드웨어 이해: STM32F103 datasheet와 header file을 보며 peripheral register/MMIO 동작 확인
+- 협업 경험: MCU 경험이 적은 팀원도 참여할 수 있도록 기능을 작게 나누고 스터디를 병행
+
+이 경험은 이후 APB/AHB/AXI 같은 register interface를 RTL로 설계할 때 software가 hardware register를 어떻게 제어하는지 이해하는 연결점이 되었습니다.
+
 ---
 
 ## Design Slides

@@ -43,6 +43,7 @@ Adder는 조합회로 corner/carry 검증, RAM은 reference memory 기반 read/w
 ![FIFO Coverage](./assets/captures/fifo/fifo_coverage.png)
 
 ## 📂 산출물
+- **[UVM Basic Lab Report HTML](./UVM_Basic_Lab_Report.html)**: 브라우저에서 바로 확인 가능한 슬라이드형 보고서
 - **[UVM Basic Lab Report PDF](./UVM_Basic_Lab_Report.pdf)**: Adder/RAM/FIFO UVM 구조, sequence, scoreboard, coverage, 결과 화면 정리
 - **[다이어그램](./assets/diagrams)**: 공통 UVM 구조, transaction 흐름, DUT별 timing/class map SVG
 - **[결과 캡처](./assets/captures)**: Verdi waveform, UVM summary, coverage evidence 이미지

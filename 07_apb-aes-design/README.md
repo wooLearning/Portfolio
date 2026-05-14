@@ -1,36 +1,106 @@
-# Undergraduate Internship (APB-AES)
-> HW AES-128 with APB Interface
+# APB Interface 기반 AES-128 IP 설계
+> AES-128 encryption core에 APB register interface, input/output buffer, control path를 붙여 hardware peripheral IP 형태로 구현한 RTL 설계 프로젝트입니다.
 
-## 📅 Project Info
-- **Period**: 2024.12.23 ~ 2025.01.15
-- **Role**: Hardware Design Intern
-- **Stack**: `Verilog-HDL` `APB Protocol` `AES-128`
+## Project Info
 
-## 📝 Summary
-APB(Advanced Peripheral Bus) 인터페이스를 갖춘 **AES-128 암호화 하드웨어 IP**를 설계한 인턴십 프로젝트입니다.  
-32-bit APB 버스로 데이터를 받아 128-bit 블록으로 변환(Packing)하고, AES 코어 연산 후 결과를 메모리에 저장하며 인터럽트를 발생하는 전체 SoC 구조를 구현했습니다.
+| 항목 | 내용 |
+|---|---|
+| 기간 | `2024.12.23 ~ 2025.01.15` |
+| 유형 | 개인 설계 프로젝트 / APB 기반 AES-128 IP RTL 설계 |
+| 역할 | AES RTL, APB interface, buffer/control path 구현 및 testbench 검증 |
+| 언어/도구 | `Verilog-HDL` `Xcelium` |
+| Protocol / Algorithm | `APB Protocol` `AES-128` |
+| Core Keywords | `32-bit APB Register Interface` `128-bit Block Packing` `Memory Map` `Interrupt` `Endian Conversion` |
 
-## 💡 System Architecture & Key Modules
-AES 하드웨어는 Big Endian을 기준으로 암호화가 진행되므로, Software에서 받은 Little Endian 데이터를 변환하고 32-bit 데이터를 128-bit로 확장하여 처리합니다.
+## Summary
 
-1. **Main Controller (`Cp_Ctrl`)**:
-   - 데이터 흐름 제어의 핵심을 담당하는 모듈.
-   - APB에서 데이터를 읽어 `InBuf`에 저장하고, 저장 완료 시 암호화를 시작하여 `OutBuf`에 결과가 쓰이도록 각 모듈(`Buf`, `AesCore` 등)의 Enable 신호를 제어합니다.
-2. **APB Slave Interface (`Cp_ApbIfBlk`)**:
-   - 32-bit APB 버스를 통해 레지스터 블록에 접근하고 통신하는 인터페이스 역할.
-3. **Data Format Conversion (`Cp_WrDtConv / Cp_RdDtConv`)**:
-   - 32-bit 데이터를 4번의 Read 동작을 통해 128-bit 블록으로 패킹(Packing)하고, Endian 변환(Little ↔ Big)을 수행합니다.
-4. **AES Core (`AesCore`)**:
-   - **AES-128** 기반 암호화 블록. 내부 구조를 최적화하여 1개의 Round 컴포넌트만 설계한 후, Control Block에서 발생하는 Flag 신호를 통해 `Pre-Round`, 9번의 전체 `Round`, 마지막 3개 단계의 `Round`를 하나의 하드웨어 자원으로 재사용하며 연산합니다. 각 Round별로 12 Clock이 소요됩니다.
-5. **Memory Buffers (`InBuf / OutBuf`)**:
-   - `SP SRAM` 단위로 설계되어 128-bit 폭의 데이터를 입출력합니다. 최대로 지원하는 패킷 사이즈는 2kBytes입니다.
-   - 암호화가 완료되어 `OutBuf`에 모든 데이터가 쓰이면 `wLastDtFlag`를 출력해 APB 인터페이스에서 인터럽트(Interrupt)를 발생시킵니다.
-## 🚀 Trouble Shooting & Future Work
-- **Zero Padding**: 현재 128비트 배수 크기의 데이터 입력을 가정하여 구현되었으나, 추후 128비트에 맞지 않는 Byte 수가 들어올 경우를 대비해 **Endian에 맞는 Zero padding 기능**을 보완할 계획입니다.
-- **Direction 제어**: 현재는 암호화(Encryption) 과정만 가능하지만, Direction 변수/플래그를 추가하여 **복호화(Decryption) 모드**도 단일 하드웨어에서 수행하도록 확장할 예정입니다.
-- **PPA 최적화**: 단일 AES Core 구조를 **Multi-Block 처리 방식**으로 개선하여 암호화 속도(Throughput)를 높이고, 사용하지 않는 블록의 전력을 차단하는 **Dynamic Clock Gating** 기법을 도입하여 Power 효율을 극대화할 것입니다.
+AES-128 block을 RTL로 설계하고 APB interface를 붙여 software에서 제어 가능한 hardware IP 형태로 구현했습니다. APB에서 받은 32-bit write data를 내부 `InBuf`에서 128-bit block으로 packing하고, AES core 연산이 끝난 뒤 `OutBuf`와 interrupt를 통해 software가 완료 상태와 결과를 확인할 수 있도록 구성했습니다.
 
-## 📂 Artifacts
-- RTL Source Code (`AES/`)
-- Simulation Testbenches
-- Internship Final Report
+이 프로젝트는 알고리즘 RTL 하나를 만드는 데서 끝나지 않고, `register interface -> buffer -> AES core -> result buffer -> interrupt`로 이어지는 SoC peripheral 관점의 data/control path를 함께 다뤘다는 점이 핵심입니다.
+
+## Architecture
+
+전체 구조는 [Cp_Top.v](./AES/RTL/Src/Cp_Top.v) 기준으로 다음 블록으로 나뉩니다.
+
+- [Cp_ApbIfBlk.v](./AES/RTL/Src/Cp_ApbIfBlk.v): APB 접근을 해석하고 control/status register, InBuf write, OutBuf read를 연결합니다.
+- [Cp_WrDtConv.v](./AES/RTL/Src/Cp_WrDtConv.v): APB 32-bit write data를 128-bit buffer word로 packing합니다.
+- [Cp_BufWrap.v](./AES/RTL/Src/Cp_BufWrap.v): 내부 input/output buffer wrapper입니다.
+- [Cp_Ctrl.v](./AES/RTL/Src/Cp_Ctrl.v): AES 실행 흐름을 제어하고 InBuf read, AES start, OutBuf write, done/interrupt 흐름을 만듭니다.
+- [AesCore.v](./AES/RTL/Src/Aescore/AesCore.v): AES-128 datapath와 round control을 수행합니다.
+- [Cp_RdDtConv.v](./AES/RTL/Src/Cp_RdDtConv.v): 128-bit output block을 APB 32-bit read 단위로 분해합니다.
+
+```text
+APB Master
+  -> Cp_ApbIfBlk
+  -> Cp_WrDtConv
+  -> InBuf
+  -> Cp_Ctrl
+  -> AesCore
+  -> OutBuf
+  -> Cp_RdDtConv
+  -> APB Read Data / Interrupt
+```
+
+## Data and Control Flow
+
+1. Software가 APB write로 plaintext와 key/control 값을 register map에 기록합니다.
+2. `Cp_WrDtConv`가 32-bit word address 하위 bit를 이용해 128-bit buffer의 word select를 만듭니다.
+3. `Cp_Ctrl`이 InBuf에서 128-bit block을 읽고 endian 변환 후 AES core에 전달합니다.
+4. AES core가 `SubBytes`, `ShiftRows`, `MixColumns`, `KeyExpansion`, `RoundFunc`를 거쳐 ciphertext를 생성합니다.
+5. 결과는 OutBuf에 저장되고, 마지막 block 처리 후 done/interrupt 흐름으로 APB 쪽에 완료 상태를 알립니다.
+6. Software는 APB read로 OutBuf를 32-bit 단위로 읽습니다.
+
+## Key Implementation Points
+
+### 1. APB Register Interface
+
+APB slave interface는 `PSEL`, `PENABLE`, `PWRITE`, `PADDR`, `PWDATA`를 기준으로 write/read enable을 생성합니다. 입력 buffer 영역과 출력 buffer 영역을 memory map으로 나누어 software 입장에서 일반 peripheral register처럼 접근할 수 있도록 했습니다.
+
+### 2. 32-bit to 128-bit Packing
+
+APB data bus는 32-bit이지만 AES block은 128-bit입니다. 따라서 address 하위 2-bit를 이용해 4개의 32-bit write를 하나의 128-bit block으로 packing했습니다. 이 구조는 bus width와 algorithm block width가 다를 때 필요한 data width conversion 경험으로 이어졌습니다.
+
+### 3. AES Control Path
+
+`Cp_Ctrl`은 `p_Idle`, `p_RdCpInBuf`, `p_WrCpOutBuf` 등 상태를 통해 buffer read, AES start/done, output write 흐름을 제어합니다. 단일 block 연산뿐 아니라 byte size 기준 마지막 data flag를 확인해 전체 처리 완료 시점을 잡습니다.
+
+### 4. Endian Debugging
+
+구현 중 endian 처리 때문에 expected ciphertext와 RTL 결과가 다르게 나오는 문제가 있었습니다. Python 기반 AES reference 값을 golden data로 사용해 testbench에서 비교했고, `Cp_Ctrl`의 byte ordering을 확인하며 수정했습니다. 이 과정에서 알고리즘형 IP는 RTL 구현 자체만큼 신뢰 가능한 reference model과 testbench 비교가 중요하다는 점을 배웠습니다.
+
+## Verification
+
+검증은 AES core 단독 검증과 APB interface를 포함한 top-level 검증으로 나누어 진행했습니다.
+
+- AES-128 golden vector 기반 core output 비교
+- APB write로 input/key/control 값 설정
+- InBuf/OutBuf read-write path 확인
+- AES start/done timing 확인
+- 완료 후 interrupt/status 흐름 확인
+- 32-bit APB access와 128-bit AES block packing/unpacking 확인
+
+관련 testbench는 [Tb_AesCore.v](./AES/TestBench/TbTop/Tb_AesCore.v), [TbTop_CpTop.v](./AES/TestBench/TbTop/TbTop_CpTop.v), [TbTop_VariousCase.v](./AES/TestBench/TbTop/TbTop_VariousCase.v)에서 확인할 수 있습니다.
+
+## ETRI Portfolio Focus
+
+- RTL 설계 관점: AES datapath, buffer, control FSM, APB slave interface 구현
+- SoC 관점: AXI4-to-APB bridge 뒤에 붙을 수 있는 APB peripheral 구조로 정리
+- 검증 관점: Python reference/golden data 기반 endian 및 encryption result 검증
+- 문제해결 관점: bus width 차이와 byte ordering 문제를 hardware data path에서 해결
+
+## Artifacts
+
+- [Top RTL](./AES/RTL/Src/Cp_Top.v)
+- [APB Interface](./AES/RTL/Src/Cp_ApbIfBlk.v)
+- [AES Core](./AES/RTL/Src/Aescore/AesCore.v)
+- [Control Block](./AES/RTL/Src/Cp_Ctrl.v)
+- [Write Data Converter](./AES/RTL/Src/Cp_WrDtConv.v)
+- [Read Data Converter](./AES/RTL/Src/Cp_RdDtConv.v)
+- [Simulation Testbenches](./AES/TestBench/TbTop)
+- [Internship Final Report PDF](./%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C/HDD_AES-128_2024%EB%85%84%20%ED%95%99%EB%B6%80%EC%83%9D%EC%97%B0%EA%B5%AC%EC%9D%B8%ED%84%B4%20%EA%B3%BC%EC%A0%9C_%EC%B0%A8%EC%84%B8%EB%8C%80%EB%B0%98%EB%8F%84%EC%B2%B4%ED%95%99%EA%B3%BC_%EC%9A%B0%EC%83%81%EC%9A%B1.pdf)
+
+## Future Work
+
+- 128-bit 배수 크기가 아닌 input을 위한 endian-aware zero padding
+- encryption/decryption direction bit 추가
+- multi-block throughput 개선 및 clock gating 기반 power 최적화

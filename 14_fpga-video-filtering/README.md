@@ -29,6 +29,17 @@
 - 초기 구조는 리소스를 줄이기 위해 순차적인 MAC 재사용을 염두에 뒀지만, 최종 구조에서는 LCD 병목을 넘기기 위해 병렬도를 올린 쪽으로 재설계되었습니다.
 - 최종 구현은 보고서 기준 `81.97 FPS`, 기존 구조 대비 약 `9.93배` 향상을 달성했습니다.
 
+## ETRI Portfolio Focus
+
+PDF 포트폴리오에서는 이 프로젝트를 `Verilog-HDL 기반 영상처리 pipeline`과 `C 기반 PS 제어`를 함께 다룬 HW/SW co-design 경험으로 정리했습니다. 우상욱님의 기여는 특히 실시간성을 좌우하는 두 지점에 집중됩니다.
+
+- 앞단: line buffer와 shift register 기반 `Window3x3` 생성으로 매 클럭 convolution 입력 window 구성
+- 뒷단: LCD/Output Buffer 제어 로직을 통해 유효 frame이 준비된 시점에 출력 read 시작
+- 제어면: PS C 코드로 OV5640 camera initialization과 filter mode/runtime kernel 설정 수행
+- 통합 검증: camera input, PL filtering, LCD output이 서로 다른 timing으로 동작하는 상황에서 top module 기준 동작 확인
+
+실제 보드에서 발생한 화면 밀림은 LCD datasheet의 HSYNC timing 범위를 확인하고 보드 특성에 맞게 parameter를 조정해 해결했습니다. frame 깨짐은 convolution 연산만 빠르게 만드는 방식으로는 해결되지 않아, 전체 pipeline의 병목인 LCD 출력 기준에 맞춰 double buffering과 frame drop 기반 sync 구조로 안정화했습니다.
+
 ---
 
 ## Demo

@@ -1,77 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="520" viewBox="0 0 860 520" style="background:#ffffff; font-family:'Pretendard','Noto Sans KR',Arial,sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" style="background:#ffffff;font-family:'Pretendard','Noto Sans KR',Arial,sans-serif">
   <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#2b2b2b"/>
+    </marker>
     <style>
-      .frame { fill:#ffffff; stroke:#d8d8d8; stroke-width:1.2; }
-      .domain { fill:none; stroke:#c9c9c9; stroke-width:1.8; stroke-dasharray:9 6; }
-      .box { fill:#ffffff; stroke:#222222; stroke-width:1.5; }
-      .soft { fill:#f8fafc; stroke:#222222; stroke-width:1.4; }
-      .hi { fill:#ffffff; stroke:#0b5f86; stroke-width:2; }
-      .line { fill:none; stroke:#222222; stroke-width:1.55; marker-end:url(#arrow); }
-      .bus { fill:none; stroke:#222222; stroke-width:2.7; marker-end:url(#arrow); }
-      .dash { fill:none; stroke:#666666; stroke-width:1.35; stroke-dasharray:6 5; marker-end:url(#arrowGray); }
-      .title { font-size:18px; font-weight:800; fill:#222222; }
-      .lane { font-size:12px; font-weight:850; fill:#333333; letter-spacing:.3px; }
-      .label { font-size:14px; font-weight:850; fill:#111111; }
-      .small { font-size:11.5px; font-weight:600; fill:#4b5563; }
-      .tiny { font-size:10px; font-weight:650; fill:#555555; }
-      .note { font-size:11px; font-weight:700; fill:#374151; }
+      .frame{fill:#fff;stroke:#d9dee5;stroke-width:4}
+      .box{fill:#fff;stroke:#2b2b2b;stroke-width:4}
+      .line{fill:none;stroke:#2b2b2b;stroke-width:4;marker-end:url(#arrow)}
+      .plain{fill:none;stroke:#2b2b2b;stroke-width:4}
+      .name{font-size:36px;font-weight:900;fill:#202020}
+      .sub{font-size:23px;font-weight:700;fill:#5d6470}
     </style>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0 L10 5 L0 10 Z" fill="#222222"/>
-    </marker>
-    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0 L10 5 L0 10 Z" fill="#666666"/>
-    </marker>
   </defs>
-
-  <rect x="14" y="14" width="832" height="492" class="frame"/>
-  <text x="430" y="44" class="title" text-anchor="middle">Adder UVM Class Map</text>
-  <text x="430" y="65" class="small" text-anchor="middle">combinational DUT: drive operands, sample after settle, compare iA+iB</text>
-
-  <rect x="44" y="98" width="204" height="276" rx="7" class="domain"/>
-  <text x="64" y="124" class="lane">TEST SCENARIO</text>
-  <rect x="74" y="154" width="144" height="50" rx="5" class="hi"/>
-  <text x="146" y="176" class="label" text-anchor="middle">adder_test</text>
-  <text x="146" y="193" class="small" text-anchor="middle">start sequence</text>
-  <rect x="74" y="272" width="144" height="54" rx="5" class="box"/>
-  <text x="146" y="295" class="label" text-anchor="middle">adder_sequence</text>
-  <text x="146" y="313" class="small" text-anchor="middle">9 directed + random</text>
-  <path d="M146 204 L146 272" class="line"/>
-  <text x="164" y="243" class="tiny">start</text>
-
-  <rect x="288" y="98" width="302" height="276" rx="7" class="domain"/>
-  <text x="308" y="124" class="lane">ACTIVE AGENT</text>
-  <rect x="318" y="154" width="110" height="50" rx="5" class="box"/>
-  <text x="373" y="176" class="label" text-anchor="middle">sequencer</text>
-  <text x="373" y="193" class="small" text-anchor="middle">seq_item</text>
-  <rect x="458" y="154" width="104" height="50" rx="5" class="hi"/>
-  <text x="510" y="176" class="label" text-anchor="middle">driver</text>
-  <text x="510" y="193" class="small" text-anchor="middle">iA / iB drive</text>
-  <rect x="458" y="288" width="104" height="50" rx="5" class="box"/>
-  <text x="510" y="310" class="label" text-anchor="middle">monitor</text>
-  <text x="510" y="327" class="small" text-anchor="middle">#1 sample</text>
-  <path d="M218 299 C258 299 270 179 318 179" class="line"/>
-  <text x="275" y="235" class="tiny" text-anchor="middle">seq_item_port</text>
-  <path d="M428 179 L458 179" class="bus"/>
-  <path d="M458 197 C430 228 430 260 458 302" class="dash"/>
-
-  <rect x="632" y="130" width="152" height="92" rx="7" class="domain"/>
-  <text x="650" y="154" class="lane">DUT BOUNDARY</text>
-  <rect x="664" y="174" width="88" height="34" rx="5" class="hi"/>
-  <text x="708" y="196" class="label" text-anchor="middle">adder</text>
-  <path d="M562 179 L664 191" class="bus"/>
-  <text x="610" y="174" class="tiny" text-anchor="middle">virtual interface</text>
-  <path d="M708 208 C700 260 622 313 562 313" class="line"/>
-
-  <rect x="632" y="262" width="152" height="112" rx="7" class="domain"/>
-  <text x="650" y="286" class="lane">ANALYSIS PATH</text>
-  <rect x="656" y="304" width="104" height="30" rx="5" class="box"/>
-  <text x="708" y="324" class="label" text-anchor="middle">scoreboard</text>
-  <rect x="656" y="342" width="104" height="30" rx="5" class="soft"/>
-  <text x="708" y="362" class="label" text-anchor="middle">coverage</text>
-  <path d="M562 313 L656 319" class="line"/>
-  <path d="M562 313 C604 338 615 356 656 357" class="line"/>
-
-  <rect x="64" y="412" width="732" height="38" rx="5" class="soft"/>
-  <text x="430" y="436" class="note" text-anchor="middle">scoreboard: expected = iA + iB / coverage: zero, max, misc operand bins and carry bin</text>
+  <rect x="40" y="35" width="1520" height="790" rx="18" class="frame"/>
+  <g text-anchor="middle">
+    <rect x="555" y="95" width="490" height="100" rx="12" class="box"/>
+    <text x="800" y="142" class="name">adder_test</text>
+    <text x="800" y="176" class="sub">create env / start sequence</text>
+    <path d="M800 195 V265" class="line"/>
+    <rect x="555" y="265" width="490" height="100" rx="12" class="box"/>
+    <text x="800" y="312" class="name">adder_env</text>
+    <text x="800" y="346" class="sub">agent / scoreboard / coverage</text>
+    <path d="M800 365 V425" class="plain"/>
+    <path d="M260 425 H1340" class="plain"/>
+    <path d="M260 425 V485" class="line"/>
+    <path d="M800 425 V485" class="line"/>
+    <path d="M1340 425 V485" class="line"/>
+    <rect x="85" y="485" width="350" height="100" rx="12" class="box"/>
+    <text x="260" y="532" class="name">adder_agent</text>
+    <text x="260" y="566" class="sub">active path</text>
+    <rect x="625" y="485" width="350" height="100" rx="12" class="box"/>
+    <text x="800" y="532" class="name">adder_scoreboard</text>
+    <text x="800" y="566" class="sub">reference compare</text>
+    <rect x="1165" y="485" width="350" height="100" rx="12" class="box"/>
+    <text x="1340" y="532" class="name">adder_coverage</text>
+    <text x="1340" y="566" class="sub">covergroup sample</text>
+    <path d="M260 585 V650" class="line"/>
+    <rect x="50" y="650" width="380" height="105" rx="12" class="box"/>
+    <text x="240" y="699" class="name">adder_sequencer</text>
+    <text x="240" y="733" class="sub">seq_item export</text>
+    <rect x="540" y="650" width="360" height="105" rx="12" class="box"/>
+    <text x="720" y="699" class="name">adder_driver</text>
+    <text x="720" y="733" class="sub">drive interface</text>
+    <rect x="1030" y="650" width="380" height="105" rx="12" class="box"/>
+    <text x="1220" y="699" class="name">adder_monitor</text>
+    <text x="1220" y="733" class="sub">sample transaction</text>
+    <path d="M430 702 H540" class="line"/>
+  </g>
 </svg>

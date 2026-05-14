@@ -32,6 +32,21 @@ class fifo_coverage extends uvm_subscriber #(fifo_seq_item);
       bins mid  = {[1:DEPTH-1]};
     }
 
+    cp_blocked_write : coverpoint (item.iWrEn && item.oFull) {
+      bins no  = {0};
+      bins yes = {1};
+    }
+
+    cp_blocked_read : coverpoint (item.iRdEn && item.oEmpty) {
+      bins no  = {0};
+      bins yes = {1};
+    }
+
+    cp_simultaneous : coverpoint (item.iWrEn && item.iRdEn) {
+      bins no  = {0};
+      bins yes = {1};
+    }
+
     cross_cmd_status : cross cp_cmd, cp_count;
   endgroup
 

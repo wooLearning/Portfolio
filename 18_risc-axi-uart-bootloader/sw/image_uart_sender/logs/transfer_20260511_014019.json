@@ -1,0 +1,28 @@
+{
+  "script": "transfer_compare",
+  "tx_port": "COM4",
+  "rx_port": "COM3",
+  "baud": 115200,
+  "image": "C:\\Users\\user\\Desktop\\MAIN_ing\\10_Projects\\RISC_AXI_UART_Bootloader\\image_uart_sender\\images\\rainbow64x64_rgb888.png",
+  "mode": "RGB",
+  "raw": true,
+  "width": 64,
+  "height": 64,
+  "channels": 3,
+  "payload_bytes": 12288,
+  "tx_bytes": 12288,
+  "written_bytes": 12288,
+  "out": "C:\\Users\\user\\Desktop\\MAIN_ing\\10_Projects\\RISC_AXI_UART_Bootloader\\image_uart_sender\\outputs\\received_20260511_013143.png",
+  "txt_out": "C:\\Users\\user\\Desktop\\MAIN_ing\\10_Projects\\RISC_AXI_UART_Bootloader\\image_uart_sender\\outputs\\received_20260511_013143_rx.txt",
+  "diff_path": "C:\\Users\\user\\Desktop\\MAIN_ing\\10_Projects\\RISC_AXI_UART_Bootloader\\image_uart_sender\\outputs\\received_20260511_013143_diff.png",
+  "elapsed_s": 3.0,
+  "comparison": {
+    "expected_len": 12288,
+    "actual_len": 12288,
+    "byte_mismatches": 0,
+    "pixel_mismatches": 0,
+    "max_abs_error": 0,
+    "first_mismatches": [],
+    "passed": true
+  }
+}

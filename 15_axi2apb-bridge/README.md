@@ -1,49 +1,96 @@
-# Undergraduate Internship (AXI2APB)
+# AXI4 to APB Bridge IP Design
+> AXI4 burst transaction을 APB single transfer로 변환하는 AMBA bus bridge RTL 설계 프로젝트입니다. 고속 제어 버스와 저속 peripheral bus 사이의 handshake, wait-state, address decoding, error response를 직접 구현하며 SoC 내부 bus wrapper 관점을 익혔습니다.
 
-> AXI4 to APB Bridge Design
+## Project Info
 
-## 📅 Project Info
+| 항목 | 내용 |
+|---|---|
+| 기간 | `2026.01` |
+| 유형 | 개인 설계 프로젝트 / AMBA Bus Interface RTL 설계 |
+| 역할 | AXI-to-APB 변환 FSM, burst 처리, address decoding, APB slave selection 설계 및 검증 |
+| 언어/도구 | `Verilog-HDL` `SystemVerilog testbench` `Xcelium` |
+| Protocol | `AMBA AXI4` `APB` |
+| Core Keywords | `Burst-to-Single Transfer` `PREADY Wait-State` `PSEL Decoding` `BRESP/RRESP` |
 
-- **Period**: 2026.01
-- **Role**: Hardware Design Intern (Winter)
-- **Stack**: `Verilog` `AMBA AXI4` `APB`
+## Summary
 
-## 📝 Summary
+고속 AXI4 bus와 저속 APB peripheral bus를 안정적으로 연결하는 bridge IP를 설계했습니다. AXI의 `AWLEN`/`ARLEN` 기반 burst transaction을 내부 counter로 추적하고, 각 beat를 APB의 `Setup -> Enable` 단일 전송으로 순차 변환했습니다. 4개의 APB slave를 선택하기 위한 address decoding과 `PSEL[3:0]` 생성 로직을 구성했으며, APB slave가 `PREADY=0`으로 wait-state를 요구하는 상황에서도 AXI 측 응답이 깨지지 않도록 FSM을 유지했습니다.
 
-고속 버스인 **AXI4**와 저속 주변장치 버스인 **APB**를 연결하는 **Bridge IP**를 설계했습니다.
-AXI의 Burst 트랜잭션을 APB의 단일 전송(Single Transfer)으로 변환하는 FSM을 구현하고, PREADY 핸드쉐이킹 및 에러 처리를 포함하여 안정적인 버스 프로토콜 변환을 검증했습니다.
+이 프로젝트의 핵심은 단순히 두 protocol 신호를 이어 붙이는 것이 아니라, 서로 다른 전송 단위와 handshake timing을 가진 bus protocol 사이에서 transaction 의미를 보존하는 것입니다.
 
-## 2. 시스템 아키텍처 및 결과물 (Architecture & Output)
+## Architecture
 
 ![Top Architecture](./top.png)
-*(위 캡처는 전체 시스템 구조(Top Diagram)를 나타냅니다.)*
 
-![Waveform 4](./waveform/4.png)
-*(위 캡처는 4-Burst Write 동작의 파형입니다.)*
+전체 구조는 AXI4 slave interface와 APB master interface 사이에 write/read path FSM을 두는 방식입니다. RTL 기준 핵심 모듈은 [Axi2Apb.v](./SourceCode/RTL/Src/Axi2Apb.v)이며, 상위 통합은 [Prj_Axi_Top.v](./SourceCode/RTL/Src/Prj_Axi_Top.v)에서 확인할 수 있습니다.
 
-![Waveform 6](./waveform/6.png)
-*(위 캡처는 Read Error 발생 시 Error 응답 파형입니다.)*
-## 💡 Key Features
+### Write Path
 
-- **Protocol Bridge**: AXI4 Slave ↔ APB Master 변환 로직.
-- **Burst Handling**: Sequential Burst를 개별 APB 트랜잭션으로 분할 처리.
-- **Slave Decoding**: PSEL 디코딩을 통한 다중 슬레이브(4-Slave) 제어.
+- `xW_Idle -> xW_AwReady -> xW_WValid -> xW_Setup -> xW_Enable -> xW_BValid` 흐름으로 AXI write address/data를 APB write transaction으로 변환합니다.
+- APB `Setup` phase에서는 `PSEL=1`, `PENABLE=0`을 만들고, `Enable` phase에서는 `PENABLE=1`로 slave 응답을 기다립니다.
+- `iPREADY`가 올라올 때만 다음 beat 또는 response 상태로 전환해 APB wait-state에 대응합니다.
+- 잘못된 address 접근은 error path를 통해 AXI `BRESP`로 되돌립니다.
 
-## 4. 🛠 핵심 문제 해결 및 트러블슈팅 (Trouble Shooting)
+### Read Path
 
-- **[이슈/문제 상황]**: 고속/파이프라인 기반의 AXI4 Burst 트랜잭션 데이터를, 단일 전송 전용의 저속 APB 버스 패킷으로 변환하면서 **데이터 유실 위험 및 타이밍 지연(Wait-state)** 문제가 발생했습니다.
-- **[접근 방식 및 해결]**:
-  - **독립 FSM 제어**: Read Path와 Write Path를 각각 분리된 FSM(Finite State Machine)으로 구성하여 `Setup Phase(PSEL=1, PENABLE=0)`와 `Enable Phase(PSEL=1, PENABLE=1)`의 타이밍을 엄격히 분할했습니다.
-  - **Wait-State 대응**: APB Slave측에서 `PREADY=0`으로 대기 상태를 요구할 경우, Enable Phase를 유지하며 AXI Master쪽 자원이 오버라이트되지 않도록 제어했습니다.
-  - **Burst Transfer Mapping**: AXI의 `AWLEN` / `ARLEN` 카운터를 내부에서 계산하여, 연속된 Burst 전송을 정확히 개별 APB Single Transfer의 연속으로 잘게 쪼개어 전달하고 마지막 전송에 `RLAST`/`WLAST`를 맞물려 응답하게 했습니다.
-- **[결과]**: 여러 개의 APB Slave 인터페이스가 맞물린 상황에서도, 타이밍 Violation이 발생하지 않는 안정적 상태 머신 동작을 증명하였고, 잘못된 어드레스 접근 시에도 시스템 다운 없이 `BRESP`/`RRESP` Error를 정상 반환하도록 예외 처리를 완료했습니다.
+- `xR_Idle -> xR_ArReady -> xR_Setup -> xR_Enable -> xR_RValid` 흐름으로 AXI read request를 APB read transaction으로 분해합니다.
+- `ARLEN` 기반으로 burst count를 관리하고, 마지막 beat에서는 AXI `RLAST` 타이밍을 맞춥니다.
+- APB read data는 `RVALID`과 함께 AXI master 쪽으로 반환되며, invalid address는 `RRESP` error로 처리합니다.
 
-## 🚀 향후 과제 (Future Work)
-- **Outstanding & Out-of-order Transaction 지원**: 단일 Outstanding 구조의 한계를 넘어 AXI ID(AWID/ARID) 기반 Request Queue 및 Reorder Buffer를 도입해 AXI 측 Throughput 향상.
-- **Asynchronous FIFO 도입 (CDC 개선)**: AXI와 APB가 서로 다른 Clock Domain에서 동작하는 외부 SoC 환경에서도 동기화가 가능하도록 비동기 FIFO 구조로 확장 최적화.
-- **Error Handling 정교화**: 현재 지원하지 않는 APB Slave Error(`PSLVERR`) 응답 로직을 AXI `BRESP`/`RRESP` 응답과 통합하여 보다 정교한 트랜잭션 에러 리포팅 시스템 구현.
+### Address Decoding
 
-## 📂 Artifacts
+- APB peripheral을 4개 slave 영역으로 나누고 address 상위 bit를 기준으로 `PSEL[3:0]`을 생성합니다.
+- 이 구조 덕분에 bridge가 단일 APB slave 전용 변환기가 아니라, 작은 APB subsystem의 entry point처럼 동작할 수 있습니다.
 
-- RTL Source Code (`SourceCode/RTL/Src/Prj_Axi_Top.v`, `SourceCode/RTL/Src/Axi2Apb.v`)
-- HDD Report (Design Spec & Waveform Analysis)
+## Verification Scenarios
+
+보고서와 testbench에서는 다음 시나리오를 중심으로 waveform 검증을 수행했습니다.
+
+- Single write / single read transaction
+- 4-burst write transaction
+- Burst read transaction
+- APB wait-state 삽입 상황
+- 잘못된 address 접근에 대한 write/read error response
+
+<p align="center">
+  <img src="./waveform/4.png" width="360" alt="4-burst write waveform" />
+  <img src="./waveform/6.png" width="360" alt="read error response waveform" />
+</p>
+
+## Trouble Shooting
+
+### 문제
+
+AXI4는 burst와 독립 address/data channel을 지원하지만, APB는 `Setup/Enable` 2-phase 기반의 단일 전송 bus입니다. 이 차이 때문에 AXI beat를 너무 빠르게 소모하면 APB slave가 아직 준비되지 않은 상태에서 데이터가 덮이거나 response timing이 어긋날 수 있었습니다.
+
+### 해결
+
+- Write/read path를 분리된 FSM으로 설계해 address, data, response 흐름을 명확히 나누었습니다.
+- `PREADY=0`인 동안 `Enable` phase를 유지해 APB slave의 wait-state를 보존했습니다.
+- `AWLEN`/`ARLEN`을 내부 beat counter와 연결해 burst transaction을 APB single transfer의 연속으로 mapping했습니다.
+- address decoding 실패 시 정상 response와 분리된 error response를 반환하도록 예외 흐름을 구성했습니다.
+
+### 배운 점
+
+AXI4와 APB를 직접 연결해 보면서 bus protocol마다 전송 단위, handshake timing, response 처리 방식이 다르다는 점을 체감했습니다. 또한 bus wrapper를 붙이면 단독 module이 SoC 내부 peripheral 제어 경로로 확장될 수 있다는 관점을 얻었습니다. 기능이 확장될수록 구현 난도뿐 아니라 검증 시나리오의 수와 품질도 같이 중요해진다는 점이 이 프로젝트의 가장 큰 학습 포인트였습니다.
+
+## ETRI Portfolio Focus
+
+- RTL 설계 관점: AXI/APB protocol conversion, burst counter, read/write FSM, slave decoding
+- 검증 관점: write/read 정상 동작과 error response waveform 확인
+- SoC 관점: 이후 APB 기반 AES peripheral IP와 연결 가능한 제어 bus path로 확장
+
+## Artifacts
+
+- [Bridge RTL](./SourceCode/RTL/Src/Axi2Apb.v)
+- [Top RTL](./SourceCode/RTL/Src/Prj_Axi_Top.v)
+- [APB Slave Model](./SourceCode/RTL/Src/ApbSlave.v)
+- [Testbench Top](./SourceCode/TestBench/TbTop/TbTop_Prj_Axi.v)
+- [Waveform Captures](./waveform)
+- [Design Report PDF](./%5BHDD%5D%20AXI2APB_2025%EB%85%84%20%EB%8F%99%EA%B3%84%20%ED%95%99%EB%B6%80%EC%83%9D%EC%97%B0%EA%B5%AC%EC%9D%B8%ED%84%B4%20%EA%B3%BC%EC%A0%9C_%EC%B0%A8%EC%84%B8%EB%8C%80%EB%B0%98%EB%8F%84%EC%B2%B4%ED%95%99%EA%B3%BC.pdf)
+
+## Future Work
+
+- AXI ID 기반 multiple outstanding transaction 지원
+- AXI/APB clock이 분리된 SoC 환경을 위한 CDC 구조 추가
+- `PSLVERR`를 포함한 APB error response propagation 정교화

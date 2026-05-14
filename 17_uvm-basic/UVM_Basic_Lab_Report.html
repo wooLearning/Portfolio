@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UVM Basic Lab Report v2</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    :root {
+      --page: #f4f6f8;
+      --paper: #ffffff;
+      --ink: #111111;
+      --muted: #50565f;
+      --line: #d5dbe3;
+      --line-strong: #1f2933;
+      --accent: #0b5f86;
+      --accent-soft: #b8d3df;
+      --panel: #fafafa;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 34px 18px 70px;
+      background: var(--page);
+      color: var(--ink);
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+      counter-reset: slide;
+    }
+
+    .deck {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 28px;
+    }
+
+    .slide {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 620px;
+      padding: 42px 54px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 34px rgba(17, 17, 17, 0.07);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 20px;
+    }
+
+    .slide::after {
+      counter-increment: slide;
+      content: counter(slide, decimal-leading-zero);
+      position: absolute;
+      right: 34px;
+      bottom: 24px;
+      color: #8b929a;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+      padding: 56px 70px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    .kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.12;
+      letter-spacing: 0;
+      max-width: 840px;
+    }
+
+    h2 {
+      position: relative;
+      padding-bottom: 14px;
+      font-size: 31px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft), transparent);
+    }
+
+    h3 {
+      font-size: 16px;
+      margin-bottom: 9px;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .meta-row, .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      width: 100%;
+    }
+
+    .metric, .card, .image-box, .table-box, .class-node, .note-box {
+      border: 1px solid var(--line);
+      background: #ffffff;
+      border-radius: 4px;
+    }
+
+    .metric {
+      padding: 14px 15px;
+      min-height: 72px;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--accent);
+      font-size: 23px;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.35;
+    }
+
+    .content { min-height: 0; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 22px;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .grid-2-left-image {
+      display: grid;
+      grid-template-columns: 1.32fr .68fr;
+      gap: 22px;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .class-layout {
+      grid-template-columns: 1.38fr .62fr;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      min-height: 0;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .card, .note-box {
+      padding: 15px 16px;
+    }
+
+    .compact .card {
+      padding: 12px 13px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.42;
+      margin-bottom: 6px;
+    }
+
+    li::marker { color: var(--accent); }
+
+    .lead {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .image-box {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 8px;
+      min-height: 0;
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: contain;
+      display: block;
+      background: #ffffff;
+    }
+
+    .caption {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .image-main {
+      min-height: 0;
+      height: 100%;
+    }
+
+    .result-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 14px;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .result-secondary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      min-height: 0;
+    }
+
+    .result-secondary .image-box {
+      padding: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 7px 9px;
+      text-align: left;
+      vertical-align: top;
+      color: var(--muted);
+      line-height: 1.34;
+    }
+
+    th {
+      color: var(--ink);
+      font-weight: 800;
+      background: #ffffff;
+    }
+
+    .code {
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: #ffffff;
+      color: var(--ink);
+      font: 12.3px/1.45 "Cascadia Mono", "Consolas", monospace;
+      padding: 12px 14px;
+      white-space: pre-wrap;
+      overflow: hidden;
+    }
+
+    .toc-list {
+      display: grid;
+      gap: 13px;
+      align-content: center;
+      height: 100%;
+    }
+
+    .toc-item {
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toc-num {
+      color: var(--accent);
+      font-size: 23px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .toc-title {
+      font-size: 17px;
+      font-weight: 850;
+    }
+
+    .toc-sub {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .toc-range {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .class-map {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .class-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .class-row.one { grid-template-columns: 1fr; }
+    .class-row.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .class-row.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .class-node {
+      min-height: 62px;
+      min-width: 0;
+      padding: 9px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .class-node strong {
+      display: block;
+      max-width: 100%;
+      font-size: 12.6px;
+      margin-bottom: 4px;
+      color: var(--ink);
+      white-space: nowrap;
+      letter-spacing: 0;
+    }
+
+    .class-node span {
+      color: var(--muted);
+      max-width: 100%;
+      font-size: 10.8px;
+      line-height: 1.28;
+      overflow-wrap: anywhere;
+    }
+
+    .class-node.main {
+      border-color: var(--accent);
+      box-shadow: inset 0 3px 0 var(--accent);
+    }
+
+    .arrow {
+      color: var(--accent);
+      text-align: center;
+      font-weight: 900;
+      line-height: 1;
+      margin-top: -3px;
+      margin-bottom: -3px;
+    }
+
+    .small-table th, .small-table td {
+      font-size: 11.4px;
+      padding: 5px 7px;
+      line-height: 1.25;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      font-size: 12px;
+      padding: 7px 8px;
+    }
+
+    @media print {
+      @page {
+        size: 16in 9in;
+        margin: 0;
+      }
+
+      html, body {
+        width: 16in;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .deck {
+        display: block;
+        width: 100%;
+        gap: 0;
+        margin: 0;
+      }
+
+      .slide {
+        width: 16in;
+        height: 9in;
+        min-height: 0;
+        aspect-ratio: auto;
+        border: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+    }
+
+    @media (max-width: 900px) {
+      body { padding: 18px 10px 54px; }
+      .slide {
+        aspect-ratio: auto;
+        min-height: auto;
+        padding: 32px 26px 54px;
+      }
+      .grid-2,
+      .grid-2-left-image,
+      .class-layout,
+      .grid-3,
+      .metrics,
+      .meta-row,
+      .class-row,
+      .class-row.one,
+      .class-row.two,
+      .class-row.three,
+      .result-secondary,
+      .result-layout,
+      .toc-item {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 34px; }
+      h2 { font-size: 25px; }
+      .image-box img { max-height: 360px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="deck">
+    <section class="slide cover">
+      <div class="kicker">SystemVerilog UVM Basic Lab</div>
+      <h1>Adder, RAM, FIFO 검증 보고서</h1>
+      <p class="subtitle">기본 RTL 블록을 대상으로 UVM testbench 구조, factory 기반 class 생성 흐름, sequence/scoreboard/coverage 구성, Verdi 결과 화면을 정리한다.</p>
+      <div class="metrics">
+        <div class="metric"><strong>3 DUT</strong><span>Adder / RAM / FIFO</span></div>
+        <div class="metric"><strong>UVM</strong><span>test, env, agent, sequence</span></div>
+        <div class="metric"><strong>Checker</strong><span>scoreboard + coverage + SVA</span></div>
+        <div class="metric"><strong>Evidence</strong><span>Verdi waveform / result / coverage</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>목차</h2>
+      <div class="content toc-list">
+        <div class="toc-item"><div class="toc-num">01</div><div><div class="toc-title">프로젝트 개요</div><div class="toc-sub">실습 목적, 검증 대상, 공통 UVM 검증 방식</div></div><div class="toc-range">03</div></div>
+        <div class="toc-item"><div class="toc-num">02</div><div><div class="toc-title">공통 UVM 구조</div><div class="toc-sub">top class, factory 생성, build/connect/run 흐름</div></div><div class="toc-range">04-05</div></div>
+        <div class="toc-item"><div class="toc-num">03</div><div><div class="toc-title">Adder 검증</div><div class="toc-sub">RTL 설명, class 구성, sequence/coverage, 결과 화면</div></div><div class="toc-range">06-09</div></div>
+        <div class="toc-item"><div class="toc-num">04</div><div><div class="toc-title">RAM 검증</div><div class="toc-sub">RTL 설명, reference memory, coverage/SVA, 결과 화면</div></div><div class="toc-range">10-13</div></div>
+        <div class="toc-item"><div class="toc-num">05</div><div><div class="toc-title">FIFO 검증</div><div class="toc-sub">RTL 설명, queue model, full/empty coverage, 결과 화면</div></div><div class="toc-range">14-17</div></div>
+        <div class="toc-item"><div class="toc-num">06</div><div><div class="toc-title">비교 및 결론</div><div class="toc-sub">블록별 reference model, timing, coverage 관점 비교</div></div><div class="toc-range">18-19</div></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>프로젝트 개요</h2>
+      <div class="content grid-2-left-image">
+        <figure class="image-box image-main">
+          <img src="assets/diagrams/fig01_uvm_standard_environment.svg" alt="UVM environment standard layout">
+          <figcaption class="caption">UVM environment / agent / analysis / virtual interface 구조</figcaption>
+        </figure>
+        <div class="stack compact">
+          <div class="card">
+            <h3>검증 대상</h3>
+            <table class="small-table">
+              <tr><th>DUT</th><th>검증 중심</th></tr>
+              <tr><td>Adder</td><td>조합 덧셈, carry bit</td></tr>
+              <tr><td>RAM</td><td>synchronous read/write</td></tr>
+              <tr><td>FIFO</td><td>ordering, full/empty/count</td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <h3>검증 방식</h3>
+            <ul>
+              <li>sequence가 directed/random transaction 생성</li>
+              <li>driver가 virtual interface로 DUT 구동</li>
+              <li>monitor transaction을 scoreboard와 coverage로 전달</li>
+              <li>RAM/FIFO는 protocol assertion 추가</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>공통 UVM Factory / Top Class 구조</h2>
+      <div class="content grid-2 class-layout">
+        <div class="stack compact">
+          <div class="card">
+            <h3>factory 생성 흐름</h3>
+            <div class="code">env = *_env::type_id::create("env", this);
+agt = *_agent::type_id::create("agt", this);
+scb = *_scoreboard::type_id::create("scb", this);
+cov = *_coverage::type_id::create("cov", this);
+
+seq = *_sequence::type_id::create("seq");
+seq.start(env.agt.sequencer);</div>
+          </div>
+          <div class="card">
+            <h3>top class 역할</h3>
+            <table class="small-table">
+              <tr><th>Class</th><th>역할</th></tr>
+              <tr><td>test</td><td>env 생성, sequence 실행, objection 제어</td></tr>
+              <tr><td>env</td><td>agent, scoreboard, coverage 연결</td></tr>
+              <tr><td>agent</td><td>sequencer, driver, monitor 구성</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="class-map">
+          <div class="class-row one"><div class="class-node main"><strong>*_test</strong><span>run_phase에서 sequence 시작</span></div></div>
+          <div class="arrow">↓ factory create</div>
+          <div class="class-row one"><div class="class-node main"><strong>*_env</strong><span>agent / scoreboard / coverage 생성</span></div></div>
+          <div class="arrow">↓ build_phase</div>
+          <div class="class-row three">
+            <div class="class-node"><strong>*_agent</strong><span>active agent</span></div>
+            <div class="class-node"><strong>*_scoreboard</strong><span>expected 비교</span></div>
+            <div class="class-node"><strong>*_coverage</strong><span>covergroup sample</span></div>
+          </div>
+          <div class="arrow">↓ agent 내부</div>
+          <div class="class-row three">
+            <div class="class-node"><strong>*_sequencer</strong><span>transaction 중재</span></div>
+            <div class="class-node"><strong>*_driver</strong><span>DUT pin drive</span></div>
+            <div class="class-node"><strong>*_monitor</strong><span>transaction 복원</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>공통 Transaction 흐름</h2>
+      <div class="content grid-2-left-image">
+        <figure class="image-box image-main">
+          <img src="assets/diagrams/fig02_common_transaction_sequence.svg" alt="common transaction sequence">
+          <figcaption class="caption">sequence → driver → DUT → monitor → scoreboard/coverage</figcaption>
+        </figure>
+        <div class="stack compact">
+          <div class="card">
+            <h3>Stimulus path</h3>
+            <ul>
+              <li>test가 sequence 시작</li>
+              <li>sequence가 seq_item 생성 및 randomize</li>
+              <li>sequencer가 driver에 item 전달</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Analysis path</h3>
+            <ul>
+              <li>monitor가 DUT signal을 transaction으로 복원</li>
+              <li>scoreboard가 reference model과 비교</li>
+              <li>coverage가 command/data/status bin sample</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Adder RTL</h2>
+      <div class="content grid-2">
+        <div class="stack compact">
+          <div class="card">
+            <h3>모듈 동작</h3>
+            <table>
+              <tr><th>Signal</th><th>설명</th></tr>
+              <tr><td>iA, iB</td><td>DATA_WIDTH bit 입력 operand</td></tr>
+              <tr><td>oY</td><td>DATA_WIDTH+1 bit 출력, MSB는 carry</td></tr>
+            </table>
+          </div>
+          <div class="code">module adder #(DATA_WIDTH = 32) (
+  input  logic [DATA_WIDTH-1:0] iA,
+  input  logic [DATA_WIDTH-1:0] iB,
+  output logic [DATA_WIDTH  :0] oY
+);
+  assign oY = iA + iB;
+endmodule</div>
+        </div>
+        <figure class="image-box image-main">
+          <img src="assets/diagrams/fig03_adder_uvm_timing.svg" alt="Adder timing">
+          <figcaption class="caption">Adder combinational sampling timing</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Adder UVM Class 구조</h2>
+      <div class="content grid-2 class-layout">
+        <figure class="image-box image-main">
+          <img src="assets/diagrams/fig06_adder_class_map.svg" alt="Adder UVM class map">
+          <figcaption class="caption">Adder UVM class map</figcaption>
+        </figure>
+        <div class="stack compact">
+          <div class="card">
+            <h3>connect_phase</h3>
+            <div class="code">agt.monitor.send.connect(scb.recv);
+agt.monitor.send.connect(cov.analysis_export);
+driver.seq_item_port.connect(
+  sequencer.seq_item_export
+);</div>
+          </div>
+          <div class="card">
+            <h3>Adder에서 달라지는 점</h3>
+            <ul>
+              <li>clocking block 없이 조합 settle 후 sample</li>
+              <li>scoreboard reference model은 상태가 없는 즉시 계산</li>
+              <li>coverage는 입력 corner와 carry 발생 여부 중심</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Adder Sequence / Coverage</h2>
+      <div class="content grid-2">
+        <div class="stack compact">
+          <div class="card">
+            <h3>sequence 구성</h3>
+            <table>
+              <tr><th>구간</th><th>내용</th></tr>
+              <tr><td>directed</td><td>zero / misc / max 조합 9개</td></tr>
+              <tr><td>random</td><td>50개 transaction</td></tr>
+              <tr><td>핵심 case</td><td>max + max carry 발생</td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <h3>coverage bins</h3>
+            <ul>
+              <li>cp_iA, cp_iB: zero / max / misc</li>
+              <li>cp_carry: no_carry / carry</li>
+              <li>cross_iA_iB: operand 조합</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="image-box image-main">
+          <img src="assets/captures/adder/adder_coverage.png" alt="Adder coverage capture">
+          <figcaption class="caption">Adder coverage / result evidence</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Adder 결과</h2>
+      <div class="content result-layout">
+        <figure class="image-box">
+          <img src="assets/captures/adder/adder_waveform.png" alt="Adder waveform">
+          <figcaption class="caption">Adder Verdi waveform</figcaption>
+        </figure>
+        <div class="result-secondary">
+          <figure class="image-box"><img src="assets/captures/adder/adder_uvm_summary.png" alt="Adder UVM summary"><figcaption class="caption">UVM result summary</figcaption></figure>
+          <figure class="image-box"><img src="assets/captures/adder/adder_coverage.png" alt="Adder coverage"><figcaption class="caption">Coverage result</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>RAM RTL</h2>
+      <div class="content grid-2">
+        <div class="stack compact">
+          <div class="card">
+            <h3>동작 조건</h3>
+            <table>
+              <tr><th>조건</th><th>동작</th></tr>
+              <tr><td>!iRstn</td><td>oRData와 memory 초기화</td></tr>
+              <tr><td>iCs && iWea</td><td>mem[iAddr] &lt;= iWData</td></tr>
+              <tr><td>iCs && !iWea</td><td>oRData &lt;= mem[iAddr]</td></tr>
+            </table>
+          </div>
+          <div class="code">always_ff @(posedge iClk or negedge iRstn) begin
+  if (!iRstn) begin
+    oRData <= '0;
+    mem[idx] <= '0;
+  end else if (iCs) begin
+    if (iWea) mem[iAddr] <= iWData;
+    else      oRData <= mem[iAddr];
+  end
+end</div>
+        </div>
+        <figure class="image-box image-main">
+          <img src="assets/diagrams/fig04_ram_uvm_timing.svg" alt="RAM timing">
+          <figcaption class="caption">RAM synchronous read/write timing</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>RAM UVM Class 구조</h2>
+      <div class="content grid-2 class-layout">
+        <figure class="image-box image-main">
+          <img src="assets/diagrams/fig07_ram_class_map.svg" alt="RAM UVM class map">
+          <figcaption class="caption">RAM UVM class map</figcaption>
+        </figure>
+        <div class="stack compact">
+          <div class="card">
+            <h3>RAM에서 필요한 처리</h3>
+            <ul>
+              <li>driver는 clocking block으로 command 유지</li>
+              <li>monitor는 read command 이후 갱신된 oRData sample</li>
+              <li>scoreboard는 reference memory 상태 유지</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>interface SVA</h3>
+            <ul>
+              <li>selected transaction에서 X/Z control 방지</li>
+              <li>write data known check</li>
+              <li>reset 중 command idle check</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>RAM Sequence / Scoreboard / SVA</h2>
+      <div class="content grid-2">
+        <div class="stack compact">
+          <div class="card">
+            <h3>sequence 구성</h3>
+            <table>
+              <tr><th>구간</th><th>내용</th></tr>
+              <tr><td>directed</td><td>first / last / misc address write-read</td></tr>
+              <tr><td>sweep</td><td>0부터 DEPTH-1까지 write/read</td></tr>
+              <tr><td>random</td><td>100개 random access</td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <h3>scoreboard model</h3>
+            <div class="code">write: model_mem[addr] = iWData
+read : expected = model_mem[addr]
+       compare expected with oRData</div>
+          </div>
+          <div class="card">
+            <h3>coverage/SVA</h3>
+            <ul>
+              <li>cp_cmd: read / write</li>
+              <li>cp_addr: first / last / misc</li>
+              <li>cross_cmd_addr + control/data assertion</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="image-box image-main">
+          <img src="assets/captures/ram/ram_coverage.png" alt="RAM coverage">
+          <figcaption class="caption">RAM coverage / result evidence</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>RAM 결과</h2>
+      <div class="content result-layout">
+        <figure class="image-box">
+          <img src="assets/captures/ram/ram_waveform.png" alt="RAM waveform">
+          <figcaption class="caption">RAM Verdi waveform</figcaption>
+        </figure>
+        <div class="result-secondary">
+          <figure class="image-box"><img src="assets/captures/ram/ram_uvm_summary.png" alt="RAM UVM summary"><figcaption class="caption">UVM result summary</figcaption></figure>
+          <figure class="image-box"><img src="assets/captures/ram/ram_coverage.png" alt="RAM coverage"><figcaption class="caption">Coverage result</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>FIFO RTL</h2>
+      <div class="content grid-2">
+        <div class="stack compact">
+          <div class="card">
+            <h3>상태 신호</h3>
+            <table>
+              <tr><th>Signal</th><th>기준</th></tr>
+              <tr><td>oFull</td><td>oCount == DEPTH</td></tr>
+              <tr><td>oEmpty</td><td>oCount == 0</td></tr>
+              <tr><td>oRdData</td><td>mem[rd_ptr]</td></tr>
+            </table>
+          </div>
+          <div class="code">unique case ({iWrEn && !oFull,
+              iRdEn && !oEmpty})
+  2'b10: write, count++
+  2'b01: read,  count--
+  2'b11: write and read, count hold
+  default: state hold
+endcase</div>
+        </div>
+        <figure class="image-box image-main">
+          <img src="assets/diagrams/fig05_fifo_uvm_timing.svg" alt="FIFO timing">
+          <figcaption class="caption">FIFO queue/status timing</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>FIFO UVM Class 구조</h2>
+      <div class="content grid-2 class-layout">
+        <figure class="image-box image-main">
+          <img src="assets/diagrams/fig08_fifo_class_map.svg" alt="FIFO UVM class map">
+          <figcaption class="caption">FIFO UVM class map</figcaption>
+        </figure>
+        <div class="stack compact">
+          <div class="card">
+            <h3>FIFO에서 필요한 처리</h3>
+            <ul>
+              <li>read data는 edge 직전 old rd_ptr 기준으로 확인</li>
+              <li>scoreboard는 full/empty를 이용해 fire 여부 계산</li>
+              <li>count/full/empty consistency assertion 사용</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>blocked request</h3>
+            <ul>
+              <li>full 상태 write는 push하지 않음</li>
+              <li>empty 상태 read는 pop하지 않음</li>
+              <li>valid write/read 동시는 count 유지</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>FIFO Sequence / Scoreboard / Coverage</h2>
+      <div class="content grid-2">
+        <div class="stack compact">
+          <div class="card">
+            <h3>sequence 구성</h3>
+            <table>
+              <tr><th>구간</th><th>내용</th></tr>
+              <tr><td>fill</td><td>write only DEPTH+2</td></tr>
+              <tr><td>drain</td><td>read only DEPTH+2</td></tr>
+              <tr><td>mixed</td><td>simultaneous write/read + random 100</td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <h3>scoreboard model</h3>
+            <div class="code">wr_fire = iWrEn && !oFull
+rd_fire = iRdEn && !oEmpty
+
+if (rd_fire) compare(model_q.pop_front(), oRdData)
+if (wr_fire) model_q.push_back(iWrData)</div>
+          </div>
+          <div class="card">
+            <h3>coverage bins</h3>
+            <ul>
+              <li>cp_cmd: idle/write/read/wr_rd</li>
+              <li>cp_count: zero/mid/full</li>
+              <li>cross_cmd_status</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="image-box image-main">
+          <img src="assets/captures/fifo/fifo_coverage.png" alt="FIFO coverage">
+          <figcaption class="caption">FIFO coverage / result evidence</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>FIFO 결과</h2>
+      <div class="content result-layout">
+        <figure class="image-box">
+          <img src="assets/captures/fifo/fifo_waveform.png" alt="FIFO waveform">
+          <figcaption class="caption">FIFO Verdi waveform</figcaption>
+        </figure>
+        <div class="result-secondary">
+          <figure class="image-box"><img src="assets/captures/fifo/fifo_uvm_summary.png" alt="FIFO UVM summary"><figcaption class="caption">UVM result summary</figcaption></figure>
+          <figure class="image-box"><img src="assets/captures/fifo/fifo_coverage.png" alt="FIFO coverage"><figcaption class="caption">Coverage result</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>블록별 검증 관점 비교</h2>
+      <div class="content">
+        <table class="compare-table">
+          <tr><th>Block</th><th>RTL 특성</th><th>Monitor timing</th><th>Scoreboard model</th><th>Coverage 중심</th></tr>
+          <tr><td>Adder</td><td>조합 회로</td><td>입력 drive 후 #1 sample</td><td>expected = iA + iB</td><td>operand corner, carry</td></tr>
+          <tr><td>RAM</td><td>synchronous single-port memory</td><td>command edge sample, read data #1 sample</td><td>model_mem[DEPTH]</td><td>cmd, address, data</td></tr>
+          <tr><td>FIFO</td><td>pointer/count 기반 queue</td><td>edge 직전 status/data sample</td><td>model_q[$]</td><td>cmd, full/empty, count</td></tr>
+        </table>
+        <div class="grid-3" style="margin-top:18px;">
+          <div class="card"><h3>조합 회로</h3><ul><li>상태 모델 불필요</li><li>출력 폭과 carry 확인</li></ul></div>
+          <div class="card"><h3>Memory</h3><ul><li>write/read 순서 모델링</li><li>registered read timing 반영</li></ul></div>
+          <div class="card"><h3>Queue</h3><ul><li>data order와 status 동시 검증</li><li>blocked request 처리</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>결론</h2>
+      <div class="content stack compact">
+        <div class="note-box">
+          <h3>최종 정리</h3>
+          <p class="lead">Adder, RAM, FIFO는 동일한 UVM testbench 골격을 공유하지만, 실제 검증 품질은 DUT별 timing rule, reference model, coverage 목표를 분리했을 때 확보된다.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>구조 재사용</h3>
+            <ul>
+              <li>test / env / agent / sequence 구조를 세 DUT에 동일하게 적용</li>
+              <li>factory 기반 class 생성 흐름과 connect 구조 확인</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>모델링 차이</h3>
+            <ul>
+              <li>Adder는 즉시 계산 reference model 사용</li>
+              <li>RAM은 model_mem, FIFO는 model_q로 상태 유지</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>검증 증거</h3>
+            <ul>
+              <li>Verdi waveform으로 pin-level timing 확인</li>
+              <li>UVM report와 coverage 화면으로 scenario 수행 결과 확인</li>
+            </ul>
+          </div>
+        </div>
+        <table>
+          <tr><th>구분</th><th>이번 실습에서 확인한 점</th><th>추가 개선 방향</th></tr>
+          <tr><td>Sequence</td><td>directed case와 random case를 함께 구성</td><td>constraint 분리, corner regression 확대</td></tr>
+          <tr><td>Scoreboard</td><td>DUT 특성별 reference model을 분리</td><td>mismatch log format과 debug trace 정리</td></tr>
+          <tr><td>Coverage / SVA</td><td>기능 coverage와 protocol assertion을 함께 사용</td><td>covergroup 목표값과 assertion 항목 문서화</td></tr>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
