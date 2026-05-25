@@ -37,45 +37,28 @@ class fifo_sequence extends uvm_sequence #(fifo_seq_item);
     finish_item(item);
   endtask
 
-  task automatic fill_fifo();
-    repeat (DEPTH) begin
+  task body();
+    send_item_fifo_access(1'b0, 1'b0);
+    send_item_fifo_access(1'b0, 1'b1);
+    send_item_fifo_access(1'b1, 1'b0);
+
+    send_item_fifo_access(1'b0, 1'b0);
+    send_item_fifo_access(1'b1, 1'b1);
+    send_item_fifo_access(1'b1, 1'b0);
+    send_item_fifo_access(1'b0, 1'b1);
+
+    repeat (DEPTH + 2) begin
       send_item_fifo_access(1'b1, 1'b0);
     end
-  endtask
 
-  task automatic drain_fifo();
-    repeat (DEPTH) begin
+    send_item_fifo_access(1'b0, 1'b0);
+    send_item_fifo_access(1'b1, 1'b1);
+    send_item_fifo_access(1'b1, 1'b0);
+    send_item_fifo_access(1'b0, 1'b1);
+
+    repeat (DEPTH + 2) begin
       send_item_fifo_access(1'b0, 1'b1);
     end
-  endtask
-
-  task body();
-    // Empty-state command coverage, including an empty read attempt.
-    send_item_fifo_access(1'b0, 1'b0);
-    send_item_fifo_access(1'b0, 1'b1);
-    send_item_fifo_access(1'b1, 1'b1);
-    send_item_fifo_access(1'b0, 1'b1);
-
-    // Mid-state command coverage.
-    send_item_fifo_access(1'b1, 1'b0);
-    send_item_fifo_access(1'b0, 1'b0);
-    send_item_fifo_access(1'b1, 1'b1);
-    send_item_fifo_access(1'b1, 1'b0);
-    send_item_fifo_access(1'b0, 1'b1);
-
-    // Full-state command coverage. The write-only access at full is the
-    // overflow scenario: the DUT must keep count/data stable and assert full.
-    drain_fifo();
-    fill_fifo();
-    send_item_fifo_access(1'b0, 1'b0);
-    send_item_fifo_access(1'b1, 1'b0);
-    send_item_fifo_access(1'b0, 1'b1);
-    send_item_fifo_access(1'b1, 1'b0);
-    send_item_fifo_access(1'b1, 1'b1);
-
-    // Drain plus one extra read covers the underflow corner once more.
-    drain_fifo();
-    send_item_fifo_access(1'b0, 1'b1);
 
     repeat (100) begin
       send_item_random_test();

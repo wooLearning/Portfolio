@@ -16,7 +16,7 @@ module DataRam #(
 
   localparam integer LP_DEPTH = (1 << P_ADDR_WIDTH);
 
-  logic [P_DATA_WIDTH-1:0] rMemRam [0:LP_DEPTH-1];
+  (* ram_style = "block" *) logic [P_DATA_WIDTH-1:0] rMemRam [0:LP_DEPTH-1];
   logic [P_DATA_WIDTH-1:0] wWordData;
   logic [7:0]              wByteData;
   logic [15:0]             wHalfData;

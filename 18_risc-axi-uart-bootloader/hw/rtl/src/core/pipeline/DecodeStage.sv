@@ -129,11 +129,13 @@ module DecodeStage #(
     .oRs2RdData (wRs2DataRaw)
   );
 
+  // HazardUnit에 현재 ID 명령어의 source register 사용 정보를 넘긴다.
   assign oIdRs1Addr = wRs1Addr;
   assign oIdRs2Addr = wRs2Addr;
   assign oIdUsesRs1 = wUsesRs1;
   assign oIdUsesRs2 = wUsesRs2;
 
+  // WB와 같은 cycle에 같은 register를 읽으면 writeback 값을 우선 사용한다.
   assign wRs1Data =
     (wRs1Addr != 5'd0) && iWbRegWriteEn && (iMemWbPacket.rd_addr == wRs1Addr) ?
     iMemWbPacket.wr_data : wRs1DataRaw;
@@ -142,11 +144,13 @@ module DecodeStage #(
     (wRs2Addr != 5'd0) && iWbRegWriteEn && (iMemWbPacket.rd_addr == wRs2Addr) ?
     iMemWbPacket.wr_data : wRs2DataRaw;
 
+  // ID 단계에서 계산 가능한 jump/branch target.
   assign wBranchTarget = iIfIdPacket.pc + wImm;
   assign wBranchCorrectTarget = wBranchTaken ? wBranchTarget : iIfIdPacket.pc_plus4;
   assign oIdBranchTarget = wBranchCorrectTarget;
   assign oIdJalTarget    = iIfIdPacket.pc + wImm;
 
+  // 현재 instruction이 rs1/rs2를 실제로 읽는지 opcode 기준으로 표시한다.
   always_comb begin
     wUsesRs1 = 1'b0;
     wUsesRs2 = 1'b0;
@@ -178,6 +182,7 @@ module DecodeStage #(
     end
   end
 
+  // 구현된 machine CSR 주소인지 확인한다.
   always_comb begin
     wCsrAddrValid = 1'b1;
 
@@ -199,6 +204,7 @@ module DecodeStage #(
     end
   end
 
+  // ID early branch 비교용 operand. EX/MEM의 non-load 결과는 여기서 바로 우회한다.
   always_comb begin
     wBranchRs1Data = wRs1Data;
     wBranchRs2Data = wRs2Data;
@@ -214,6 +220,7 @@ module DecodeStage #(
     end
   end
 
+  // ID 단계에서 branch를 확정하기 어려운 data dependency를 막는다.
   assign wBranchSrcBlocked =
     (iIdExPacket.valid && iIdExPacket.reg_write && (iIdExPacket.rd_addr != 5'd0) &&
      ((wUsesRs1 && (iIdExPacket.rd_addr == wRs1Addr)) ||
@@ -223,6 +230,7 @@ module DecodeStage #(
      ((wUsesRs1 && (iExMemPacket.rd_addr == wRs1Addr)) ||
       (wUsesRs2 && (iExMemPacket.rd_addr == wRs2Addr))));
 
+  // branch 조건 비교 결과.
   always_comb begin
     wBranchTaken = 1'b0;
 
@@ -237,6 +245,7 @@ module DecodeStage #(
     endcase
   end
 
+  // ID보다 오래된 명령어가 아직 redirect/trap 가능성을 가진 상태.
   assign wOlderMayRedirect =
     iIdExPacket.valid &&
     ((iIdExPacket.branch_type != rv32i_pkg::BR_NONE) ||
@@ -248,17 +257,20 @@ module DecodeStage #(
      iIdExPacket.illegal ||
      !iIdExPacket.csr_addr_valid);
 
+  // ID에서 target까지 계산 가능한 정상 JAL.
   assign wLegalJal =
     iIfIdPacket.valid &&
     (wJumpType == rv32i_pkg::JUMP_JAL) &&
     !wIllegal &&
     (oIdJalTarget[1:0] == 2'b00);
 
+  // BTB가 이미 JAL target을 맞췄는지 확인한다.
   assign wJalPredictedCorrect =
     wLegalJal &&
     iIfIdPacket.predicted_taken &&
     (iIfIdPacket.predicted_target == oIdJalTarget);
 
+  // ID 단계에서 branch taken/target을 확정할 수 있는 상태.
   assign wIdBranchResolved =
     P_ID_EARLY_BRANCH &&
     iIfIdPacket.valid &&
@@ -267,13 +279,16 @@ module DecodeStage #(
     !wBranchSrcBlocked &&
     (!wBranchTaken || (wBranchTarget[1:0] == 2'b00));
 
+  // ID에서 확정한 branch 결과가 Fetch/BTB 예측과 다른지 확인한다.
   assign wIdBranchMispredict =
     wIdBranchResolved &&
     ((iIfIdPacket.predicted_taken != wBranchTaken) ||
      (wBranchTaken && (iIfIdPacket.predicted_target != wBranchTarget)));
 
+  // PipelineControl에 ID branch redirect 후보를 알린다.
   assign oIdBranchCandidate = wIdBranchMispredict;
 
+  // jal x0는 link write가 없는 pure jump라 ID fast redirect 후보가 된다.
   assign oIdJalX0Candidate =
     P_FAST_JAL_X0 &&
     wLegalJal &&
@@ -281,11 +296,13 @@ module DecodeStage #(
     !wOlderMayRedirect &&
     !wJalPredictedCorrect;
 
+  // 일반 JAL redirect 후보. jal x0 fast path와 이미 맞은 예측은 제외한다.
   assign oIdJalCandidate =
     wLegalJal &&
     !oIdJalX0Candidate &&
     !wJalPredictedCorrect;
 
+  // FetchStage BTB에 JAL/branch 실제 결과 기록
   always_comb begin
     oIdBtbUpdateValid  = 1'b0;
     oIdBtbUpdateTaken  = 1'b0;
@@ -304,6 +321,7 @@ module DecodeStage #(
     end
   end
 
+  // Decode 결과를 ID/EX pipeline packet으로 포장한다.
   always_comb begin
     oDecodePacket.valid          = iIfIdPacket.valid;
     oDecodePacket.instr_error    = iIfIdPacket.instr_error;

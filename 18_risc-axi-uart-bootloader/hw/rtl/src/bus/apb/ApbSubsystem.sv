@@ -5,9 +5,9 @@
 Name: ApbSubsystem
 Role: APB peripheral subsystem behind the AXI-Lite-to-APB bridge
 Summary:
-  - Decodes timer, GPIO, SPI, I2C, UART, stream DMA, and PLIC register windows
+  - Decodes timer, GPIO, SPI, I2C, UART, and PLIC register windows
   - Keeps low-speed peripherals APB-based while the SoC fabric is AXI
-  - Replaces the old memory-mapped DMA with APB-controlled AXI-Stream DMA
+  - Exposes UART/SPI stream endpoints for the AXI-Lite-controlled DMA in SocTop
 StateDescription:
   - Peripheral state lives inside each APB slave
 [MODULE_INFO_END]
@@ -42,7 +42,15 @@ module ApbSubsystem (
   output logic        oPREADY,
   output logic        oPSLVERR,
   output logic        oTimerIrq,
-  output logic        oExternalIrq
+  output logic        oExternalIrq,
+  input  logic        iDmaDoneIrq,
+  input  logic        iDmaErrorIrq,
+  output logic [7:0]  oDmaS_TDATA,
+  output logic        oDmaS_TVALID,
+  input  logic        iDmaS_TREADY,
+  input  logic [7:0]  iDmaM_TDATA,
+  input  logic        iDmaM_TVALID,
+  output logic        oDmaM_TREADY
 );
 
   logic wTimerSel;
@@ -52,7 +60,6 @@ module ApbSubsystem (
   logic wSpiSel;
   logic wI2cSel;
   logic wUartSel;
-  logic wDmaSel;
   logic wIrqCtrlSel;
   logic [31:0] wTimerPRDATA;
   logic        wTimerPREADY;
@@ -85,35 +92,39 @@ module ApbSubsystem (
   logic        wUartRxIrq;
   logic        wUartTxDmaReq;
   logic        wUartRxDmaReq;
-  logic [31:0] wDmaPRDATA;
-  logic        wDmaPREADY;
-  logic        wDmaPSLVERR;
-  logic        wDmaDoneIrq;
-  logic        wDmaErrorIrq;
   logic [7:0]  wUartRxStreamData;
   logic        wUartRxStreamValid;
   logic        wUartRxStreamReady;
+  logic [7:0]  wDmaRxStreamData;
+  logic        wDmaRxStreamValid;
+  logic        wDmaRxStreamReady;
+  logic        wDmaRxStreamFifoFull;
+  logic        wDmaRxStreamFifoEmpty;
   logic [7:0]  wDmaTxStreamData;
   logic        wDmaTxStreamValid;
   logic        wDmaTxStreamReady;
-  logic        wDmaTxStreamLast;
   logic [31:0] wIrqPRDATA;
   logic        wIrqPREADY;
   logic        wIrqPSLVERR;
   logic [7:0]  wIrqSources;
 
-  assign wTimerSel   = iPSEL && (iPADDR[19:16] == 4'h0);
-  assign wGpioASel   = iPSEL && (iPADDR[19:16] == 4'h1);
-  assign wGpioBSel   = iPSEL && (iPADDR[19:16] == 4'h2);
-  assign wSpiSel     = iPSEL && (iPADDR[19:16] == 4'h3);
-  assign wI2cSel     = iPSEL && (iPADDR[19:16] == 4'h4);
-  assign wUartSel    = iPSEL && (iPADDR[19:16] == 4'h5);
-  assign wDmaSel     = iPSEL && (iPADDR[19:16] == 4'h6);
-  assign wGpioCSel   = iPSEL && (iPADDR[19:16] == 4'h7);
-  assign wIrqCtrlSel = iPSEL && (iPADDR[19:16] == 4'hF);
+  assign wTimerSel   = iPSEL && address_map_pkg::apb_local_in_range(iPADDR, address_map_pkg::TIMER_BASE, address_map_pkg::TIMER_SIZE);
+  assign wGpioASel   = iPSEL && address_map_pkg::apb_local_in_range(iPADDR, address_map_pkg::GPIO_BASE, address_map_pkg::GPIO_SIZE);
+  assign wGpioBSel   = iPSEL && address_map_pkg::apb_local_in_range(iPADDR, address_map_pkg::GPIO_B_BASE, address_map_pkg::GPIO_B_SIZE);
+  assign wSpiSel     = iPSEL && address_map_pkg::apb_local_in_range(iPADDR, address_map_pkg::SPI_BASE, address_map_pkg::SPI_SIZE);
+  assign wI2cSel     = iPSEL && address_map_pkg::apb_local_in_range(iPADDR, address_map_pkg::I2C_BASE, address_map_pkg::I2C_SIZE);
+  assign wUartSel    = iPSEL && address_map_pkg::apb_local_in_range(iPADDR, address_map_pkg::UART_BASE, address_map_pkg::UART_SIZE);
+  assign wGpioCSel   = iPSEL && address_map_pkg::apb_local_in_range(iPADDR, address_map_pkg::GPIO_C_BASE, address_map_pkg::GPIO_C_SIZE);
+  assign wIrqCtrlSel = iPSEL && address_map_pkg::apb_local_in_range(iPADDR, address_map_pkg::PLIC_BASE, address_map_pkg::PLIC_SIZE);
   assign wIrqSources = iPeripheralIrq |
-                       {1'b0, wDmaErrorIrq, wDmaDoneIrq, 1'b0,
+                       {1'b0, iDmaErrorIrq, iDmaDoneIrq, 1'b0,
                         wSpiRxIrq, wSpiTxIrq, wUartRxIrq, wUartTxIrq};
+  assign oDmaS_TDATA       = wDmaRxStreamData;
+  assign oDmaS_TVALID      = wDmaRxStreamValid;
+  assign wDmaRxStreamReady = iDmaS_TREADY;
+  assign wDmaTxStreamData  = iDmaM_TDATA;
+  assign wDmaTxStreamValid = iDmaM_TVALID;
+  assign oDmaM_TREADY      = wDmaTxStreamReady;
 
   ApbTimer uApbTimer (
     .iPclk      (iPclk),
@@ -246,28 +257,20 @@ module ApbSubsystem (
     .iRxM_TREADY(wUartRxStreamReady)
   );
 
-  ApbAxiStreamDma uApbAxiStreamDma (
-    .iPclk      (iPclk),
-    .iPresetn   (iPresetn),
-    .iPSEL      (wDmaSel),
-    .iPENABLE   (iPENABLE),
-    .iPWRITE    (iPWRITE),
-    .iPADDR     (iPADDR[11:0]),
-    .iPWDATA    (iPWDATA),
-    .iPSTRB     (iPSTRB),
-    .oPRDATA    (wDmaPRDATA),
-    .oPREADY    (wDmaPREADY),
-    .oPSLVERR   (wDmaPSLVERR),
-    .oDoneIrq   (wDmaDoneIrq),
-    .oErrorIrq  (wDmaErrorIrq),
-    .iS_TDATA   (wUartRxStreamData),
-    .iS_TVALID  (wUartRxStreamValid),
-    .oS_TREADY  (wUartRxStreamReady),
-    .iS_TLAST   (1'b0),
-    .oM_TDATA   (wDmaTxStreamData),
-    .oM_TVALID  (wDmaTxStreamValid),
-    .iM_TREADY  (wDmaTxStreamReady),
-    .oM_TLAST   (wDmaTxStreamLast)
+  StreamFifo #(
+    .P_DATA_WIDTH (8),
+    .P_DEPTH      (64)
+  ) uUartRxDmaFifo (
+    .iClk    (iPclk),
+    .iRstn   (iPresetn),
+    .iSData  (wUartRxStreamData),
+    .iSValid (wUartRxStreamValid),
+    .oSReady (wUartRxStreamReady),
+    .oMData  (wDmaRxStreamData),
+    .oMValid (wDmaRxStreamValid),
+    .iMReady (wDmaRxStreamReady),
+    .oFull   (wDmaRxStreamFifoFull),
+    .oEmpty  (wDmaRxStreamFifoEmpty)
   );
 
   ApbPlicLite uApbPlicLite (
@@ -320,11 +323,6 @@ module ApbSubsystem (
       oPRDATA  = wUartPRDATA;
       oPREADY  = wUartPREADY;
       oPSLVERR = wUartPSLVERR;
-    end
-    else if (wDmaSel) begin
-      oPRDATA  = wDmaPRDATA;
-      oPREADY  = wDmaPREADY;
-      oPSLVERR = wDmaPSLVERR;
     end
     else if (wGpioCSel) begin
       oPRDATA  = wGpioCPRDATA;

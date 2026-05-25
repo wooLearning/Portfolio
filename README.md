@@ -15,7 +15,7 @@
 ## 🛠 Tech Skills
 - **Hardware/FPGA**: `Verilog HDL`, `SystemVerilog`, `AMBA (AXI, APB)`, `Xilinx Zynq`
 - **Embedded/System**: `C/C++`, `ARM Assembly`, `OS(xv6)`, `STM32`
-- **EDA & Verification**: `Vivado`, `Cadence Xcelium`, `ModelSim`
+- **EDA & Verification**: `Vivado/XSim`, `VCS`, `Verdi`, `Cadence Xcelium`, `ModelSim`, `UVM`
 - **Embedded IDE / SDK**: `STM32CubeIDE`, `Microchip Studio`, `Keil`, `Vitis`, `Visual Studio`
 - **Circuit / PCB / Collaboration**: `Cadence Virtuoso`, `OrCAD Capture`, `PCB Editor`, `PSpice`, `Linux`, `Git`
 - **Detailed Profile**: [Languages & Tools](./skills/README.md)
@@ -24,8 +24,8 @@
 
 | # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) |
 |:---:|---|:---:|---|
-| **18** | [**RISC-V AXI UART Bootloader MCU**](./18_risc-axi-uart-bootloader) | 2026.05 | `SystemVerilog` `RV32I` `AXI/APB` `UART Bootloader` |
-| **17** | [**UVM Basic Verification Lab**](./17_uvm-basic) | 2026.05 | `SystemVerilog` `UVM` `VCS` `Verdi` |
+| **18** | [**RISC-V AXI UART Bootloader MCU**](./18_risc-axi-uart-bootloader) | 2026.04~05 | `SystemVerilog` `RV32I` `AXI/APB` `AXI-Stream DMA` `UART Bootloader` |
+| **17** | [**UVM RTL Verification Portfolio**](./17_uvm-basic) | 2026.05 | `SystemVerilog` `UVM` `Vivado/XSim` `VCS` `Verdi` |
 | **16** | [**FPGA Automation Toolkit 개발**](./16_fpga-auto-project) | 2026.02~03 | `Batch` `Vivado` `Python`|
 | **15** | [**AXI4 to APB Bridge IP Design (인턴십)**](./15_axi2apb-bridge) | 2026.01 | `Verilog` `AMBA` |
 | **14** | [**FPGA Video Filtering 가속기 설계**](./14_fpga-video-filtering) | 2025.09~11 | `Zynq` `FPGA` |
@@ -48,7 +48,7 @@
 
 | 분야 | 대표 프로젝트 | 보여주는 역량 |
 |---|---|---|
-| **HW / RTL / Verification** | [RISC-V AXI UART Bootloader MCU](./18_risc-axi-uart-bootloader), [UVM Basic Verification Lab](./17_uvm-basic), [AXI4 to APB Bridge](./15_axi2apb-bridge), [FPGA Video Filtering](./14_fpga-video-filtering), [Verilog FIR Filter](./04_verilog-fir-filter) | RV32I SoC, AMBA bus, streaming datapath, FPGA bring-up, UVM/scoreboard/coverage 기반 RTL 검증 |
+| **HW / RTL / Verification** | [RISC-V AXI UART Bootloader MCU](./18_risc-axi-uart-bootloader), [UVM RTL Verification Portfolio](./17_uvm-basic), [AXI4 to APB Bridge](./15_axi2apb-bridge), [FPGA Video Filtering](./14_fpga-video-filtering), [Verilog FIR Filter](./04_verilog-fir-filter) | RV32I SoC, AMBA bus, streaming datapath, FPGA bring-up, UVM/scoreboard/SVA/functional coverage 기반 RTL 검증 |
 | **Embedded / Firmware** | [RISC-V AXI UART Bootloader MCU](./18_risc-axi-uart-bootloader), [FPGA Video Filtering](./14_fpga-video-filtering), [Embedded SW](./06_embedded-sw-stm32), [STM32 Elevator](./03_stm32-mini-elevator), [ARM Assembly Optimization](./12_arm-assembly-optimization) | bare-metal C, bootloader, linker/startup, MCU control, HW/SW co-design |
 | **SW / Algorithm** | [AGV Path Planning](./11_agv-path-planning), [xv6 Kernel Implementation](./10_xv6-kernel-implementation), [SIC/XE Assembler Simulator](./09_sic-xe-assembler-simulator), [FPGA Automation Toolkit](./16_fpga-auto-project) | path planning, OS/kernel, assembler/simulator, workflow automation |
 | **Circuit / Process** | [PCB Design & OrCAD](./13_pcb-design-orcad), [Semiconductor Display Process](./05_semiconductor-display-process), [Full-Custom IC Design](./02_full-custom-ic-design) | schematic/PCB, process understanding, Virtuoso layout, LVS/DRC |
@@ -56,14 +56,14 @@
 ## 🌟 핵심 프로젝트 상세 (Featured Projects)
 > 대표성이 뚜렷한 프로젝트 3가지입니다.
 
-### 1. FPGA Video Filtering 가속기 설계
-*카메라 실시간 입력(Streaming image)을 받아 CNN 1-Layer 연산을 FPGA 하드웨어로 가속하여 디스플레이하는 HW/SW Co-design 프로젝트*
-- **기간**: 2025.09 ~ 2025.11
-- **기술**: `Verilog HDL`, `Ultra96-V2(Zynq)`, `C (MCU Control)`
+### 1. RISC-V AXI UART Bootloader MCU
+*직접 구현한 RV32I pipeline core를 AXI-Lite/APB/AXI-Stream DMA, PLIC-lite, UART bootloader, bare-metal C firmware와 통합한 mini MCU SoC 프로젝트*
+- **기간**: 2026.04 ~ 2026.05
+- **기술**: `SystemVerilog`, `RV32I`, `AXI-Lite/APB`, `AXI-Stream DMA`, `C`, `Python`, `Vivado`
 - **핵심 기여**:
-  - HW(FPGA 로직)와 SW(MCU 제어)를 통합 연동하여 81.97 FPS 고속 영상 처리 성능 확보
-  - CDC(Clock Domain Crossing) 및 카메라 입력과 LCD 출력 간 sync mismatch를 해소하기 위한 buffer/sync logic 개선 완료
-- ➡️ **[👉 상세 문서 및 트러블슈팅 보기](./14_fpga-video-filtering)**
+  - CPU control path와 DMA payload path를 분리하고, UART RX → DSRAM image staging → CPU image invert/CRC → SPI TX 흐름 구현
+  - ROM-resident UART bootloader와 RAM app download/jump flow를 구성해 bitstream 재생성 없이 firmware 반복 개발 가능
+- ➡️ **[👉 상세 문서 및 코드 보기](./18_risc-axi-uart-bootloader)**
 
 ### 2. AGV Path Planning & Deadlock Resolution (🏆 형남과학상 동상)
 *물류 창고 등 과밀 환경의 AGV간 교착상태 탐지 및 경로 최적화 시뮬레이터*

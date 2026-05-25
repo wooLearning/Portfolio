@@ -96,6 +96,10 @@ module AxiLiteSram #(
         rMem[wWriteWordAddr][31:24] <= iS_WDATA[31:24];
       end
     end
+
+    if (iILocalValid && !oILocalReady) begin
+      rIReadData <= wIReadInRange ? rMem[wIReadWordAddr] : 32'h0000_0013;
+    end
   end
 
   always_ff @(posedge iClk or negedge iRstn) begin
@@ -103,7 +107,6 @@ module AxiLiteSram #(
       rRValid <= 1'b0;
       rBValid <= 1'b0;
       rIReadAddr <= 32'd0;
-      rIReadData <= 32'h0000_0013;
       rIReadValid <= 1'b0;
       rDbgWord0 <= 32'd0;
       rDbgWord1 <= 32'd0;
@@ -120,7 +123,6 @@ module AxiLiteSram #(
 
       if (iILocalValid && !oILocalReady) begin
         rIReadAddr <= iILocalAddr;
-        rIReadData <= wIReadInRange ? rMem[wIReadWordAddr] : 32'h0000_0013;
         rIReadValid <= 1'b1;
       end
       else if (!iILocalValid) begin

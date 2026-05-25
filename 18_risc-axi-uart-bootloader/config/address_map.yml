@@ -1,0 +1,56 @@
+version: 1
+soc:
+  name: RISC_AXI_UART_Bootloader
+memory:
+  boot_rom:
+    base: 0x00000000
+    size: 0x00004000
+  isram:
+    base: 0x20000000
+    size: 0x00004000
+    regions:
+      ram_app:
+        base: 0x20000000
+        size: 0x00004000
+  dsram:
+    base: 0x20010000
+    size: 0x00008000
+    regions:
+      debug_workspace:
+        base: 0x20010000
+        size: 0x00001000
+      ram_data:
+        base: 0x20011000
+        size: 0x00003000
+      image_staging:
+        base: 0x20014000
+        size: 0x00004000
+        header_size: 0x00000012
+peripherals:
+  timer:
+    base: 0x40000000
+    size: 0x00001000
+  gpio:
+    base: 0x40010000
+    size: 0x00001000
+  gpio_b:
+    base: 0x40020000
+    size: 0x00001000
+  spi:
+    base: 0x40030000
+    size: 0x00001000
+  i2c:
+    base: 0x40040000
+    size: 0x00001000
+  uart:
+    base: 0x40050000
+    size: 0x00001000
+  dma:
+    base: 0x40060000
+    size: 0x00001000
+  gpio_c:
+    base: 0x40070000
+    size: 0x00001000
+  plic:
+    base: 0x400F0000
+    size: 0x00001000

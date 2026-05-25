@@ -1,0 +1,81 @@
+handoff/MANIFEST.txt
+handoff/README_HANDOFF.md
+handoff/basic/docs/diagrams/fig01_uvm_standard_environment.svg
+handoff/basic/docs/diagrams/fig02_common_transaction_sequence.svg
+handoff/basic/docs/diagrams/fig03_adder_uvm_timing.svg
+handoff/basic/docs/diagrams/fig04_ram_uvm_timing.svg
+handoff/basic/docs/diagrams/fig05_fifo_uvm_timing.svg
+handoff/basic/docs/diagrams/fig06_adder_class_map.svg
+handoff/basic/docs/diagrams/fig07_ram_class_map.svg
+handoff/basic/docs/diagrams/fig08_fifo_class_map.svg
+handoff/capture/adder/스크린샷 2026-05-11 145950.png
+handoff/capture/adder/스크린샷 2026-05-11 151406.png
+handoff/capture/adder/스크린샷 2026-05-12 094806.png
+handoff/capture/fifo/스크린샷 2026-05-11 151112.png
+handoff/capture/fifo/스크린샷 2026-05-11 151150.png
+handoff/capture/fifo/스크린샷 2026-05-11 151502.png
+handoff/capture/ram/스크린샷 2026-05-11 150151.png
+handoff/capture/ram/스크린샷 2026-05-11 150615.png
+handoff/capture/ram/스크린샷 2026-05-11 151426.png
+handoff/pdf/uvm_basic_lab_report_v2.pdf
+handoff/source_code/basic/Makefile
+handoff/source_code/basic/README.md
+handoff/source_code/basic/adder/Makefile
+handoff/source_code/basic/adder/rtl/adder.sv
+handoff/source_code/basic/adder/tb/Makefile
+handoff/source_code/basic/adder/tb/adder_agent.sv
+handoff/source_code/basic/adder/tb/adder_coverage.sv
+handoff/source_code/basic/adder/tb/adder_driver.sv
+handoff/source_code/basic/adder/tb/adder_env.sv
+handoff/source_code/basic/adder/tb/adder_if.sv
+handoff/source_code/basic/adder/tb/adder_monitor.sv
+handoff/source_code/basic/adder/tb/adder_scoreboard.sv
+handoff/source_code/basic/adder/tb/adder_seq_item.sv
+handoff/source_code/basic/adder/tb/adder_sequence.sv
+handoff/source_code/basic/adder/tb/adder_sequencer.sv
+handoff/source_code/basic/adder/tb/adder_test.sv
+handoff/source_code/basic/adder/tb/tb_adder.sv
+handoff/source_code/basic/adder/tb/tb_adder_pkg.sv
+handoff/source_code/basic/adder/tb/vdCov.conf
+handoff/source_code/basic/fifo/Makefile
+handoff/source_code/basic/fifo/rtl/sync_fifo.sv
+handoff/source_code/basic/fifo/tb/FIFO_NEXT_STEPS.md
+handoff/source_code/basic/fifo/tb/Makefile
+handoff/source_code/basic/fifo/tb/fifo_agent.sv
+handoff/source_code/basic/fifo/tb/fifo_coverage.sv
+handoff/source_code/basic/fifo/tb/fifo_driver.sv
+handoff/source_code/basic/fifo/tb/fifo_env.sv
+handoff/source_code/basic/fifo/tb/fifo_if.sv
+handoff/source_code/basic/fifo/tb/fifo_monitor.sv
+handoff/source_code/basic/fifo/tb/fifo_scoreboard.sv
+handoff/source_code/basic/fifo/tb/fifo_seq_item.sv
+handoff/source_code/basic/fifo/tb/fifo_sequence.sv
+handoff/source_code/basic/fifo/tb/fifo_sequencer.sv
+handoff/source_code/basic/fifo/tb/fifo_test.sv
+handoff/source_code/basic/fifo/tb/tb_fifo.sv
+handoff/source_code/basic/fifo/tb/tb_fifo_pkg.sv
+handoff/source_code/basic/fifo/tb/vdCov.conf
+handoff/source_code/basic/ram/Makefile
+handoff/source_code/basic/ram/rtl/ram.sv
+handoff/source_code/basic/ram/tb/Makefile
+handoff/source_code/basic/ram/tb/SVA_ORDER.md
+handoff/source_code/basic/ram/tb/ram_agent.sv
+handoff/source_code/basic/ram/tb/ram_coverage.sv
+handoff/source_code/basic/ram/tb/ram_driver.sv
+handoff/source_code/basic/ram/tb/ram_env.sv
+handoff/source_code/basic/ram/tb/ram_if.sv
+handoff/source_code/basic/ram/tb/ram_if_sva.svh
+handoff/source_code/basic/ram/tb/ram_if_sva_usage.md
+handoff/source_code/basic/ram/tb/ram_monitor.sv
+handoff/source_code/basic/ram/tb/ram_scoreboard.sv
+handoff/source_code/basic/ram/tb/ram_seq_item.sv
+handoff/source_code/basic/ram/tb/ram_sequence.sv
+handoff/source_code/basic/ram/tb/ram_sequencer.sv
+handoff/source_code/basic/ram/tb/ram_sva.sv
+handoff/source_code/basic/ram/tb/ram_test.sv
+handoff/source_code/basic/ram/tb/tb_ram.sv
+handoff/source_code/basic/ram/tb/tb_ram_pkg.sv
+handoff/source_code/basic/ram/tb/vdCov.conf
+handoff/source_code/basic/scripts/run_vcs_verdi_checks.sh
+handoff/uvm_basic_lab_report_v2.html
+handoff/uvm_basic_lab_report_v2.pdf

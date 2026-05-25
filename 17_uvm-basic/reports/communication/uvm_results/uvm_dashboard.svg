@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1482" height="328" viewBox="0 0 1482 328">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="20" y="30" font-family="Arial" font-size="22" font-weight="700">UVM XSim Verification Dashboard</text>
+<text x="20" y="52" font-family="Arial" font-size="12" fill="#555">Generated from current xsim_*.log and XCRG coverage reports</text>
+<text x="156.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">smoke</text>
+<text x="232.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">directed</text>
+<text x="308.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">error</text>
+<text x="384.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">busy</text>
+<text x="460.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">mode</text>
+<text x="536.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">abort</text>
+<text x="612.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">reset</text>
+<text x="688.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">timeout</text>
+<text x="764.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">jitter</text>
+<text x="840.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">corner</text>
+<text x="916.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">byte_sweep</text>
+<text x="992.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">full_random</text>
+<text x="1068.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">all</text>
+<text x="1144.0" y="60" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">vcd</text>
+<text x="1206" y="60" font-family="Arial" font-size="11" fill="#333">coverage</text>
+<text x="20" y="93" font-family="Arial" font-size="13" font-weight="700" fill="#222">UART RX</text>
+<rect x="122" y="76" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="156.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="198" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="232.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="274" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="308.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="350" y="76" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="384.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="426" y="76" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="460.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="502" y="76" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="536.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="578" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="612.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="654" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="688.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="730" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="764.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="806" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="840.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="882" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="916.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="958" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="992.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1034" y="76" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="1068.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1110" y="76" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="1144.0" y="95" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="1206" y="81" width="180" height="14" fill="#eeeeee"/>
+<rect x="1206" y="81" width="180.0" height="14" fill="#2e7d32"/>
+<text x="1396" y="93" font-family="Arial" font-size="12" fill="#222">100.0%</text>
+<text x="20" y="125" font-family="Arial" font-size="13" font-weight="700" fill="#222">UART TX</text>
+<rect x="122" y="108" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="156.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="198" y="108" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="232.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="274" y="108" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="308.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="350" y="108" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="384.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="426" y="108" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="460.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="502" y="108" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="536.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="578" y="108" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="612.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="654" y="108" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="688.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="730" y="108" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="764.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="806" y="108" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="840.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="882" y="108" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="916.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="958" y="108" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="992.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1034" y="108" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="1068.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1110" y="108" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="1144.0" y="127" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="1206" y="113" width="180" height="14" fill="#eeeeee"/>
+<rect x="1206" y="113" width="180.0" height="14" fill="#2e7d32"/>
+<text x="1396" y="125" font-family="Arial" font-size="12" fill="#222">100.0%</text>
+<text x="20" y="157" font-family="Arial" font-size="13" font-weight="700" fill="#222">SPI MASTER</text>
+<rect x="122" y="140" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="156.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="198" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="232.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="274" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="308.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="350" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="384.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="426" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="460.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="502" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="536.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="578" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="612.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="654" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="688.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="730" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="764.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="806" y="140" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="840.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="882" y="140" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="916.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="958" y="140" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="992.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1034" y="140" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="1068.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1110" y="140" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="1144.0" y="159" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="1206" y="145" width="180" height="14" fill="#eeeeee"/>
+<rect x="1206" y="145" width="180.0" height="14" fill="#2e7d32"/>
+<text x="1396" y="157" font-family="Arial" font-size="12" fill="#222">100.0%</text>
+<text x="20" y="189" font-family="Arial" font-size="13" font-weight="700" fill="#222">SPI SLAVE</text>
+<rect x="122" y="172" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="156.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="198" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="232.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="274" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="308.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="350" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="384.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="426" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="460.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="502" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="536.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="578" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="612.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="654" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="688.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="730" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="764.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="806" y="172" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="840.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="882" y="172" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="916.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="958" y="172" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="992.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1034" y="172" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="1068.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1110" y="172" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="1144.0" y="191" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="1206" y="177" width="180" height="14" fill="#eeeeee"/>
+<rect x="1206" y="177" width="180.0" height="14" fill="#2e7d32"/>
+<text x="1396" y="189" font-family="Arial" font-size="12" fill="#222">100.0%</text>
+<text x="20" y="221" font-family="Arial" font-size="13" font-weight="700" fill="#222">I2C MASTER</text>
+<rect x="122" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="156.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="198" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="232.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="274" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="308.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="350" y="204" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="384.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="426" y="204" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="460.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="502" y="204" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="536.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="578" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="612.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="654" y="204" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="688.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="730" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="764.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="806" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="840.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="882" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="916.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="958" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="992.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1034" y="204" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="1068.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1110" y="204" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="1144.0" y="223" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="1206" y="209" width="180" height="14" fill="#eeeeee"/>
+<rect x="1206" y="209" width="180.0" height="14" fill="#2e7d32"/>
+<text x="1396" y="221" font-family="Arial" font-size="12" fill="#222">100.0%</text>
+<text x="20" y="253" font-family="Arial" font-size="13" font-weight="700" fill="#222">I2C SLAVE</text>
+<rect x="122" y="236" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="156.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="198" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="232.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="274" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="308.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="350" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="384.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="426" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="460.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="502" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="536.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="578" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="612.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="654" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="688.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="730" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="764.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="806" y="236" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="840.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="882" y="236" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="916.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="958" y="236" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="992.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1034" y="236" width="68" height="24" rx="4" fill="#2e7d32"/>
+<text x="1068.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#fff">P</text>
+<rect x="1110" y="236" width="68" height="24" rx="4" fill="#eeeeee"/>
+<text x="1144.0" y="255" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#777">-</text>
+<rect x="1206" y="241" width="180" height="14" fill="#eeeeee"/>
+<rect x="1206" y="241" width="180.0" height="14" fill="#2e7d32"/>
+<text x="1396" y="253" font-family="Arial" font-size="12" fill="#222">100.0%</text>
+<rect x="20" y="288" width="16" height="16" rx="3" fill="#2e7d32" stroke="#ccc"/>
+<text x="42" y="301" font-family="Arial" font-size="12" fill="#333">PASS</text>
+<rect x="120" y="288" width="16" height="16" rx="3" fill="#c62828" stroke="#ccc"/>
+<text x="142" y="301" font-family="Arial" font-size="12" fill="#333">FAIL</text>
+<rect x="220" y="288" width="16" height="16" rx="3" fill="#9e9e9e" stroke="#ccc"/>
+<text x="242" y="301" font-family="Arial" font-size="12" fill="#333">UNKNOWN</text>
+<rect x="320" y="288" width="16" height="16" rx="3" fill="#eeeeee" stroke="#ccc"/>
+<text x="342" y="301" font-family="Arial" font-size="12" fill="#333">MISSING</text>
+</svg>

@@ -1,0 +1,32 @@
+`ifndef UART_RX_TYPES_SV
+`define UART_RX_TYPES_SV
+
+typedef enum int {
+  UART_RX_RESULT_VALID,
+  UART_RX_RESULT_FRAME_ERROR,
+  UART_RX_RESULT_FALSE_START,
+  UART_RX_RESULT_RESET_ABORT,
+  UART_RX_RESULT_TIMEOUT
+} uart_rx_result_e;
+
+typedef enum int {
+  UART_RX_RESET_NONE,
+  UART_RX_RESET_IDLE,
+  UART_RX_RESET_START,
+  UART_RX_RESET_DATA,
+  UART_RX_RESET_STOP
+} uart_rx_reset_phase_e;
+
+typedef enum int {
+  UART_RX_TICK_DIRECT,
+  UART_RX_TICK_INTEGER_DIVIDER,
+  UART_RX_TICK_PHASE_ACCUMULATOR
+} uart_rx_tick_mode_e;
+
+typedef enum int {
+  UART_RX_JITTER_NONE,
+  UART_RX_JITTER_EARLY_LATE,
+  UART_RX_JITTER_RANDOM
+} uart_rx_jitter_mode_e;
+
+`endif

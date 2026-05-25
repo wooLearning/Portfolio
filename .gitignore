@@ -1,4 +1,5 @@
 # Local planning notes
+.planning/
 task_plan.md
 findings.md
 progress.md
@@ -11,6 +12,8 @@ Experience.csv
 output/
 skills/
 tools/
+!18_risc-axi-uart-bootloader/tools/
+!18_risc-axi-uart-bootloader/tools/**
 build_pdfs.bat
 Resume_en.pdf
 trash/

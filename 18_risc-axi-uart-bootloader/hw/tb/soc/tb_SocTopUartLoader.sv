@@ -111,7 +111,7 @@ module tb_SocTopUartLoader;
   endtask
 
   initial begin
-    $readmemh("../SW/build_outputs/ram_led_app_loader_packet.hex", rPacket);
+    $readmemh("../build/sw/current/ram_led_app_loader_packet.hex", rPacket);
   end
 
   initial begin
@@ -129,9 +129,9 @@ module tb_SocTopUartLoader;
       @(posedge rClk);
 
       if ((wGpioAOut == 16'h00A5) &&
-          (wDbgPc >= 32'h20001000) &&
+          (wDbgPc >= address_map_pkg::RAM_APP_BASE) &&
           (wDbgSramWord0 == 32'hA550_0001) &&
-          (wDbgSramWord1 == 32'h2000_1000) &&
+          (wDbgSramWord1 == address_map_pkg::RAM_APP_BASE) &&
           (wDbgSramWord2 == 32'hABCD_1234) &&
           (wDbgSramWord3 == 32'h0000_0000)) begin
         $display("SOC_UART_LOADER_PASS cycle=%0d retired=%0d pc=0x%08h gpio=0x%04h sram0=0x%08h sram1=0x%08h sram2=0x%08h sram3=0x%08h",

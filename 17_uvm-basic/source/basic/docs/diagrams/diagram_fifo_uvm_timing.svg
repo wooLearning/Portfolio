@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="680" viewBox="0 0 1100 680" style="background:#ffffff; font-family:'Noto Sans KR', Arial, sans-serif;">
+  <defs>
+    <style>
+      .frame { fill:#ffffff; stroke:#d8d8d8; stroke-width:1.4; }
+      .phase { fill:none; stroke:#c7c7c7; stroke-width:1.8; stroke-dasharray:10 6; rx:8; }
+      .head { fill:#ffffff; stroke:#222222; stroke-width:1.4; rx:5; }
+      .head-hi { fill:#ffffff; stroke:#333333; stroke-width:2; rx:5; }
+      .life { stroke:#c7c7c7; stroke-width:1.35; stroke-dasharray:6 5; }
+      .line { fill:none; stroke:#222222; stroke-width:1.55; marker-end:url(#arrow); }
+      .dash { fill:none; stroke:#666666; stroke-width:1.35; stroke-dasharray:6 5; marker-end:url(#arrowGray); }
+      .self { fill:none; stroke:#222222; stroke-width:1.45; stroke-linejoin:round; marker-end:url(#arrow); }
+      .clock { stroke:#333333; stroke-width:1.5; stroke-dasharray:4 5; }
+      .title { font-size:22px; font-weight:800; fill:#222222; }
+      .subtitle { font-size:13px; fill:#555555; font-weight:500; }
+      .label { font-size:12.5px; font-weight:800; fill:#222222; }
+      .msg { font-size:11px; font-weight:600; fill:#444444; }
+      .note { font-size:12px; font-weight:600; fill:#666666; }
+      .phase-title { font-size:12px; font-weight:800; fill:#333333; letter-spacing:.4px; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#222222"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#666666"/>
+    </marker>
+  </defs>
+
+  <rect x="18" y="18" width="1064" height="644" class="frame"/>
+  <text x="550" y="48" class="title" text-anchor="middle">Figure 5. FIFO UVM Sequence and Queue Reference Model</text>
+  <text x="550" y="70" class="subtitle" text-anchor="middle">The scoreboard decides wr_fire and rd_fire from pre-state full/empty status sampled by the monitor.</text>
+
+  <rect x="48" y="98" width="1004" height="462" class="phase"/>
+  <text x="68" y="124" class="phase-title">FILL, DRAIN, BOUNDARY, AND RANDOM TRAFFIC</text>
+
+  <rect x="70" y="146" width="104" height="40" class="head-hi"/>
+  <text x="122" y="171" class="label" text-anchor="middle">sequence</text>
+  <rect x="218" y="146" width="94" height="40" class="head-hi"/>
+  <text x="265" y="171" class="label" text-anchor="middle">driver</text>
+  <rect x="356" y="146" width="114" height="40" class="head-hi"/>
+  <text x="413" y="171" class="label" text-anchor="middle">sync_fifo</text>
+  <rect x="538" y="146" width="104" height="40" class="head"/>
+  <text x="590" y="171" class="label" text-anchor="middle">monitor</text>
+  <rect x="710" y="146" width="122" height="40" class="head"/>
+  <text x="771" y="171" class="label" text-anchor="middle">scoreboard</text>
+  <rect x="878" y="146" width="86" height="40" class="head"/>
+  <text x="921" y="171" class="label" text-anchor="middle">SVA</text>
+  <rect x="986" y="146" width="56" height="40" class="head"/>
+  <text x="1014" y="171" class="label" text-anchor="middle">cov</text>
+
+  <line x1="122" y1="186" x2="122" y2="532" class="life"/>
+  <line x1="265" y1="186" x2="265" y2="532" class="life"/>
+  <line x1="413" y1="186" x2="413" y2="532" class="life"/>
+  <line x1="590" y1="186" x2="590" y2="532" class="life"/>
+  <line x1="771" y1="186" x2="771" y2="532" class="life"/>
+  <line x1="921" y1="186" x2="921" y2="532" class="life"/>
+  <line x1="1014" y1="186" x2="1014" y2="532" class="life"/>
+
+  <line x1="48" y1="286" x2="1052" y2="286" class="clock"/>
+  <text x="75" y="278" class="note">fill phase reaches full boundary</text>
+  <line x1="48" y1="420" x2="1052" y2="420" class="clock"/>
+  <text x="75" y="412" class="note">drain phase reaches empty boundary</text>
+
+  <path d="M122 218 L265 218" class="line"/>
+  <text x="193" y="207" class="msg" text-anchor="middle">write only repeated DEPTH+2</text>
+  <path d="M265 254 L413 254" class="line"/>
+  <text x="339" y="243" class="msg" text-anchor="middle">iWrEn=1, iRdEn=0</text>
+  <path d="M590 286 L771 286" class="line"/>
+  <text x="680" y="275" class="msg" text-anchor="middle">pre-state status + write data</text>
+  <path d="M771 308 C828 308 828 336 771 336" class="self"/>
+  <text x="850" y="326" class="msg" text-anchor="middle">push when !full</text>
+  <path d="M921 250 C974 250 974 276 921 276" class="self"/>
+  <text x="981" y="268" class="msg" text-anchor="middle">count/full/empty consistency</text>
+
+  <path d="M122 356 L265 356" class="line"/>
+  <text x="193" y="345" class="msg" text-anchor="middle">read only repeated DEPTH+2</text>
+  <path d="M265 392 L413 392" class="line"/>
+  <text x="339" y="381" class="msg" text-anchor="middle">iWrEn=0, iRdEn=1</text>
+  <path d="M413 420 L590 420" class="dash"/>
+  <text x="501" y="409" class="msg" text-anchor="middle">oRdData from old rd_ptr</text>
+  <path d="M590 452 L771 452" class="line"/>
+  <text x="680" y="441" class="msg" text-anchor="middle">oRdData and status</text>
+  <path d="M771 474 C832 474 832 506 771 506" class="self"/>
+  <text x="860" y="494" class="msg" text-anchor="middle">pop and compare when !empty</text>
+
+  <path d="M122 530 L265 530" class="line"/>
+  <text x="193" y="519" class="msg" text-anchor="middle">random wr/rd 100 cycles</text>
+  <path d="M590 530 L1014 530" class="line"/>
+  <text x="802" y="519" class="msg" text-anchor="middle">sample command x status x count coverage</text>
+
+  <rect x="116" y="592" width="868" height="38" class="head"/>
+  <text x="550" y="616" class="note" text-anchor="middle">Blocked requests are modeled explicitly: full write is ignored, empty read is ignored, simultaneous valid write/read keeps count stable.</text>
+</svg>

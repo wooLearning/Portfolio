@@ -33,7 +33,7 @@ module IcodeLocalRom #(
   localparam integer LP_DEPTH = (1 << P_ADDR_WIDTH);
   localparam logic [31:0] LP_NOP = 32'h0000_0013;
 
-  (* ram_style = "block" *) logic [31:0] rMem [0:LP_DEPTH-1];
+  (* ram_style = "block", rom_style = "block" *) logic [31:0] rMem [0:LP_DEPTH-1];
   logic [P_ADDR_WIDTH-1:0] wWordAddr;
   logic [P_ADDR_WIDTH-1:0] wNextWordAddr;
   logic                    wAddrInRange;

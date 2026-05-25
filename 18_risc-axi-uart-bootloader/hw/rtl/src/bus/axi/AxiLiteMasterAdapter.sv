@@ -71,6 +71,62 @@ module AxiLiteMasterAdapter #(
   logic        wReadPreReady;
   logic        wWritePreReady;
   logic        wPreReady;
+  logic [31:0] wAlignedRData;
+  logic [31:0] wPreAlignedRData;
+
+  function automatic logic [31:0] align_wdata(
+    input logic [31:0] iData,
+    input logic [1:0]  iAddr,
+    input logic [1:0]  iSize
+  );
+    begin
+      unique case (iSize)
+        2'b00: begin
+          unique case (iAddr)
+            2'd0:    align_wdata = {24'd0, iData[7:0]};
+            2'd1:    align_wdata = {16'd0, iData[7:0], 8'd0};
+            2'd2:    align_wdata = {8'd0, iData[7:0], 16'd0};
+            default: align_wdata = {iData[7:0], 24'd0};
+          endcase
+        end
+
+        2'b01: begin
+          align_wdata = iAddr[1] ? {iData[15:0], 16'd0} : {16'd0, iData[15:0]};
+        end
+
+        default: begin
+          align_wdata = iData;
+        end
+      endcase
+    end
+  endfunction
+
+  function automatic logic [31:0] align_rdata(
+    input logic [31:0] iData,
+    input logic [1:0]  iAddr,
+    input logic [1:0]  iSize
+  );
+    begin
+      unique case (iSize)
+        2'b00: begin
+          unique case (iAddr)
+            2'd0:    align_rdata = {24'd0, iData[7:0]};
+            2'd1:    align_rdata = {24'd0, iData[15:8]};
+            2'd2:    align_rdata = {24'd0, iData[23:16]};
+            default: align_rdata = {24'd0, iData[31:24]};
+          endcase
+        end
+
+        2'b01: begin
+          align_rdata = iAddr[1] ? {16'd0, iData[31:16]} : {16'd0, iData[15:0]};
+        end
+
+        default: begin
+          align_rdata = iData;
+        end
+      endcase
+    end
+  endfunction
 
   assign wDoWrite = iLocalValid && (P_READ_ONLY ? 1'b0 : iLocalWrite);
   assign wDoRead  = iLocalValid && !wDoWrite;
@@ -83,7 +139,7 @@ module AxiLiteMasterAdapter #(
 
   assign oM_AWADDR  = rAddr;
   assign oM_AWVALID = (rState == S_WRITE) && !rAwDone;
-  assign oM_WDATA   = rWData;
+  assign oM_WDATA   = align_wdata(rWData, rAddr[1:0], rSize);
   assign oM_WSTRB   = axi_lite_pkg::size_to_strb(rSize, rAddr[1:0]);
   assign oM_WVALID  = (rState == S_WRITE) && !rWDone;
   assign oM_BREADY  = (rState == S_WRITE) && rAwDone && rWDone;
@@ -106,7 +162,9 @@ module AxiLiteMasterAdapter #(
 
   assign wPreReady   = wReadPreReady || wWritePreReady;
   assign oLocalReady = ((rState == S_DONE) && wRequestSame) || wPreReady;
-  assign oLocalRData = wReadPreReady ? iM_RDATA : rRData;
+  assign wAlignedRData = align_rdata(rRData, rAddr[1:0], rSize);
+  assign wPreAlignedRData = align_rdata(iM_RDATA, rAddr[1:0], rSize);
+  assign oLocalRData = wReadPreReady ? wPreAlignedRData : wAlignedRData;
   assign oLocalError = oLocalReady && (wPreReady ?
                        (wReadPreReady ? (iM_RRESP != axi_lite_pkg::RESP_OKAY) :
                                         (iM_BRESP != axi_lite_pkg::RESP_OKAY)) :

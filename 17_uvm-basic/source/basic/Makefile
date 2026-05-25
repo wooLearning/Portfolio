@@ -32,13 +32,10 @@ help:
 	@echo "Available BLOCK values: $(BLOCKS)"
 
 list:
-	@printf "%s\n" $(BLOCKS)
+	@echo $(BLOCKS)
 
 check-block:
-	@if ! printf "%s\n" $(BLOCKS) | grep -qx "$(BLOCK)"; then \
-	  echo "Unknown BLOCK='$(BLOCK)'. Use one of: $(BLOCKS)"; \
-	  exit 1; \
-	fi
+	$(if $(filter $(BLOCK),$(BLOCKS)),@echo Using BLOCK=$(BLOCK),$(error Unknown BLOCK='$(BLOCK)'. Use one of: $(BLOCKS)))
 
 compile lint run coverage urg wave verdi verdi_cov verdi_all: check-block
 	$(MAKE) -C $(BLOCK)/tb $@

@@ -44,9 +44,7 @@ module ApbUart #(
   localparam logic [7:0] LP_ADDR_BAUDDIV = 8'h08;
   localparam logic [7:0] LP_ADDR_TXDATA  = 8'h0C;
   localparam logic [7:0] LP_ADDR_RXDATA  = 8'h10;
-  localparam integer LP_PTR_WIDTH = (P_FIFO_DEPTH <= 2) ? 1 : $clog2(P_FIFO_DEPTH);
   localparam integer LP_CNT_WIDTH = $clog2(P_FIFO_DEPTH + 1);
-  localparam logic [LP_CNT_WIDTH-1:0] LP_FIFO_DEPTH_COUNT = P_FIFO_DEPTH[LP_CNT_WIDTH-1:0];
 
   logic        wWrite;
   logic        wRead;
@@ -71,53 +69,41 @@ module ApbUart #(
   logic [7:0]  wRxData;
   logic        wRxValid;
   logic        wRxFrameError;
-  logic [7:0]  rTxFifo [0:P_FIFO_DEPTH-1];
-  logic [7:0]  rRxFifo [0:P_FIFO_DEPTH-1];
-  logic [LP_PTR_WIDTH-1:0] rTxWrPtr;
-  logic [LP_PTR_WIDTH-1:0] rTxRdPtr;
-  logic [LP_CNT_WIDTH-1:0] rTxCount;
-  logic [LP_PTR_WIDTH-1:0] rRxWrPtr;
-  logic [LP_PTR_WIDTH-1:0] rRxRdPtr;
-  logic [LP_CNT_WIDTH-1:0] rRxCount;
   logic [7:0]  wTxKickData;
+  logic [7:0]  wTxFifoData;
+  logic [7:0]  wRxFifoData;
   logic        wTxFifoFull;
   logic        wTxFifoEmpty;
+  logic        wTxFifoPushReady;
+  logic        wTxFifoPopValid;
   logic        wRxFifoFull;
   logic        wRxFifoEmpty;
+  logic        wRxFifoPushReady;
+  logic        wRxFifoPopValid;
   logic        wRxPush;
-  logic [LP_PTR_WIDTH-1:0] wTxWrPtrNext;
-  logic [LP_PTR_WIDTH-1:0] wTxRdPtrNext;
-  logic [LP_PTR_WIDTH-1:0] wRxWrPtrNext;
-  logic [LP_PTR_WIDTH-1:0] wRxRdPtrNext;
-  integer idx;
+  logic [LP_CNT_WIDTH-1:0] wRxFifoCount;
 
   assign wWrite       = iPSEL && iPENABLE && iPWRITE;
   assign wRead        = iPSEL && iPENABLE && !iPWRITE;
   assign wTxWrite     = wWrite && (iPADDR[7:0] == LP_ADDR_TXDATA) &&
-                        iPSTRB[0] && !wTxFifoFull;
-  assign wRxRead      = wRead && (iPADDR[7:0] == LP_ADDR_RXDATA) && !wRxFifoEmpty;
-  assign wTxFifoFull  = (rTxCount == LP_FIFO_DEPTH_COUNT);
-  assign wTxFifoEmpty = (rTxCount == '0);
-  assign wRxFifoFull  = (rRxCount == LP_FIFO_DEPTH_COUNT);
-  assign wRxFifoEmpty = (rRxCount == '0);
-  assign wTxKickPulse = !wTxBusy && !wTxFifoEmpty;
-  assign wTxKickData  = rTxFifo[rTxRdPtr];
-  assign wTxWrPtrNext = (rTxWrPtr == (P_FIFO_DEPTH - 1)) ? '0 : rTxWrPtr + 1'b1;
-  assign wTxRdPtrNext = (rTxRdPtr == (P_FIFO_DEPTH - 1)) ? '0 : rTxRdPtr + 1'b1;
-  assign wRxWrPtrNext = (rRxWrPtr == (P_FIFO_DEPTH - 1)) ? '0 : rRxWrPtr + 1'b1;
-  assign wRxRdPtrNext = (rRxRdPtr == (P_FIFO_DEPTH - 1)) ? '0 : rRxRdPtr + 1'b1;
+                        iPSTRB[0] && wTxFifoPushReady;
+  assign wRxRead      = wRead && (iPADDR[7:0] == LP_ADDR_RXDATA) && wRxFifoPopValid;
+  assign wTxFifoEmpty = !wTxFifoPopValid;
+  assign wRxFifoEmpty = !wRxFifoPopValid;
+  assign wTxKickPulse = !wTxBusy && wTxFifoPopValid;
+  assign wTxKickData  = wTxFifoData;
   assign oPREADY      = 1'b1;
   assign oPSLVERR     = 1'b0;
   assign oTxIrq       = rTxIrqEnable && rTxDoneSticky;
   assign oRxIrq       = rRxIrqEnable && !wRxFifoEmpty;
   assign oTxDmaReq    = rTxDmaEnable && !wTxFifoFull;
   assign oRxDmaReq    = rRxDmaEnable && !wRxFifoEmpty;
-  assign oRxM_TDATA   = wRxFifoEmpty ? 8'd0 : rRxFifo[rRxRdPtr];
+  assign oRxM_TDATA   = wRxFifoData;
   assign oRxM_TVALID  = rRxDmaEnable && !wRxFifoEmpty;
   assign wRxStreamPop = oRxM_TVALID && iRxM_TREADY;
   assign wRxPop       = wRxRead || wRxStreamPop;
 
-  assign wRxPush = wRxValid && !wRxFifoFull;
+  assign wRxPush = wRxValid && wRxFifoPushReady;
 
   always_ff @(posedge iPclk or negedge iPresetn) begin
     if (!iPresetn) begin
@@ -148,17 +134,6 @@ module ApbUart #(
       rRxValidSticky    <= 1'b0;
       rRxOverrunSticky  <= 1'b0;
       rFrameErrorSticky <= 1'b0;
-      rTxWrPtr          <= '0;
-      rTxRdPtr          <= '0;
-      rTxCount          <= '0;
-      rRxWrPtr          <= '0;
-      rRxRdPtr          <= '0;
-      rRxCount          <= '0;
-
-      for (idx = 0; idx < P_FIFO_DEPTH; idx = idx + 1) begin
-        rTxFifo[idx] <= 8'd0;
-        rRxFifo[idx] <= 8'd0;
-      end
     end
     else begin
       if (wTxDone) begin
@@ -168,12 +143,8 @@ module ApbUart #(
       if (wRxValid) begin
         rRxValidSticky <= 1'b1;
 
-        if (wRxFifoFull) begin
+        if (!wRxFifoPushReady) begin
           rRxOverrunSticky <= 1'b1;
-        end
-        else begin
-          rRxFifo[rRxWrPtr] <= wRxData;
-          rRxWrPtr          <= wRxWrPtrNext;
         end
       end
 
@@ -182,32 +153,10 @@ module ApbUart #(
       end
 
       if (wTxKickPulse) begin
-        rTxRdPtr     <= wTxRdPtrNext;
         rTxDoneSticky <= 1'b0;
       end
 
-      if (wTxWrite) begin
-        rTxFifo[rTxWrPtr] <= iPWDATA[7:0];
-        rTxWrPtr          <= wTxWrPtrNext;
-      end
-
-      if (wRxPop) begin
-        rRxRdPtr <= wRxRdPtrNext;
-      end
-
-      unique case ({wTxWrite, wTxKickPulse})
-        2'b10: rTxCount <= rTxCount + 1'b1;
-        2'b01: rTxCount <= rTxCount - 1'b1;
-        default: begin end
-      endcase
-
-      unique case ({wRxPush, wRxPop})
-        2'b10: rRxCount <= rRxCount + 1'b1;
-        2'b01: rRxCount <= rRxCount - 1'b1;
-        default: begin end
-      endcase
-
-      if (wRxPop && (rRxCount == {{(LP_CNT_WIDTH-1){1'b0}}, 1'b1}) && !wRxPush) begin
+      if (wRxPop && (wRxFifoCount == {{(LP_CNT_WIDTH-1){1'b0}}, 1'b1}) && !wRxPush) begin
         rRxValidSticky <= 1'b0;
       end
 
@@ -253,6 +202,40 @@ module ApbUart #(
     end
   end
 
+  ByteFifo #(
+    .P_DATA_WIDTH (8),
+    .P_DEPTH      (P_FIFO_DEPTH)
+  ) uTxFifo (
+    .iClk        (iPclk),
+    .iRstn       (iPresetn),
+    .iPush       (wTxWrite),
+    .iPushData   (iPWDATA[7:0]),
+    .oPushReady  (wTxFifoPushReady),
+    .iPop        (wTxKickPulse),
+    .oPopData    (wTxFifoData),
+    .oPopValid   (wTxFifoPopValid),
+    .oFull       (wTxFifoFull),
+    .oEmpty      (),
+    .oCount      ()
+  );
+
+  ByteFifo #(
+    .P_DATA_WIDTH (8),
+    .P_DEPTH      (P_FIFO_DEPTH)
+  ) uRxFifo (
+    .iClk        (iPclk),
+    .iRstn       (iPresetn),
+    .iPush       (wRxValid),
+    .iPushData   (wRxData),
+    .oPushReady  (wRxFifoPushReady),
+    .iPop        (wRxPop),
+    .oPopData    (wRxFifoData),
+    .oPopValid   (wRxFifoPopValid),
+    .oFull       (wRxFifoFull),
+    .oEmpty      (),
+    .oCount      (wRxFifoCount)
+  );
+
   UartTx uUartTx (
     .iClk     (iPclk),
     .iRstn    (iPresetn),
@@ -294,11 +277,11 @@ module ApbUart #(
       end
 
       LP_ADDR_TXDATA: begin
-        oPRDATA = wTxFifoEmpty ? 32'd0 : {24'd0, rTxFifo[rTxRdPtr]};
+        oPRDATA = wTxFifoEmpty ? 32'd0 : {24'd0, wTxFifoData};
       end
 
       LP_ADDR_RXDATA: begin
-        oPRDATA = wRxFifoEmpty ? 32'd0 : {24'd0, rRxFifo[rRxRdPtr]};
+        oPRDATA = wRxFifoEmpty ? 32'd0 : {24'd0, wRxFifoData};
       end
 
       default: begin

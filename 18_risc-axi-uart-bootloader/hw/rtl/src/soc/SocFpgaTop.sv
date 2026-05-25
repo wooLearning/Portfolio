@@ -12,7 +12,9 @@ StateDescription:
   - No additional state; all state remains inside SocTop
 [MODULE_INFO_END]
 */
-module SocFpgaTop (
+module SocFpgaTop #(
+  parameter string P_ICODE_MEM_FILE = "rtl/src/timing_programs/uart_loader.mem"
+) (
   input  logic        iClk100M,
   input  logic        iReset,
   input  logic [15:0] iSw,
@@ -109,7 +111,8 @@ module SocFpgaTop (
 
   SocTop #(
     .P_ENABLE_DEBUG (1'b0),
-    .P_ICODE_PROGRAM(4)
+    .P_ICODE_PROGRAM(4),
+    .P_ICODE_MEM_FILE(P_ICODE_MEM_FILE)
   ) uSocTop (
     .iClk              (wSocClk),
     .iRstn             (wRstn),

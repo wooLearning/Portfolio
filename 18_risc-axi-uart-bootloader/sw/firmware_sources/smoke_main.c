@@ -1,9 +1,9 @@
 #include <stdint.h>
 
-#define GPIOA_BASE 0x40010000u
+#include "soc_address_map.h"
+
 #define GPIO_OUT   0x00u
 #define GPIO_DIR   0x08u
-#define SRAM_BASE  0x20000000u
 
 #define MMIO32(addr) (*(volatile uint32_t *)(uintptr_t)(addr))
 

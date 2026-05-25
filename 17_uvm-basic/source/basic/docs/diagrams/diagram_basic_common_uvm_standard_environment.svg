@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="680" viewBox="0 0 1120 680" style="background:#ffffff; font-family:'Pretendard','Noto Sans KR',Arial,sans-serif;">
+  <defs>
+    <style>
+      .frame { fill:#ffffff; stroke:#d7d7d7; stroke-width:1.4; }
+      .env { fill:#ffffff; stroke:#b8b8b8; stroke-width:2; }
+      .agent { fill:#ffffff; stroke:#777777; stroke-width:2; }
+      .box { fill:#ffffff; stroke:#222222; stroke-width:2; }
+      .soft { fill:#f6f6f6; stroke:#b8b8b8; stroke-width:1.6; }
+      .line { fill:none; stroke:#222222; stroke-width:2.4; marker-end:url(#arrow); }
+      .dash { fill:none; stroke:#777777; stroke-width:2.2; stroke-dasharray:7 6; marker-end:url(#arrowGray); }
+      .tap { fill:none; stroke:#222222; stroke-width:2.2; marker-end:url(#arrow); }
+      .title { font-size:18px; font-weight:850; fill:#111111; }
+      .name { font-size:17px; font-weight:850; fill:#111111; }
+      .sub { font-size:12px; font-weight:650; fill:#555555; }
+      .tag { font-size:11px; font-weight:750; fill:#333333; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#222222"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#777777"/>
+    </marker>
+  </defs>
+
+  <rect x="30" y="26" width="1060" height="620" class="frame"/>
+
+  <rect x="76" y="52" width="968" height="416" rx="18" class="env"/>
+  <text x="104" y="88" class="title">UVM Environment</text>
+  <text x="276" y="88" class="sub">(uvm_env)</text>
+
+  <rect x="124" y="112" width="186" height="56" rx="28" class="box"/>
+  <text x="217" y="136" text-anchor="middle" class="name">Sequence</text>
+  <text x="217" y="155" text-anchor="middle" class="sub">(uvm_sequence)</text>
+
+  <rect x="402" y="112" width="238" height="56" rx="10" class="box"/>
+  <text x="521" y="136" text-anchor="middle" class="name">Register Model</text>
+  <text x="521" y="155" text-anchor="middle" class="sub">(optional RAL)</text>
+
+  <rect x="116" y="220" width="548" height="224" rx="14" class="agent"/>
+  <text x="144" y="254" class="title">UVM Agent</text>
+
+  <rect x="160" y="288" width="180" height="58" rx="7" class="box"/>
+  <text x="250" y="312" text-anchor="middle" class="name">Sequencer</text>
+  <text x="250" y="331" text-anchor="middle" class="sub">(uvm_sequencer)</text>
+
+  <rect x="160" y="376" width="180" height="58" rx="7" class="box"/>
+  <text x="250" y="400" text-anchor="middle" class="name">Driver</text>
+  <text x="250" y="419" text-anchor="middle" class="sub">(uvm_driver)</text>
+
+  <rect x="430" y="376" width="180" height="58" rx="7" class="box"/>
+  <text x="520" y="400" text-anchor="middle" class="name">Monitor</text>
+  <text x="520" y="419" text-anchor="middle" class="sub">(uvm_monitor)</text>
+
+  <rect x="744" y="260" width="246" height="62" rx="8" class="box"/>
+  <text x="867" y="286" text-anchor="middle" class="name">Scoreboard</text>
+  <text x="867" y="306" text-anchor="middle" class="sub">(uvm_scoreboard / check)</text>
+
+  <rect x="744" y="376" width="246" height="62" rx="8" class="box"/>
+  <text x="867" y="402" text-anchor="middle" class="name">Coverage Collector</text>
+  <text x="867" y="422" text-anchor="middle" class="sub">(uvm_subscriber / sample)</text>
+
+  <rect x="92" y="512" width="936" height="42" rx="8" class="soft"/>
+  <text x="560" y="538" text-anchor="middle" class="name">Virtual Interface</text>
+  <text x="676" y="538" class="sub">(SystemVerilog interface)</text>
+
+  <rect x="228" y="596" width="664" height="42" rx="10" class="box"/>
+  <text x="560" y="623" text-anchor="middle" class="name">DUT (Design Under Test)</text>
+
+  <path d="M217 168 L217 288" class="line"/>
+
+  <path d="M250 346 L250 376" class="line"/>
+
+  <path d="M521 168 L521 220" class="dash"/>
+
+  <path d="M610 405 H684 V291 H744" class="tap"/>
+  <path d="M610 405 H744" class="tap"/>
+
+  <path d="M250 434 V512" class="dash"/>
+  <path d="M520 512 V434" class="dash"/>
+  <text x="270" y="486" class="sub">Pin Wiggle (Drive)</text>
+  <text x="540" y="486" class="sub">Pin Observe (Sample)</text>
+
+  <path d="M250 554 V596" class="line"/>
+  <path d="M520 554 V596" class="line"/>
+</svg>

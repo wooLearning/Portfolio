@@ -7,9 +7,9 @@ Role: AXI-Lite based RISC-V MCU top with APB peripherals and AXI-Stream DMA
 Summary:
   - Uses a local ICode ROM fast path for instruction fetch
   - Converts core DBus local ports into an AXI-Lite master
-  - Uses AXI-Lite ROM/SRAM/peripheral address windows
-  - Bridges the peripheral AXI-Lite window to APB for timer/GPIO/SPI/UART/I2C/PLIC/DMA control
-  - Keeps bulk data movement in the AXI-Stream DMA path
+  - Uses AXI-Lite SRAM/peripheral address windows for DBus access
+  - Routes DMA control as a direct AXI-Lite slave and bridges other peripherals to APB
+  - Keeps bulk data movement in the DMA AXI-Lite master path
 StateDescription:
   - Performance counters update once per clock after reset
 [MODULE_INFO_END]
@@ -63,14 +63,14 @@ module SocTop #(
   logic        wCoreIBusReady;
   logic [31:0] wCoreIBusRData;
   logic        wCoreIBusError;
-  logic        wCoreIBusSramSel;
+  logic        wCoreIBusIsramSel;
   logic        wRomIBusReady;
   logic [31:0] wRomIBusRData;
   logic        wRomIBusError;
-  logic [31:0] wSramIBusAddr;
-  logic        wSramIBusReady;
-  logic [31:0] wSramIBusRData;
-  logic        wSramIBusError;
+  logic [31:0] wIsramIBusAddr;
+  logic        wIsramIBusReady;
+  logic [31:0] wIsramIBusRData;
+  logic        wIsramIBusError;
   logic        wCoreDBusValid;
   logic        wCoreDBusWrite;
   logic [31:0] wCoreDBusAddr;
@@ -110,23 +110,23 @@ module SocTop #(
   logic        wDBusRVALID;
   logic        wDBusRREADY;
 
-  logic [31:0] wRomAWADDR;
-  logic        wRomAWVALID;
-  logic        wRomAWREADY;
-  logic [31:0] wRomWDATA;
-  logic [3:0]  wRomWSTRB;
-  logic        wRomWVALID;
-  logic        wRomWREADY;
-  logic [1:0]  wRomBRESP;
-  logic        wRomBVALID;
-  logic        wRomBREADY;
-  logic [31:0] wRomARADDR;
-  logic        wRomARVALID;
-  logic        wRomARREADY;
-  logic [31:0] wRomRDATA;
-  logic [1:0]  wRomRRESP;
-  logic        wRomRVALID;
-  logic        wRomRREADY;
+  logic [31:0] wIsramAWADDR;
+  logic        wIsramAWVALID;
+  logic        wIsramAWREADY;
+  logic [31:0] wIsramWDATA;
+  logic [3:0]  wIsramWSTRB;
+  logic        wIsramWVALID;
+  logic        wIsramWREADY;
+  logic [1:0]  wIsramBRESP;
+  logic        wIsramBVALID;
+  logic        wIsramBREADY;
+  logic [31:0] wIsramARADDR;
+  logic        wIsramARVALID;
+  logic        wIsramARREADY;
+  logic [31:0] wIsramRDATA;
+  logic [1:0]  wIsramRRESP;
+  logic        wIsramRVALID;
+  logic        wIsramRREADY;
 
   logic [31:0] wSramAWADDR;
   logic        wSramAWVALID;
@@ -145,6 +145,60 @@ module SocTop #(
   logic [1:0]  wSramRRESP;
   logic        wSramRVALID;
   logic        wSramRREADY;
+
+  logic [31:0] wDmaCtrlAWADDR;
+  logic        wDmaCtrlAWVALID;
+  logic        wDmaCtrlAWREADY;
+  logic [31:0] wDmaCtrlWDATA;
+  logic [3:0]  wDmaCtrlWSTRB;
+  logic        wDmaCtrlWVALID;
+  logic        wDmaCtrlWREADY;
+  logic [1:0]  wDmaCtrlBRESP;
+  logic        wDmaCtrlBVALID;
+  logic        wDmaCtrlBREADY;
+  logic [31:0] wDmaCtrlARADDR;
+  logic        wDmaCtrlARVALID;
+  logic        wDmaCtrlARREADY;
+  logic [31:0] wDmaCtrlRDATA;
+  logic [1:0]  wDmaCtrlRRESP;
+  logic        wDmaCtrlRVALID;
+  logic        wDmaCtrlRREADY;
+
+  logic [31:0] wDmaAWADDR;
+  logic        wDmaAWVALID;
+  logic        wDmaAWREADY;
+  logic [31:0] wDmaWDATA;
+  logic [3:0]  wDmaWSTRB;
+  logic        wDmaWVALID;
+  logic        wDmaWREADY;
+  logic [1:0]  wDmaBRESP;
+  logic        wDmaBVALID;
+  logic        wDmaBREADY;
+  logic [31:0] wDmaARADDR;
+  logic        wDmaARVALID;
+  logic        wDmaARREADY;
+  logic [31:0] wDmaRDATA;
+  logic [1:0]  wDmaRRESP;
+  logic        wDmaRVALID;
+  logic        wDmaRREADY;
+
+  logic [31:0] wArbSramAWADDR;
+  logic        wArbSramAWVALID;
+  logic        wArbSramAWREADY;
+  logic [31:0] wArbSramWDATA;
+  logic [3:0]  wArbSramWSTRB;
+  logic        wArbSramWVALID;
+  logic        wArbSramWREADY;
+  logic [1:0]  wArbSramBRESP;
+  logic        wArbSramBVALID;
+  logic        wArbSramBREADY;
+  logic [31:0] wArbSramARADDR;
+  logic        wArbSramARVALID;
+  logic        wArbSramARREADY;
+  logic [31:0] wArbSramRDATA;
+  logic [1:0]  wArbSramRRESP;
+  logic        wArbSramRVALID;
+  logic        wArbSramRREADY;
 
   logic [31:0] wPeriphAWADDR;
   logic        wPeriphAWVALID;
@@ -175,13 +229,22 @@ module SocTop #(
   logic        wPSLVERR;
   logic        wTimerIrq;
   logic        wExternalIrq;
+  logic        wDmaDoneIrq;
+  logic        wDmaErrorIrq;
+  logic [7:0]  wDmaS_TDATA;
+  logic        wDmaS_TVALID;
+  logic        wDmaS_TREADY;
+  logic [7:0]  wDmaM_TDATA;
+  logic        wDmaM_TVALID;
+  logic        wDmaM_TREADY;
+  logic        wDmaM_TLAST;
 
-  assign wCoreIBusSramSel =
-    ((wCoreIBusAddr & axi_lite_pkg::SRAM_MASK) == axi_lite_pkg::SRAM_BASE);
-  assign wSramIBusAddr = wCoreIBusAddr - axi_lite_pkg::SRAM_BASE;
-  assign wCoreIBusReady = wCoreIBusSramSel ? wSramIBusReady : wRomIBusReady;
-  assign wCoreIBusRData = wCoreIBusSramSel ? wSramIBusRData : wRomIBusRData;
-  assign wCoreIBusError = wCoreIBusSramSel ? wSramIBusError : wRomIBusError;
+  assign wCoreIBusIsramSel =
+    address_map_pkg::in_range(wCoreIBusAddr, axi_lite_pkg::ISRAM_BASE, axi_lite_pkg::ISRAM_SIZE);
+  assign wIsramIBusAddr = wCoreIBusAddr - axi_lite_pkg::ISRAM_BASE;
+  assign wCoreIBusReady = wCoreIBusIsramSel ? wIsramIBusReady : wRomIBusReady;
+  assign wCoreIBusRData = wCoreIBusIsramSel ? wIsramIBusRData : wRomIBusRData;
+  assign wCoreIBusError = wCoreIBusIsramSel ? wIsramIBusError : wRomIBusError;
 
   assign oDbgDone =
     P_ENABLE_DEBUG &&
@@ -189,6 +252,7 @@ module SocTop #(
     (oDbgSramWord1 == 32'h0000_F234) &&
     (oDbgSramWord2 == 32'hF234_00A5) &&
     (oDbgSramWord3 == 32'hFFFF_F234);
+    
   Rv32Core uCore (
     .iClk               (iClk),
     .iRstn              (iRstn),
@@ -224,13 +288,13 @@ module SocTop #(
   );
 
   IcodeLocalRom #(
-    .P_ADDR_WIDTH (12),
+    .P_ADDR_WIDTH (address_map_pkg::BOOT_ROM_WORD_ADDR_WIDTH),
     .P_MEM_FILE   (P_ICODE_MEM_FILE),
     .P_SYNC_READ  (1'b1)
   ) uIcodeLocalRom (
     .iClk           (iClk),
     .iRstn          (iRstn),
-    .iLocalValid    (wCoreIBusValid && !wCoreIBusSramSel),
+    .iLocalValid    (wCoreIBusValid && !wCoreIBusIsramSel),
     .iLocalAddr     (wCoreIBusAddr),
     .oLocalReady    (wRomIBusReady),
     .oLocalRData    (wRomIBusRData),
@@ -273,7 +337,7 @@ module SocTop #(
     .oM_RREADY     (wDBusRREADY)
   );
 
-  AxiLiteInterconnect1x3 uAxiLiteInterconnect (
+  AxiLiteInterconnect1x4 uAxiLiteInterconnect (
     .iClk        (iClk),
     .iRstn       (iRstn),
     .iM_AWADDR   (wDBusAWADDR),
@@ -293,23 +357,23 @@ module SocTop #(
     .oM_RRESP    (wDBusRRESP),
     .oM_RVALID   (wDBusRVALID),
     .iM_RREADY   (wDBusRREADY),
-    .oS0_AWADDR  (wRomAWADDR),
-    .oS0_AWVALID (wRomAWVALID),
-    .iS0_AWREADY (wRomAWREADY),
-    .oS0_WDATA   (wRomWDATA),
-    .oS0_WSTRB   (wRomWSTRB),
-    .oS0_WVALID  (wRomWVALID),
-    .iS0_WREADY  (wRomWREADY),
-    .iS0_BRESP   (wRomBRESP),
-    .iS0_BVALID  (wRomBVALID),
-    .oS0_BREADY  (wRomBREADY),
-    .oS0_ARADDR  (wRomARADDR),
-    .oS0_ARVALID (wRomARVALID),
-    .iS0_ARREADY (wRomARREADY),
-    .iS0_RDATA   (wRomRDATA),
-    .iS0_RRESP   (wRomRRESP),
-    .iS0_RVALID  (wRomRVALID),
-    .oS0_RREADY  (wRomRREADY),
+    .oS0_AWADDR  (wIsramAWADDR),
+    .oS0_AWVALID (wIsramAWVALID),
+    .iS0_AWREADY (wIsramAWREADY),
+    .oS0_WDATA   (wIsramWDATA),
+    .oS0_WSTRB   (wIsramWSTRB),
+    .oS0_WVALID  (wIsramWVALID),
+    .iS0_WREADY  (wIsramWREADY),
+    .iS0_BRESP   (wIsramBRESP),
+    .iS0_BVALID  (wIsramBVALID),
+    .oS0_BREADY  (wIsramBREADY),
+    .oS0_ARADDR  (wIsramARADDR),
+    .oS0_ARVALID (wIsramARVALID),
+    .iS0_ARREADY (wIsramARREADY),
+    .iS0_RDATA   (wIsramRDATA),
+    .iS0_RRESP   (wIsramRRESP),
+    .iS0_RVALID  (wIsramRVALID),
+    .oS0_RREADY  (wIsramRREADY),
     .oS1_AWADDR  (wSramAWADDR),
     .oS1_AWVALID (wSramAWVALID),
     .iS1_AWREADY (wSramAWREADY),
@@ -327,82 +391,216 @@ module SocTop #(
     .iS1_RRESP   (wSramRRESP),
     .iS1_RVALID  (wSramRVALID),
     .oS1_RREADY  (wSramRREADY),
-    .oS2_AWADDR  (wPeriphAWADDR),
-    .oS2_AWVALID (wPeriphAWVALID),
-    .iS2_AWREADY (wPeriphAWREADY),
-    .oS2_WDATA   (wPeriphWDATA),
-    .oS2_WSTRB   (wPeriphWSTRB),
-    .oS2_WVALID  (wPeriphWVALID),
-    .iS2_WREADY  (wPeriphWREADY),
-    .iS2_BRESP   (wPeriphBRESP),
-    .iS2_BVALID  (wPeriphBVALID),
-    .oS2_BREADY  (wPeriphBREADY),
-    .oS2_ARADDR  (wPeriphARADDR),
-    .oS2_ARVALID (wPeriphARVALID),
-    .iS2_ARREADY (wPeriphARREADY),
-    .iS2_RDATA   (wPeriphRDATA),
-    .iS2_RRESP   (wPeriphRRESP),
-    .iS2_RVALID  (wPeriphRVALID),
-    .oS2_RREADY  (wPeriphRREADY)
-  );
-
-  AxiLiteRom #(
-    .P_ADDR_WIDTH (12),
-    .P_MEM_FILE   (P_ICODE_MEM_FILE)
-  ) uDataRom (
-    .iClk       (iClk),
-    .iRstn      (iRstn),
-    .iS_AWADDR  (wRomAWADDR),
-    .iS_AWVALID (wRomAWVALID),
-    .oS_AWREADY (wRomAWREADY),
-    .iS_WDATA   (wRomWDATA),
-    .iS_WSTRB   (wRomWSTRB),
-    .iS_WVALID  (wRomWVALID),
-    .oS_WREADY  (wRomWREADY),
-    .oS_BRESP   (wRomBRESP),
-    .oS_BVALID  (wRomBVALID),
-    .iS_BREADY  (wRomBREADY),
-    .iS_ARADDR  (wRomARADDR),
-    .iS_ARVALID (wRomARVALID),
-    .oS_ARREADY (wRomARREADY),
-    .oS_RDATA   (wRomRDATA),
-    .oS_RRESP   (wRomRRESP),
-    .oS_RVALID  (wRomRVALID),
-    .iS_RREADY  (wRomRREADY)
+    .oS2_AWADDR  (wDmaCtrlAWADDR),
+    .oS2_AWVALID (wDmaCtrlAWVALID),
+    .iS2_AWREADY (wDmaCtrlAWREADY),
+    .oS2_WDATA   (wDmaCtrlWDATA),
+    .oS2_WSTRB   (wDmaCtrlWSTRB),
+    .oS2_WVALID  (wDmaCtrlWVALID),
+    .iS2_WREADY  (wDmaCtrlWREADY),
+    .iS2_BRESP   (wDmaCtrlBRESP),
+    .iS2_BVALID  (wDmaCtrlBVALID),
+    .oS2_BREADY  (wDmaCtrlBREADY),
+    .oS2_ARADDR  (wDmaCtrlARADDR),
+    .oS2_ARVALID (wDmaCtrlARVALID),
+    .iS2_ARREADY (wDmaCtrlARREADY),
+    .iS2_RDATA   (wDmaCtrlRDATA),
+    .iS2_RRESP   (wDmaCtrlRRESP),
+    .iS2_RVALID  (wDmaCtrlRVALID),
+    .oS2_RREADY  (wDmaCtrlRREADY),
+    .oS3_AWADDR  (wPeriphAWADDR),
+    .oS3_AWVALID (wPeriphAWVALID),
+    .iS3_AWREADY (wPeriphAWREADY),
+    .oS3_WDATA   (wPeriphWDATA),
+    .oS3_WSTRB   (wPeriphWSTRB),
+    .oS3_WVALID  (wPeriphWVALID),
+    .iS3_WREADY  (wPeriphWREADY),
+    .iS3_BRESP   (wPeriphBRESP),
+    .iS3_BVALID  (wPeriphBVALID),
+    .oS3_BREADY  (wPeriphBREADY),
+    .oS3_ARADDR  (wPeriphARADDR),
+    .oS3_ARVALID (wPeriphARVALID),
+    .iS3_ARREADY (wPeriphARREADY),
+    .iS3_RDATA   (wPeriphRDATA),
+    .iS3_RRESP   (wPeriphRRESP),
+    .iS3_RVALID  (wPeriphRVALID),
+    .oS3_RREADY  (wPeriphRREADY)
   );
 
   AxiLiteSram #(
-    .P_ADDR_WIDTH          (12),
+    .P_ADDR_WIDTH          (address_map_pkg::ISRAM_WORD_ADDR_WIDTH),
+    .P_ENABLE_DEBUG_WORDS  (1'b0)
+  ) uAxiLiteIsram (
+    .iClk        (iClk),
+    .iRstn       (iRstn),
+    .iS_AWADDR   (wIsramAWADDR),
+    .iS_AWVALID  (wIsramAWVALID),
+    .oS_AWREADY  (wIsramAWREADY),
+    .iS_WDATA    (wIsramWDATA),
+    .iS_WSTRB    (wIsramWSTRB),
+    .iS_WVALID   (wIsramWVALID),
+    .oS_WREADY   (wIsramWREADY),
+    .oS_BRESP    (wIsramBRESP),
+    .oS_BVALID   (wIsramBVALID),
+    .iS_BREADY   (wIsramBREADY),
+    .iS_ARADDR   (wIsramARADDR),
+    .iS_ARVALID  (wIsramARVALID),
+    .oS_ARREADY  (wIsramARREADY),
+    .oS_RDATA    (wIsramRDATA),
+    .oS_RRESP    (wIsramRRESP),
+    .oS_RVALID   (wIsramRVALID),
+    .iS_RREADY   (wIsramRREADY),
+    .iILocalValid(wCoreIBusValid && wCoreIBusIsramSel),
+    .iILocalAddr (wIsramIBusAddr),
+    .oILocalReady(wIsramIBusReady),
+    .oILocalRData(wIsramIBusRData),
+    .oILocalError(wIsramIBusError),
+    .oDbgWord0   (),
+    .oDbgWord1   (),
+    .oDbgWord2   (),
+    .oDbgWord3   ()
+  );
+
+  AxiLiteArbiter2x1 uSramArbiter (
+    .iClk        (iClk),
+    .iRstn       (iRstn),
+    .iM0_AWADDR  (wSramAWADDR),
+    .iM0_AWVALID (wSramAWVALID),
+    .oM0_AWREADY (wSramAWREADY),
+    .iM0_WDATA   (wSramWDATA),
+    .iM0_WSTRB   (wSramWSTRB),
+    .iM0_WVALID  (wSramWVALID),
+    .oM0_WREADY  (wSramWREADY),
+    .oM0_BRESP   (wSramBRESP),
+    .oM0_BVALID  (wSramBVALID),
+    .iM0_BREADY  (wSramBREADY),
+    .iM0_ARADDR  (wSramARADDR),
+    .iM0_ARVALID (wSramARVALID),
+    .oM0_ARREADY (wSramARREADY),
+    .oM0_RDATA   (wSramRDATA),
+    .oM0_RRESP   (wSramRRESP),
+    .oM0_RVALID  (wSramRVALID),
+    .iM0_RREADY  (wSramRREADY),
+    .iM1_AWADDR  (wDmaAWADDR),
+    .iM1_AWVALID (wDmaAWVALID),
+    .oM1_AWREADY (wDmaAWREADY),
+    .iM1_WDATA   (wDmaWDATA),
+    .iM1_WSTRB   (wDmaWSTRB),
+    .iM1_WVALID  (wDmaWVALID),
+    .oM1_WREADY  (wDmaWREADY),
+    .oM1_BRESP   (wDmaBRESP),
+    .oM1_BVALID  (wDmaBVALID),
+    .iM1_BREADY  (wDmaBREADY),
+    .iM1_ARADDR  (wDmaARADDR),
+    .iM1_ARVALID (wDmaARVALID),
+    .oM1_ARREADY (wDmaARREADY),
+    .oM1_RDATA   (wDmaRDATA),
+    .oM1_RRESP   (wDmaRRESP),
+    .oM1_RVALID  (wDmaRVALID),
+    .iM1_RREADY  (wDmaRREADY),
+    .oS_AWADDR   (wArbSramAWADDR),
+    .oS_AWVALID  (wArbSramAWVALID),
+    .iS_AWREADY  (wArbSramAWREADY),
+    .oS_WDATA    (wArbSramWDATA),
+    .oS_WSTRB    (wArbSramWSTRB),
+    .oS_WVALID   (wArbSramWVALID),
+    .iS_WREADY   (wArbSramWREADY),
+    .iS_BRESP    (wArbSramBRESP),
+    .iS_BVALID   (wArbSramBVALID),
+    .oS_BREADY   (wArbSramBREADY),
+    .oS_ARADDR   (wArbSramARADDR),
+    .oS_ARVALID  (wArbSramARVALID),
+    .iS_ARREADY  (wArbSramARREADY),
+    .iS_RDATA    (wArbSramRDATA),
+    .iS_RRESP    (wArbSramRRESP),
+    .iS_RVALID   (wArbSramRVALID),
+    .oS_RREADY   (wArbSramRREADY)
+  );
+
+  AxiLiteSram #(
+    .P_ADDR_WIDTH          (address_map_pkg::DSRAM_WORD_ADDR_WIDTH),
     .P_ENABLE_DEBUG_WORDS  (P_ENABLE_DEBUG)
   ) uAxiLiteSram (
     .iClk       (iClk),
     .iRstn      (iRstn),
-    .iS_AWADDR  (wSramAWADDR),
-    .iS_AWVALID (wSramAWVALID),
-    .oS_AWREADY (wSramAWREADY),
-    .iS_WDATA   (wSramWDATA),
-    .iS_WSTRB   (wSramWSTRB),
-    .iS_WVALID  (wSramWVALID),
-    .oS_WREADY  (wSramWREADY),
-    .oS_BRESP   (wSramBRESP),
-    .oS_BVALID  (wSramBVALID),
-    .iS_BREADY  (wSramBREADY),
-    .iS_ARADDR  (wSramARADDR),
-    .iS_ARVALID (wSramARVALID),
-    .oS_ARREADY (wSramARREADY),
-    .oS_RDATA   (wSramRDATA),
-    .oS_RRESP   (wSramRRESP),
-    .oS_RVALID  (wSramRVALID),
-    .iS_RREADY  (wSramRREADY),
-    .iILocalValid(wCoreIBusValid && wCoreIBusSramSel),
-    .iILocalAddr (wSramIBusAddr),
-    .oILocalReady(wSramIBusReady),
-    .oILocalRData(wSramIBusRData),
-    .oILocalError(wSramIBusError),
+    .iS_AWADDR  (wArbSramAWADDR),
+    .iS_AWVALID (wArbSramAWVALID),
+    .oS_AWREADY (wArbSramAWREADY),
+    .iS_WDATA   (wArbSramWDATA),
+    .iS_WSTRB   (wArbSramWSTRB),
+    .iS_WVALID  (wArbSramWVALID),
+    .oS_WREADY  (wArbSramWREADY),
+    .oS_BRESP   (wArbSramBRESP),
+    .oS_BVALID  (wArbSramBVALID),
+    .iS_BREADY  (wArbSramBREADY),
+    .iS_ARADDR  (wArbSramARADDR),
+    .iS_ARVALID (wArbSramARVALID),
+    .oS_ARREADY (wArbSramARREADY),
+    .oS_RDATA   (wArbSramRDATA),
+    .oS_RRESP   (wArbSramRRESP),
+    .oS_RVALID  (wArbSramRVALID),
+    .iS_RREADY  (wArbSramRREADY),
+    .iILocalValid(1'b0),
+    .iILocalAddr (32'd0),
+    .oILocalReady(),
+    .oILocalRData(),
+    .oILocalError(),
     .oDbgWord0  (oDbgSramWord0),
     .oDbgWord1  (oDbgSramWord1),
     .oDbgWord2  (oDbgSramWord2),
     .oDbgWord3  (oDbgSramWord3)
+  );
+
+  DmaAxiLiteAxis #(
+    .P_SRAM_BASE  (address_map_pkg::DSRAM_BASE),
+    .P_SRAM_BYTES (address_map_pkg::DSRAM_SIZE)
+  ) uDmaAxiLiteAxis (
+    .iClk        (iClk),
+    .iRstn       (iRstn),
+    .iS_AWADDR   (wDmaCtrlAWADDR),
+    .iS_AWVALID  (wDmaCtrlAWVALID),
+    .oS_AWREADY  (wDmaCtrlAWREADY),
+    .iS_WDATA    (wDmaCtrlWDATA),
+    .iS_WSTRB    (wDmaCtrlWSTRB),
+    .iS_WVALID   (wDmaCtrlWVALID),
+    .oS_WREADY   (wDmaCtrlWREADY),
+    .oS_BRESP    (wDmaCtrlBRESP),
+    .oS_BVALID   (wDmaCtrlBVALID),
+    .iS_BREADY   (wDmaCtrlBREADY),
+    .iS_ARADDR   (wDmaCtrlARADDR),
+    .iS_ARVALID  (wDmaCtrlARVALID),
+    .oS_ARREADY  (wDmaCtrlARREADY),
+    .oS_RDATA    (wDmaCtrlRDATA),
+    .oS_RRESP    (wDmaCtrlRRESP),
+    .oS_RVALID   (wDmaCtrlRVALID),
+    .iS_RREADY   (wDmaCtrlRREADY),
+    .oDoneIrq    (wDmaDoneIrq),
+    .oErrorIrq   (wDmaErrorIrq),
+    .iS_TDATA    (wDmaS_TDATA),
+    .iS_TVALID   (wDmaS_TVALID),
+    .oS_TREADY   (wDmaS_TREADY),
+    .iS_TLAST    (1'b0),
+    .oM_TDATA    (wDmaM_TDATA),
+    .oM_TVALID   (wDmaM_TVALID),
+    .iM_TREADY   (wDmaM_TREADY),
+    .oM_TLAST    (wDmaM_TLAST),
+    .oM_AWADDR   (wDmaAWADDR),
+    .oM_AWVALID  (wDmaAWVALID),
+    .iM_AWREADY  (wDmaAWREADY),
+    .oM_WDATA    (wDmaWDATA),
+    .oM_WSTRB    (wDmaWSTRB),
+    .oM_WVALID   (wDmaWVALID),
+    .iM_WREADY   (wDmaWREADY),
+    .iM_BRESP    (wDmaBRESP),
+    .iM_BVALID   (wDmaBVALID),
+    .oM_BREADY   (wDmaBREADY),
+    .oM_ARADDR   (wDmaARADDR),
+    .oM_ARVALID  (wDmaARVALID),
+    .iM_ARREADY  (wDmaARREADY),
+    .iM_RDATA    (wDmaRDATA),
+    .iM_RRESP    (wDmaRRESP),
+    .iM_RVALID   (wDmaRVALID),
+    .oM_RREADY   (wDmaRREADY)
   );
 
   AxiLiteToApbBridge uAxiLiteToApbBridge (
@@ -466,7 +664,15 @@ module SocTop #(
     .oPREADY        (wPREADY),
     .oPSLVERR       (wPSLVERR),
     .oTimerIrq      (wTimerIrq),
-    .oExternalIrq   (wExternalIrq)
+    .oExternalIrq   (wExternalIrq),
+    .iDmaDoneIrq    (wDmaDoneIrq),
+    .iDmaErrorIrq   (wDmaErrorIrq),
+    .oDmaS_TDATA    (wDmaS_TDATA),
+    .oDmaS_TVALID   (wDmaS_TVALID),
+    .iDmaS_TREADY   (wDmaS_TREADY),
+    .iDmaM_TDATA    (wDmaM_TDATA),
+    .iDmaM_TVALID   (wDmaM_TVALID),
+    .oDmaM_TREADY   (wDmaM_TREADY)
   );
 
   always_ff @(posedge iClk or negedge iRstn) begin

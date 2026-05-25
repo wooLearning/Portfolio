@@ -3,13 +3,13 @@
 /*
 [MODULE_INFO_START]
 Name: AxiLiteInterconnect1x3
-Role: One-master AXI-Lite address decoder for ROM, SRAM, and peripherals
+Role: One-master AXI-Lite address decoder for I-SRAM, D-SRAM, and peripherals
 Summary:
   - Routes one AXI-Lite master to three slaves by address window
-  - S0: ROM, S1: SRAM, S2: peripheral control window
-  - Returns SLVERR for unmapped accesses
+  - S0: instruction SRAM write/read window, S1: data SRAM, S2: peripheral control window
+  - Returns SLVERR for ROM or otherwise unmapped DBus accesses
 StateDescription:
-  - Write and read response selectors remember the accepted target slave
+  - Error response state is stored for unmapped write/read transactions
 [MODULE_INFO_END]
 */
 module AxiLiteInterconnect1x3 (
@@ -89,8 +89,8 @@ module AxiLiteInterconnect1x3 (
   output logic        oS2_RREADY
 );
 
-  localparam logic [1:0] LP_SEL_ROM    = 2'd0;
-  localparam logic [1:0] LP_SEL_SRAM   = 2'd1;
+  localparam logic [1:0] LP_SEL_ISRAM  = 2'd0;
+  localparam logic [1:0] LP_SEL_DSRAM  = 2'd1;
   localparam logic [1:0] LP_SEL_PERIPH = 2'd2;
   localparam logic [1:0] LP_SEL_ERROR  = 2'd3;
 
@@ -101,13 +101,13 @@ module AxiLiteInterconnect1x3 (
 
   function automatic logic [1:0] decode_addr(input logic [31:0] iAddr);
     begin
-      if ((iAddr & axi_lite_pkg::ROM_MASK) == axi_lite_pkg::ROM_BASE) begin
-        decode_addr = LP_SEL_ROM;
+      if (address_map_pkg::in_range(iAddr, axi_lite_pkg::ISRAM_BASE, axi_lite_pkg::ISRAM_SIZE)) begin
+        decode_addr = LP_SEL_ISRAM;
       end
-      else if ((iAddr & axi_lite_pkg::SRAM_MASK) == axi_lite_pkg::SRAM_BASE) begin
-        decode_addr = LP_SEL_SRAM;
+      else if (address_map_pkg::in_range(iAddr, axi_lite_pkg::DSRAM_BASE, axi_lite_pkg::DSRAM_SIZE)) begin
+        decode_addr = LP_SEL_DSRAM;
       end
-      else if ((iAddr & axi_lite_pkg::PERIPH_MASK) == axi_lite_pkg::PERIPH_BASE) begin
+      else if (address_map_pkg::in_range(iAddr, axi_lite_pkg::PERIPH_BASE, axi_lite_pkg::PERIPH_SIZE)) begin
         decode_addr = LP_SEL_PERIPH;
       end
       else begin
@@ -119,33 +119,33 @@ module AxiLiteInterconnect1x3 (
   assign wWriteSel = decode_addr(iM_AWADDR);
   assign wReadSel  = decode_addr(iM_ARADDR);
 
-  assign oS0_AWADDR  = iM_AWADDR;
-  assign oS0_WDATA   = iM_WDATA;
-  assign oS0_WSTRB   = iM_WSTRB;
-  assign oS0_ARADDR  = iM_ARADDR;
-  assign oS1_AWADDR  = iM_AWADDR - axi_lite_pkg::SRAM_BASE;
-  assign oS1_WDATA   = iM_WDATA;
-  assign oS1_WSTRB   = iM_WSTRB;
-  assign oS1_ARADDR  = iM_ARADDR - axi_lite_pkg::SRAM_BASE;
-  assign oS2_AWADDR  = iM_AWADDR - axi_lite_pkg::PERIPH_BASE;
-  assign oS2_WDATA   = iM_WDATA;
-  assign oS2_WSTRB   = iM_WSTRB;
-  assign oS2_ARADDR  = iM_ARADDR - axi_lite_pkg::PERIPH_BASE;
+  assign oS0_AWADDR = iM_AWADDR - axi_lite_pkg::ISRAM_BASE;
+  assign oS0_WDATA  = iM_WDATA;
+  assign oS0_WSTRB  = iM_WSTRB;
+  assign oS0_ARADDR = iM_ARADDR - axi_lite_pkg::ISRAM_BASE;
+  assign oS1_AWADDR = iM_AWADDR - axi_lite_pkg::DSRAM_BASE;
+  assign oS1_WDATA  = iM_WDATA;
+  assign oS1_WSTRB  = iM_WSTRB;
+  assign oS1_ARADDR = iM_ARADDR - axi_lite_pkg::DSRAM_BASE;
+  assign oS2_AWADDR = iM_AWADDR - axi_lite_pkg::PERIPH_BASE;
+  assign oS2_WDATA  = iM_WDATA;
+  assign oS2_WSTRB  = iM_WSTRB;
+  assign oS2_ARADDR = iM_ARADDR - axi_lite_pkg::PERIPH_BASE;
 
-  assign oS0_AWVALID = iM_AWVALID && (wWriteSel == LP_SEL_ROM);
-  assign oS0_WVALID  = iM_WVALID  && (wWriteSel == LP_SEL_ROM);
-  assign oS1_AWVALID = iM_AWVALID && (wWriteSel == LP_SEL_SRAM);
-  assign oS1_WVALID  = iM_WVALID  && (wWriteSel == LP_SEL_SRAM);
+  assign oS0_AWVALID = iM_AWVALID && (wWriteSel == LP_SEL_ISRAM);
+  assign oS0_WVALID  = iM_WVALID  && (wWriteSel == LP_SEL_ISRAM);
+  assign oS1_AWVALID = iM_AWVALID && (wWriteSel == LP_SEL_DSRAM);
+  assign oS1_WVALID  = iM_WVALID  && (wWriteSel == LP_SEL_DSRAM);
   assign oS2_AWVALID = iM_AWVALID && (wWriteSel == LP_SEL_PERIPH);
   assign oS2_WVALID  = iM_WVALID  && (wWriteSel == LP_SEL_PERIPH);
 
   always_comb begin
     unique case (wWriteSel)
-      LP_SEL_ROM: begin
+      LP_SEL_ISRAM: begin
         oM_AWREADY = iS0_AWREADY;
         oM_WREADY  = iS0_WREADY;
       end
-      LP_SEL_SRAM: begin
+      LP_SEL_DSRAM: begin
         oM_AWREADY = iS1_AWREADY;
         oM_WREADY  = iS1_WREADY;
       end
@@ -188,14 +188,14 @@ module AxiLiteInterconnect1x3 (
     end
   end
 
-  assign oS0_ARVALID = iM_ARVALID && (wReadSel == LP_SEL_ROM);
-  assign oS1_ARVALID = iM_ARVALID && (wReadSel == LP_SEL_SRAM);
+  assign oS0_ARVALID = iM_ARVALID && (wReadSel == LP_SEL_ISRAM);
+  assign oS1_ARVALID = iM_ARVALID && (wReadSel == LP_SEL_DSRAM);
   assign oS2_ARVALID = iM_ARVALID && (wReadSel == LP_SEL_PERIPH);
 
   always_comb begin
     unique case (wReadSel)
-      LP_SEL_ROM:    oM_ARREADY = iS0_ARREADY;
-      LP_SEL_SRAM:   oM_ARREADY = iS1_ARREADY;
+      LP_SEL_ISRAM:  oM_ARREADY = iS0_ARREADY;
+      LP_SEL_DSRAM:  oM_ARREADY = iS1_ARREADY;
       LP_SEL_PERIPH: oM_ARREADY = iS2_ARREADY;
       default:       oM_ARREADY = !rReadErrorValid;
     endcase

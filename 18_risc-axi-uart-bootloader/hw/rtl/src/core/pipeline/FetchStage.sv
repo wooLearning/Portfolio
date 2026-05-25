@@ -18,16 +18,22 @@ module FetchStage #(
 ) (
   input  logic                   iClk,
   input  logic                   iRstn,
+
+  //from pipeline control
   input  logic                   iPcWriteEn,
   input  logic                   iPcTargetEn,
   input  logic [31:0]            iPcTarget,
-  input  logic                   iBtbUpdateValid,
-  input  logic                   iBtbUpdateTaken,
-  input  logic [31:0]            iBtbUpdatePc,
-  input  logic [31:0]            iBtbUpdateTarget,
+
+  // BTB update feedback from DecodeStage, registered once in Rv32Core as
+  // rBtbUpdate*. FetchStage uses this registered update to rewrite one BTB entry.
+  input  logic                   iBtbUpdateValid,  // update pulse for one BTB entry
+  input  logic                   iBtbUpdateTaken,  // actual taken/not-taken result
+  input  logic [31:0]            iBtbUpdatePc,     // branch/JAL PC used as BTB key
+  input  logic [31:0]            iBtbUpdateTarget, // resolved target stored in BTB
   input  logic                   iIBusReady,
   input  logic [31:0]            iIBusRData,
   input  logic                   iIBusError,
+
   output logic                   oIBusValid,
   output logic [31:0]            oIBusAddr,
   output logic                   oFetchWaitStall,
@@ -46,10 +52,10 @@ module FetchStage #(
   logic [31:0] wPcTarget;
   logic [LP_BTB_INDEX_WIDTH-1:0] wLookupIndex;
   logic [LP_BTB_INDEX_WIDTH-1:0] wUpdateIndex;
-  logic [31:LP_BTB_TAG_LSB] rBtbTag [0:P_BTB_ENTRIES-1];
-  logic [31:0] rBtbTarget [0:P_BTB_ENTRIES-1];
-  logic        rBtbValid [0:P_BTB_ENTRIES-1];
-  logic        rBtbTaken [0:P_BTB_ENTRIES-1];
+  logic [31:LP_BTB_TAG_LSB] rBtbTag [0:P_BTB_ENTRIES-1]; // tag to confirm which PC owns this BTB entry
+  logic [31:0] rBtbTarget [0:P_BTB_ENTRIES-1];           // predicted jump/branch target address
+  logic        rBtbValid [0:P_BTB_ENTRIES-1];             // entry contains valid prediction data
+  logic        rBtbTaken [0:P_BTB_ENTRIES-1];             // last resolved result was taken
   integer idx;
 
   assign wLookupIndex = wPc[LP_BTB_INDEX_WIDTH+1:2];

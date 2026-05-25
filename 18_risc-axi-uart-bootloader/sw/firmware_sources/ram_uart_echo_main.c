@@ -1,17 +1,15 @@
 #include <stdint.h>
 
-#define GPIOA_BASE       0x40010000u
+#include "soc_address_map.h"
+
 #define GPIO_OUT         0x00u
 #define GPIO_DIR         0x08u
 
-#define UART_BASE        0x40050000u
 #define UART_CTRL        0x00u
 #define UART_STATUS      0x04u
 #define UART_BAUDDIV     0x08u
 #define UART_TXDATA      0x0Cu
 #define UART_RXDATA      0x10u
-
-#define SRAM_BASE        0x20000000u
 
 #define UART_STATUS_TX_FULL  (1u << 5)
 #define UART_STATUS_RX_VALID (1u << 2)

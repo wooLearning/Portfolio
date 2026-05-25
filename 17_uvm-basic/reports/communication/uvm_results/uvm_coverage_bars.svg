@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="28" y="36" font-family="Arial" font-size="24" font-weight="700" fill="#1f2933">Functional Coverage by UVM Bench</text>
+<text x="28" y="60" font-family="Arial" font-size="13" fill="#52616b">XCRG functional coverage report, regenerated after fresh all-sequence simulations.</text>
+<text x="28" y="118" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">UART RX</text>
+<rect x="150" y="94" width="610" height="36" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="94" width="610.0" height="36" rx="5" fill="#0f766e"/>
+<text x="778" y="118" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">100.0%</text>
+<text x="28" y="174" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">UART TX</text>
+<rect x="150" y="150" width="610" height="36" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="150" width="610.0" height="36" rx="5" fill="#0f766e"/>
+<text x="778" y="174" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">100.0%</text>
+<text x="28" y="230" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">SPI MASTER</text>
+<rect x="150" y="206" width="610" height="36" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="206" width="610.0" height="36" rx="5" fill="#0f766e"/>
+<text x="778" y="230" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">100.0%</text>
+<text x="28" y="286" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">SPI SLAVE</text>
+<rect x="150" y="262" width="610" height="36" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="262" width="610.0" height="36" rx="5" fill="#0f766e"/>
+<text x="778" y="286" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">100.0%</text>
+<text x="28" y="342" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">I2C MASTER</text>
+<rect x="150" y="318" width="610" height="36" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="318" width="610.0" height="36" rx="5" fill="#0f766e"/>
+<text x="778" y="342" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">100.0%</text>
+<text x="28" y="398" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">I2C SLAVE</text>
+<rect x="150" y="374" width="610" height="36" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="374" width="610.0" height="36" rx="5" fill="#0f766e"/>
+<text x="778" y="398" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">100.0%</text>
+<line x1="150.0" y1="88" x2="150.0" y2="440" stroke="#edf2f7"/>
+<text x="150.0" y="462" text-anchor="middle" font-family="Arial" font-size="12" fill="#52616b">0%</text>
+<line x1="272.0" y1="88" x2="272.0" y2="440" stroke="#edf2f7"/>
+<text x="272.0" y="462" text-anchor="middle" font-family="Arial" font-size="12" fill="#52616b">20%</text>
+<line x1="394.0" y1="88" x2="394.0" y2="440" stroke="#edf2f7"/>
+<text x="394.0" y="462" text-anchor="middle" font-family="Arial" font-size="12" fill="#52616b">40%</text>
+<line x1="516.0" y1="88" x2="516.0" y2="440" stroke="#edf2f7"/>
+<text x="516.0" y="462" text-anchor="middle" font-family="Arial" font-size="12" fill="#52616b">60%</text>
+<line x1="638.0" y1="88" x2="638.0" y2="440" stroke="#edf2f7"/>
+<text x="638.0" y="462" text-anchor="middle" font-family="Arial" font-size="12" fill="#52616b">80%</text>
+<line x1="760.0" y1="88" x2="760.0" y2="440" stroke="#edf2f7"/>
+<text x="760.0" y="462" text-anchor="middle" font-family="Arial" font-size="12" fill="#52616b">100%</text>
+</svg>

@@ -27,17 +27,21 @@ module Rv32Core #(
   input  logic        iIBusReady,
   input  logic [31:0] iIBusRData,
   input  logic        iIBusError,
+  
   output logic        oDBusValid,
   output logic        oDBusWrite,
   output logic [31:0] oDBusAddr,
   output logic [1:0]  oDBusSize,
   output logic [31:0] oDBusWData,
+
   input  logic        iDBusReady,
   input  logic [31:0] iDBusRData,
   input  logic        iDBusError,
+
   input  logic        iSoftwareIrq,
   input  logic        iTimerIrq,
   input  logic        iExternalIrq,
+
   output logic [31:0] oDbgPc,
   output logic        oDbgLoadUseStall,
   output logic        oDbgBusWaitStall,
@@ -166,77 +170,83 @@ module Rv32Core #(
   assign oDbgMtval          = wCsrMtval;
 
   FetchStage uFetchStage (
-    .iClk             (iClk),
-    .iRstn            (iRstn),
-    .iPcWriteEn       (wPcWriteEn),
-    .iPcTargetEn      (wPcTargetEn),
-    .iPcTarget        (wPcTarget),
-    .iBtbUpdateValid  (rBtbUpdateValid),
-    .iBtbUpdateTaken  (rBtbUpdateTaken),
-    .iBtbUpdatePc     (rBtbUpdatePc),
-    .iBtbUpdateTarget (rBtbUpdateTarget),
-    .iIBusReady       (iIBusReady),
-    .iIBusRData       (iIBusRData),
-    .iIBusError       (iIBusError),
-    .oIBusValid       (oIBusValid),
-    .oIBusAddr        (oIBusAddr),
-    .oFetchWaitStall  (wFetchWaitStall),
-    .oFetchPacket     (wFetchPacket),
-    .oDbgPc           (oDbgPc)
+    .iClk             (iClk),              // core clock from SocTop
+    .iRstn            (iRstn),             // active-low core reset from SocTop
+    .iPcWriteEn       (wPcWriteEn),        // from PipelineControl: PC update enable
+    .iPcTargetEn      (wPcTargetEn),       // from PipelineControl: force PC to target
+    .iPcTarget        (wPcTarget),         // from PipelineControl: redirect target PC
+
+    .iBtbUpdateValid  (rBtbUpdateValid),   // from registered Decode BTB feedback
+    .iBtbUpdateTaken  (rBtbUpdateTaken),   // from registered Decode branch result
+    .iBtbUpdatePc     (rBtbUpdatePc),      // from registered Decode branch/JAL PC
+    .iBtbUpdateTarget (rBtbUpdateTarget),  // from registered Decode resolved target
+
+    .iIBusReady       (iIBusReady),        // from SocTop IBus: instruction data ready
+    .iIBusRData       (iIBusRData),        // from SocTop IBus: fetched instruction
+    .iIBusError       (iIBusError),        // from SocTop IBus: fetch error flag
+
+    .oIBusValid       (oIBusValid),        // to SocTop IBus: fetch request valid
+    .oIBusAddr        (oIBusAddr),         // to SocTop IBus: fetch PC address
+
+    .oFetchWaitStall  (wFetchWaitStall),   // to PipelineControl: fetch waits for IBus
+    .oFetchPacket     (wFetchPacket),      // to IF/ID register: fetched instruction packet
+
+    .oDbgPc           (oDbgPc)             // to SocTop/debug: current fetch PC
   );
 
   DecodeStage #(
     .P_ID_EARLY_BRANCH (P_ID_EARLY_BRANCH),
     .P_FAST_JAL_X0     (P_FAST_JAL_X0)
   ) uDecodeStage (
-    .iClk                (iClk),
-    .iRstn               (iRstn),
-    .iIfIdPacket         (rIfId),
-    .iIdExPacket         (rIdEx),
-    .iExMemPacket        (rExMem),
-    .iMemWbPacket        (rMemWb),
-    .iWbRegWriteEn       (wWbRegWriteEn),
-    .iIdJalRedirectEn    (wIdJalRedirectEn),
-    .iIdBranchRedirectEn (wIdBranchRedirectEn),
-    .oDecodePacket       (wDecodePacket),
-    .oIdJalCandidate     (wIdJalCandidate),
-    .oIdJalX0Candidate   (wIdJalX0Candidate),
-    .oIdBranchCandidate  (wIdBranchCandidate),
-    .oIdJalTarget        (wIdJalTarget),
-    .oIdBranchTarget     (wIdBranchTarget),
-    .oIdBtbUpdateValid   (wIdBtbUpdateValid),
-    .oIdBtbUpdateTaken   (wIdBtbUpdateTaken),
-    .oIdBtbUpdatePc      (wIdBtbUpdatePc),
-    .oIdBtbUpdateTarget  (wIdBtbUpdateTarget),
-    .oIdRs1Addr          (wIdRs1Addr),
-    .oIdRs2Addr          (wIdRs2Addr),
-    .oIdUsesRs1          (wIdUsesRs1),
-    .oIdUsesRs2          (wIdUsesRs2)
+    .iClk                (iClk),                // core clock
+    .iRstn               (iRstn),               // active-low core reset
+    .iIfIdPacket         (rIfId),               // from IF/ID register: instruction to decode
+    .iIdExPacket         (rIdEx),               // from ID/EX register: older instruction info
+    .iExMemPacket        (rExMem),              // from EX/MEM register: forwarding/write info
+    .iMemWbPacket        (rMemWb),              // from MEM/WB register: writeback info
+    .iWbRegWriteEn       (wWbRegWriteEn),       // from WritebackStage: regfile write enable
+    .iIdJalRedirectEn    (wIdJalRedirectEn),    // from PipelineControl: ID JAL redirect accepted
+    .iIdBranchRedirectEn (wIdBranchRedirectEn), // from PipelineControl: ID branch redirect accepted
+
+    .oDecodePacket       (wDecodePacket),       // to ID/EX register: decoded control/data packet
+    .oIdJalCandidate     (wIdJalCandidate),     // to PipelineControl: ID JAL wants redirect
+    .oIdJalX0Candidate   (wIdJalX0Candidate),   // to PipelineControl: fast JAL x0 redirect
+    .oIdBranchCandidate  (wIdBranchCandidate),  // to PipelineControl: branch redirect/mispredict
+    .oIdJalTarget        (wIdJalTarget),        // to PipelineControl: ID JAL target PC
+    .oIdBranchTarget     (wIdBranchTarget),     // to PipelineControl: ID branch correct PC
+    .oIdBtbUpdateValid   (wIdBtbUpdateValid),   // to BTB feedback register: update pulse
+    .oIdBtbUpdateTaken   (wIdBtbUpdateTaken),   // to BTB feedback register: resolved taken
+    .oIdBtbUpdatePc      (wIdBtbUpdatePc),      // to BTB feedback register: branch/JAL PC
+    .oIdBtbUpdateTarget  (wIdBtbUpdateTarget),  // to BTB feedback register: resolved target
+    .oIdRs1Addr          (wIdRs1Addr),          // to HazardUnit: ID source rs1
+    .oIdRs2Addr          (wIdRs2Addr),          // to HazardUnit: ID source rs2
+    .oIdUsesRs1          (wIdUsesRs1),          // to HazardUnit: ID actually uses rs1
+    .oIdUsesRs2          (wIdUsesRs2)           // to HazardUnit: ID actually uses rs2
   );
 
   HazardUnit uHazardUnit (
-    .iIdValid      (rIfId.valid),
-    .iIdRs1Addr    (wIdRs1Addr),
-    .iIdRs2Addr    (wIdRs2Addr),
-    .iIdUsesRs1    (wIdUsesRs1),
-    .iIdUsesRs2    (wIdUsesRs2),
-    .iExValid      (rIdEx.valid),
-    .iExRdAddr     (rIdEx.rd_addr),
-    .iExIsLoad     (rIdEx.load_type != rv32i_pkg::LOAD_NONE),
-    .oLoadUseStall (wLoadUseStall)
+    .iIdValid      (rIfId.valid),                          // from IF/ID: ID instruction valid
+    .iIdRs1Addr    (wIdRs1Addr),                           // from DecodeStage: ID rs1 address
+    .iIdRs2Addr    (wIdRs2Addr),                           // from DecodeStage: ID rs2 address
+    .iIdUsesRs1    (wIdUsesRs1),                           // from DecodeStage: ID reads rs1
+    .iIdUsesRs2    (wIdUsesRs2),                           // from DecodeStage: ID reads rs2
+    .iExValid      (rIdEx.valid),                          // from ID/EX: EX instruction valid
+    .iExRdAddr     (rIdEx.rd_addr),                        // from ID/EX: EX destination rd
+    .iExIsLoad     (rIdEx.load_type != rv32i_pkg::LOAD_NONE), // from ID/EX: EX is load
+    .oLoadUseStall (wLoadUseStall)                         // to PipelineControl: need load-use bubble
   );
 
   ForwardingUnit uForwardingUnit (
-    .iExRs1Addr    (rIdEx.rs1_addr),
-    .iExRs2Addr    (rIdEx.rs2_addr),
-    .iExUsesRs1    (rIdEx.uses_rs1),
-    .iExUsesRs2    (rIdEx.uses_rs2),
-    .iMemRdAddr    (rExMem.rd_addr),
-    .iMemForwardEn (rExMem.forward_en),
-    .iWbRdAddr     (rMemWb.rd_addr),
-    .iWbForwardEn  (rMemWb.forward_en),
-    .oForwardA     (wForwardA),
-    .oForwardB     (wForwardB)
+    .iExRs1Addr    (rIdEx.rs1_addr),    // from ID/EX: EX operand A source register
+    .iExRs2Addr    (rIdEx.rs2_addr),    // from ID/EX: EX operand B source register
+    .iExUsesRs1    (rIdEx.uses_rs1),    // from ID/EX: EX actually uses rs1
+    .iExUsesRs2    (rIdEx.uses_rs2),    // from ID/EX: EX actually uses rs2
+    .iMemRdAddr    (rExMem.rd_addr),    // from EX/MEM: MEM-stage destination rd
+    .iMemForwardEn (rExMem.forward_en), // from EX/MEM: MEM result can forward
+    .iWbRdAddr     (rMemWb.rd_addr),    // from MEM/WB: WB-stage destination rd
+    .iWbForwardEn  (rMemWb.forward_en), // from MEM/WB: WB result can forward
+    .oForwardA     (wForwardA),         // to EX operand mux: select rs1 source
+    .oForwardB     (wForwardB)          // to EX operand mux: select rs2 source
   );
 
   always_comb begin
@@ -256,113 +266,113 @@ module Rv32Core #(
   end
 
   ExecuteStage uExecuteStage (
-    .iValid             (rIdEx.valid),
-    .iPcRedirectPending (wExRedirectPending),
-    .iInstrAccessFault  (rIdEx.instr_error),
-    .iPredictedTaken    (rIdEx.predicted_taken),
-    .iEarlyJal          (rIdEx.early_jal),
-    .iEarlyBranch       (rIdEx.early_branch),
-    .iIllegal           (rIdEx.illegal),
-    .iCsrAddrValid      (rIdEx.csr_addr_valid),
-    .iInstr             (rIdEx.instr),
-    .iPc                (rIdEx.pc),
-    .iPcPlus4           (rIdEx.pc_plus4),
-    .iPredictedTarget   (rIdEx.predicted_target),
-    .iImm               (rIdEx.imm),
-    .iRs1Data           (wExRs1Data),
-    .iRs2Data           (wExRs2Data),
-    .iRs1Addr           (rIdEx.rs1_addr),
-    .iAluSrc            (rIdEx.alu_src),
-    .iAluOp             (rIdEx.alu_op),
-    .iWbSel             (rIdEx.wb_sel),
-    .iLoadType          (rIdEx.load_type),
-    .iStoreType         (rIdEx.store_type),
-    .iBranchType        (rIdEx.branch_type),
-    .iJumpType          (rIdEx.jump_type),
-    .iCsrOp             (rIdEx.csr_op),
-    .iSysOp             (rIdEx.sys_op),
-    .iCsrRdData         (wCsrRdData),
-    .iCsrMtvec          (wCsrMtvec),
-    .iCsrMepc           (wCsrMepc),
-    .oAluResult         (wExAluResult),
-    .oStoreData         (wExStoreData),
-    .oWbDataNonMem      (wExWbDataNonMem),
-    .oBranchTaken       (wExBranchTaken),
-    .oPcRedirectEn      (wExPcRedirectEn),
-    .oPcRedirectTarget  (wExPcRedirectTarget),
-    .oTrapEn            (wExTrapEn),
-    .oTrapCause         (wExTrapCause),
-    .oTrapTval          (wExTrapTval),
-    .oMretEn            (wExMretEn),
-    .oCsrAddr           (wExCsrAddr),
-    .oCsrWrOperand      (wExCsrWrOperand),
-    .oCsrWriteEn        (wExCsrWriteEn)
+    .iValid             (rIdEx.valid),            // from ID/EX: EX instruction valid
+    .iPcRedirectPending (wExRedirectPending),     // from PipelineControl: older redirect pending
+    .iInstrAccessFault  (rIdEx.instr_error),      // from ID/EX: fetch bus error
+    .iPredictedTaken    (rIdEx.predicted_taken),  // from ID/EX: BTB predicted taken
+    .iEarlyJal          (rIdEx.early_jal),        // from DecodeStage packet: ID already handled JAL
+    .iEarlyBranch       (rIdEx.early_branch),     // from DecodeStage packet: ID already handled branch
+    .iIllegal           (rIdEx.illegal),          // from ID/EX: illegal instruction flag
+    .iCsrAddrValid      (rIdEx.csr_addr_valid),   // from ID/EX: CSR address decode result
+    .iInstr             (rIdEx.instr),            // from ID/EX: raw instruction
+    .iPc                (rIdEx.pc),               // from ID/EX: instruction PC
+    .iPcPlus4           (rIdEx.pc_plus4),         // from ID/EX: sequential PC
+    .iPredictedTarget   (rIdEx.predicted_target), // from ID/EX: BTB predicted target
+    .iImm               (rIdEx.imm),              // from ID/EX: decoded immediate
+    .iRs1Data           (wExRs1Data),             // from forwarding mux: final rs1 operand
+    .iRs2Data           (wExRs2Data),             // from forwarding mux: final rs2 operand
+    .iRs1Addr           (rIdEx.rs1_addr),         // from ID/EX: rs1 address for CSR immediate cases
+    .iAluSrc            (rIdEx.alu_src),          // from ID/EX: ALU B operand select
+    .iAluOp             (rIdEx.alu_op),           // from ID/EX: ALU operation
+    .iWbSel             (rIdEx.wb_sel),           // from ID/EX: writeback data select
+    .iLoadType          (rIdEx.load_type),        // from ID/EX: load type
+    .iStoreType         (rIdEx.store_type),       // from ID/EX: store type
+    .iBranchType        (rIdEx.branch_type),      // from ID/EX: branch condition type
+    .iJumpType          (rIdEx.jump_type),        // from ID/EX: JAL/JALR type
+    .iCsrOp             (rIdEx.csr_op),           // from ID/EX: CSR operation
+    .iSysOp             (rIdEx.sys_op),           // from ID/EX: ECALL/MRET/etc.
+    .iCsrRdData         (wCsrRdData),             // from CsrFile: CSR read data
+    .iCsrMtvec          (wCsrMtvec),              // from CsrFile: trap vector
+    .iCsrMepc           (wCsrMepc),               // from CsrFile: exception return PC
+    .oAluResult         (wExAluResult),           // to EX/MEM packet: ALU result
+    .oStoreData         (wExStoreData),           // to EX/MEM packet: store write data
+    .oWbDataNonMem      (wExWbDataNonMem),        // to EX/MEM forwarding: non-load WB data
+    .oBranchTaken       (wExBranchTaken),         // debug/internal: branch actual result
+    .oPcRedirectEn      (wExPcRedirectEn),        // to TrapController: EX resolved redirect
+    .oPcRedirectTarget  (wExPcRedirectTarget),    // to TrapController: EX redirect target
+    .oTrapEn            (wExTrapEn),              // to TrapController: EX exception/trap
+    .oTrapCause         (wExTrapCause),           // to TrapController: EX trap cause
+    .oTrapTval          (wExTrapTval),            // to TrapController: EX trap value
+    .oMretEn            (wExMretEn),              // to CsrFile/EXMEM gating: MRET seen
+    .oCsrAddr           (wExCsrAddr),             // to CsrFile: CSR address
+    .oCsrWrOperand      (wExCsrWrOperand),        // to CsrFile: CSR write operand
+    .oCsrWriteEn        (wExCsrWriteEn)           // to CsrFile: CSR write enable
   );
 
   CsrFile uCsrFile (
-    .iClk          (iClk),
-    .iRstn         (iRstn),
-    .iCsrAddr      (wExCsrAddr),
-    .iCsrOp        (rIdEx.csr_op),
-    .iCsrWrData    (wExCsrWrOperand),
-    .iCsrWriteEn   (wExCsrWriteEn),
-    .iTrapEn       (wTrapEn),
-    .iTrapIsInterrupt(wTrapIsInterrupt),
-    .iTrapPc       (wTrapPc),
-    .iTrapCause    (wTrapCause),
-    .iTrapTval     (wTrapTval),
-    .iMretEn       (wExMretEn),
-    .iMip          (wMip),
-    .oCsrRdData    (wCsrRdData),
-    .oCsrAddrValid (wCsrAddrValid),
-    .oMstatus      (wCsrMstatus),
-    .oMie          (wCsrMie),
-    .oMtvec        (wCsrMtvec),
-    .oMepc         (wCsrMepc),
-    .oMcause       (wCsrMcause),
-    .oMtval        (wCsrMtval),
-    .oMipSw        (wCsrMipSw)
+    .iClk          (iClk),              // core clock
+    .iRstn         (iRstn),             // active-low core reset
+    .iCsrAddr      (wExCsrAddr),        // from ExecuteStage: CSR address
+    .iCsrOp        (rIdEx.csr_op),      // from ID/EX: CSR operation type
+    .iCsrWrData    (wExCsrWrOperand),   // from ExecuteStage: CSR write data
+    .iCsrWriteEn   (wExCsrWriteEn),     // from ExecuteStage: CSR write enable
+    .iTrapEn       (wTrapEn),           // from TrapController: take trap now
+    .iTrapIsInterrupt(wTrapIsInterrupt), // from TrapController: trap is interrupt
+    .iTrapPc       (wTrapPc),           // from TrapController: PC to save into mepc
+    .iTrapCause    (wTrapCause),        // from TrapController: mcause value
+    .iTrapTval     (wTrapTval),         // from TrapController: mtval value
+    .iMretEn       (wExMretEn),         // from ExecuteStage: MRET updates status
+    .iMip          (wMip),              // from MachineInterruptController: pending IRQ bits
+    .oCsrRdData    (wCsrRdData),        // to ExecuteStage: CSR read data
+    .oCsrAddrValid (wCsrAddrValid),     // to ExecuteStage: CSR address legal
+    .oMstatus      (wCsrMstatus),       // to IRQ controller/debug: mstatus
+    .oMie          (wCsrMie),           // to IRQ controller/debug: mie
+    .oMtvec        (wCsrMtvec),         // to TrapController/debug: trap vector
+    .oMepc         (wCsrMepc),          // to ExecuteStage/debug: exception return PC
+    .oMcause       (wCsrMcause),        // to debug: last trap cause
+    .oMtval        (wCsrMtval),         // to debug: last trap value
+    .oMipSw        (wCsrMipSw)          // to MachineInterruptController: software IRQ bit
   );
 
   MachineInterruptController uMachineInterruptController (
-    .iSoftwareIrq      (iSoftwareIrq),
-    .iTimerIrq         (iTimerIrq),
-    .iExternalIrq      (iExternalIrq),
-    .iMstatus          (wCsrMstatus),
-    .iMie              (wCsrMie),
-    .iMipSw            (wCsrMipSw),
-    .oMip              (wMip),
-    .oInterruptPending (wInterruptPending),
-    .oInterruptCause   (wInterruptCause)
+    .iSoftwareIrq      (iSoftwareIrq),      // from SocTop/PLIC path: software IRQ input
+    .iTimerIrq         (iTimerIrq),         // from SocTop timer: timer IRQ input
+    .iExternalIrq      (iExternalIrq),      // from SocTop PLIC: external IRQ input
+    .iMstatus          (wCsrMstatus),       // from CsrFile: global interrupt enable
+    .iMie              (wCsrMie),           // from CsrFile: per-source interrupt enables
+    .iMipSw            (wCsrMipSw),         // from CsrFile: software pending bit
+    .oMip              (wMip),              // to CsrFile: full mip pending bits
+    .oInterruptPending (wInterruptPending), // to TrapController: interrupt should trap
+    .oInterruptCause   (wInterruptCause)    // to TrapController: selected interrupt cause
   );
 
   TrapController uTrapController (
-    .iInterruptPending    (wInterruptPending),
-    .iInterruptCause      (wInterruptCause),
-    .iMtvec               (wCsrMtvec),
-    .iBusWaitStall        (wBusWaitStall),
-    .iExRedirectPending   (wExRedirectPending),
-    .iMemTrapEn           (wMemTrapEn),
-    .iMemTrapCause        (wMemTrapCause),
-    .iMemTrapTval         (wMemTrapTval),
-    .iMemTrapPc           (wMemTrapPc),
-    .iExTrapEn            (wExTrapEn),
-    .iExTrapCause         (wExTrapCause),
-    .iExTrapTval          (wExTrapTval),
-    .iExTrapPc            (rIdEx.pc),
-    .iExPcRedirectEn      (wExPcRedirectEn),
-    .iExPcRedirectTarget  (wExPcRedirectTarget),
-    .iFetchPc             (oDbgPc),
-    .oIrqTrapEn           (wIrqTrapEn),
-    .oTrapEn              (wTrapEn),
-    .oTrapIsInterrupt     (wTrapIsInterrupt),
-    .oTrapCause           (wTrapCause),
-    .oTrapPc              (wTrapPc),
-    .oTrapTval            (wTrapTval),
-    .oTrapRedirectEn      (wTrapRedirectEn),
-    .oTrapRedirectTarget  (wTrapRedirectTarget),
-    .oExOnlyPcRedirectEn  (wExOnlyPcRedirectEn),
-    .oExOnlyPcRedirectTarget(wExOnlyPcRedirectTarget)
+    .iInterruptPending    (wInterruptPending),    // from IRQ controller: interrupt pending and enabled
+    .iInterruptCause      (wInterruptCause),      // from IRQ controller: interrupt cause code
+    .iMtvec               (wCsrMtvec),            // from CsrFile: trap vector target
+    .iBusWaitStall        (wBusWaitStall),        // from PipelineControl: hold traps during bus wait
+    .iExRedirectPending   (wExRedirectPending),   // from PipelineControl: redirect already pending
+    .iMemTrapEn           (wMemTrapEn),           // from MemoryStage: load/store access fault
+    .iMemTrapCause        (wMemTrapCause),        // from MemoryStage: memory trap cause
+    .iMemTrapTval         (wMemTrapTval),         // from MemoryStage: bad memory address
+    .iMemTrapPc           (wMemTrapPc),           // from MemoryStage: trapped instruction PC
+    .iExTrapEn            (wExTrapEn),            // from ExecuteStage: execute exception
+    .iExTrapCause         (wExTrapCause),         // from ExecuteStage: execute trap cause
+    .iExTrapTval          (wExTrapTval),          // from ExecuteStage: execute trap value
+    .iExTrapPc            (rIdEx.pc),             // from ID/EX: EX instruction PC
+    .iExPcRedirectEn      (wExPcRedirectEn),      // from ExecuteStage: EX PC redirect request
+    .iExPcRedirectTarget  (wExPcRedirectTarget),  // from ExecuteStage: EX redirect target
+    .iFetchPc             (oDbgPc),               // from FetchStage/debug: current fetch PC for IRQ mepc
+    .oIrqTrapEn           (wIrqTrapEn),           // internal/debug: interrupt trap accepted
+    .oTrapEn              (wTrapEn),              // to CsrFile/PipelineControl: take trap
+    .oTrapIsInterrupt     (wTrapIsInterrupt),     // to CsrFile: encode interrupt bit
+    .oTrapCause           (wTrapCause),           // to CsrFile: mcause value
+    .oTrapPc              (wTrapPc),              // to CsrFile: mepc value
+    .oTrapTval            (wTrapTval),            // to CsrFile: mtval value
+    .oTrapRedirectEn      (wTrapRedirectEn),      // to PipelineControl: redirect to mtvec
+    .oTrapRedirectTarget  (wTrapRedirectTarget),  // to PipelineControl: trap vector target
+    .oExOnlyPcRedirectEn  (wExOnlyPcRedirectEn),  // to PipelineControl: EX redirect without trap
+    .oExOnlyPcRedirectTarget(wExOnlyPcRedirectTarget) // to PipelineControl: EX-only target
   );
 
   always_comb begin
@@ -385,62 +395,64 @@ module Rv32Core #(
   end
 
   MemoryStage uMemoryStage (
-    .iExMemPacket  (rExMem),
-    .iDBusReady    (iDBusReady),
-    .iDBusRData    (iDBusRData),
-    .iDBusError    (iDBusError),
-    .oDBusValid    (oDBusValid),
-    .oDBusWrite    (oDBusWrite),
-    .oDBusAddr     (oDBusAddr),
-    .oDBusSize     (oDBusSize),
-    .oDBusWData    (oDBusWData),
-    .oDataWaitStall(wDataWaitStall),
-    .oMemTrapEn    (wMemTrapEn),
-    .oMemTrapCause (wMemTrapCause),
-    .oMemTrapTval  (wMemTrapTval),
-    .oMemTrapPc    (wMemTrapPc),
-    .oMemWbPacket  (wMemWbPacket)
+    .iExMemPacket  (rExMem),          // from EX/MEM register: memory-stage packet
+    .iDBusReady    (iDBusReady),      // from SocTop DBus: data response ready
+    .iDBusRData    (iDBusRData),      // from SocTop DBus: load read data
+    .iDBusError    (iDBusError),      // from SocTop DBus: load/store bus error
+    .oDBusValid    (oDBusValid),      // to SocTop DBus: data request valid
+    .oDBusWrite    (oDBusWrite),      // to SocTop DBus: 1=store, 0=load
+    .oDBusAddr     (oDBusAddr),       // to SocTop DBus: load/store address
+    .oDBusSize     (oDBusSize),       // to SocTop DBus: byte/half/word size
+    .oDBusWData    (oDBusWData),      // to SocTop DBus: store data
+    .oDataWaitStall(wDataWaitStall),  // to PipelineControl: memory waits for DBus
+    .oMemTrapEn    (wMemTrapEn),      // to TrapController: memory access fault
+    .oMemTrapCause (wMemTrapCause),   // to TrapController: load/store fault cause
+    .oMemTrapTval  (wMemTrapTval),    // to TrapController: faulting address
+    .oMemTrapPc    (wMemTrapPc),      // to TrapController: faulting instruction PC
+    .oMemWbPacket  (wMemWbPacket)     // to MEM/WB register: writeback packet
   );
 
   WritebackStage uWritebackStage (
-    .iMemWbPacket (rMemWb),
-    .iBusWaitStall(wBusWaitStall),
-    .oRegWriteEn  (wWbRegWriteEn),
-    .oRdAddr      (wWbRdAddr),
-    .oRdWrData    (wWbRdWrData),
-    .oRetireValid (wWbRetireValid)
+    .iMemWbPacket (rMemWb),        // from MEM/WB register: final WB packet
+    .iBusWaitStall(wBusWaitStall), // from PipelineControl: suppress retire while bus holds
+    .oRegWriteEn  (wWbRegWriteEn), // to DecodeStage/regfile: write enable
+    .oRdAddr      (wWbRdAddr),     // to DecodeStage/regfile: destination rd
+    .oRdWrData    (wWbRdWrData),   // to DecodeStage/regfile: writeback data
+    .oRetireValid (wWbRetireValid) // to debug/perf: instruction retired
   );
 
   PipelineControl uPipelineControl (
-    .iClk                (iClk),
-    .iRstn               (iRstn),
-    .iFetchWaitStall     (wFetchWaitStall),
-    .iDataWaitStall      (wDataWaitStall),
-    .iLoadUseStall       (wLoadUseStall),
-    .iTrapRedirectEn     (wTrapRedirectEn),
-    .iTrapRedirectTarget (wTrapRedirectTarget),
-    .iExPcRedirectEn     (wExOnlyPcRedirectEn),
-    .iExPcRedirectTarget (wExOnlyPcRedirectTarget),
-    .iIdJalCandidate     (wIdJalCandidate),
-    .iIdJalX0Candidate   (wIdJalX0Candidate),
-    .iIdBranchCandidate  (wIdBranchCandidate),
-    .iIdJalTarget        (wIdJalTarget),
-    .iIdBranchTarget     (wIdBranchTarget),
-    .oBusWaitStall       (wBusWaitStall),
-    .oPipelineStall      (wPipelineStall),
-    .oPcWriteEn          (wPcWriteEn),
-    .oPcTargetEn         (wPcTargetEn),
-    .oPcTarget           (wPcTarget),
-    .oIfIdFlush          (wIfIdFlush),
-    .oIfIdWriteEn        (wIfIdWriteEn),
-    .oIdExFlush          (wIdExFlush),
-    .oIdExHold           (wIdExHold),
-    .oExMemHold          (wExMemHold),
-    .oMemWbHold          (wMemWbHold),
-    .oExRedirectPending  (wExRedirectPending),
-    .oIdJalRedirectEn    (wIdJalRedirectEn),
-    .oIdJalX0RedirectEn  (wIdJalX0RedirectEn),
-    .oIdBranchRedirectEn (wIdBranchRedirectEn)
+    .iClk                (iClk),                   // core clock
+    .iRstn               (iRstn),                  // active-low core reset
+    .iFetchWaitStall     (wFetchWaitStall),        // from FetchStage: IBus wait
+    .iDataWaitStall      (wDataWaitStall),         // from MemoryStage: DBus wait
+    .iLoadUseStall       (wLoadUseStall),          // from HazardUnit: load-use bubble
+    .iTrapRedirectEn     (wTrapRedirectEn),        // from TrapController: trap redirect request
+    .iTrapRedirectTarget (wTrapRedirectTarget),    // from TrapController: trap target PC
+    .iExPcRedirectEn     (wExOnlyPcRedirectEn),    // from TrapController: EX redirect request
+    .iExPcRedirectTarget (wExOnlyPcRedirectTarget), // from TrapController: EX redirect target
+    .iIdJalCandidate     (wIdJalCandidate),        // from DecodeStage: JAL redirect candidate
+    .iIdJalX0Candidate   (wIdJalX0Candidate),      // from DecodeStage: fast JAL x0 candidate
+    .iIdBranchCandidate  (wIdBranchCandidate),     // from DecodeStage: branch redirect candidate
+    .iIdJalTarget        (wIdJalTarget),           // from DecodeStage: JAL target PC
+    .iIdBranchTarget     (wIdBranchTarget),        // from DecodeStage: branch correct PC
+
+    .oBusWaitStall       (wBusWaitStall),          // to Trap/WB/pipeline regs: bus wait hold
+    .oPipelineStall      (wPipelineStall),         // to BTB feedback: block update on stall
+
+    .oPcWriteEn          (wPcWriteEn),             // to FetchStage: PC register write enable
+    .oPcTargetEn         (wPcTargetEn),            // to FetchStage: redirect PC now
+    .oPcTarget           (wPcTarget),              // to FetchStage: selected redirect target
+    .oIfIdFlush          (wIfIdFlush),             // to IF/ID register: inject NOP/invalid
+    .oIfIdWriteEn        (wIfIdWriteEn),           // to IF/ID register: accept fetch packet
+    .oIdExFlush          (wIdExFlush),             // to ID/EX register: inject bubble
+    .oIdExHold           (wIdExHold),              // to ID/EX register: hold during bus wait
+    .oExMemHold          (wExMemHold),             // to EX/MEM register: hold during bus wait
+    .oMemWbHold          (wMemWbHold),             // to MEM/WB register: hold during bus wait
+    .oExRedirectPending  (wExRedirectPending),     // to Execute/Trap/EXMEM gating: redirect pending
+    .oIdJalRedirectEn    (wIdJalRedirectEn),       // to DecodeStage/debug: ID JAL accepted
+    .oIdJalX0RedirectEn  (wIdJalX0RedirectEn),     // to debug/redirect mux: fast JAL x0 accepted
+    .oIdBranchRedirectEn (wIdBranchRedirectEn)     // to DecodeStage/debug: ID branch accepted
   );
 
   always_ff @(posedge iClk or negedge iRstn) begin

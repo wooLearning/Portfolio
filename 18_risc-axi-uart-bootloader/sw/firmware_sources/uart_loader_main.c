@@ -1,18 +1,14 @@
 #include <stdint.h>
 
-#define GPIOA_BASE       0x40010000u
+#include "soc_address_map.h"
+
 #define GPIO_OUT         0x00u
 #define GPIO_DIR         0x08u
 
-#define UART_BASE        0x40050000u
 #define UART_CTRL        0x00u
 #define UART_STATUS      0x04u
 #define UART_BAUDDIV     0x08u
 #define UART_RXDATA      0x10u
-
-#define SRAM_BASE        0x20000000u
-#define SRAM_APP_BASE    0x20001000u
-#define SRAM_END         0x20004000u
 
 #define UART_STATUS_RX_VALID (1u << 2)
 #define UART_DIV_115200      26u
@@ -50,6 +46,31 @@ static uint32_t uart_get_u32(void)
   return value;
 }
 
+static void wait_for_loader_magic(void)
+{
+  uint32_t matched = 0u;
+
+  while (matched < 4u) {
+    const uint8_t value = uart_getc();
+
+    if (matched == 0u) {
+      matched = (value == LOADER_MAGIC0) ? 1u : 0u;
+    }
+    else if (matched == 1u) {
+      matched = (value == LOADER_MAGIC1) ? 2u :
+                (value == LOADER_MAGIC0) ? 1u : 0u;
+    }
+    else if (matched == 2u) {
+      matched = (value == LOADER_MAGIC2) ? 3u :
+                (value == LOADER_MAGIC0) ? 1u : 0u;
+    }
+    else {
+      matched = (value == LOADER_MAGIC3) ? 4u :
+                (value == LOADER_MAGIC0) ? 1u : 0u;
+    }
+  }
+}
+
 static void loader_error(uint32_t code)
 {
   volatile uint32_t * const sram = (volatile uint32_t *)(uintptr_t)SRAM_BASE;
@@ -72,18 +93,7 @@ int main(void)
   MMIO32(UART_BASE + UART_BAUDDIV) = UART_DIV_115200;
   MMIO32(UART_BASE + UART_STATUS) = 0x0000001Eu;
 
-  if (uart_getc() != LOADER_MAGIC0) {
-    loader_error(1u);
-  }
-  if (uart_getc() != LOADER_MAGIC1) {
-    loader_error(2u);
-  }
-  if (uart_getc() != LOADER_MAGIC2) {
-    loader_error(3u);
-  }
-  if (uart_getc() != LOADER_MAGIC3) {
-    loader_error(4u);
-  }
+  wait_for_loader_magic();
 
   gpio_set(0x0000B002u);
 
@@ -92,16 +102,16 @@ int main(void)
   const uint32_t entry_addr = uart_get_u32();
   const uint32_t expected_sum = uart_get_u32();
 
-  if ((load_addr < SRAM_APP_BASE) || (load_addr >= SRAM_END)) {
+  if ((load_addr < SRAM_APP_BASE) || (load_addr >= SRAM_APP_END)) {
     loader_error(5u);
   }
-  if ((entry_addr < load_addr) || (entry_addr >= SRAM_END)) {
+  if ((entry_addr < load_addr) || (entry_addr >= SRAM_APP_END)) {
     loader_error(6u);
   }
   if ((byte_count == 0u) || ((byte_count & 3u) != 0u)) {
     loader_error(7u);
   }
-  if ((load_addr + byte_count) > SRAM_END) {
+  if ((load_addr + byte_count) > SRAM_APP_END) {
     loader_error(8u);
   }
 
