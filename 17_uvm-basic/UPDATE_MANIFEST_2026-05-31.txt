@@ -1,0 +1,5 @@
+portfolio_final: 31 files, 14.91 MB, C:\Users\user\Desktop\portfolio\17_uvm-basic\portfolio_final
+synopsys_urg_html: 319 files, 11.07 MB, C:\Users\user\Desktop\portfolio\17_uvm-basic\reports\synopsys_urg_html
+vcs_results_2026_05_31: 80 files, 1.83 MB, C:\Users\user\Desktop\portfolio\17_uvm-basic\reports\vcs_results_2026_05_31
+source_vcs_uvm_9modules: 202 files, 35.09 MB, C:\Users\user\Desktop\portfolio\17_uvm-basic\source\vcs_uvm_9modules
+portfolio_figures_uvm: 5 files, 2.50 MB, C:\Users\user\Desktop\portfolio\17_uvm-basic\assets\portfolio_figures\uvm

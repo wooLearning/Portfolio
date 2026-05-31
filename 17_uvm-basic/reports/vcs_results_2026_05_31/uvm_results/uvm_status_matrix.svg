@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="460" viewBox="0 0 1180 460">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="28" y="36" font-family="Arial" font-size="24" font-weight="700" fill="#1f2933">UVM Scenario Pass/Fail Matrix</text>
+<text x="28" y="60" font-family="Arial" font-size="13" fill="#52616b">Green means scoreboard fail=0, UVM_ERROR=0, UVM_FATAL=0, and raw simulator Error count=0.</text>
+<rect x="20" y="76" width="1140" height="320" rx="8" fill="#f8fafc" stroke="#d9e2ec"/>
+<text x="183.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">smoke</text>
+<text x="269.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">directed</text>
+<text x="355.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">error</text>
+<text x="441.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">busy</text>
+<text x="527.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">mode</text>
+<text x="613.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">abort</text>
+<text x="699.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">reset</text>
+<text x="785.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">timeout</text>
+<text x="871.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">jitter</text>
+<text x="957.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">corner</text>
+<text x="1043.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">byte_sweep</text>
+<text x="1129.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">full_random</text>
+<text x="1215.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">all</text>
+<text x="1301.0" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#334e68">vcd</text>
+<text x="34" y="123" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">UART RX</text>
+<rect x="145" y="102" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="183.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="231" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="269.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="317" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="355.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="403" y="102" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="441.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="489" y="102" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="527.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="575" y="102" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="613.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="661" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="699.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="747" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="785.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="833" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="871.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="919" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="957.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1005" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1043.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1091" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1129.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1177" y="102" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1215.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1263" y="102" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="1301.0" y="122" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<text x="34" y="165" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">UART TX</text>
+<rect x="145" y="144" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="183.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="231" y="144" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="269.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="317" y="144" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="355.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="403" y="144" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="441.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="489" y="144" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="527.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="575" y="144" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="613.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="661" y="144" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="699.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="747" y="144" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="785.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="833" y="144" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="871.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="919" y="144" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="957.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1005" y="144" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1043.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1091" y="144" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1129.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1177" y="144" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1215.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1263" y="144" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="1301.0" y="164" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<text x="34" y="207" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">SPI MASTER</text>
+<rect x="145" y="186" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="183.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="231" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="269.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="317" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="355.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="403" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="441.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="489" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="527.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="575" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="613.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="661" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="699.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="747" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="785.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="833" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="871.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="919" y="186" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="957.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1005" y="186" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1043.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1091" y="186" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1129.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1177" y="186" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1215.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1263" y="186" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="1301.0" y="206" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<text x="34" y="249" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">SPI SLAVE</text>
+<rect x="145" y="228" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="183.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="231" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="269.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="317" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="355.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="403" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="441.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="489" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="527.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="575" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="613.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="661" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="699.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="747" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="785.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="833" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="871.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="919" y="228" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="957.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1005" y="228" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1043.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1091" y="228" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1129.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1177" y="228" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1215.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1263" y="228" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="1301.0" y="248" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<text x="34" y="291" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">I2C MASTER</text>
+<rect x="145" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="183.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="231" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="269.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="317" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="355.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="403" y="270" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="441.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="489" y="270" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="527.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="575" y="270" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="613.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="661" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="699.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="747" y="270" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="785.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="833" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="871.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="919" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="957.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1005" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1043.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1091" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1129.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1177" y="270" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1215.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1263" y="270" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="1301.0" y="290" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<text x="34" y="333" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">I2C SLAVE</text>
+<rect x="145" y="312" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="183.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="231" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="269.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="317" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="355.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="403" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="441.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="489" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="527.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="575" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="613.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="661" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="699.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="747" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="785.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="833" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="871.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="919" y="312" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="957.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1005" y="312" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1043.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1091" y="312" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1129.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1177" y="312" width="76" height="30" rx="5" fill="#2e7d32"/>
+<text x="1215.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff">PASS</text>
+<rect x="1263" y="312" width="76" height="30" rx="5" fill="#eeeeee"/>
+<text x="1301.0" y="332" text-anchor="middle" font-family="Arial" font-size="11" font-weight="700" fill="#6b7280">-</text>
+<rect x="32" y="414" width="18" height="18" rx="4" fill="#2e7d32" stroke="#cbd5e1"/>
+<text x="58" y="428" font-family="Arial" font-size="13" fill="#334e68">PASS</text>
+<rect x="212" y="414" width="18" height="18" rx="4" fill="#c62828" stroke="#cbd5e1"/>
+<text x="238" y="428" font-family="Arial" font-size="13" fill="#334e68">FAIL</text>
+<rect x="392" y="414" width="18" height="18" rx="4" fill="#eeeeee" stroke="#cbd5e1"/>
+<text x="418" y="428" font-family="Arial" font-size="13" fill="#334e68">not run as standalone</text>
+</svg>

@@ -1,0 +1,7 @@
+bench,smoke,directed,error,busy,mode,abort,reset,timeout,jitter,corner,byte_sweep,full_random,all,vcd
+UART RX,,20,2,,,,4,1,3,5,256,512,292,
+UART TX,,20,,,,,4,1,3,9,256,512,296,
+SPI MASTER,1,,,,,,,,,6,256,512,275,
+SPI SLAVE,1,,,,,,,,,6,256,512,274,
+I2C MASTER,1,4,2,,,,1,,1,8,512,512,529,
+I2C SLAVE,1,,,,,,,,,7,512,512,528,

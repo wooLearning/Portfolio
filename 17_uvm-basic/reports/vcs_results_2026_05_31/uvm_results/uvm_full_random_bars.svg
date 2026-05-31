@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="500" viewBox="0 0 940 500">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="28" y="36" font-family="Arial" font-size="24" font-weight="700" fill="#1f2933">Full-Random Scoreboard Results</text>
+<text x="28" y="60" font-family="Arial" font-size="13" fill="#52616b">Each bench is configured for at least 512 legal randomized transactions after directed corner coverage.</text>
+<text x="28" y="119" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">UART RX</text>
+<rect x="150" y="96" width="620" height="34" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="96" width="620.0" height="34" rx="5" fill="#0f766e"/>
+<text x="788" y="119" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">pass 512 / fail 0 / raw 0</text>
+<text x="28" y="175" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">UART TX</text>
+<rect x="150" y="152" width="620" height="34" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="152" width="620.0" height="34" rx="5" fill="#0f766e"/>
+<text x="788" y="175" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">pass 512 / fail 0 / raw 0</text>
+<text x="28" y="231" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">SPI MASTER</text>
+<rect x="150" y="208" width="620" height="34" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="208" width="620.0" height="34" rx="5" fill="#0f766e"/>
+<text x="788" y="231" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">pass 512 / fail 0 / raw 0</text>
+<text x="28" y="287" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">SPI SLAVE</text>
+<rect x="150" y="264" width="620" height="34" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="264" width="620.0" height="34" rx="5" fill="#0f766e"/>
+<text x="788" y="287" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">pass 512 / fail 0 / raw 0</text>
+<text x="28" y="343" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">I2C MASTER</text>
+<rect x="150" y="320" width="620" height="34" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="320" width="620.0" height="34" rx="5" fill="#0f766e"/>
+<text x="788" y="343" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">pass 512 / fail 0 / raw 0</text>
+<text x="28" y="399" font-family="Arial" font-size="15" font-weight="700" fill="#1f2933">I2C SLAVE</text>
+<rect x="150" y="376" width="620" height="34" rx="5" fill="#e5e7eb"/>
+<rect x="150" y="376" width="620.0" height="34" rx="5" fill="#0f766e"/>
+<text x="788" y="399" font-family="Arial" font-size="14" font-weight="700" fill="#1f2933">pass 512 / fail 0 / raw 0</text>
+<rect x="28" y="445" width="18" height="18" rx="4" fill="#0f766e"/>
+<text x="54" y="460" font-family="Arial" font-size="13" fill="#334e68">512+ pass, no fail, no raw simulator error</text>
+</svg>

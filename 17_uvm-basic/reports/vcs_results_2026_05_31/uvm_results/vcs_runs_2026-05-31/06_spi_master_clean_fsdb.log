@@ -1,0 +1,8 @@
+Warning: Permanently added '10.10.15.20' (ED25519) to the list of known hosts.
+make -C 06_spi_master clean
+make[1]: Entering directory '/home/hedu17/UVM_TEST/06_spi_master'
+make -C tb clean
+make[2]: Entering directory '/home/hedu17/UVM_TEST/06_spi_master/tb'
+rm -rf csrc simv simv.daidir ucli.key DVEfiles novas* *.log *.vpd *.fsdb simv.vdb urgReport vdCovLog verdiLog AN.DB vc_hdrs.h
+make[2]: Leaving directory '/home/hedu17/UVM_TEST/06_spi_master/tb'
+make[1]: Leaving directory '/home/hedu17/UVM_TEST/06_spi_master'

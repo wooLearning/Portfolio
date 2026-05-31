@@ -1,0 +1,646 @@
+Warning: Permanently added '10.10.15.20' (ED25519) to the list of known hosts.
+make -C 03_fifo coverage
+make[1]: Entering directory '/home/hedu17/UVM_TEST/03_fifo'
+make -C tb coverage
+make[2]: Entering directory '/home/hedu17/UVM_TEST/03_fifo/tb'
+vcs -full64 -sverilog -ntb_opts uvm-1.2 -debug_access+all -kdb -lca -timescale=1ns/1ps -cm line+cond+fsm+tgl+branch+assert -cm_dir simv.vdb +incdir+/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2 +incdir+. ./fifo_if.sv ./tb_fifo_pkg.sv ./tb_fifo.sv ../rtl/sync_fifo.sv -top tb_fifo -o simv
+                         Chronologic VCS (TM)
+       Version W-2024.09-SP1_Full64 -- Sun May 31 15:59:17 2026
+
+                    Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+
+Parsing design file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_version_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_global_defines.svh'.
+Warning : License for product VCS-BASE-COMPILE will expire within 23 days, on: 22-jun-2026.
+
+If you would like to temporarily disable this message, set 
+ the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
+before expiration that you want this message to start (the minimum is 0).
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/snps_macros.svp'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_message_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_phase_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_object_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_printer_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_tlm_defines.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_tlm_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_sequence_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_callback_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_reg_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_deprecated_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_hdl.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_svcmd_dpi.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_regex.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_coreservice.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_version.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_object_globals.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_misc.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_object.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_pool.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_queue.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_factory.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_registry.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_spell_chkr.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_resource.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_resource_specializations.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_resource_db.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_config_db.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_printer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_comparer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_packer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_links.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_tr_database.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_tr_stream.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_recorder.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_event_callback.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_event.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_barrier.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_callback.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_callback.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_message.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_catcher.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_server.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_handler.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_object.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_transaction.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_phase.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_domain.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_bottomup_phase.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_topdown_phase.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_task_phase.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_common_phases.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_runtime_phases.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_component.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_root.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_component.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_objection.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_heartbeat.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_globals.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_cmdline_processor.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_traversal.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_set_get_dap_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_simple_lock_dap.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_get_to_lock_dap.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_set_before_get_dap.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_ifs.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_sqr_ifs.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_port_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_imps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_ports.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_exports.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_analysis_port.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_fifo_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_fifos.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_req_rsp.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_sqr_connections.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_pair.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_policies.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_in_order_comparator.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_algorithmic_comparator.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_random_stimulus.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_subscriber.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_monitor.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_driver.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_push_driver.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_scoreboard.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_agent.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_env.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_test.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence_item.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequencer_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequencer_analysis_fifo.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequencer_param_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequencer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_push_sequencer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence_library.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence_builtin.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_time.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_generic_payload.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_ifs.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_imps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_ports.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_exports.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_sockets_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_sockets.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_item.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_adapter.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_predictor.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_sequence.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_cbs.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_backdoor.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_field.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_vreg_field.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_indirect.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_fifo.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_file.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_mem_mam.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_vreg.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_mem.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_map.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_block.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_hw_reset_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_bit_bash_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_mem_walk_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_mem_access_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_access_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_mem_shared_access_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_mem_built_in_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/snps_uvm_reg_bank.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/vcs_uvm_alt.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing design file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/msglog.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_msglog_report_server.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_tr_stream.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_record_interface.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing design file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_tr_stream.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_reg_map_recording.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_factory.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/./dpi/uvm_verdi_dpi.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/verdi/W-2024.09-SP2/share/PLI/VCS/include/verdi_trans_recorder_dpi.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_pli.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing design file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'
+Parsing design file './fifo_if.sv'
+Parsing design file './tb_fifo_pkg.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_seq_item.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_sequence.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_sequencer.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_driver.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_monitor.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_scoreboard.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_coverage.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_agent.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_env.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing included file 'fifo_test.sv'.
+Back to file './tb_fifo_pkg.sv'.
+Parsing design file './tb_fifo.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file './tb_fifo.sv'.
+Parsing design file '../rtl/sync_fifo.sv'
+Top Level Modules:
+       uvm_custom_install_verdi_recording
+       tb_fifo
+TimeScale is 1 ns / 1 ps
+VCS Coverage Metrics Release W-2024.09-SP1_Full64 Copyright (c) 1991-2024 by Synopsys Inc.
+Starting vcs inline pass...
+9 modules and 0 UDP read.
+recompiling package vcs_paramclassrepository
+recompiling package _vcs_DPI_package
+recompiling package uvm_pkg
+recompiling package _vcs_msglog
+recompiling module uvm_custom_install_verdi_recording
+recompiling module fifo_if
+recompiling package tb_fifo_pkg
+recompiling module tb_fifo
+recompiling module sync_fifo
+All of 9 modules done
+Warning : License for product VCS-BASE-COMPILE will expire within 23 days, on: 22-jun-2026.
+
+If you would like to temporarily disable this message, set 
+ the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
+before expiration that you want this message to start (the minimum is 0).
+make[3]: Entering directory '/home/hedu17/UVM_TEST/03_fifo/tb/csrc'
+make[3]: Leaving directory '/home/hedu17/UVM_TEST/03_fifo/tb/csrc'
+make[3]: Entering directory '/home/hedu17/UVM_TEST/03_fifo/tb/csrc'
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+g++ -w  -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/tools/synopsys/vcs/W-2024.09-SP1/include    -c /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.cc
+g++ -w  -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/tools/synopsys/vcs/W-2024.09-SP1/include    -c /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/dpi/uvm_verdi_dpi.cpp
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/tools/synopsys/vcs/W-2024.09-SP1/linux64/lib -L/tools/synopsys/vcs/W-2024.09-SP1/linux64/lib  -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1 uvm_dpi.o uvm_verdi_dpi.o   objs/amcQw_d.o  _1195854_archive_1.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o            -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -lreader_common /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/libBA.a -luclinative /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive      ./../simv.daidir/vc_hdrs.o _vcs_pli_stub_.o   /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcs_save_restore_new.o /tools/synopsys/verdi/W-2024.09-SP2/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+make[3]: Leaving directory '/home/hedu17/UVM_TEST/03_fifo/tb/csrc'
+CPU time: 7.358 seconds to compile + .190 seconds to elab + .716 seconds to link
+Verdi KDB elaboration done and the database successfully generated
+./simv -cm line+cond+fsm+tgl+branch+assert -cm_dir simv.vdb
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
+Chronologic VCS simulator copyright 1991-2024
+Contains Synopsys proprietary information.
+Compiler version W-2024.09-SP1_Full64; Runtime version W-2024.09-SP1_Full64;  May 31 15:59 2026
+Warning : License for product VCS-BASE-RUNTIME will expire within 23 days, on: 22-jun-2026.
+
+If you would like to temporarily disable this message, set 
+ the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
+before expiration that you want this message to start (the minimum is 0).
+UVM_INFO /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release W-2024.09-SP1_Full64 Copyright (c) 1991-2024 by Synopsys Inc.
+UVM_INFO @ 0: reporter [RNTST] Running test fifo_test...
+*Verdi* Loading libsscore_vcs202409.so
+FSDB Dumper for VCS, Release Verdi_W-2024.09-SP2, Linux x86_64/64bit, 03/03/2025
+(C) 1996 - 2025 by Synopsys, Inc.
+*Verdi* : Create FSDB file 'novas.fsdb'
+*Verdi* : Begin traversing the scope (tb_fifo), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO fifo_scoreboard.sv(69) @ 65000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x4c487d156f0b0cfd depth=1
+UVM_INFO fifo_scoreboard.sv(61) @ 105000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x4c487d156f0b0cfd
+UVM_INFO fifo_scoreboard.sv(69) @ 105000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xd1f24625166e03ae depth=1
+UVM_INFO fifo_scoreboard.sv(69) @ 125000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x40853061d419b1e0 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 145000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xd1f24625166e03ae
+UVM_INFO fifo_scoreboard.sv(69) @ 165000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x8c9e08770ee6665f depth=2
+UVM_INFO fifo_scoreboard.sv(69) @ 185000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x5da4e9e4a452fd8c depth=3
+UVM_INFO fifo_scoreboard.sv(69) @ 205000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xf6f35ac5c6e71d3a depth=4
+UVM_INFO fifo_scoreboard.sv(61) @ 305000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x40853061d419b1e0
+UVM_INFO fifo_scoreboard.sv(69) @ 325000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xda911c298a821f39 depth=4
+UVM_INFO fifo_scoreboard.sv(61) @ 345000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x8c9e08770ee6665f
+UVM_INFO fifo_scoreboard.sv(61) @ 365000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x5da4e9e4a452fd8c
+UVM_INFO fifo_scoreboard.sv(61) @ 385000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xf6f35ac5c6e71d3a
+UVM_INFO fifo_scoreboard.sv(61) @ 405000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xda911c298a821f39
+UVM_INFO fifo_scoreboard.sv(69) @ 505000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x4c56b0d2ed622f9e depth=1
+UVM_INFO fifo_scoreboard.sv(69) @ 525000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x4b6ac5f1bd97b125 depth=2
+UVM_INFO fifo_scoreboard.sv(69) @ 545000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x14aae273041091b7 depth=3
+UVM_INFO fifo_scoreboard.sv(69) @ 585000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xb40089f0b403dde depth=4
+UVM_INFO fifo_scoreboard.sv(61) @ 605000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x4c56b0d2ed622f9e
+UVM_INFO fifo_scoreboard.sv(61) @ 625000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x4b6ac5f1bd97b125
+UVM_INFO fifo_scoreboard.sv(61) @ 685000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x14aae273041091b7
+UVM_INFO fifo_scoreboard.sv(61) @ 725000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xb40089f0b403dde
+UVM_INFO fifo_scoreboard.sv(69) @ 745000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xe08b56656d5417e3 depth=1
+UVM_INFO fifo_scoreboard.sv(61) @ 765000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xe08b56656d5417e3
+UVM_INFO fifo_scoreboard.sv(69) @ 765000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x82ce744a0332d028 depth=1
+UVM_INFO fifo_scoreboard.sv(69) @ 785000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xa78d95fb28595bd8 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 805000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x82ce744a0332d028
+UVM_INFO fifo_scoreboard.sv(69) @ 805000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x75d3142d38fb28ae depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 825000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xa78d95fb28595bd8
+UVM_INFO fifo_scoreboard.sv(69) @ 845000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xb3607f8b73ab6d2b depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 865000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x75d3142d38fb28ae
+UVM_INFO fifo_scoreboard.sv(69) @ 865000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x716b463c29d6c4b depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 885000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xb3607f8b73ab6d2b
+UVM_INFO fifo_scoreboard.sv(69) @ 885000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x12bc83c54d125d64 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 925000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x716b463c29d6c4b
+UVM_INFO fifo_scoreboard.sv(61) @ 945000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x12bc83c54d125d64
+UVM_INFO fifo_scoreboard.sv(69) @ 945000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x7a65143b96912113 depth=1
+UVM_INFO fifo_scoreboard.sv(69) @ 965000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x16d7d96ff248c578 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1005000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x7a65143b96912113
+UVM_INFO fifo_scoreboard.sv(69) @ 1005000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x28aa92c3522bc597 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1025000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x16d7d96ff248c578
+UVM_INFO fifo_scoreboard.sv(69) @ 1025000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xf4a4c80a20e83577 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1045000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x28aa92c3522bc597
+UVM_INFO fifo_scoreboard.sv(69) @ 1045000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x597954c681bdada1 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1065000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xf4a4c80a20e83577
+UVM_INFO fifo_scoreboard.sv(69) @ 1085000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x951b9339dc0a0715 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1105000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x597954c681bdada1
+UVM_INFO fifo_scoreboard.sv(69) @ 1105000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x954529d3c0100b6f depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1125000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x951b9339dc0a0715
+UVM_INFO fifo_scoreboard.sv(69) @ 1125000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x49bf92319bf1511 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1145000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x954529d3c0100b6f
+UVM_INFO fifo_scoreboard.sv(69) @ 1145000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xae4b1e2b3b9c1256 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1165000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x49bf92319bf1511
+UVM_INFO fifo_scoreboard.sv(69) @ 1185000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xcb60afd859dbf996 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1225000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xae4b1e2b3b9c1256
+UVM_INFO fifo_scoreboard.sv(69) @ 1225000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xd50a81f8128ed3fc depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1245000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xcb60afd859dbf996
+UVM_INFO fifo_scoreboard.sv(69) @ 1245000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x39e400031c135bb6 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1265000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xd50a81f8128ed3fc
+UVM_INFO fifo_scoreboard.sv(69) @ 1265000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x161d66e8b97efe97 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1285000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x39e400031c135bb6
+UVM_INFO fifo_scoreboard.sv(69) @ 1285000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xc3d4d1794d886c1a depth=2
+UVM_INFO fifo_scoreboard.sv(69) @ 1305000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x9ddf28dbd999d66 depth=3
+UVM_INFO fifo_scoreboard.sv(61) @ 1325000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x161d66e8b97efe97
+UVM_INFO fifo_scoreboard.sv(61) @ 1345000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xc3d4d1794d886c1a
+UVM_INFO fifo_scoreboard.sv(69) @ 1365000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x36049ff09c21e180 depth=2
+UVM_INFO fifo_scoreboard.sv(69) @ 1385000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x8d1d4546c0e69b2 depth=3
+UVM_INFO fifo_scoreboard.sv(61) @ 1405000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x9ddf28dbd999d66
+UVM_INFO fifo_scoreboard.sv(69) @ 1405000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x31da07fe8e5cd20c depth=3
+UVM_INFO fifo_scoreboard.sv(61) @ 1425000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x36049ff09c21e180
+UVM_INFO fifo_scoreboard.sv(69) @ 1425000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xb76775b57330f2a4 depth=3
+UVM_INFO fifo_scoreboard.sv(61) @ 1445000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x8d1d4546c0e69b2
+UVM_INFO fifo_scoreboard.sv(69) @ 1465000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x2dc2b058e5c29c39 depth=3
+UVM_INFO fifo_scoreboard.sv(61) @ 1505000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x31da07fe8e5cd20c
+UVM_INFO fifo_scoreboard.sv(61) @ 1545000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xb76775b57330f2a4
+UVM_INFO fifo_scoreboard.sv(61) @ 1565000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x2dc2b058e5c29c39
+UVM_INFO fifo_scoreboard.sv(69) @ 1585000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x47d64d82eaf26ae1 depth=1
+UVM_INFO fifo_scoreboard.sv(61) @ 1605000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x47d64d82eaf26ae1
+UVM_INFO fifo_scoreboard.sv(69) @ 1625000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x76266c9d20475869 depth=1
+UVM_INFO fifo_scoreboard.sv(61) @ 1665000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x76266c9d20475869
+UVM_INFO fifo_scoreboard.sv(69) @ 1685000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xac4a36a5124f7aa2 depth=1
+UVM_INFO fifo_scoreboard.sv(61) @ 1705000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xac4a36a5124f7aa2
+UVM_INFO fifo_scoreboard.sv(69) @ 1705000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x858c13d987b1e842 depth=1
+UVM_INFO fifo_scoreboard.sv(61) @ 1725000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x858c13d987b1e842
+UVM_INFO fifo_scoreboard.sv(69) @ 1785000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x9314057579df4778 depth=1
+UVM_INFO fifo_scoreboard.sv(69) @ 1805000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x15ea1a657cc7b53f depth=2
+UVM_INFO fifo_scoreboard.sv(69) @ 1825000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xf56bc0d0f3b27f57 depth=3
+UVM_INFO fifo_scoreboard.sv(61) @ 1845000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x9314057579df4778
+UVM_INFO fifo_scoreboard.sv(61) @ 1865000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x15ea1a657cc7b53f
+UVM_INFO fifo_scoreboard.sv(61) @ 1885000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xf56bc0d0f3b27f57
+UVM_INFO fifo_scoreboard.sv(69) @ 1885000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x4e28624830183372 depth=1
+UVM_INFO fifo_scoreboard.sv(69) @ 1925000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xf2f40d339c149578 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1965000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x4e28624830183372
+UVM_INFO fifo_scoreboard.sv(69) @ 1965000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xac2fe968c5924087 depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 1985000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xf2f40d339c149578
+UVM_INFO fifo_scoreboard.sv(69) @ 1985000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xf622ebf45b7f14bb depth=2
+UVM_INFO fifo_scoreboard.sv(61) @ 2005000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xac2fe968c5924087
+UVM_INFO fifo_scoreboard.sv(69) @ 2005000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x55c7f95ad00f1984 depth=2
+UVM_INFO fifo_scoreboard.sv(69) @ 2025000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x43d428165e95096f depth=3
+UVM_INFO fifo_scoreboard.sv(61) @ 2045000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xf622ebf45b7f14bb
+UVM_INFO fifo_scoreboard.sv(69) @ 2065000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xb3595d63e09d612f depth=3
+UVM_INFO fifo_scoreboard.sv(61) @ 2085000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x55c7f95ad00f1984
+UVM_INFO fifo_scoreboard.sv(61) @ 2105000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x43d428165e95096f
+UVM_INFO fifo_scoreboard.sv(69) @ 2105000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xb15ac0e7d75dcaa8 depth=2
+UVM_INFO fifo_scoreboard.sv(69) @ 2125000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x941370ed9ef87794 depth=3
+UVM_INFO fifo_scoreboard.sv(69) @ 2145000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x1cc3fe82463ae0b8 depth=4
+UVM_INFO fifo_scoreboard.sv(61) @ 2225000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xb3595d63e09d612f
+UVM_INFO fifo_scoreboard.sv(61) @ 2245000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xb15ac0e7d75dcaa8
+UVM_INFO fifo_scoreboard.sv(69) @ 2245000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xae5ef78597f32189 depth=3
+UVM_INFO fifo_scoreboard.sv(69) @ 2265000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xeaa31d6caa760 depth=4
+UVM_INFO fifo_scoreboard.sv(61) @ 2325000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x941370ed9ef87794
+UVM_INFO fifo_scoreboard.sv(69) @ 2345000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xd0075feb06954b3c depth=4
+UVM_INFO fifo_scoreboard.sv(61) @ 2365000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0x1cc3fe82463ae0b8
+UVM_INFO fifo_scoreboard.sv(61) @ 2385000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xae5ef78597f32189
+UVM_INFO fifo_scoreboard.sv(69) @ 2385000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x5bf7e4c208d31836 depth=3
+UVM_INFO fifo_scoreboard.sv(69) @ 2405000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0x1e1baa959cd9f6db depth=4
+UVM_INFO fifo_scoreboard.sv(61) @ 2445000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xeaa31d6caa760
+UVM_INFO fifo_scoreboard.sv(61) @ 2465000: uvm_test_top.env.scb [FIFO_SCB] READ PASS data=0xd0075feb06954b3c
+UVM_INFO fifo_scoreboard.sv(69) @ 2465000: uvm_test_top.env.scb [FIFO_SCB] WRITE data=0xf965e1f77fdb01b5 depth=3
+UVM_INFO /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 2515000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO fifo_coverage.sv(50) @ 2515000: uvm_test_top.env.cov [FIFO_COV] Functional coverage = 100.00%
+UVM_INFO /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_server.svh(904) @ 2515000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :  123
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[FIFO_COV]     1
+[FIFO_SCB]   119
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+
+$finish called from file "/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time              2515000
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 2515000 ps
+CPU Time:      0.220 seconds;       Data structure size:   0.6Mb
+Sun May 31 15:59:25 2026
+urg -dir simv.vdb -report urgReport
+Note: Bumping stack limit from 8192 to unlimited Kbytes.
+URG Version W-2024.09-SP1                     Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+make[2]: Leaving directory '/home/hedu17/UVM_TEST/03_fifo/tb'
+make[1]: Leaving directory '/home/hedu17/UVM_TEST/03_fifo'
+
+Note-[URG-RDG] Report directory generated
+  Report written to directory urgReport
+

@@ -1,0 +1,7 @@
+bench,all_status,scoreboard_pass,scoreboard_fail,uvm_error,uvm_fatal,raw_error_count,coverage_score,all_log
+UART RX,PASS,292,0,0,0,0,100.0,C:/Users/user/Desktop/MAIN_ing/10_Projects/uvm_ttt/TB/UART/RX/xsim_all.log
+UART TX,PASS,296,0,0,0,0,100.0,C:/Users/user/Desktop/MAIN_ing/10_Projects/uvm_ttt/TB/UART/TX/xsim_all.log
+SPI MASTER,PASS,275,0,0,0,0,100.0,C:/Users/user/Desktop/MAIN_ing/10_Projects/uvm_ttt/TB/SPI/MASTER/xsim_all.log
+SPI SLAVE,PASS,274,0,0,0,0,100.0,C:/Users/user/Desktop/MAIN_ing/10_Projects/uvm_ttt/TB/SPI/SLAVE/xsim_all.log
+I2C MASTER,PASS,529,0,0,0,0,100.0,C:/Users/user/Desktop/MAIN_ing/10_Projects/uvm_ttt/TB/I2C/MASTER/xsim_all.log
+I2C SLAVE,PASS,528,0,0,0,0,100.0,C:/Users/user/Desktop/MAIN_ing/10_Projects/uvm_ttt/TB/I2C/SLAVE/xsim_all.log

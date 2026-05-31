@@ -1,0 +1,822 @@
+Warning: Permanently added '10.10.15.20' (ED25519) to the list of known hosts.
+make -C 05_uart_tx coverage
+make[1]: Entering directory '/home/hedu17/UVM_TEST/05_uart_tx'
+make -C tb coverage
+make[2]: Entering directory '/home/hedu17/UVM_TEST/05_uart_tx/tb'
+vcs -full64 -sverilog -ntb_opts uvm-1.2 -timescale=1ns/1ps -debug_access+all -kdb -lca +incdir+./src -cm line+cond+fsm+tgl+branch+assert -cm_dir simv.vdb -f files.f -top tb_uart_tx -l build.log
+                         Chronologic VCS (TM)
+       Version W-2024.09-SP1_Full64 -- Sun May 31 16:05:24 2026
+
+                    Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+
+Warning : License for product VCS-BASE-COMPILE will expire within 23 days, on: 22-jun-2026.
+
+If you would like to temporarily disable this message, set 
+ the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
+before expiration that you want this message to start (the minimum is 0).
+Parsing design file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_version_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_global_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/snps_macros.svp'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_message_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_phase_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_object_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_printer_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_tlm_defines.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_tlm_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_sequence_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_callback_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_reg_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/macros/uvm_deprecated_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_hdl.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_svcmd_dpi.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_regex.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_coreservice.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_version.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_object_globals.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_misc.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_object.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_pool.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_queue.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_factory.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_registry.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_spell_chkr.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_resource.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_resource_specializations.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_resource_db.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_config_db.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_printer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_comparer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_packer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_links.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_tr_database.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_tr_stream.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_recorder.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_event_callback.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_event.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_barrier.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_callback.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_callback.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_message.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_catcher.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_server.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_handler.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_object.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_transaction.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_phase.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_domain.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_bottomup_phase.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_topdown_phase.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_task_phase.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_common_phases.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_runtime_phases.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_component.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_root.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_component.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_objection.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_heartbeat.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_globals.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_cmdline_processor.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_traversal.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_set_get_dap_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_simple_lock_dap.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_get_to_lock_dap.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_set_before_get_dap.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dap/uvm_dap.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_ifs.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_sqr_ifs.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_port_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_imps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_ports.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_exports.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_analysis_port.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_fifo_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_fifos.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm_req_rsp.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_sqr_connections.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm1/uvm_tlm.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_pair.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_policies.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_in_order_comparator.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_algorithmic_comparator.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_random_stimulus.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_subscriber.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_monitor.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_driver.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_push_driver.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_scoreboard.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_agent.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_env.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_test.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/comps/uvm_comps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence_item.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequencer_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequencer_analysis_fifo.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequencer_param_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequencer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_push_sequencer.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence_library.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_sequence_builtin.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/seq/uvm_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_defines.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_time.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_generic_payload.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_ifs.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_imps.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_ports.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_exports.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_sockets_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2_sockets.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/tlm2/uvm_tlm2.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_item.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_adapter.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_predictor.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_sequence.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_cbs.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_backdoor.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_field.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_vreg_field.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_indirect.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_fifo.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_file.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_mem_mam.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_vreg.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_mem.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_map.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_block.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_hw_reset_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_bit_bash_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_mem_walk_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_mem_access_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_access_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_mem_shared_access_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_mem_built_in_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/snps_uvm_reg_bank.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/reg/uvm_reg_model.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/vcs_uvm_alt.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv'.
+Parsing design file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/msglog.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_msglog_report_server.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_tr_stream.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_vcs_record_interface.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv'.
+Parsing design file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_tr_stream.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_reg_map_recording.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_factory.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/./dpi/uvm_verdi_dpi.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/verdi/W-2024.09-SP2/share/PLI/VCS/include/verdi_trans_recorder_dpi.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_verdi_pli.svh'.
+Back to file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'.
+Parsing design file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv'
+Parsing design file './uart_tx_if.sv'
+Parsing design file './tb_uart_tx_pkg.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_types.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_seq_item.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_obs_item.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_sequence.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_sequencer.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_driver.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_monitor.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_scoreboard.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_coverage.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_agent.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_env.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing included file './src/uart_tx_test.sv'.
+Back to file './tb_uart_tx_pkg.sv'.
+Parsing design file './tb_uart_tx.sv'
+Parsing included file '/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_macros.svh'.
+Back to file './tb_uart_tx.sv'.
+Parsing design file '../rtl/uart_tx.sv'
+Top Level Modules:
+       uvm_custom_install_verdi_recording
+       tb_uart_tx
+TimeScale is 1 ns / 1 ps
+VCS Coverage Metrics Release W-2024.09-SP1_Full64 Copyright (c) 1991-2024 by Synopsys Inc.
+Starting vcs inline pass...
+9 modules and 0 UDP read.
+recompiling package vcs_paramclassrepository
+recompiling package _vcs_DPI_package
+recompiling package uvm_pkg
+recompiling package _vcs_msglog
+recompiling module uvm_custom_install_verdi_recording
+recompiling module uart_tx_if
+recompiling package tb_uart_tx_pkg
+recompiling module tb_uart_tx
+recompiling module uart_tx
+All of 9 modules done
+Warning : License for product VCS-BASE-COMPILE will expire within 23 days, on: 22-jun-2026.
+
+If you would like to temporarily disable this message, set 
+ the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
+before expiration that you want this message to start (the minimum is 0).
+make[3]: Entering directory '/home/hedu17/UVM_TEST/05_uart_tx/tb/csrc'
+make[3]: Leaving directory '/home/hedu17/UVM_TEST/05_uart_tx/tb/csrc'
+make[3]: Entering directory '/home/hedu17/UVM_TEST/05_uart_tx/tb/csrc'
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+g++ -w  -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/tools/synopsys/vcs/W-2024.09-SP1/include    -c /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.cc
+g++ -w  -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/tools/synopsys/vcs/W-2024.09-SP1/include    -c /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/dpi/uvm_verdi_dpi.cpp
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/tools/synopsys/vcs/W-2024.09-SP1/linux64/lib -L/tools/synopsys/vcs/W-2024.09-SP1/linux64/lib  -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1 uvm_dpi.o uvm_verdi_dpi.o   objs/amcQw_d.o  _1202820_archive_1.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o            -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -lreader_common /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/libBA.a -luclinative /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive      ./../simv.daidir/vc_hdrs.o _vcs_pli_stub_.o   /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcs_save_restore_new.o /tools/synopsys/verdi/W-2024.09-SP2/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+make[3]: Leaving directory '/home/hedu17/UVM_TEST/05_uart_tx/tb/csrc'
+CPU time: 7.692 seconds to compile + .192 seconds to elab + .722 seconds to link
+Verdi KDB elaboration done and the database successfully generated
+./simv -cm line+cond+fsm+tgl+branch+assert -cm_dir simv.vdb +UART_TX_SEQ=all -l run.log
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
+Chronologic VCS simulator copyright 1991-2024
+Contains Synopsys proprietary information.
+Compiler version W-2024.09-SP1_Full64; Runtime version W-2024.09-SP1_Full64;  May 31 16:05 2026
+Warning : License for product VCS-BASE-RUNTIME will expire within 23 days, on: 22-jun-2026.
+
+If you would like to temporarily disable this message, set 
+ the VCS_LIC_EXPIRE_WARNING environment variable to the number of days
+before expiration that you want this message to start (the minimum is 0).
+UVM_INFO /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+
+ VCS Coverage Metrics Release W-2024.09-SP1_Full64 Copyright (c) 1991-2024 by Synopsys Inc.
+UVM_INFO @ 0: reporter [RNTST] Running test uart_tx_test...
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 5455000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=1 data=0xa5
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 11235000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=2 data=0x0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 17015000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=3 data=0xff
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 22795000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=4 data=0x55
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 28575000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=5 data=0xaa
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 34355000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=6 data=0x1
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 40135000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=7 data=0xfe
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 45915000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=8 data=0x2
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 51695000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=9 data=0xfd
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 57475000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=10 data=0x4
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 63255000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=11 data=0xfb
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 69035000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=12 data=0x8
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 74815000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=13 data=0xf7
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 80595000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=14 data=0x10
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 86375000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=15 data=0xef
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 92155000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=16 data=0x20
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 97935000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=17 data=0xdf
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 103715000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=18 data=0x40
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 109495000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=19 data=0xbf
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 115275000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=20 data=0x80
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 121055000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=21 data=0x7f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 126855000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=22 data=0x3c
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 132135000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=23 result=1
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 132705000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=24 result=2
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 133415000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=25 result=2
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 135925000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=26 result=2
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 140835000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=27 result=2
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 141825000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=28 result=3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 148075000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=29 data=0x5a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 156025000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=30 data=0xc3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 163715000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=31 data=0x96
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 169185000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=32 data=0x0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 174095000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=33 data=0xff
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 180715000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=34 data=0x7e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 187675000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=35 data=0x81
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 192685000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=36 data=0x0
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 197515000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=37 result=1
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 197775000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=38 result=2
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 200525000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=39 result=2
+UVM_INFO ./src/uart_tx_scoreboard.sv(61) @ 201065000: uvm_test_top.env.scb [UART_TX_SCB] NO-EVENT PASS id=40 result=3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 206425000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=41 data=0x0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 212205000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=42 data=0x1
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 217985000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=43 data=0x2
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 223765000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=44 data=0x3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 229545000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=45 data=0x4
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 235325000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=46 data=0x5
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 241105000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=47 data=0x6
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 246885000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=48 data=0x7
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 252665000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=49 data=0x8
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 258445000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=50 data=0x9
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 264225000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=51 data=0xa
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 270005000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=52 data=0xb
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 275785000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=53 data=0xc
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 281565000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=54 data=0xd
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 287345000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=55 data=0xe
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 293125000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=56 data=0xf
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 298905000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=57 data=0x10
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 304685000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=58 data=0x11
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 310465000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=59 data=0x12
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 316245000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=60 data=0x13
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 322025000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=61 data=0x14
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 327805000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=62 data=0x15
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 333585000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=63 data=0x16
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 339365000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=64 data=0x17
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 345145000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=65 data=0x18
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 350925000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=66 data=0x19
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 356705000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=67 data=0x1a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 362485000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=68 data=0x1b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 368265000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=69 data=0x1c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 374045000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=70 data=0x1d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 379825000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=71 data=0x1e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 385605000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=72 data=0x1f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 391385000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=73 data=0x20
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 397165000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=74 data=0x21
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 402945000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=75 data=0x22
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 408725000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=76 data=0x23
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 414505000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=77 data=0x24
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 420285000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=78 data=0x25
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 426065000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=79 data=0x26
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 431845000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=80 data=0x27
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 437625000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=81 data=0x28
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 443405000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=82 data=0x29
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 449185000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=83 data=0x2a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 454965000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=84 data=0x2b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 460745000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=85 data=0x2c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 466525000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=86 data=0x2d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 472305000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=87 data=0x2e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 478085000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=88 data=0x2f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 483865000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=89 data=0x30
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 489645000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=90 data=0x31
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 495425000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=91 data=0x32
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 501205000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=92 data=0x33
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 506985000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=93 data=0x34
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 512765000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=94 data=0x35
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 518545000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=95 data=0x36
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 524325000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=96 data=0x37
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 530105000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=97 data=0x38
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 535885000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=98 data=0x39
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 541665000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=99 data=0x3a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 547445000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=100 data=0x3b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 553225000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=101 data=0x3c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 559005000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=102 data=0x3d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 564785000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=103 data=0x3e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 570565000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=104 data=0x3f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 576345000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=105 data=0x40
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 582125000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=106 data=0x41
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 587905000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=107 data=0x42
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 593685000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=108 data=0x43
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 599465000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=109 data=0x44
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 605245000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=110 data=0x45
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 611025000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=111 data=0x46
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 616805000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=112 data=0x47
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 622585000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=113 data=0x48
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 628365000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=114 data=0x49
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 634145000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=115 data=0x4a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 639925000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=116 data=0x4b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 645705000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=117 data=0x4c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 651485000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=118 data=0x4d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 657265000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=119 data=0x4e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 663045000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=120 data=0x4f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 668825000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=121 data=0x50
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 674605000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=122 data=0x51
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 680385000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=123 data=0x52
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 686165000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=124 data=0x53
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 691945000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=125 data=0x54
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 697725000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=126 data=0x55
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 703505000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=127 data=0x56
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 709285000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=128 data=0x57
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 715065000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=129 data=0x58
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 720845000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=130 data=0x59
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 726625000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=131 data=0x5a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 732405000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=132 data=0x5b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 738185000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=133 data=0x5c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 743965000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=134 data=0x5d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 749745000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=135 data=0x5e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 755525000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=136 data=0x5f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 761305000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=137 data=0x60
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 767085000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=138 data=0x61
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 772865000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=139 data=0x62
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 778645000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=140 data=0x63
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 784425000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=141 data=0x64
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 790205000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=142 data=0x65
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 795985000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=143 data=0x66
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 801765000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=144 data=0x67
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 807545000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=145 data=0x68
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 813325000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=146 data=0x69
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 819105000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=147 data=0x6a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 824885000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=148 data=0x6b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 830665000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=149 data=0x6c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 836445000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=150 data=0x6d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 842225000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=151 data=0x6e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 848005000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=152 data=0x6f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 853785000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=153 data=0x70
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 859565000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=154 data=0x71
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 865345000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=155 data=0x72
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 871125000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=156 data=0x73
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 876905000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=157 data=0x74
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 882685000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=158 data=0x75
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 888465000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=159 data=0x76
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 894245000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=160 data=0x77
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 900025000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=161 data=0x78
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 905805000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=162 data=0x79
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 911585000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=163 data=0x7a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 917365000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=164 data=0x7b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 923145000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=165 data=0x7c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 928925000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=166 data=0x7d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 934705000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=167 data=0x7e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 940485000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=168 data=0x7f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 946265000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=169 data=0x80
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 952045000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=170 data=0x81
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 957825000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=171 data=0x82
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 963605000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=172 data=0x83
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 969385000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=173 data=0x84
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 975165000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=174 data=0x85
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 980945000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=175 data=0x86
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 986725000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=176 data=0x87
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 992505000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=177 data=0x88
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 998285000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=178 data=0x89
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1004065000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=179 data=0x8a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1009845000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=180 data=0x8b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1015625000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=181 data=0x8c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1021405000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=182 data=0x8d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1027185000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=183 data=0x8e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1032965000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=184 data=0x8f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1038745000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=185 data=0x90
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1044525000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=186 data=0x91
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1050305000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=187 data=0x92
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1056085000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=188 data=0x93
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1061865000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=189 data=0x94
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1067645000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=190 data=0x95
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1073425000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=191 data=0x96
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1079205000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=192 data=0x97
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1084985000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=193 data=0x98
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1090765000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=194 data=0x99
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1096545000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=195 data=0x9a
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1102325000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=196 data=0x9b
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1108105000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=197 data=0x9c
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1113885000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=198 data=0x9d
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1119665000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=199 data=0x9e
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1125445000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=200 data=0x9f
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1131225000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=201 data=0xa0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1137005000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=202 data=0xa1
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1142785000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=203 data=0xa2
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1148565000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=204 data=0xa3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1154345000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=205 data=0xa4
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1160125000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=206 data=0xa5
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1165905000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=207 data=0xa6
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1171685000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=208 data=0xa7
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1177465000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=209 data=0xa8
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1183245000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=210 data=0xa9
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1189025000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=211 data=0xaa
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1194805000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=212 data=0xab
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1200585000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=213 data=0xac
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1206365000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=214 data=0xad
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1212145000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=215 data=0xae
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1217925000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=216 data=0xaf
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1223705000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=217 data=0xb0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1229485000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=218 data=0xb1
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1235265000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=219 data=0xb2
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1241045000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=220 data=0xb3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1246825000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=221 data=0xb4
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1252605000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=222 data=0xb5
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1258385000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=223 data=0xb6
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1264165000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=224 data=0xb7
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1269945000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=225 data=0xb8
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1275725000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=226 data=0xb9
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1281505000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=227 data=0xba
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1287285000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=228 data=0xbb
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1293065000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=229 data=0xbc
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1298845000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=230 data=0xbd
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1304625000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=231 data=0xbe
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1310405000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=232 data=0xbf
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1316185000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=233 data=0xc0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1321965000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=234 data=0xc1
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1327745000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=235 data=0xc2
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1333525000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=236 data=0xc3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1339305000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=237 data=0xc4
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1345085000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=238 data=0xc5
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1350865000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=239 data=0xc6
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1356645000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=240 data=0xc7
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1362425000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=241 data=0xc8
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1368205000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=242 data=0xc9
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1373985000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=243 data=0xca
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1379765000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=244 data=0xcb
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1385545000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=245 data=0xcc
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1391325000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=246 data=0xcd
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1397105000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=247 data=0xce
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1402885000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=248 data=0xcf
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1408665000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=249 data=0xd0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1414445000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=250 data=0xd1
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1420225000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=251 data=0xd2
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1426005000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=252 data=0xd3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1431785000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=253 data=0xd4
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1437565000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=254 data=0xd5
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1443345000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=255 data=0xd6
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1449125000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=256 data=0xd7
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1454905000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=257 data=0xd8
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1460685000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=258 data=0xd9
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1466465000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=259 data=0xda
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1472245000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=260 data=0xdb
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1478025000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=261 data=0xdc
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1483805000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=262 data=0xdd
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1489585000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=263 data=0xde
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1495365000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=264 data=0xdf
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1501145000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=265 data=0xe0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1506925000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=266 data=0xe1
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1512705000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=267 data=0xe2
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1518485000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=268 data=0xe3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1524265000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=269 data=0xe4
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1530045000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=270 data=0xe5
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1535825000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=271 data=0xe6
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1541605000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=272 data=0xe7
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1547385000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=273 data=0xe8
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1553165000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=274 data=0xe9
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1558945000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=275 data=0xea
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1564725000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=276 data=0xeb
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1570505000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=277 data=0xec
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1576285000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=278 data=0xed
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1582065000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=279 data=0xee
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1587845000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=280 data=0xef
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1593625000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=281 data=0xf0
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1599405000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=282 data=0xf1
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1605185000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=283 data=0xf2
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1610965000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=284 data=0xf3
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1616745000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=285 data=0xf4
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1622525000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=286 data=0xf5
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1628305000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=287 data=0xf6
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1634085000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=288 data=0xf7
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1639865000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=289 data=0xf8
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1645645000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=290 data=0xf9
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1651425000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=291 data=0xfa
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1657205000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=292 data=0xfb
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1662985000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=293 data=0xfc
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1668765000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=294 data=0xfd
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1674545000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=295 data=0xfe
+UVM_INFO ./src/uart_tx_scoreboard.sv(124) @ 1680325000: uvm_test_top.env.scb [UART_TX_SCB] PASS id=296 data=0xff
+UVM_INFO /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 1683945000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ./src/uart_tx_coverage.sv(68) @ 1683945000: uvm_test_top.env.cov [UART_TX_COV] Functional coverage = 100.00%
+UVM_INFO ./src/uart_tx_scoreboard.sv(139) @ 1683945000: uvm_test_top.env.scb [UART_TX_SCB] Scoreboard pass=296 fail=0
+UVM_INFO /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_report_server.svh(904) @ 1683945000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :  301
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UART_TX_COV]     1
+[UART_TX_SCB]   297
+[UVM/RELNOTES]     1
+
+$finish called from file "/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time           1683945000
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitored
+---------------------------------------------------------------------------
+
+ Coverage status: End of All Coverages ...
+
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1683945000 ps
+CPU Time:      0.470 seconds;       Data structure size:   0.6Mb
+Sun May 31 16:05:33 2026
+urg -dir simv.vdb -report urgReport
+Note: Bumping stack limit from 8192 to unlimited Kbytes.
+URG Version W-2024.09-SP1                     Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+make[2]: Leaving directory '/home/hedu17/UVM_TEST/05_uart_tx/tb'
+make[1]: Leaving directory '/home/hedu17/UVM_TEST/05_uart_tx'
+
+Note-[URG-RDG] Report directory generated
+  Report written to directory urgReport
+

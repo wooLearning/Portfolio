@@ -1,0 +1,74 @@
+Warning: Permanently added '10.10.15.20' (ED25519) to the list of known hosts.
+make -C 08_i2c_master coverage
+make[1]: Entering directory '/home/hedu17/UVM_TEST/08_i2c_master'
+make -C tb coverage
+make[2]: Entering directory '/home/hedu17/UVM_TEST/08_i2c_master/tb'
+vcs -full64 -sverilog -ntb_opts uvm-1.2 -timescale=1ns/1ps -debug_access+all -kdb -lca -cm line+cond+fsm+tgl+branch+assert -cm_dir simv.vdb -f files.f -top tb_i2c_master -l build.log
+                         Chronologic VCS (TM)
+       Version W-2024.09-SP1_Full64 -- Sun May 31 16:03:06 2026
+
+                    Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+
+Got SIGSEGV
+
+An unexpected termination has occurred in /tools/synopsys/vcs/W-2024.09-SP1/linux64/bin/vcs1 due to a signal: Segmentation fault
+Hostname kccisynop2
+
+During Argument processing Argument="-d" 
+During setup for compilation 
+
+Command line: /tools/synopsys/vcs/W-2024.09-SP1/linux64/bin/vcs1 -Mcc=gcc -Mcplusplus=g++ -Masflags= "-Mcfl= -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/tools/synopsys/vcs/W-2024.09-SP1/include " -Mxllcflags= "-Mxcflags= -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -I/tools/synopsys/vcs/W-2024.09-SP1/include" "-Mldflags= -rdynamic " -Mout=simv -Mamsrun= -Mvcsaceobjs= "-Mobjects= /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/libvirsim.so /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/liberrorinf.so /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/libsnpsmalloc.so /tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/libvfs.so " -Mexternalobj= -Msaverestoreobj=/tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcs_save_restore_new.o -Mcrt0= -Mcrtn= "-Mcsrc=/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/dpi/uvm_dpi.cc /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/dpi/uvm_verdi_dpi.cpp " "-Msyslibs=/tools/synopsys/verdi/W-2024.09-SP2/share/PLI/VCS/LINUX64/pli.a -ldl " -l build.log +define+UVM_VERDI_VIF_RECORD +define+UVM_VCS_RECORD +incdir+/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/uvm_pkg.sv /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv +incdir+/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi /tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv -full64 -ntb_opts uvm-1.2 +incdir+/tools/synopsys/vcs/W-2024.09-SP1/etc/uvm-1.2/ -timescale=1ns/1ps -debug_access+all +vpi +vcsd1 +itf+/tools/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcsdp_lite.tab -kdb -Xufe=2steps -kdb=common_elab -Xufe=2steps -lca -cm line+cond+fsm+tgl+branch+assert -cm_dir simv.vdb -top tb_i2c_master -kdb=common_elab -Xufe=2steps -kdb=common_elab -Xufe=2steps -picarchive -P /tools/synopsys/verdi/W-2024.09-SP2/share/PLI/VCS/LINUX64/verdi.tab -fsdb -sverilog -gen_obj -Xfile_begin_f=files.f -d I2C_TB_MASTER_ONLY ./common/i2c_master_if.sv ./common/i2c_slave_if.sv ./common/tb_i2c_pkg.sv ./tb_i2c_master.sv ../rtl/i2c_master.sv -Xfile_end
+
+--- Stack trace follows:
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+0x00001555542d9fba in wait4 () from /lib64/libc.so.6
+#0  0x00001555542d9fba in wait4 () from /lib64/libc.so.6
+#1  0x000015555424f483 in do_system () from /lib64/libc.so.6
+#2  0x000015555547d36a in system () from /tools/synopsys/vcs/W-2024.09-SP1/linux64/bin/../lib/libpreload.so
+#3  0x000000000c3b54b2 in tracker::StackAnnotator::getGdbOutput(char const*, char const*, char const*, char const*) ()
+#4  0x000000000c3b5a37 in tracker::StackAnnotator::dumpStackByGdb(char const*, char const*, bool) ()
+#5  0x000000000c3b705b in tracker::StackAnnotator::dumpProcessStack(unsigned int, char const*, char const*, bool) ()
+#6  0x000000000c3a6602 in ?? ()
+#7  0x0000000004e2d08f in stackTraceHandler ()
+#8  0x0000000004e2b5bb in SigHandler ()
+#9  0x000000000bdd58f5 in ?? ()
+#10 <signal handler called>
+#11 0x0000155554370b88 in __strncmp_evex () from /lib64/libc.so.6
+#12 0x000000000486cc3b in DoFlags ()
+#13 0x0000000004890e45 in ?? ()
+#14 0x00000000048b339e in DoArguments ()
+#15 0x00000000048d732a in ?? ()
+#16 0x00000000048d9879 in main ()
+[Inferior 1 (process 1200141) detached]
+
+Process VmPeak: 265896 kb, VmSize: 265860 kb
+System Free Memory: 1005139904 kb, System Free Swap: 4194300 kb
+
+Completed context dump phase data
+CPU time: 1.321 seconds to compile
+make[2]: Leaving directory '/home/hedu17/UVM_TEST/08_i2c_master/tb'
+make[1]: Leaving directory '/home/hedu17/UVM_TEST/08_i2c_master'
+make[2]: *** [Makefile:33: build] Error 1
+make[1]: *** [Makefile:4: coverage] Error 2
+make: *** [Makefile:44: coverage] Error 2

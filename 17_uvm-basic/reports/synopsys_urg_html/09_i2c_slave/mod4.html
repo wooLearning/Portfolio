@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: i2c_slave</title>
+<link type="text/css" rel="stylesheet" href="css/urg.css">
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/breadcrumb.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/sortable.js"></script>
+<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_i2c_slave'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_i2c_slave')">i2c_slave</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 88.50</td>
+<td class="s9 cl rt"><a href="mod4.html#Line" > 93.39</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Cond" > 96.92</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Toggle" > 91.14</a></td>
+<td class="s7 cl rt"><a href="mod4.html#FSM" > 73.33</a></td>
+<td class="s8 cl rt"><a href="mod4.html#Branch" > 87.69</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/hedu17/UVM_TEST/09_i2c_slave/tb/../rtl/i2c_slave.sv')">/home/hedu17/UVM_TEST/09_i2c_slave/tb/../rtl/i2c_slave.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_4"  onclick="showContent('inst_tag_4')">tb_i2c_slave.dut</a></td>
+<td class="s8 cl rt"> 88.50</td>
+<td class="s9 cl rt"><a href="mod4.html#Line" > 93.39</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Cond" > 96.92</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Toggle" > 91.14</a></td>
+<td class="s7 cl rt"><a href="mod4.html#FSM" > 73.33</a></td>
+<td class="s8 cl rt"><a href="mod4.html#Branch" > 87.69</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_i2c_slave'>
+<hr>
+<a name="inst_tag_4"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_4" >tb_i2c_slave.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 88.50</td>
+<td class="s9 cl rt"><a href="mod4.html#Line" > 93.39</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Cond" > 96.92</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Toggle" > 91.14</a></td>
+<td class="s7 cl rt"><a href="mod4.html#FSM" > 73.33</a></td>
+<td class="s8 cl rt"><a href="mod4.html#Branch" > 87.69</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 88.50</td>
+<td class="s9 cl rt"> 93.39</td>
+<td class="s9 cl rt"> 96.92</td>
+<td class="s9 cl rt"> 91.14</td>
+<td class="s7 cl rt"> 73.33</td>
+<td class="s8 cl rt"> 87.69</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod5.html#inst_tag_5" >tb_i2c_slave</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_i2c_slave'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod4.html" >i2c_slave</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>121</td><td>113</td><td>93.39</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>63</td><td>11</td><td>11</td><td>100.00</td></tr>
+<tr class="s8"><td class="lf">ALWAYS</td><td>80</td><td>34</td><td>28</td><td>82.35</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>162</td><td>15</td><td>15</td><td>100.00</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>200</td><td>61</td><td>59</td><td>96.72</td></tr>
+</table>
+<pre class="code"><br clear=all>
+62                        always_ff @(posedge iClk or posedge iRst) begin
+63         1/1              if (iRst) begin
+64         1/1                rCurState &lt;= IDLE;
+65         1/1                rSclMeta  &lt;= 1'b1;
+66         1/1                rSclSync  &lt;= 1'b1;
+67         1/1                rSdaMeta  &lt;= 1'b1;
+68         1/1                rSdaSync  &lt;= 1'b1;
+69                          end
+70                          else begin
+71         1/1                rCurState &lt;= rNxtState;
+72         1/1                rSclMeta  &lt;= iScl;
+73         1/1                rSclSync  &lt;= rSclMeta;
+74         1/1                rSdaMeta  &lt;= iSda;
+75         1/1                rSdaSync  &lt;= rSdaMeta;
+76                          end
+77                        end
+78                      
+79                        always_comb begin
+80         1/1              rNxtState = rCurState;
+81                      
+82         1/1              case (rCurState)
+83                            IDLE: begin
+84         1/1                  if (wStartDet) begin
+85         1/1                    rNxtState = ADDR;
+86                              end
+                        MISSING_ELSE
+87                            end
+88                      
+89                            ADDR: begin
+90         1/1                  if (wStopDet) begin
+91         <font color = "red">0/1     ==>            rNxtState = IDLE;</font>
+92                              end
+93         1/1                  else if (wSclRise &amp;&amp; (rBitCnt == 3'd7)) begin
+94         1/1                    rNxtState = ADDR_ACK;
+95                              end
+                        MISSING_ELSE
+96                            end
+97                      
+98                            ADDR_ACK: begin
+99         1/1                  if (wStopDet) begin
+100        <font color = "red">0/1     ==>            rNxtState = IDLE;</font>
+101                             end
+102        1/1                  else if (wSclFall &amp;&amp; rAckHighSeen) begin
+103        1/1                    if (!rAddrHit) begin
+104        1/1                      rNxtState = IDLE;
+105                               end
+106        1/1                    else if (rReadOp) begin
+107        1/1                      rNxtState = READ_DATA;
+108                               end
+109                               else begin
+110        1/1                      rNxtState = WRITE_DATA;
+111                               end
+112                             end
+                        MISSING_ELSE
+113                           end
+114                     
+115                           WRITE_DATA: begin
+116        1/1                  if (wStopDet) begin
+117        <font color = "red">0/1     ==>            rNxtState = IDLE;</font>
+118                             end
+119        1/1                  else if (wSclRise &amp;&amp; (rBitCnt == 3'd7)) begin
+120        1/1                    rNxtState = WRITE_ACK;
+121                             end
+                        MISSING_ELSE
+122                           end
+123                     
+124                           WRITE_ACK: begin
+125        1/1                  if (wStopDet) begin
+126        <font color = "red">0/1     ==>            rNxtState = IDLE;</font>
+127                             end
+128        1/1                  else if (wSclFall &amp;&amp; rAckHighSeen) begin
+129        1/1                    rNxtState = COMPLETE;
+130                             end
+                        MISSING_ELSE
+131                           end
+132                     
+133                           READ_DATA: begin
+134        1/1                  if (wStopDet) begin
+135        <font color = "red">0/1     ==>            rNxtState = IDLE;</font>
+136                             end
+137        1/1                  else if (wSclFall &amp;&amp; rReadByteDone) begin
+138        1/1                    rNxtState = READ_MASTER_ACK;
+139                             end
+                        MISSING_ELSE
+140                           end
+141                     
+142                           READ_MASTER_ACK: begin
+143        1/1                  if (wStopDet) begin
+144        <font color = "red">0/1     ==>            rNxtState = IDLE;</font>
+145                             end
+146        1/1                  else if (wSclFall &amp;&amp; rAckHighSeen) begin
+147        1/1                    rNxtState = COMPLETE;
+148                             end
+                        MISSING_ELSE
+149                           end
+150                     
+151                           COMPLETE: begin
+152        1/1                  rNxtState = IDLE;
+153                           end
+154                     
+155                           default: begin
+156        1/1                  rNxtState = IDLE;
+157                           end
+158                         endcase
+159                       end
+160                     
+161                       always_comb begin
+162        1/1              oRxValid = 1'b0;
+163        1/1              oTxnDone = 1'b0;
+164        1/1              oTxnRead = 1'b0;
+165        1/1              oSdaOe   = 1'b0;
+166                     
+167        1/1              case (rCurState)
+168                           ADDR_ACK: begin
+169        1/1                  if (rAddrHit) begin
+170        1/1                    oSdaOe = rAckDriveActive;
+171                             end
+                        MISSING_ELSE
+172                           end
+173                     
+174                           WRITE_ACK: begin
+175        1/1                  oSdaOe = rAckDriveActive;
+176                           end
+177                     
+178                           READ_DATA: begin
+179        1/1                  oSdaOe = ~rTxShift[7];
+180                           end
+181                     
+182                           COMPLETE: begin
+183        1/1                  if (rAddrHit) begin
+184        1/1                    oTxnDone = 1'b1;
+185        1/1                    oTxnRead = rReadOp;
+186                     
+187        1/1                    if (!rReadOp) begin
+188        1/1                      oRxValid = 1'b1;
+189                               end
+                        MISSING_ELSE
+190                             end
+                   <font color = "red">==>  MISSING_ELSE</font>
+191                           end
+192                     
+193                           default: begin
+194        1/1                  oSdaOe = 1'b0;
+195                           end
+196                         endcase
+197                       end
+198                     
+199                       always_ff @(posedge iClk or posedge iRst) begin
+200        1/1              if (iRst) begin
+201        1/1                rSclPrev        &lt;= 1'b1;
+202        1/1                rSdaPrev        &lt;= 1'b1;
+203        1/1                rBitCnt         &lt;= '0;
+204        1/1                rAddrShift      &lt;= '0;
+205        1/1                rRxShift        &lt;= '0;
+206        1/1                rTxShift        &lt;= '0;
+207        1/1                rAddrHit        &lt;= 1'b0;
+208        1/1                rReadOp         &lt;= 1'b0;
+209        1/1                rAckHighSeen    &lt;= 1'b0;
+210        1/1                rAckDriveActive &lt;= 1'b0;
+211        1/1                rReadByteDone   &lt;= 1'b0;
+212        1/1                oRxData         &lt;= '0;
+213                         end
+214                         else begin
+215        1/1                if (rCurState != rNxtState) begin
+216        1/1                  rBitCnt         &lt;= '0;
+217        1/1                  rAckHighSeen    &lt;= 1'b0;
+218        1/1                  rAckDriveActive &lt;= 1'b0;
+219        1/1                  rReadByteDone   &lt;= 1'b0;
+220                           end
+                        MISSING_ELSE
+221                     
+222        1/1                case (rCurState)
+223                             IDLE: begin
+224        1/1                    if (wStartDet) begin
+225        1/1                      rAddrShift &lt;= '0;
+226        1/1                      rRxShift   &lt;= '0;
+227        1/1                      rAddrHit   &lt;= 1'b0;
+228        1/1                      rReadOp    &lt;= 1'b0;
+229                               end
+                        MISSING_ELSE
+230                             end
+231                     
+232                             ADDR: begin
+233        1/1                    if (wStartDet) begin
+234        <font color = "red">0/1     ==>              rBitCnt    &lt;= '0;</font>
+235        <font color = "red">0/1     ==>              rAddrShift &lt;= '0;</font>
+236                               end
+237        1/1                    else if (wSclRise) begin
+238                                 logic [7:0] wAddrFrame;
+239                     
+240        1/1                      wAddrFrame = {rAddrShift[6:0], rSdaSync};
+241        1/1                      rAddrShift &lt;= wAddrFrame;
+242                     
+243        1/1                      if (rBitCnt == 3'd7) begin
+244        1/1                        rAddrHit &lt;= (wAddrFrame[7:1] == iOwnAddr);
+245        1/1                        rReadOp  &lt;= wAddrFrame[0];
+246                     
+247        1/1                        if ((wAddrFrame[7:1] == iOwnAddr) &amp;&amp; wAddrFrame[0]) begin
+248        1/1                          rTxShift &lt;= iTxData;
+249                                   end
+                        MISSING_ELSE
+250                                 end
+251                                 else begin
+252        1/1                        rBitCnt &lt;= rBitCnt + 1'b1;
+253                                 end
+254                               end
+                        MISSING_ELSE
+255                             end
+256                     
+257                             ADDR_ACK: begin
+258        1/1                    if (wSclFall &amp;&amp; !rAckHighSeen) begin
+259        1/1                      rAckDriveActive &lt;= 1'b1;
+260                               end
+                        MISSING_ELSE
+261                     
+262        1/1                    if (wSclRise) begin
+263        1/1                      rAckHighSeen &lt;= 1'b1;
+264                               end
+                        MISSING_ELSE
+265                     
+266        1/1                    if (wSclFall &amp;&amp; rAckHighSeen &amp;&amp; rAddrHit &amp;&amp; !rReadOp) begin
+267        1/1                      rRxShift &lt;= '0;
+268                               end
+                        MISSING_ELSE
+269                             end
+270                     
+271                             WRITE_DATA: begin
+272        1/1                    if (wSclRise) begin
+273        1/1                      rRxShift &lt;= {rRxShift[6:0], rSdaSync};
+274                     
+275        1/1                      if (rBitCnt == 3'd7) begin
+276        1/1                        oRxData &lt;= {rRxShift[6:0], rSdaSync};
+277                                 end
+278                                 else begin
+279        1/1                        rBitCnt &lt;= rBitCnt + 1'b1;
+280                                 end
+281                               end
+                        MISSING_ELSE
+282                             end
+283                     
+284                             WRITE_ACK: begin
+285        1/1                    if (wSclFall &amp;&amp; !rAckHighSeen) begin
+286        1/1                      rAckDriveActive &lt;= 1'b1;
+287                               end
+                        MISSING_ELSE
+288                     
+289        1/1                    if (wSclRise) begin
+290        1/1                      rAckHighSeen &lt;= 1'b1;
+291                               end
+                        MISSING_ELSE
+292                             end
+293                     
+294                             READ_DATA: begin
+295        1/1                    if (wSclRise) begin
+296        1/1                      if (rBitCnt == 3'd7) begin
+297        1/1                        rReadByteDone &lt;= 1'b1;
+298                                 end
+299                                 else begin
+300        1/1                        rBitCnt &lt;= rBitCnt + 1'b1;
+301                                 end
+302                               end
+                        MISSING_ELSE
+303                     
+304        1/1                    if (wSclFall &amp;&amp; !rReadByteDone) begin
+305        1/1                      rTxShift &lt;= {rTxShift[6:0], 1'b1};
+306                               end
+                        MISSING_ELSE
+307                             end
+308                     
+309                             READ_MASTER_ACK: begin
+310        1/1                    if (wSclRise) begin
+311        1/1                      rAckHighSeen &lt;= 1'b1;
+312                               end
+                        MISSING_ELSE
+313                             end
+314                     
+315                             default: begin
+316                             end
+317                           endcase
+318                     
+319        1/1                rSclPrev &lt;= rSclSync;
+320        1/1                rSdaPrev &lt;= rSdaSync;
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod4.html" >i2c_slave</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>65</td><td>63</td><td>96.92</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>65</td><td>63</td><td>96.92</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       57
+ EXPRESSION (rSdaPrev &amp;&amp; ((!rSdaSync)) &amp;&amp; rSclSync)
+             ----1---    ------2------    ----3---
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (((!rSdaPrev)) &amp;&amp; rSdaSync &amp;&amp; rSclSync)
+             ------1------    ----2---    ----3---
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       59
+ EXPRESSION (((!rSclPrev)) &amp;&amp; rSclSync)
+             ------1------    ----2---
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (rSclPrev &amp;&amp; ((!rSclSync)))
+             ----1---    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       93
+ EXPRESSION (wSclRise &amp;&amp; (rBitCnt == 3'd7))
+             ----1---    --------2--------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       93
+ SUB-EXPRESSION (rBitCnt == 3'd7)
+                --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       102
+ EXPRESSION (wSclFall &amp;&amp; rAckHighSeen)
+             ----1---    ------2-----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       119
+ EXPRESSION (wSclRise &amp;&amp; (rBitCnt == 3'd7))
+             ----1---    --------2--------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       119
+ SUB-EXPRESSION (rBitCnt == 3'd7)
+                --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       128
+ EXPRESSION (wSclFall &amp;&amp; rAckHighSeen)
+             ----1---    ------2-----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       137
+ EXPRESSION (wSclFall &amp;&amp; rReadByteDone)
+             ----1---    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       146
+ EXPRESSION (wSclFall &amp;&amp; rAckHighSeen)
+             ----1---    ------2-----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       215
+ EXPRESSION (rCurState != rNxtState)
+            ------------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       243
+ EXPRESSION (rBitCnt == 3'd7)
+            --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION (wAddrFrame[7:1] == iOwnAddr)
+            --------------1--------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION ((wAddrFrame[7:1] == iOwnAddr) &amp;&amp; wAddrFrame[0])
+             --------------1--------------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (wAddrFrame[7:1] == iOwnAddr)
+                --------------1--------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       258
+ EXPRESSION (wSclFall &amp;&amp; ((!rAckHighSeen)))
+             ----1---    --------2--------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       266
+ EXPRESSION (wSclFall &amp;&amp; rAckHighSeen &amp;&amp; rAddrHit &amp;&amp; ((!rReadOp)))
+             ----1---    ------2-----    ----3---    ------4-----
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       275
+ EXPRESSION (rBitCnt == 3'd7)
+            --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       285
+ EXPRESSION (wSclFall &amp;&amp; ((!rAckHighSeen)))
+             ----1---    --------2--------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       296
+ EXPRESSION (rBitCnt == 3'd7)
+            --------1--------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       304
+ EXPRESSION (wSclFall &amp;&amp; ((!rReadByteDone)))
+             ----1---    ---------2--------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod4.html" >i2c_slave</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">32</td>
+<td class="rt">31</td>
+<td class="rt">96.88 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">158</td>
+<td class="rt">144</td>
+<td class="rt">91.14 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">79</td>
+<td class="rt">72</td>
+<td class="rt">91.14 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">79</td>
+<td class="rt">72</td>
+<td class="rt">91.14 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">62</td>
+<td class="rt">48</td>
+<td class="rt">77.42 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">31</td>
+<td class="rt">24</td>
+<td class="rt">77.42 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">31</td>
+<td class="rt">24</td>
+<td class="rt">77.42 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">21</td>
+<td class="rt">21</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">96</td>
+<td class="rt">96</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">48</td>
+<td class="rt">48</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">48</td>
+<td class="rt">48</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>iClk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iRst</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iOwnAddr[6:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iTxData[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iScl</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iSda</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>oRxData[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oRxValid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oTxnDone</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oTxnRead</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oSdaOe</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>rCurState[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rNxtState[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rSclMeta</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rSclSync</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rSdaMeta</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rSdaSync</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rSclPrev</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rSdaPrev</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rBitCnt[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rAddrShift[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rRxShift[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rTxShift[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rAddrHit</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rReadOp</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rAckHighSeen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rAckDriveActive</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rReadByteDone</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wStartDet</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wStopDet</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wSclRise</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wSclFall</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="FSM"></a>
+FSM Coverage for Module : <a href="mod4.html" >i2c_slave</a><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: rCurState</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s7">
+<td>Transitions</td>
+<td class="rt">15</td>
+<td class="rt">11</td>
+<td class="rt">73.33 </td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: rCurState</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>ADDR</td>
+<td class="rt">85</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ADDR_ACK</td>
+<td class="rt">94</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>COMPLETE</td>
+<td class="rt">129</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE</td>
+<td class="rt">64</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>READ_DATA</td>
+<td class="rt">107</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>READ_MASTER_ACK</td>
+<td class="rt">138</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WRITE_ACK</td>
+<td class="rt">120</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WRITE_DATA</td>
+<td class="rt">110</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>ADDR->ADDR_ACK</td>
+<td class="rt">94</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>ADDR->IDLE</td>
+<td class="rt">64</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ADDR_ACK->IDLE</td>
+<td class="rt">64</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ADDR_ACK->READ_DATA</td>
+<td class="rt">107</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ADDR_ACK->WRITE_DATA</td>
+<td class="rt">110</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>COMPLETE->IDLE</td>
+<td class="rt">64</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE->ADDR</td>
+<td class="rt">85</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>READ_DATA->IDLE</td>
+<td class="rt">64</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>READ_DATA->READ_MASTER_ACK</td>
+<td class="rt">138</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>READ_MASTER_ACK->COMPLETE</td>
+<td class="rt">147</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>READ_MASTER_ACK->IDLE</td>
+<td class="rt">64</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WRITE_ACK->COMPLETE</td>
+<td class="rt">129</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WRITE_ACK->IDLE</td>
+<td class="rt">64</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>WRITE_DATA->IDLE</td>
+<td class="rt">64</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WRITE_DATA->WRITE_ACK</td>
+<td class="rt">120</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod4.html" >i2c_slave</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">65</td>
+<td class="rt">57</td>
+<td class="rt">87.69 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">63</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s7">
+<td>CASE</td>
+<td class="rt">82</td>
+<td class="rt">24</td>
+<td class="rt">18</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s8">
+<td>CASE</td>
+<td class="rt">167</td>
+<td class="rt">8</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+</tr><tr class="s9">
+<td>IF</td>
+<td class="rt">200</td>
+<td class="rt">31</td>
+<td class="rt">30</td>
+<td class="rt">96.77 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+63             if (iRst) begin
+               <font color = "green">-1-</font>  
+64               rCurState <= IDLE;
+           <font color = "green">      ==></font>
+65               rSclMeta  <= 1'b1;
+66               rSclSync  <= 1'b1;
+67               rSdaMeta  <= 1'b1;
+68               rSdaSync  <= 1'b1;
+69             end
+70             else begin
+71               rCurState <= rNxtState;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+82             case (rCurState)
+               <font color = "green">-1-</font>  
+83               IDLE: begin
+84                 if (wStartDet) begin
+                   <font color = "green">-2-</font>  
+85                   rNxtState = ADDR;
+           <font color = "green">          ==></font>
+86                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+87               end
+88         
+89               ADDR: begin
+90                 if (wStopDet) begin
+                   <font color = "red">-3-</font>  
+91                   rNxtState = IDLE;
+           <font color = "red">          ==></font>
+92                 end
+93                 else if (wSclRise && (rBitCnt == 3'd7)) begin
+                        <font color = "green">-4-</font>  
+94                   rNxtState = ADDR_ACK;
+           <font color = "green">          ==></font>
+95                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+96               end
+97         
+98               ADDR_ACK: begin
+99                 if (wStopDet) begin
+                   <font color = "red">-5-</font>  
+100                  rNxtState = IDLE;
+           <font color = "red">          ==></font>
+101                end
+102                else if (wSclFall && rAckHighSeen) begin
+                        <font color = "green">-6-</font>  
+103                  if (!rAddrHit) begin
+                     <font color = "green">-7-</font>  
+104                    rNxtState = IDLE;
+           <font color = "green">            ==></font>
+105                  end
+106                  else if (rReadOp) begin
+                          <font color = "green">-8-</font>  
+107                    rNxtState = READ_DATA;
+           <font color = "green">            ==></font>
+108                  end
+109                  else begin
+110                    rNxtState = WRITE_DATA;
+           <font color = "green">            ==></font>
+111                  end
+112                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+113              end
+114        
+115              WRITE_DATA: begin
+116                if (wStopDet) begin
+                   <font color = "red">-9-</font>  
+117                  rNxtState = IDLE;
+           <font color = "red">          ==></font>
+118                end
+119                else if (wSclRise && (rBitCnt == 3'd7)) begin
+                        <font color = "green">-10-</font>  
+120                  rNxtState = WRITE_ACK;
+           <font color = "green">          ==></font>
+121                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+122              end
+123        
+124              WRITE_ACK: begin
+125                if (wStopDet) begin
+                   <font color = "red">-11-</font>  
+126                  rNxtState = IDLE;
+           <font color = "red">          ==></font>
+127                end
+128                else if (wSclFall && rAckHighSeen) begin
+                        <font color = "green">-12-</font>  
+129                  rNxtState = COMPLETE;
+           <font color = "green">          ==></font>
+130                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+131              end
+132        
+133              READ_DATA: begin
+134                if (wStopDet) begin
+                   <font color = "red">-13-</font>  
+135                  rNxtState = IDLE;
+           <font color = "red">          ==></font>
+136                end
+137                else if (wSclFall && rReadByteDone) begin
+                        <font color = "green">-14-</font>  
+138                  rNxtState = READ_MASTER_ACK;
+           <font color = "green">          ==></font>
+139                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+140              end
+141        
+142              READ_MASTER_ACK: begin
+143                if (wStopDet) begin
+                   <font color = "red">-15-</font>  
+144                  rNxtState = IDLE;
+           <font color = "red">          ==></font>
+145                end
+146                else if (wSclFall && rAckHighSeen) begin
+                        <font color = "green">-16-</font>  
+147                  rNxtState = COMPLETE;
+           <font color = "green">          ==></font>
+148                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+149              end
+150        
+151              COMPLETE: begin
+152                rNxtState = IDLE;
+           <font color = "green">        ==></font>
+153              end
+154        
+155              default: begin
+156                rNxtState = IDLE;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>-14-</th><th nowrap width=80>-15-</th><th nowrap width=80>-16-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>ADDR </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ADDR </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ADDR </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>WRITE_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WRITE_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WRITE_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>WRITE_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WRITE_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WRITE_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>READ_MASTER_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>READ_MASTER_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>READ_MASTER_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+167            case (rCurState)
+               <font color = "green">-1-</font>  
+168              ADDR_ACK: begin
+169                if (rAddrHit) begin
+                   <font color = "green">-2-</font>  
+170                  oSdaOe = rAckDriveActive;
+           <font color = "green">          ==></font>
+171                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+172              end
+173        
+174              WRITE_ACK: begin
+175                oSdaOe = rAckDriveActive;
+           <font color = "green">        ==></font>
+176              end
+177        
+178              READ_DATA: begin
+179                oSdaOe = ~rTxShift[7];
+           <font color = "green">        ==></font>
+180              end
+181        
+182              COMPLETE: begin
+183                if (rAddrHit) begin
+                   <font color = "red">-3-</font>  
+184                  oTxnDone = 1'b1;
+185                  oTxnRead = rReadOp;
+186        
+187                  if (!rReadOp) begin
+                     <font color = "green">-4-</font>  
+188                    oRxValid = 1'b1;
+           <font color = "green">            ==></font>
+189                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+190                end
+                   MISSING_ELSE
+           <font color = "red">        ==></font>
+191              end
+192        
+193              default: begin
+194                oSdaOe = 1'b0;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>ADDR_ACK </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ADDR_ACK </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WRITE_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+200            if (iRst) begin
+               <font color = "green">-1-</font>  
+201              rSclPrev        <= 1'b1;
+           <font color = "green">      ==></font>
+202              rSdaPrev        <= 1'b1;
+203              rBitCnt         <= '0;
+204              rAddrShift      <= '0;
+205              rRxShift        <= '0;
+206              rTxShift        <= '0;
+207              rAddrHit        <= 1'b0;
+208              rReadOp         <= 1'b0;
+209              rAckHighSeen    <= 1'b0;
+210              rAckDriveActive <= 1'b0;
+211              rReadByteDone   <= 1'b0;
+212              oRxData         <= '0;
+213            end
+214            else begin
+215              if (rCurState != rNxtState) begin
+                 <font color = "green">-2-</font>  
+216                rBitCnt         <= '0;
+           <font color = "green">        ==></font>
+217                rAckHighSeen    <= 1'b0;
+218                rAckDriveActive <= 1'b0;
+219                rReadByteDone   <= 1'b0;
+220              end
+                 MISSING_ELSE
+           <font color = "green">      ==></font>
+221        
+222              case (rCurState)
+                 <font color = "green">-3-</font>  
+223                IDLE: begin
+224                  if (wStartDet) begin
+                     <font color = "green">-4-</font>  
+225                    rAddrShift <= '0;
+           <font color = "green">            ==></font>
+226                    rRxShift   <= '0;
+227                    rAddrHit   <= 1'b0;
+228                    rReadOp    <= 1'b0;
+229                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+230                end
+231        
+232                ADDR: begin
+233                  if (wStartDet) begin
+                     <font color = "red">-5-</font>  
+234                    rBitCnt    <= '0;
+           <font color = "red">            ==></font>
+235                    rAddrShift <= '0;
+236                  end
+237                  else if (wSclRise) begin
+                          <font color = "green">-6-</font>  
+238                    logic [7:0] wAddrFrame;
+239        
+240                    wAddrFrame = {rAddrShift[6:0], rSdaSync};
+241                    rAddrShift <= wAddrFrame;
+242        
+243                    if (rBitCnt == 3'd7) begin
+                       <font color = "green">-7-</font>  
+244                      rAddrHit <= (wAddrFrame[7:1] == iOwnAddr);
+245                      rReadOp  <= wAddrFrame[0];
+246        
+247                      if ((wAddrFrame[7:1] == iOwnAddr) && wAddrFrame[0]) begin
+                         <font color = "green">-8-</font>  
+248                        rTxShift <= iTxData;
+           <font color = "green">                ==></font>
+249                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+250                    end
+251                    else begin
+252                      rBitCnt <= rBitCnt + 1'b1;
+           <font color = "green">              ==></font>
+253                    end
+254                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+255                end
+256        
+257                ADDR_ACK: begin
+258                  if (wSclFall && !rAckHighSeen) begin
+                     <font color = "green">-9-</font>  
+259                    rAckDriveActive <= 1'b1;
+           <font color = "green">            ==></font>
+260                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+261        
+262                  if (wSclRise) begin
+                     <font color = "green">-10-</font>  
+263                    rAckHighSeen <= 1'b1;
+           <font color = "green">            ==></font>
+264                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+265        
+266                  if (wSclFall && rAckHighSeen && rAddrHit && !rReadOp) begin
+                     <font color = "green">-11-</font>  
+267                    rRxShift <= '0;
+           <font color = "green">            ==></font>
+268                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+269                end
+270        
+271                WRITE_DATA: begin
+272                  if (wSclRise) begin
+                     <font color = "green">-12-</font>  
+273                    rRxShift <= {rRxShift[6:0], rSdaSync};
+274        
+275                    if (rBitCnt == 3'd7) begin
+                       <font color = "green">-13-</font>  
+276                      oRxData <= {rRxShift[6:0], rSdaSync};
+           <font color = "green">              ==></font>
+277                    end
+278                    else begin
+279                      rBitCnt <= rBitCnt + 1'b1;
+           <font color = "green">              ==></font>
+280                    end
+281                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+282                end
+283        
+284                WRITE_ACK: begin
+285                  if (wSclFall && !rAckHighSeen) begin
+                     <font color = "green">-14-</font>  
+286                    rAckDriveActive <= 1'b1;
+           <font color = "green">            ==></font>
+287                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+288        
+289                  if (wSclRise) begin
+                     <font color = "green">-15-</font>  
+290                    rAckHighSeen <= 1'b1;
+           <font color = "green">            ==></font>
+291                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+292                end
+293        
+294                READ_DATA: begin
+295                  if (wSclRise) begin
+                     <font color = "green">-16-</font>  
+296                    if (rBitCnt == 3'd7) begin
+                       <font color = "green">-17-</font>  
+297                      rReadByteDone <= 1'b1;
+           <font color = "green">              ==></font>
+298                    end
+299                    else begin
+300                      rBitCnt <= rBitCnt + 1'b1;
+           <font color = "green">              ==></font>
+301                    end
+302                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+303        
+304                  if (wSclFall && !rReadByteDone) begin
+                     <font color = "green">-18-</font>  
+305                    rTxShift <= {rTxShift[6:0], 1'b1};
+           <font color = "green">            ==></font>
+306                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+307                end
+308        
+309                READ_MASTER_ACK: begin
+310                  if (wSclRise) begin
+                     <font color = "green">-19-</font>  
+311                    rAckHighSeen <= 1'b1;
+           <font color = "green">            ==></font>
+312                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+313                end
+314        
+315                default: begin
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>-14-</th><th nowrap width=80>-15-</th><th nowrap width=80>-16-</th><th nowrap width=80>-17-</th><th nowrap width=80>-18-</th><th nowrap width=80>-19-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>ADDR_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>WRITE_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>WRITE_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>WRITE_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>WRITE_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>WRITE_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>WRITE_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>WRITE_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>READ_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>READ_MASTER_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>READ_MASTER_ACK </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_4">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_i2c_slave">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

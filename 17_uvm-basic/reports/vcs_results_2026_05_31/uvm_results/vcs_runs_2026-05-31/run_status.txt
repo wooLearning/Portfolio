@@ -1,0 +1,13 @@
+
+Module        CleanExit CoverageExit Log
+------        --------- ------------ ---
+01_adder              0            0 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\01_adder_coverage.log
+02_ram                0            0 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\02_ram_coverage.log
+03_fifo               0            0 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\03_fifo_coverage.log
+04_uart_rx            0          255 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\04_uart_rx_coverage.log
+05_uart_tx            0          255 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\05_uart_tx_coverage.log
+06_spi_master         0          255 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\06_spi_master_coverage.…
+07_spi_slave          0          255 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\07_spi_slave_coverage.l…
+08_i2c_master         0          255 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\08_i2c_master_coverage.…
+09_i2c_slave          0          255 T:\UVM_TEST\docs\portfolio\uvm_results\vcs_runs_2026-05-31\09_i2c_slave_coverage.l…
+

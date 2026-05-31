@@ -1,0 +1,8 @@
+Warning: Permanently added '10.10.15.20' (ED25519) to the list of known hosts.
+make -C 03_fifo clean
+make[1]: Entering directory '/home/hedu17/UVM_TEST/03_fifo'
+make -C tb clean
+make[2]: Entering directory '/home/hedu17/UVM_TEST/03_fifo/tb'
+rm -rf simv simv.daidir csrc ucli.key vc_hdrs.h AN.DB DVEfiles verdiLog vdCovLog novas.* novas.conf *.fsdb *.log .*.sch.verilog.xml simv.vdb urgReport
+make[2]: Leaving directory '/home/hedu17/UVM_TEST/03_fifo/tb'
+make[1]: Leaving directory '/home/hedu17/UVM_TEST/03_fifo'

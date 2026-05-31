@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: spi_master</title>
+<link type="text/css" rel="stylesheet" href="css/urg.css">
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/breadcrumb.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/sortable.js"></script>
+<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_spi_master'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_spi_master')">spi_master</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 92.14</td>
+<td class="s9 cl rt"><a href="mod5.html#Line" > 90.59</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Cond" > 97.50</a></td>
+<td class="s10 cl rt"><a href="mod5.html#Toggle" >100.00</a></td>
+<td class="s7 cl rt"><a href="mod5.html#FSM" > 75.00</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Branch" > 97.62</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/hedu17/UVM_TEST/06_spi_master/tb/../rtl/spi_master.sv')">/home/hedu17/UVM_TEST/06_spi_master/tb/../rtl/spi_master.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod5.html#inst_tag_5"  onclick="showContent('inst_tag_5')">tb_spi_master.dut</a></td>
+<td class="s9 cl rt"> 92.14</td>
+<td class="s9 cl rt"><a href="mod5.html#Line" > 90.59</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Cond" > 97.50</a></td>
+<td class="s10 cl rt"><a href="mod5.html#Toggle" >100.00</a></td>
+<td class="s7 cl rt"><a href="mod5.html#FSM" > 75.00</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Branch" > 97.62</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_spi_master'>
+<hr>
+<a name="inst_tag_5"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_5" >tb_spi_master.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 92.14</td>
+<td class="s9 cl rt"><a href="mod5.html#Line" > 90.59</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Cond" > 97.50</a></td>
+<td class="s10 cl rt"><a href="mod5.html#Toggle" >100.00</a></td>
+<td class="s7 cl rt"><a href="mod5.html#FSM" > 75.00</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Branch" > 97.62</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 92.14</td>
+<td class="s9 cl rt"> 90.59</td>
+<td class="s9 cl rt"> 97.50</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s9 cl rt"> 97.62</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod6.html#inst_tag_6" >tb_spi_master</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_spi_master'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod5.html" >spi_master</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>85</td><td>77</td><td>90.59</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>64</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>73</td><td>12</td><td>12</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>111</td><td>13</td><td>13</td><td>100.00</td></tr>
+<tr class="s8"><td class="lf">ALWAYS</td><td>140</td><td>57</td><td>49</td><td>85.96</td></tr>
+</table>
+<pre class="code"><br clear=all>
+63                        always_ff @(posedge iClk or posedge iRst) begin
+64         1/1              if (iRst) begin
+65         1/1                rCurState &lt;= IDLE;
+66                          end
+67                          else begin
+68         1/1                rCurState &lt;= rNxtState;
+69                          end
+70                        end
+71                      
+72                        always_comb begin
+73         1/1              rNxtState = rCurState;
+74                      
+75         1/1              case (rCurState)
+76                            IDLE: begin
+77         1/1                  if (iStart) begin
+78         1/1                    rNxtState = ASSERT_CS;
+79                              end
+                        MISSING_ELSE
+80                            end
+81                      
+82                            ASSERT_CS: begin
+83         1/1                  if (wClkTick) begin
+84         1/1                    rNxtState = TRANSFER;
+85                              end
+                        MISSING_ELSE
+86                            end
+87                      
+88                            TRANSFER: begin
+89         1/1                  if (rFrameDone &amp;&amp; wTrailEdge) begin
+90         1/1                    rNxtState = COMPLETE;
+91                              end
+                        MISSING_ELSE
+92                            end
+93                      
+94                            COMPLETE: begin
+95         1/1                  if (wClkTick) begin
+96         1/1                    rNxtState = DONE;
+97                              end
+                        MISSING_ELSE
+98                            end
+99                      
+100                           DONE: begin
+101        1/1                  rNxtState = IDLE;
+102                           end
+103                     
+104                           default: begin
+105        1/1                  rNxtState = IDLE;
+106                           end
+107                         endcase
+108                       end
+109                     
+110                       always_comb begin
+111        1/1              oBusy = 1'b1;
+112        1/1              oDone = 1'b0;
+113        1/1              oCsN  = 1'b0;
+114                     
+115        1/1              case (rCurState)
+116                           IDLE: begin
+117        1/1                  oBusy = 1'b0;
+118        1/1                  oCsN  = 1'b1;
+119                           end
+120                     
+121                           DONE: begin
+122        1/1                  oBusy = 1'b0;
+123        1/1                  oDone = 1'b1;
+124        1/1                  oCsN  = 1'b1;
+125                           end
+126                     
+127                           COMPLETE: begin
+128        1/1                  oBusy = 1'b1;
+129        1/1                  oCsN  = 1'b0;
+130                           end
+131                     
+132                           default: begin
+133        1/1                  oBusy = 1'b1;
+134        1/1                  oCsN  = 1'b0;
+135                           end
+136                         endcase
+137                       end
+138                     
+139                       always_ff @(posedge iClk or posedge iRst) begin
+140        1/1              if (iRst) begin
+141        1/1                rSampleCnt &lt;= '0;
+142        1/1                rTxShift   &lt;= '0;
+143        1/1                rRxShift   &lt;= '0;
+144        1/1                rMisoMeta  &lt;= 1'b0;
+145        1/1                rMisoSync  &lt;= 1'b0;
+146        1/1                rSclk      &lt;= 1'b0;
+147        1/1                rTickDiv2  &lt;= 1'b0;
+148        1/1                rTxPrimed  &lt;= 1'b0;
+149        1/1                rFrameDone &lt;= 1'b0;
+150        1/1                oRxData    &lt;= '0;
+151                         end
+152                         else begin
+153        1/1                rMisoMeta &lt;= iMiso;
+154        1/1                rMisoSync &lt;= rMisoMeta;
+155                     
+156        1/1                if (rCurState != rNxtState) begin
+157        1/1                  rTickDiv2 &lt;= 1'b0;
+158                           end
+159        1/1                else if ((rCurState == ASSERT_CS) || (rCurState == TRANSFER) || (rCurState == COMPLETE)) begin
+160        1/1                  if (iTick) begin
+161        1/1                    rTickDiv2 &lt;= ~rTickDiv2;
+162                             end
+                        MISSING_ELSE
+163                           end
+164                           else begin
+165        1/1                  rTickDiv2 &lt;= 1'b0;
+166                           end
+167                     
+168        1/1                case (rCurState)
+169                             IDLE: begin
+170        1/1                    rSampleCnt &lt;= '0;
+171        1/1                    rSclk      &lt;= iCpol;
+172        1/1                    rTxPrimed  &lt;= ~iCpha;
+173        1/1                    rFrameDone &lt;= 1'b0;
+174                     
+175        1/1                    if (iStart) begin
+176        1/1                      rTxShift &lt;= iTxData;
+177        1/1                      rRxShift &lt;= '0;
+178                               end
+                        MISSING_ELSE
+179                             end
+180                     
+181                             ASSERT_CS: begin
+182        1/1                    rSclk &lt;= iCpol;
+183        1/1                    rFrameDone &lt;= 1'b0;
+184                             end
+185                     
+186                             TRANSFER: begin
+187        1/1                    if (wClkTick) begin
+188        1/1                      rSclk   &lt;= ~rSclk;
+189                               end
+                        MISSING_ELSE
+190                     
+191        1/1                    if (wShiftEdge) begin
+192        1/1                      if (!rTxPrimed) begin
+193        1/1                        rTxPrimed &lt;= 1'b1;
+194                                 end
+195        1/1                      else if (rSampleCnt &lt; FRAME_BITS) begin
+196        1/1                        rTxShift &lt;= {rTxShift[6:0], 1'b0};
+197                                 end
+                        MISSING_ELSE
+198                               end
+                        MISSING_ELSE
+199                     
+200        1/1                    if (wSampleEdge) begin
+201        1/1                      rRxShift &lt;= {rRxShift[6:0], rMisoSync};
+202                     
+203        1/1                      if (rSampleCnt == LAST_SAMPLE) begin
+204        1/1                        oRxData &lt;= {rRxShift[6:0], rMisoSync};
+205        1/1                        rFrameDone &lt;= 1'b1;
+206                                 end
+                        MISSING_ELSE
+207                     
+208        1/1                      if (rSampleCnt &lt; FRAME_BITS) begin
+209        1/1                        rSampleCnt &lt;= rSampleCnt + 1'b1;
+210                                 end
+                        MISSING_ELSE
+211                               end
+                        MISSING_ELSE
+212                             end
+213                     
+214                             COMPLETE: begin
+215        1/1                    rSclk &lt;= iCpol;
+216        1/1                    rFrameDone &lt;= 1'b0;
+217                             end
+218                     
+219                             DONE: begin
+220        1/1                    rSampleCnt &lt;= '0;
+221        1/1                    rSclk      &lt;= iCpol;
+222        1/1                    rTxPrimed  &lt;= ~iCpha;
+223        1/1                    rFrameDone &lt;= 1'b0;
+224                             end
+225                     
+226                             default: begin
+227        <font color = "red">0/1     ==>            rSampleCnt &lt;= '0;</font>
+228        <font color = "red">0/1     ==>            rTxShift   &lt;= '0;</font>
+229        <font color = "red">0/1     ==>            rRxShift   &lt;= '0;</font>
+230        <font color = "red">0/1     ==>            rSclk      &lt;= iCpol;</font>
+231        <font color = "red">0/1     ==>            rTickDiv2  &lt;= 1'b0;</font>
+232        <font color = "red">0/1     ==>            rTxPrimed  &lt;= 1'b0;</font>
+233        <font color = "red">0/1     ==>            rFrameDone &lt;= 1'b0;</font>
+234        <font color = "red">0/1     ==>            oRxData    &lt;= '0;</font>
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod5.html" >spi_master</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>40</td><td>39</td><td>97.50</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>40</td><td>39</td><td>97.50</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       57
+ EXPRESSION (iTick &amp;&amp; rTickDiv2)
+             --1--    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ EXPRESSION (wClkTick &amp;&amp; (rCurState == TRANSFER) &amp;&amp; (rSclk == iCpol))
+             ----1---    -----------2-----------    --------3-------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ SUB-EXPRESSION (rCurState == TRANSFER)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       58
+ SUB-EXPRESSION (rSclk == iCpol)
+                --------1-------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       59
+ EXPRESSION (wClkTick &amp;&amp; (rCurState == TRANSFER) &amp;&amp; (rSclk != iCpol))
+             ----1---    -----------2-----------    --------3-------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       59
+ SUB-EXPRESSION (rCurState == TRANSFER)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       59
+ SUB-EXPRESSION (rSclk != iCpol)
+                --------1-------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       60
+ EXPRESSION (iCpha ? wLeadEdge : wTrailEdge)
+             --1--
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       61
+ EXPRESSION (iCpha ? wTrailEdge : wLeadEdge)
+             --1--
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       89
+ EXPRESSION (rFrameDone &amp;&amp; wTrailEdge)
+             -----1----    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       156
+ EXPRESSION (rCurState != rNxtState)
+            ------------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       159
+ EXPRESSION ((rCurState == ASSERT_CS) || (rCurState == TRANSFER) || (rCurState == COMPLETE))
+             ------------1-----------    -----------2-----------    -----------3-----------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       159
+ SUB-EXPRESSION (rCurState == ASSERT_CS)
+                ------------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       159
+ SUB-EXPRESSION (rCurState == TRANSFER)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       159
+ SUB-EXPRESSION (rCurState == COMPLETE)
+                -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       203
+ EXPRESSION (rSampleCnt == LAST_SAMPLE)
+            -------------1-------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod5.html" >spi_master</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">30</td>
+<td class="rt">30</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">130</td>
+<td class="rt">130</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">65</td>
+<td class="rt">65</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">65</td>
+<td class="rt">65</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Ports</td>
+<td class="rt">14</td>
+<td class="rt">14</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Port Bits</td>
+<td class="rt">56</td>
+<td class="rt">56</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">28</td>
+<td class="rt">28</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">28</td>
+<td class="rt">28</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">16</td>
+<td class="rt">16</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">74</td>
+<td class="rt">74</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">37</td>
+<td class="rt">37</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">37</td>
+<td class="rt">37</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>iClk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iTick</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iRst</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iStart</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iCpol</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iCpha</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iTxData[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>iMiso</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>oRxData[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oBusy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oDone</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oSclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oCsN</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>oMosi</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>rCurState[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rNxtState[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rSampleCnt[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rTxShift[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rRxShift[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rMisoMeta</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rMisoSync</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rSclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rTickDiv2</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rTxPrimed</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rFrameDone</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wClkTick</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wLeadEdge</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wTrailEdge</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wShiftEdge</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wSampleEdge</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="FSM"></a>
+FSM Coverage for Module : <a href="mod5.html" >spi_master</a><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: rCurState</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s7">
+<td>Transitions</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: rCurState</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>ASSERT_CS</td>
+<td class="rt">78</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>COMPLETE</td>
+<td class="rt">90</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>DONE</td>
+<td class="rt">96</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE</td>
+<td class="rt">65</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TRANSFER</td>
+<td class="rt">84</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uRed">
+<td nowrap>ASSERT_CS->IDLE</td>
+<td class="rt">65</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ASSERT_CS->TRANSFER</td>
+<td class="rt">84</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>COMPLETE->DONE</td>
+<td class="rt">96</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>COMPLETE->IDLE</td>
+<td class="rt">65</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>DONE->IDLE</td>
+<td class="rt">65</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE->ASSERT_CS</td>
+<td class="rt">78</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TRANSFER->COMPLETE</td>
+<td class="rt">90</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TRANSFER->IDLE</td>
+<td class="rt">65</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod5.html" >spi_master</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Branches</td>
+<td></td>
+<td class="rt">42</td>
+<td class="rt">41</td>
+<td class="rt">97.62 </td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">60</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">61</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">64</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>CASE</td>
+<td class="rt">75</td>
+<td class="rt">10</td>
+<td class="rt">10</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>CASE</td>
+<td class="rt">115</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td>IF</td>
+<td class="rt">140</td>
+<td class="rt">22</td>
+<td class="rt">21</td>
+<td class="rt">95.45 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+60           assign wShiftEdge  = iCpha ? wLeadEdge : wTrailEdge;
+                                        <font color = "green">-1-</font>  
+                                        <font color = "green">==></font>  
+                                        <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+61           assign wSampleEdge = iCpha ? wTrailEdge : wLeadEdge;
+                                        <font color = "green">-1-</font>  
+                                        <font color = "green">==></font>  
+                                        <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+64             if (iRst) begin
+               <font color = "green">-1-</font>  
+65               rCurState <= IDLE;
+           <font color = "green">      ==></font>
+66             end
+67             else begin
+68               rCurState <= rNxtState;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+75             case (rCurState)
+               <font color = "green">-1-</font>  
+76               IDLE: begin
+77                 if (iStart) begin
+                   <font color = "green">-2-</font>  
+78                   rNxtState = ASSERT_CS;
+           <font color = "green">          ==></font>
+79                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+80               end
+81         
+82               ASSERT_CS: begin
+83                 if (wClkTick) begin
+                   <font color = "green">-3-</font>  
+84                   rNxtState = TRANSFER;
+           <font color = "green">          ==></font>
+85                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+86               end
+87         
+88               TRANSFER: begin
+89                 if (rFrameDone && wTrailEdge) begin
+                   <font color = "green">-4-</font>  
+90                   rNxtState = COMPLETE;
+           <font color = "green">          ==></font>
+91                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+92               end
+93         
+94               COMPLETE: begin
+95                 if (wClkTick) begin
+                   <font color = "green">-5-</font>  
+96                   rNxtState = DONE;
+           <font color = "green">          ==></font>
+97                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+98               end
+99         
+100              DONE: begin
+101                rNxtState = IDLE;
+           <font color = "green">        ==></font>
+102              end
+103        
+104              default: begin
+105                rNxtState = IDLE;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ASSERT_CS </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ASSERT_CS </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>DONE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+115            case (rCurState)
+               <font color = "green">-1-</font>  
+116              IDLE: begin
+117                oBusy = 1'b0;
+           <font color = "green">        ==></font>
+118                oCsN  = 1'b1;
+119              end
+120        
+121              DONE: begin
+122                oBusy = 1'b0;
+           <font color = "green">        ==></font>
+123                oDone = 1'b1;
+124                oCsN  = 1'b1;
+125              end
+126        
+127              COMPLETE: begin
+128                oBusy = 1'b1;
+           <font color = "green">        ==></font>
+129                oCsN  = 1'b0;
+130              end
+131        
+132              default: begin
+133                oBusy = 1'b1;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>DONE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+140            if (iRst) begin
+               <font color = "green">-1-</font>  
+141              rSampleCnt <= '0;
+           <font color = "green">      ==></font>
+142              rTxShift   <= '0;
+143              rRxShift   <= '0;
+144              rMisoMeta  <= 1'b0;
+145              rMisoSync  <= 1'b0;
+146              rSclk      <= 1'b0;
+147              rTickDiv2  <= 1'b0;
+148              rTxPrimed  <= 1'b0;
+149              rFrameDone <= 1'b0;
+150              oRxData    <= '0;
+151            end
+152            else begin
+153              rMisoMeta <= iMiso;
+154              rMisoSync <= rMisoMeta;
+155        
+156              if (rCurState != rNxtState) begin
+                 <font color = "green">-2-</font>  
+157                rTickDiv2 <= 1'b0;
+           <font color = "green">        ==></font>
+158              end
+159              else if ((rCurState == ASSERT_CS) || (rCurState == TRANSFER) || (rCurState == COMPLETE)) begin
+                      <font color = "green">-3-</font>  
+160                if (iTick) begin
+                   <font color = "green">-4-</font>  
+161                  rTickDiv2 <= ~rTickDiv2;
+           <font color = "green">          ==></font>
+162                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+163              end
+164              else begin
+165                rTickDiv2 <= 1'b0;
+           <font color = "green">        ==></font>
+166              end
+167        
+168              case (rCurState)
+                 <font color = "red">-5-</font>  
+169                IDLE: begin
+170                  rSampleCnt <= '0;
+171                  rSclk      <= iCpol;
+172                  rTxPrimed  <= ~iCpha;
+173                  rFrameDone <= 1'b0;
+174        
+175                  if (iStart) begin
+                     <font color = "green">-6-</font>  
+176                    rTxShift <= iTxData;
+           <font color = "green">            ==></font>
+177                    rRxShift <= '0;
+178                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+179                end
+180        
+181                ASSERT_CS: begin
+182                  rSclk <= iCpol;
+           <font color = "green">          ==></font>
+183                  rFrameDone <= 1'b0;
+184                end
+185        
+186                TRANSFER: begin
+187                  if (wClkTick) begin
+                     <font color = "green">-7-</font>  
+188                    rSclk   <= ~rSclk;
+           <font color = "green">            ==></font>
+189                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+190        
+191                  if (wShiftEdge) begin
+                     <font color = "green">-8-</font>       
+192                    if (!rTxPrimed) begin
+                       <font color = "green">-9-</font>  
+193                      rTxPrimed <= 1'b1;
+           <font color = "green">              ==></font>
+194                    end
+195                    else if (rSampleCnt < FRAME_BITS) begin
+                            <font color = "green">-10-</font>  
+196                      rTxShift <= {rTxShift[6:0], 1'b0};
+           <font color = "green">              ==></font>
+197                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+198                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+199        
+200                  if (wSampleEdge) begin
+                     <font color = "green">-11-</font>  
+201                    rRxShift <= {rRxShift[6:0], rMisoSync};
+202        
+203                    if (rSampleCnt == LAST_SAMPLE) begin
+                       <font color = "green">-12-</font>  
+204                      oRxData <= {rRxShift[6:0], rMisoSync};
+           <font color = "green">              ==></font>
+205                      rFrameDone <= 1'b1;
+206                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+207        
+208                    if (rSampleCnt < FRAME_BITS) begin
+                       <font color = "green">-13-</font>  
+209                      rSampleCnt <= rSampleCnt + 1'b1;
+           <font color = "green">              ==></font>
+210                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+211                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+212                end
+213        
+214                COMPLETE: begin
+215                  rSclk <= iCpol;
+           <font color = "green">          ==></font>
+216                  rFrameDone <= 1'b0;
+217                end
+218        
+219                DONE: begin
+220                  rSampleCnt <= '0;
+           <font color = "green">          ==></font>
+221                  rSclk      <= iCpol;
+222                  rTxPrimed  <= ~iCpha;
+223                  rFrameDone <= 1'b0;
+224                end
+225        
+226                default: begin
+227                  rSampleCnt <= '0;
+           <font color = "red">          ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>ASSERT_CS </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>TRANSFER </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>DONE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_5">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_spi_master">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>
