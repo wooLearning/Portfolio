@@ -1,1 +1,0 @@
-{"name":"apb-can-fd-portfolio","version":"1.0.0","private":true,"scripts":{"waves":"node scripts/render_wavedrom.cjs"},"devDependencies":{"playwright":"1.64.0","wavedrom":"3.7.0"}}

@@ -24,7 +24,6 @@
 
 | # | 프로젝트명 (Project Name) | 기간 (Period) | 기술 스택 (Tech Stack) |
 |:---:|---|:---:|---|
-| **21** | [**APB–CAN FD Interface RTL Design**](./21_apb-can-fd-interface) | 2026.10 | `SystemVerilog` `APB3` `CAN FD` `FIFO` `Vivado/XSim` |
 | **18** | [**RISC-V AXI UART Bootloader MCU**](./18_risc-axi-uart-bootloader) | 2026.04~05 | `SystemVerilog` `RV32I` `AXI/APB` `AXI-Stream DMA` `UART Bootloader` |
 | **17** | [**UVM RTL Verification Portfolio**](./17_uvm-basic) | 2026.05 | `SystemVerilog` `UVM` `Vivado/XSim` `VCS` `Verdi` |
 | **16** | [**FPGA Automation Toolkit 개발**](./16_fpga-auto-project) | 2026.02~03 | `Batch` `Vivado` `Python`|

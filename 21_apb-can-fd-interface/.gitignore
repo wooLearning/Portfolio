@@ -1,8 +1,0 @@
-results/
-node_modules/
-__pycache__/
-.Xil/
-xsim.dir/
-*.jou
-*.log
-*.pb
