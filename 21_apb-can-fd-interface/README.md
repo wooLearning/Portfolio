@@ -34,7 +34,7 @@ APB가 50 MHz에서 2클럭마다 32비트를 전달하면 이론상 800 Mbit/s�
 | 전송 대기·진행 중 reset | FIFO·FSM 초기화 |
 | 오류·인터럽트 경합 | 오류 표시, 새 이벤트 보존 |
 
-Vivado XSim에서 확인한 시나리오다. 보고서의 타이밍 그림은 실제 VCD의 신호 전이를 WaveDrom으로 재작성한 캡처이며, 편집 가능한 JSON도 함께 제공한다.
+Vivado XSim에서 확인한 시나리오다. 보고서의 타이밍 그림은 실제 VCD의 신호 전이를 WaveDrom으로 재작성한 캡처이며, 편집 가능한 JSON도 함께 제공한다. 보고서에는 실제 Vivado GUI의 TX/RX 캡처와 신호·마커를 저장한 WCFG도 포함했다.
 
 ## 파일 구성
 
@@ -46,6 +46,7 @@ Vivado XSim에서 확인한 시나리오다. 보고서의 타이밍 그림은 �
 | [tb/](tb/) | APB/FIFO 테스트벤치와 CAN 동작 모델 |
 | [docs/design_spec.md](docs/design_spec.md) | 레지스터 맵·인터페이스 계약 |
 | [docs/naming_conventions.md](docs/naming_conventions.md) | RTL 네이밍 규칙 |
+| [docs/wavecfg/](docs/wavecfg/) | 실제 XSim 캡처의 신호·시간 범위·마커 |
 | [docs/wavedrom/](docs/wavedrom/) | 타이밍 WaveJSON 원본 |
 | [docs/diagrams/](docs/diagrams/) | 구조·FSM·프레임·타이밍 그림 |
 
@@ -60,7 +61,7 @@ python scripts/run_xsim.py --smoke --vivado-bin "C:/AMDDesignTools_vivado/2025.2
 Vivado가 PATH에 등록되어 있거나 `VIVADO_BIN`이 설정되어 있으면 `--vivado-bin`은 생략할 수 있다. 실행 성공 시 `PASS bridge`가 출력되고 `results/xsim/`에 파형이 생성된다. Vivado Tcl Console에서 아래 명령으로 파형을 연다.
 
 ```tcl
-source scripts/open_xsim_waves.tcl
+source scripts/open_xsim_capture_views.tcl
 ```
 
 FIFO 깊이와 입력 패턴을 확장해 확인하려면 `--smoke`를 생략한다.

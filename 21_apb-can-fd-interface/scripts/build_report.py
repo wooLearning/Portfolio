@@ -91,16 +91,16 @@ def build_reader_report(root, font, bold_font, Canvas):
         ]),
         ("04 · 상황별로 확인한 동작", [
             ("p", "테스트벤치가 CPU처럼 레지스터에 값을 쓰고 읽는다. CAN 동작 모델은 ‘지금 받을 수 있음 / 잠시 바쁨 / 완료 / 오류’를 반환한다. 기대한 데이터·순서·오류 표시와 실제 RTL 결과를 비교했다. 아래 8개 항목은 XSim으로 확인한 정상 동작과 코너 케이스다."),
-            ("table", ["상황", "이렇게 넣었다", "확인한 결과"], [
-                ["① 정상 송수신", "Classic 0~8 B, FD의 모든 지원 길이로 송신·수신", "PASS · ID·길이·데이터 일치. RX는 POP 전까지 유지."],
-                ["② CAN core가 바쁨", "ready=0으로 유지하고 다음 송신 데이터도 작성", "PASS · 대기 중 프레임과 valid 유지. ready=1에서 한 번 수락."],
-                ["③ TX FIFO 가득 참", "더 꺼내지 않는 상태에서 새 PUSH", "PASS · APB 오류 응답. 기존 프레임과 순서 보존."],
-                ["④ RX FIFO 가득 참", "CPU가 읽지 않을 때 새 프레임 도착", "PASS · 새 프레임만 폐기. 기존 데이터 보존, overflow 표시."],
-                ["⑤ full에서 동시 입출력", "가득 찬 FIFO에서 같은 클록에 POP과 새 입력", "PASS · 기존 head를 꺼내고 새 프레임 저장. 저장 개수 유지."],
-                ["⑥ 덜 쓴 / 잘못된 프레임", "필수 DATA word 누락 또는 Classic 형식 위반 후 PUSH", "PASS · 등록 거절, FIFO 내용 유지. 실패한 PUSH는 staging 유지."],
-                ["⑦ 전송 중 reset", "수락 전 대기 / 수락 후 완료 대기 중 reset", "PASS · FIFO와 FSM 초기화. 이전 요청을 다시 보내지 않음."],
-                ["⑧ 오류·알림 경합", "송신 오류 반환 / IRQ clear와 새 이벤트 동시 입력", "PASS · TX error 표시. 새 이벤트가 clear보다 우선해 보존."],
-            ], [37, 62, 81]),
+            ("table", ["검증 시나리오", "Stimulus (시험 조건)", "기대 동작", "결과"], [
+                ["① 정상 송수신", "Classic 0~8 B, FD의 모든 지원 길이로 송신·수신", "ID·길이·데이터 일치. RX는 POP 전까지 유지.", "PASS"],
+                ["② CAN core가 바쁨", "ready=0으로 유지하고 다음 송신 데이터도 작성", "대기 중 프레임과 valid 유지. ready=1에서 한 번 수락.", "PASS"],
+                ["③ TX FIFO 가득 참", "더 꺼내지 않는 상태에서 새 PUSH", "APB 오류 응답. 기존 프레임과 순서 보존.", "PASS"],
+                ["④ RX FIFO 가득 참", "CPU가 읽지 않을 때 새 프레임 도착", "새 프레임만 폐기. 기존 데이터 보존, overflow 표시.", "PASS"],
+                ["⑤ full에서 동시 입출력", "가득 찬 FIFO에서 같은 클록에 POP과 새 입력", "기존 head를 꺼내고 새 프레임 저장. 저장 개수 유지.", "PASS"],
+                ["⑥ 덜 쓴 / 잘못된 프레임", "필수 DATA word 누락 또는 Classic 형식 위반 후 PUSH", "등록 거절, FIFO 내용 유지. 실패한 PUSH는 staging 유지.", "PASS"],
+                ["⑦ 전송 중 reset", "수락 전 대기 / 수락 후 완료 대기 중 reset", "FIFO와 FSM 초기화. 이전 요청을 다시 보내지 않음.", "PASS"],
+                ["⑧ 오류·알림 경합", "송신 오류 반환 / IRQ clear와 새 이벤트 동시 입력", "TX error 표시. 새 이벤트가 clear보다 우선해 보존.", "PASS"],
+            ], [36, 57, 73, 14]),
             ("h", "결과를 읽는 기준"),
             ("p", "Vivado XSim 2025.2에서 위 동작을 확인했다. 표의 PASS는 APB 연결부와 프레임 FIFO의 기능 결과다. 실제 CAN 버스 중재·CRC·차동 파형의 적합성 시험을 뜻하지 않는다. FIFO 깊이 1과 비 2의 거듭제곱 깊이에서도 경계 동작을 별도로 점검했다."),
             ("p", "기본 깊이 TX 4 / RX 8을 사용한다. TX의 개수는 대기 프레임 수이며, core가 이미 수락한 전송 중 프레임은 제외된다. RX full 때 새 프레임을 버리는 정책과 TX full 때 오류를 반환하는 정책을 구분했다."),
@@ -111,6 +111,16 @@ def build_reader_report(root, font, bold_font, Canvas):
             ("figure", "timing_apb", "APB 연속 쓰기: PSEL을 유지하고 SETUP → ACCESS를 반복한다. 전송당 2클럭을 확인한다."),
             ("figure", "timing_tx", "상황 ②: ready가 낮을 때 valid·데이터를 유지하고, 수락 후 done까지 기다린다."),
             ("figure", "timing_rx", "상황 ⑤: RX full에서도 POP과 새 수신이 동시에 발생하면 새 프레임을 저장하고 개수를 유지한다."),
+        ]),
+        ("06 · Vivado XSim 실제 파형", [
+            ("p", "Vivado 2025.2 GUI에서 시뮬레이션 WDB를 열고 핵심 신호와 이벤트 마커를 배치해 캡처했다. 앞 페이지의 WaveDrom은 동작 설명용이며, 아래 그림은 실제 시뮬레이터의 파형 화면이다."),
+            ("h", "TX backpressure → 수락 → 완료"),
+            ("figure", "xsim_tx_gui", "XSim GUI 캡처 · ACCEPT 18,470 ns / DONE 18,590 ns. ID는 16진수, FSM은 상태 이름으로 표시했다."),
+            ("p", "Stimulus: CAN core의 ready를 낮게 유지한 뒤 수락을 허용하고, 이후 done을 반환한다. 수락 전에는 valid=1과 ID=0x321을 유지한다. 18,470 ns에 요청을 수락하면 wTxCount가 1→0, FSM이 TX_SEND→TX_WAIT_DONE으로 바뀐다. 18,590 ns에 완료를 처리하고 TX_IDLE로 돌아간다."),
+            ("h", "RX full 상태에서 POP과 수신 동시 발생"),
+            ("figure", "xsim_rx_gui", "XSim GUI 캡처 · POP + RX 51,270 ns. wRxCount는 10진수로 표시했다."),
+            ("p", "Stimulus: RX FIFO가 8프레임으로 가득 찬 상태에서 POP과 새 수신을 같은 클록에 발생시킨다. 51,270 ns 상승 에지에 기존 head를 소비하면서 새 프레임을 저장한다. wRxCount=8, wRxFull=1이 유지되고 wRxOverflow=0, oPslverr=0으로 정상 처리된다. 새 데이터와 순서는 테스트벤치 비교로 확인한다."),
+            ("small", "재현: python scripts/run_xsim.py --smoke 실행 후 Vivado Tcl Console에서 source scripts/open_xsim_capture_views.tcl. docs/wavecfg의 WCFG에 신호 목록·확대 범위·마커를 저장했다."),
         ]),
     ]
     sources = [
@@ -200,7 +210,7 @@ def build_reader_report(root, font, bold_font, Canvas):
     @media(max-width:650px){main{padding:14px}header,section{padding:18px}h1{font-size:25px}h2{font-size:22px}table{min-width:560px}}
     @media print{body{background:white}main{padding:0}nav{display:none}section{break-before:page;border:0}figure,tr{break-inside:avoid}}
     """
-    nav = ''.join(f'<a href="#s{i+1}">{text}</a>' for i, text in enumerate(["CAN 개념", "속도·FIFO", "RTL 동작", "상황별 검증", "실제 파형"]))
+    nav = ''.join(f'<a href="#s{i+1}">{text}</a>' for i, text in enumerate(["CAN 개념", "속도·FIFO", "RTL 동작", "시나리오 검증", "WaveDrom", "XSim 캡처"]))
     source_html = ''.join(f'<a href="{url}">{escape(label)}</a>' for label, url in sources)
     html = f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title}</title><style>{css}</style></head><body><main>
     <header><small>RTL DESIGN · 2026.10.09</small><h1>{title}</h1><p>CAN 개념부터 속도 차이, FIFO의 역할, 코너 케이스까지</p></header>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="../../results/xsim/bridge_tx4_rx8_seed20261009.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_apb_can_bridge" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="18,380.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="18,638.386 ns"></ZoomEndTime>
+      <Cursor1Time time="18,470.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="215"></NameColumnWidth>
+      <ValueColumnWidth column_width="141"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wave_markers>
+      <marker time="18470000" label="ACCEPT" />
+      <marker time="18590000" label="DONE" />
+   </wave_markers>
+   <wvobject fp_name="/tb_apb_can_bridge/iPclk" type="logic">
+      <obj_property name="ElementShortName">iPclk</obj_property>
+      <obj_property name="ObjectShortName">iPclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_apb_can_bridge/oCanTxValid" type="logic">
+      <obj_property name="ElementShortName">oCanTxValid</obj_property>
+      <obj_property name="ObjectShortName">oCanTxValid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_apb_can_bridge/iCanTxReady" type="logic">
+      <obj_property name="ElementShortName">iCanTxReady</obj_property>
+      <obj_property name="ObjectShortName">iCanTxReady</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_apb_can_bridge/oCanTxId" type="array">
+      <obj_property name="ElementShortName">oCanTxId[10:0]</obj_property>
+      <obj_property name="ObjectShortName">oCanTxId[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_apb_can_bridge/dut/wTxCount" type="array">
+      <obj_property name="ElementShortName">wTxCount[2:0]</obj_property>
+      <obj_property name="ObjectShortName">wTxCount[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_apb_can_bridge/dut/u_tx_ctrl/rCurState" type="array">
+      <obj_property name="ElementShortName">rCurState[1:0]</obj_property>
+      <obj_property name="ObjectShortName">rCurState[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_apb_can_bridge/iCanTxDone" type="logic">
+      <obj_property name="ElementShortName">iCanTxDone</obj_property>
+      <obj_property name="ObjectShortName">iCanTxDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_apb_can_bridge/iCanTxError" type="logic">
+      <obj_property name="ElementShortName">iCanTxError</obj_property>
+      <obj_property name="ObjectShortName">iCanTxError</obj_property>
+   </wvobject>
+</wave_config>
