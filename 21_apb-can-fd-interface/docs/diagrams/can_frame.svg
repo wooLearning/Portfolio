@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="430" viewBox="0 0 1400 430" role="img">
+<title>Classic CAN and CAN FD data frame overview</title><rect width="100%" height="100%" fill="white"/>
+<text x="28" y="42" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="30" font-weight="700" text-anchor="start">CAN 프레임 = 식별 정보 + 실제 데이터 + 오류 확인</text>
+<text x="28" y="83" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" text-anchor="start">11비트 ID의 데이터 프레임 기준 · 칸 너비는 실제 비트 수와 무관</text>
+<text x="28" y="119" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="start">Classic CAN</text>
+<rect x="28" y="132" width="84" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="70.0" y="162" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">SOF</text>
+<text x="70.0" y="194" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">시작</text>
+<rect x="118" y="132" width="164" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="200.0" y="162" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">중재</text>
+<text x="200.0" y="194" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">ID 11 bit 등</text>
+<rect x="288" y="132" width="244" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="410.0" y="162" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">제어</text>
+<text x="410.0" y="191" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="16" font-weight="400" text-anchor="middle">DLC 등</text>
+<rect x="538" y="132" width="354" height="77" rx="10" fill="#e4f5f2" stroke="#d9e3ed" stroke-width="2"/>
+<text x="715.0" y="162" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">DATA</text>
+<text x="715.0" y="194" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">0~8 byte</text>
+<rect x="898" y="132" width="139" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="967.5" y="162" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">CRC</text>
+<text x="967.5" y="194" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">오류 검사</text>
+<rect x="1043" y="132" width="109" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="1097.5" y="162" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">ACK</text>
+<text x="1097.5" y="194" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">수신 확인</text>
+<rect x="1158" y="132" width="104" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="1210.0" y="162" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">EOF</text>
+<text x="1210.0" y="194" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">끝</text>
+<text x="28" y="265" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="start">CAN FD</text>
+<rect x="28" y="278" width="84" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="70.0" y="308" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">SOF</text>
+<text x="70.0" y="340" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">시작</text>
+<rect x="118" y="278" width="164" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="200.0" y="308" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">중재</text>
+<text x="200.0" y="340" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">ID 11 bit 등</text>
+<rect x="288" y="278" width="244" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="410.0" y="308" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">제어</text>
+<text x="410.0" y="337" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="16" font-weight="400" text-anchor="middle">FDF / BRS / ESI / DLC 등</text>
+<rect x="538" y="278" width="354" height="77" rx="10" fill="#e4f5f2" stroke="#d9e3ed" stroke-width="2"/>
+<text x="715.0" y="308" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">DATA</text>
+<text x="715.0" y="340" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">0~64 byte</text>
+<rect x="898" y="278" width="139" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="967.5" y="308" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">CRC</text>
+<text x="967.5" y="340" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">오류 검사</text>
+<rect x="1043" y="278" width="109" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="1097.5" y="308" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">ACK</text>
+<text x="1097.5" y="340" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">수신 확인</text>
+<rect x="1158" y="278" width="104" height="77" rx="10" fill="#eef4fa" stroke="#d9e3ed" stroke-width="2"/>
+<text x="1210.0" y="308" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" text-anchor="middle">EOF</text>
+<text x="1210.0" y="340" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="middle">끝</text>
+<text x="28" y="406" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" text-anchor="start">간략 구조: RTR/RRS·IDE·예약 비트·구분 비트·stuff bit는 생략. EOF 뒤에는 프레임 간 간격이 있다.</text>
+</svg>

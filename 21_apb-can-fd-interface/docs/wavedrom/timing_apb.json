@@ -1,0 +1,58 @@
+{
+  "signal": [
+    {
+      "name": "iPclk",
+      "wave": "01010101010101"
+    },
+    {
+      "name": "iPsel",
+      "wave": "0.1.......0.1."
+    },
+    {
+      "name": "iPenable",
+      "wave": "0...1.0.1.0..."
+    },
+    {
+      "name": "iPwrite",
+      "wave": "0.1.........0."
+    },
+    {
+      "name": "iPaddr",
+      "wave": "=.....=.....=.",
+      "data": [
+        "0x10",
+        "0x14",
+        "0x10"
+      ]
+    },
+    {
+      "name": "iPwdata",
+      "wave": "=.=...=.....=.",
+      "data": [
+        "0x0",
+        "0x123",
+        "0x30",
+        "0x0"
+      ]
+    },
+    {
+      "name": "oPready",
+      "wave": "1............."
+    },
+    {
+      "name": "oPslverr",
+      "wave": "0............."
+    }
+  ],
+  "head": {
+    "text": "APB consecutive writes",
+    "tick": 0,
+    "every": 2
+  },
+  "foot": {
+    "text": "Start 1240 ns | 10 ns/slot | writes @1290 / 1330 ns"
+  },
+  "config": {
+    "hscale": 1
+  }
+}

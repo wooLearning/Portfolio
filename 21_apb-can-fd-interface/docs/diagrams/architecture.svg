@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="570" viewBox="0 0 1400 570" role="img">
+<title>APB CAN FD frontend architecture and implementation boundary</title><rect width="100%" height="100%" fill="white"/>
+<text x="36" y="52" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="32" font-weight="700" text-anchor="start">APB–CAN FD 연결부</text>
+<text x="36" y="89" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" text-anchor="start">파란 영역: 구현 RTL   /   회색 영역: 외부 CAN 기능</text>
+<rect x="205" y="120" width="830" height="345" rx="10" fill="#eef5fd" stroke="#1765c1" stroke-width="2"/>
+<text x="225" y="154" fill="#1765c1" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="700" text-anchor="start">apb_can_bridge · single clock domain</text>
+<rect x="25" y="250" width="150" height="100" rx="10" fill="white" stroke="#d9e3ed" stroke-width="2"/>
+<text x="100.0" y="291" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" text-anchor="middle">CPU</text>
+<text x="100.0" y="322" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" text-anchor="middle">APB master</text>
+<rect x="230" y="235" width="190" height="135" rx="10" fill="white" stroke="#d9e3ed" stroke-width="2"/>
+<text x="325.0" y="276" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" text-anchor="middle">APB3</text>
+<text x="325.0" y="307" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" text-anchor="middle">registers + IRQ</text>
+<rect x="470" y="190" width="205" height="90" rx="10" fill="white" stroke="#d9e3ed" stroke-width="2"/>
+<text x="572.5" y="231" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" text-anchor="middle">TX staging</text>
+<text x="572.5" y="262" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" text-anchor="middle">64 B + metadata</text>
+<rect x="715" y="190" width="150" height="90" rx="10" fill="white" stroke="#d9e3ed" stroke-width="2"/>
+<text x="790.0" y="231" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" text-anchor="middle">TX FIFO</text>
+<text x="790.0" y="262" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" text-anchor="middle">4 frames</text>
+<rect x="900" y="190" width="110" height="90" rx="10" fill="white" stroke="#d9e3ed" stroke-width="2"/>
+<text x="955.0" y="231" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" text-anchor="middle">TX FSM</text>
+<text x="955.0" y="262" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" text-anchor="middle">3 states</text>
+<rect x="710" y="345" width="220" height="90" rx="10" fill="white" stroke="#d9e3ed" stroke-width="2"/>
+<text x="820.0" y="386" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" text-anchor="middle">RX FIFO</text>
+<text x="820.0" y="417" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" text-anchor="middle">8 frames</text>
+<rect x="1080" y="205" width="285" height="180" rx="10" fill="#f3f7fb" stroke="#d9e3ed" stroke-width="2"/>
+<text x="1222.5" y="246" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" text-anchor="middle">CAN core adapter</text>
+<text x="1222.5" y="277" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" text-anchor="middle">+ protocol IP</text>
+<polyline points="175,280 230,280" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="219.19463477176788,285.21958640933474 230,280 219.19463477176788,274.78041359066526" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="230,335 175,335" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="185.80536522823212,329.78041359066526 175,335 185.80536522823212,340.21958640933474" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="420,270 445,270 445,230 470,230" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="459.1946347717679,235.21958640933477 470,230 459.1946347717679,224.78041359066523" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="675,230 715,230" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="704.1946347717678,235.21958640933477 715,230 704.1946347717678,224.78041359066523" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="865,230 900,230" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="889.1946347717678,235.21958640933477 900,230 889.1946347717678,224.78041359066523" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="1010,230 1080,230" fill="none" stroke="#1765c1" stroke-width="3"/>
+<polyline points="1069.1946347717678,235.21958640933477 1080,230 1069.1946347717678,224.78041359066523" fill="none" stroke="#1765c1" stroke-width="3"/>
+<text x="1038" y="192" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" text-anchor="middle">request</text>
+<polyline points="1080,285 1050,285 1050,305 955,305 955,280" fill="none" stroke="#008b83" stroke-width="3"/>
+<polyline points="960.2195864093347,290.8053652282321 955,280 949.7804135906653,290.8053652282321" fill="none" stroke="#008b83" stroke-width="3"/>
+<text x="825" y="321" fill="#008b83" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" text-anchor="start">ready / done / error</text>
+<polyline points="1080,365 930,390" fill="none" stroke="#008b83" stroke-width="3"/>
+<polyline points="939.8002518860678,383.07504057992946 930,390 941.5164413257627,393.3721772180988" fill="none" stroke="#008b83" stroke-width="3"/>
+<polyline points="710,390 445,390 445,335 420,335" fill="none" stroke="#008b83" stroke-width="3"/>
+<polyline points="430.8053652282321,329.78041359066526 420,335 430.8053652282321,340.21958640933474" fill="none" stroke="#008b83" stroke-width="3"/>
+<text x="500" y="420" fill="#008b83" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" text-anchor="start">validated RX frame</text>
+<polyline points="1205,385 1205,450" fill="none" stroke="#576b80" stroke-width="3"/>
+<polyline points="1199.7804135906651,439.1946347717679 1205,450 1210.2195864093349,439.1946347717679" fill="none" stroke="#576b80" stroke-width="3"/>
+<polyline points="1235,450 1235,385" fill="none" stroke="#576b80" stroke-width="3"/>
+<polyline points="1240.2195864093349,395.8053652282321 1235,385 1229.7804135906651,395.8053652282321" fill="none" stroke="#576b80" stroke-width="3"/>
+<text x="1260" y="425" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" text-anchor="start">TXD / RXD</text>
+<text x="1220" y="481" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Transceiver</text>
+<text x="1220" y="517" fill="#576b80" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" text-anchor="middle">CAN_H / CAN_L</text>
+<text x="35" y="526" fill="#16324f" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="700" text-anchor="start">32-bit APB  →  frame buffers  →  frame handshake</text>
+</svg>

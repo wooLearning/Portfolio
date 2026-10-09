@@ -1,0 +1,42 @@
+{
+  "signal": [
+    {
+      "name": "iPclk",
+      "wave": "0101010101010101"
+    },
+    {
+      "name": "iCanRxValid",
+      "wave": "0...1.0........."
+    },
+    {
+      "name": "wRxPop",
+      "wave": "0...1.0........."
+    },
+    {
+      "name": "wRxCount",
+      "wave": "=...............",
+      "data": [
+        "8"
+      ]
+    },
+    {
+      "name": "wRxOverflow",
+      "wave": "0..............."
+    },
+    {
+      "name": "oPslverr",
+      "wave": "0..............."
+    }
+  ],
+  "head": {
+    "text": "RX full: simultaneous POP and arrival",
+    "tick": 0,
+    "every": 2
+  },
+  "foot": {
+    "text": "Start 51220 ns | 10 ns/slot | POP + arrival @51270 ns | count = 8"
+  },
+  "config": {
+    "hscale": 1
+  }
+}
